@@ -7,7 +7,6 @@
   <meta name="description" content="NovaKey - kho dịch vụ số chính hãng, giá rõ ràng, giao nhanh." />
   <meta name="color-scheme" content="light" />
   <link rel="preconnect" href="https://www.gstatic.com" crossorigin />
-  <link rel="preconnect" href="https://cdn.simpleicons.org" crossorigin />
   <link rel="dns-prefetch" href="https://img.vietqr.io" />
   <title>NovaKey | Dịch vụ số premium</title>
   <style>
@@ -131,8 +130,7 @@
     html{scroll-padding-top:112px;color-scheme:light}
     body{overflow-x:hidden;overscroll-behavior-y:none;text-rendering:optimizeLegibility}
     button,a,select{user-select:none;-webkit-user-select:none}
-    button:focus-visible,a:focus-visible,select:focus-visible,input:focus-visible,textarea:focus-visible{outline:3px solid rgba(139,92,246,.28);outline-offset:2px}
-    img{max-width:100%;-webkit-user-drag:none}
+    button:focus-visible,a:focus-visible,select:focus-visible,input:focus-visible,textarea:focus-visible{outline:none}
     #products{scroll-margin-top:112px}
     .header{transform:translateZ(0);backface-visibility:hidden}
     .product-card{content-visibility:visible!important;contain:layout paint style;isolation:isolate;transform:translateZ(0)}
@@ -259,6 +257,296 @@
       #sheetHost .sheet-layer:not(.menu-layer)>.sheet{width:100vw!important;max-width:100vw!important;border-radius:24px 24px 0 0!important;max-height:90dvh!important}
       #sheetHost .sheet-layer:not(.menu-layer) .sheet-body{padding-left:14px;padding-right:14px}
     }
+
+    /* storefront v16: original NovaKey marketplace layout inspired by modern game stores */
+    :root{--blue:#6d4aff;--blue2:#8b5cf6;--blue-soft:#f1edff;--ink:#20202b;--muted:#777789;--line:#e7e5ef;--soft:#f5f6fa;--shadow:0 18px 55px rgba(37,31,76,.10)}
+    body{background:#f5f6fa}
+    .shop-strip{height:34px;background:#211a3c;color:#dcd7ef;font-size:11px;display:flex;align-items:center}
+    .shop-strip .container{display:flex;align-items:center;justify-content:space-between;gap:20px}
+    .shop-strip-links{display:flex;align-items:center;gap:18px}.shop-strip a{color:#dcd7ef}.shop-strip strong{color:#fff}
+    .header{background:rgba(255,255,255,.96);border-bottom:1px solid #ebe9f1;box-shadow:0 8px 30px rgba(35,31,59,.04)}
+    .storefront-head{height:76px!important;grid-template-columns:auto 190px minmax(260px,1fr) auto!important;gap:18px!important}
+    .brand-compact{min-width:190px}.brand-mark{background:linear-gradient(145deg,#7c5cff,#5a36df);box-shadow:0 9px 22px rgba(109,74,255,.30)}
+    .mk-search{height:46px;max-width:640px;justify-self:center;width:100%;border:1px solid #e3e1eb;border-radius:13px;background:#f7f7fb;display:flex;align-items:center;gap:10px;padding:0 15px;transition:border-color .18s,box-shadow .18s,background .18s}
+    .mk-search:focus-within{background:#fff;border-color:#9f8cff;box-shadow:0 0 0 4px rgba(109,74,255,.10)}
+    .mk-search input{border:0;outline:0;background:transparent;width:100%;min-width:0;color:var(--ink);font-size:13px}.mk-search svg{color:#7b7889;flex:none}
+    .compact-actions{gap:8px!important}.mk-action{height:46px;border-radius:13px;padding:0 12px;min-width:46px;justify-content:center;position:relative}
+    .mk-action .ui-icon{width:22px;height:22px}.mk-action-label{display:flex;flex-direction:column;align-items:flex-start;line-height:1.15}.mk-action-label small{font-size:9px}.mk-action-label strong{font-size:11px;max-width:82px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+    .mk-mobile-search{display:none;padding:0 0 12px}.mk-mobile-search .mk-search{max-width:none;height:44px}
+    .mk-nav-wrap{background:#fff;border-bottom:1px solid #eceaf2}.mk-category-nav{min-height:52px;display:flex;align-items:center;gap:8px;overflow-x:auto;scrollbar-width:none;padding:7px 0}.mk-category-nav::-webkit-scrollbar{display:none}
+    .mk-nav-item{height:38px;flex:none;border:0;background:transparent;border-radius:10px;padding:0 13px;display:flex;align-items:center;gap:8px;font-size:12px;font-weight:750;color:#555463;cursor:pointer;transition:background .16s,color .16s,transform .16s}
+    .mk-nav-item:hover,.mk-nav-item.active{background:var(--blue-soft);color:var(--blue)}.mk-nav-item:active{transform:scale(.98)}.mk-nav-icon{width:22px;height:22px;display:grid;place-items:center;font-size:0}.mk-nav-icon .category-svg{width:17px;height:17px}
+    .mk-hero{padding:22px 0 14px}.mk-hero-grid{display:grid;grid-template-columns:minmax(0,2.08fr) minmax(250px,.92fr);gap:14px}
+    .mk-main-banner{min-height:310px;border-radius:22px;overflow:hidden;position:relative;background:radial-gradient(circle at 78% 25%,rgba(167,129,255,.62),transparent 27%),radial-gradient(circle at 90% 88%,rgba(46,221,255,.34),transparent 28%),linear-gradient(125deg,#211148 0%,#4c26a8 52%,#7b45ed 100%);box-shadow:0 20px 48px rgba(68,38,141,.25)}
+    .mk-main-banner:before,.mk-main-banner:after{content:"";position:absolute;border:1px solid rgba(255,255,255,.16);border-radius:50%}.mk-main-banner:before{width:300px;height:300px;right:-45px;top:-70px}.mk-main-banner:after{width:210px;height:210px;right:90px;bottom:-135px}
+    .mk-hero-copy{position:relative;z-index:2;width:min(610px,72%);padding:42px;color:#fff}.mk-hero-tag{display:inline-flex;align-items:center;gap:7px;height:28px;padding:0 10px;border:1px solid rgba(255,255,255,.22);border-radius:99px;background:rgba(255,255,255,.12);font-size:10px;font-weight:850;text-transform:uppercase;letter-spacing:.35px}
+    .mk-hero-copy h1{margin:15px 0 0;font-size:39px;line-height:1.08;letter-spacing:-1.2px}.mk-hero-copy p{margin:13px 0 0;max-width:500px;color:#e7e0ff;font-size:13px;line-height:1.62}
+    .mk-hero-actions{display:flex;gap:9px;margin-top:21px}.mk-hero-actions button{height:43px;border-radius:11px;padding:0 16px;border:1px solid rgba(255,255,255,.22);font-size:12px;font-weight:850;cursor:pointer}.mk-hero-actions .mk-primary{border-color:#fff;background:#fff;color:#512eb4}.mk-hero-actions .mk-ghost{background:rgba(255,255,255,.11);color:#fff}
+    .mk-app-stack{position:absolute;z-index:2;right:35px;top:50%;width:190px;height:190px;transform:translateY(-50%)}.mk-float-logo{position:absolute;width:72px;height:72px;border-radius:21px;background:rgba(255,255,255,.94);display:grid;place-items:center;box-shadow:0 18px 35px rgba(29,12,78,.28);animation:mkFloat 5s ease-in-out infinite}.mk-float-logo img{width:62%;height:62%;object-fit:contain}.mk-float-logo:nth-child(1){left:0;top:54px}.mk-float-logo:nth-child(2){right:0;top:8px;animation-delay:-1.4s}.mk-float-logo:nth-child(3){right:9px;bottom:2px;animation-delay:-2.8s}
+    @keyframes mkFloat{0%,100%{transform:translateY(0) rotate(-2deg)}50%{transform:translateY(-9px) rotate(2deg)}}
+    .mk-side-promos{display:grid;grid-template-rows:1fr 1fr;gap:14px}.mk-promo{position:relative;overflow:hidden;border-radius:19px;padding:22px;display:flex;flex-direction:column;justify-content:flex-end;min-height:148px;border:1px solid rgba(255,255,255,.65);box-shadow:0 12px 34px rgba(39,33,70,.08)}
+    .mk-promo:after{content:"";position:absolute;width:125px;height:125px;border-radius:50%;right:-30px;top:-35px;background:rgba(255,255,255,.36)}.mk-promo.pink{background:linear-gradient(135deg,#ffe6ef,#ffd6e6);color:#6f2242}.mk-promo.mint{background:linear-gradient(135deg,#dcf8f1,#c9f0e6);color:#145b4b}.mk-promo small{font-size:10px;font-weight:850;text-transform:uppercase;opacity:.7}.mk-promo strong{font-size:20px;line-height:1.15;margin-top:7px;max-width:190px}.mk-promo span{font-size:10px;margin-top:8px;opacity:.72}
+    .mk-quick{padding:0 0 16px}.mk-quick-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:10px}.mk-quick-item{min-width:0;height:82px;border:1px solid #e6e4ed;border-radius:16px;background:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;font-size:11px;font-weight:800;color:#4b4a58;cursor:pointer;box-shadow:0 8px 24px rgba(35,31,60,.045);transition:transform .16s,border-color .16s,box-shadow .16s}.mk-quick-item:hover{transform:translateY(-3px);border-color:#b9adf5;box-shadow:0 13px 28px rgba(72,52,145,.10)}.mk-quick-icon{width:34px;height:34px;border:1px solid rgba(139,92,246,.08);border-radius:11px;background:linear-gradient(145deg,#f4efff,#ece5ff);color:var(--blue);display:grid;place-items:center;box-shadow:inset 0 1px 0 rgba(255,255,255,.9),0 5px 12px rgba(109,74,255,.08)}.category-svg{width:19px;height:19px;display:block;overflow:visible}
+    .catalog.game-catalog{padding:20px 0 66px!important}.section-head-game{align-items:center!important;margin-bottom:17px!important}.section-head-game h2{font-size:28px!important;letter-spacing:-.55px}.section-head-game p{font-size:12px!important}.section-head-game .kicker{font-size:10px}
+    .product-grid{grid-template-columns:repeat(4,minmax(0,1fr))!important;gap:14px!important}.game-card{border-radius:17px!important;border-color:#e5e3eb!important;box-shadow:0 9px 26px rgba(36,31,62,.06)!important}.game-card:hover{transform:translateY(-4px)!important;box-shadow:0 16px 36px rgba(36,31,62,.12)!important}
+    .game-card .product-visual{height:152px!important;padding:15px!important;align-items:center!important;justify-content:center!important;border-bottom:1px solid #ebe9f1!important}.game-card .product-logo{width:68px!important;height:68px!important;border-radius:19px!important;transform:none!important;box-shadow:0 12px 26px rgba(31,27,55,.13)!important}.game-card .banner-name{display:none!important}.game-card .badge{left:11px!important;top:11px!important;border-radius:8px!important;padding:6px 8px!important;font-size:8px!important}.game-card .art-glow{inset:50% auto auto 50%!important;width:115px!important;height:115px!important;transform:translate(-50%,-50%)!important}
+    .game-card .product-body{padding:14px!important}.game-card .product-category{font-size:9px!important}.game-card h3{font-size:16px!important;line-height:1.2!important;margin-top:5px!important;white-space:nowrap!important}.game-card .product-description{font-size:11px!important;line-height:1.45!important;min-height:32px!important;margin:7px 0 11px!important}.game-card .plan-select{height:40px!important;border-radius:10px!important;font-size:11px!important;background:#f8f8fb!important}.game-card .price-stock{margin-top:12px!important;padding-top:11px!important;border-top:1px solid #eceaf1!important}.game-card .price{font-size:18px!important}.game-card .stock{font-size:8px!important;padding:6px 7px!important}.game-card .meta-line{font-size:9px!important;margin-top:9px!important}.game-actions-row{grid-template-columns:1fr 1fr!important;gap:7px!important;margin-top:12px!important}.game-actions-row .buy-now,.game-actions-row .detail-btn{height:40px!important;border-radius:10px!important;font-size:10px!important}.game-actions-row .buy-now{background:linear-gradient(90deg,#6845ed,#8059f2)!important}.sold-overlay strong{font-size:26px!important}.sold-overlay:before{height:92px!important}
+    .mk-assurance{padding:0 0 52px}.mk-assurance-grid{display:grid;grid-template-columns:repeat(4,1fr);background:#fff;border:1px solid #e6e4ec;border-radius:18px;overflow:hidden}.mk-assurance-item{padding:20px;display:flex;align-items:center;gap:11px;border-right:1px solid #eceaf1}.mk-assurance-item:last-child{border-right:0}.mk-assurance-icon{width:40px;height:40px;flex:none;border-radius:12px;background:var(--blue-soft);color:var(--blue);display:grid;place-items:center;font-size:18px}.mk-assurance-item strong{font-size:11px}.mk-assurance-item p{margin:4px 0 0;color:var(--muted);font-size:9px;line-height:1.4}
+    .footer{background:#1d192b!important;padding-top:44px!important}
+    @media(max-width:1080px){.product-grid{grid-template-columns:repeat(3,minmax(0,1fr))!important}.mk-quick-grid{grid-template-columns:repeat(3,1fr)}.mk-app-stack{right:22px;transform:translateY(-50%) scale(.9);transform-origin:center}.mk-hero-copy{width:68%;padding:36px}.mk-hero-copy h1{font-size:34px}}
+    @media(max-width:820px){.shop-strip{display:none}.storefront-head{grid-template-columns:auto minmax(0,1fr) auto!important;height:70px!important;gap:10px!important}.brand-compact{min-width:0}.mk-search.desktop-search{display:none}.mk-mobile-search{display:block}.mk-action-label{display:none}.mk-action{width:44px;padding:0}.mk-action[data-action="orders"]{display:none}.mk-hero{padding-top:14px}.mk-hero-grid{grid-template-columns:1fr}.mk-main-banner{min-height:270px}.mk-side-promos{grid-template-columns:1fr 1fr;grid-template-rows:auto}.mk-promo{min-height:120px;padding:17px}.product-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important}.mk-assurance-grid{grid-template-columns:repeat(2,1fr)}.mk-assurance-item:nth-child(2){border-right:0}.mk-assurance-item:nth-child(-n+2){border-bottom:1px solid #eceaf1}}
+    @media(max-width:560px){.container{width:min(100% - 20px,640px)!important}.header{box-shadow:none}.storefront-head{height:66px!important}.brand-mark{width:39px!important;height:39px!important;border-radius:12px!important;font-size:21px!important}.brand{font-size:16px!important;gap:8px!important}.brand small{display:none}.mobile-menu{width:41px!important;height:41px!important;border-radius:12px!important}.mk-action{width:41px!important;height:41px!important;border-radius:12px!important}.compact-actions{gap:5px!important}.mk-action[data-action="topup"]{display:none}.mk-nav-wrap{display:none}.mk-mobile-search{padding-bottom:10px}.mk-mobile-search .mk-search{height:42px;border-radius:12px}.mk-hero-copy{width:75%;padding:25px 20px}.mk-main-banner{min-height:230px;border-radius:17px}.mk-hero-copy h1{font-size:26px;letter-spacing:-.7px}.mk-hero-copy p{font-size:10px;line-height:1.5}.mk-hero-tag{height:24px;font-size:8px}.mk-hero-actions{margin-top:15px}.mk-hero-actions button{height:37px;padding:0 12px;font-size:10px}.mk-app-stack{right:-4px;width:120px;height:145px;transform:translateY(-50%) scale(.78)}.mk-float-logo{width:57px;height:57px;border-radius:17px}.mk-side-promos{gap:9px}.mk-promo{min-height:105px;border-radius:15px;padding:14px}.mk-promo strong{font-size:15px}.mk-promo span{display:none}.mk-quick{padding-bottom:12px}.mk-quick-grid{display:flex;overflow-x:auto;gap:8px;scrollbar-width:none}.mk-quick-grid::-webkit-scrollbar{display:none}.mk-quick-item{flex:0 0 84px;height:70px;border-radius:14px;font-size:9px}.mk-quick-icon{width:30px;height:30px}.mk-quick-icon .category-svg{width:17px;height:17px}.catalog.game-catalog{padding-top:16px!important}.section-head-game{align-items:flex-start!important;gap:10px!important}.section-head-game h2{font-size:22px!important}.section-head-game p{font-size:10px!important}.product-grid{gap:9px!important}.game-card{border-radius:14px!important}.game-card .product-visual{height:112px!important;padding:10px!important}.game-card .product-logo{width:54px!important;height:54px!important;border-radius:15px!important}.game-card .badge{font-size:6px!important;padding:5px 6px!important}.game-card .product-body{padding:10px!important}.game-card .product-category{font-size:7px!important}.game-card h3{font-size:13px!important}.game-card .product-description{display:none}.game-card .plan-select{height:36px!important;border-radius:8px!important;font-size:9px!important;margin-top:8px}.game-card .price-stock{margin-top:9px!important;padding-top:8px!important}.game-card .price-stock small{font-size:7px}.game-card .price{font-size:15px!important}.game-card .stock{font-size:0!important;padding:5px!important}.game-card .stock-dot{width:7px!important;height:7px!important}.game-card .meta-line{display:none}.game-actions-row{grid-template-columns:1fr!important;margin-top:9px!important}.game-actions-row .buy-now{height:37px!important;font-size:9px!important}.game-actions-row .detail-btn{display:none}.sold-overlay span{display:none}.sold-overlay strong{font-size:18px!important}.mk-assurance{padding-bottom:36px}.mk-assurance-item{padding:13px;gap:8px}.mk-assurance-icon{width:34px;height:34px}.mk-assurance-item strong{font-size:9px}.mk-assurance-item p{display:none}.footer{padding-top:36px!important}}
+    @media(max-width:350px){.product-grid{grid-template-columns:1fr!important}.game-card .product-description{display:block}.game-card .stock{font-size:8px!important;padding:6px 7px!important}.game-actions-row{grid-template-columns:1fr 1fr!important}.game-actions-row .detail-btn{display:block}}
+    @media(prefers-reduced-motion:reduce){.mk-float-logo{animation:none!important}}
+
+
+    /* official embedded brand marks — transparent, borderless presentation */
+    .product-logo,
+    .game-card .product-logo{
+      background:transparent!important;
+      border:0!important;
+      border-radius:0!important;
+      box-shadow:none!important;
+      overflow:visible!important;
+    }
+    .game-card .art-glow{display:none!important}
+    .product-logo img,
+    .game-card .product-logo img{
+      width:78%!important;
+      height:78%!important;
+      margin:auto!important;
+      border:0!important;
+      border-radius:0!important;
+      background:transparent!important;
+      box-shadow:none!important;
+      object-fit:contain!important;
+      object-position:center!important;
+      transform:none!important;
+      filter:drop-shadow(0 7px 9px rgba(23,20,37,.14));
+    }
+    .game-card .product-logo-apple img{width:70%!important;height:70%!important}
+    .game-card .product-logo-youtube img{width:84%!important;height:84%!important}
+    .game-card .product-logo-netflix img{width:66%!important;height:66%!important}
+    .game-card .product-logo-spotify img{width:78%!important;height:78%!important}
+    .game-card .product-logo-canva img{width:82%!important;height:82%!important}
+    .game-card .product-logo-adobe img{width:77%!important;height:77%!important}
+    .game-card .product-logo-capcut img{width:83%!important;height:83%!important}
+    .game-card .product-logo-gemini img{width:78%!important;height:78%!important}
+    .game-card .product-logo-chatgpt img{width:77%!important;height:77%!important}
+    .game-card .product-logo-grok img{width:82%!important;height:82%!important}
+    .mini-logo{
+      background:transparent!important;
+      border:0!important;
+      border-radius:0!important;
+      box-shadow:none!important;
+      overflow:visible!important;
+    }
+    .mini-logo img{
+      width:72%!important;
+      height:72%!important;
+      border:0!important;
+      border-radius:0!important;
+      background:transparent!important;
+      box-shadow:none!important;
+      object-fit:contain!important;
+      filter:drop-shadow(0 4px 6px rgba(23,20,37,.12));
+    }
+    .mini-logo-youtube img{width:80%!important;height:80%!important}
+    .mini-logo-netflix img{width:62%!important;height:62%!important}
+    .mini-logo-canva img,.mini-logo-grok img{width:78%!important;height:78%!important}
+    .mk-float-logo{
+      background:transparent!important;
+      border:0!important;
+      border-radius:0!important;
+      box-shadow:none!important;
+    }
+    .mk-float-logo img{
+      width:72%!important;
+      height:72%!important;
+      border:0!important;
+      background:transparent!important;
+      filter:drop-shadow(0 11px 12px rgba(23,16,53,.22));
+    }
+
+    /* iOS-style glass tab bar, compact cart badge, unclipped category state */
+    .mk-quick-item.active{
+      color:var(--blue);
+      border-color:rgba(109,74,255,.46);
+      background:linear-gradient(145deg,rgba(255,255,255,.98),rgba(244,240,255,.98));
+      box-shadow:inset 0 0 0 1px rgba(109,74,255,.13),0 9px 22px rgba(80,55,166,.13);
+      transform:none;
+    }
+    .mk-quick-item.active .mk-quick-icon{
+      background:linear-gradient(145deg,#eee9ff,#f7f4ff);
+      box-shadow:inset 0 0 0 1px rgba(109,74,255,.08);
+    }
+    .cart-count[hidden],.mobile-bottom [data-cart-count][hidden]{display:none!important}
+    @media(hover:hover) and (pointer:fine){
+      .mk-quick-item:hover:not(.active){transform:translateY(-2px)}
+    }
+    @media(hover:none){.mk-quick-item:hover{transform:none}}
+    @media(max-width:760px){
+      body{padding-bottom:calc(104px + env(safe-area-inset-bottom))!important}
+      .mobile-bottom{
+        left:12px!important;right:12px!important;bottom:max(10px,env(safe-area-inset-bottom))!important;
+        height:72px!important;padding:5px 4px!important;border:1px solid rgba(255,255,255,.76)!important;
+        border-radius:28px!important;background:rgba(255,255,255,.68)!important;
+        box-shadow:0 16px 38px rgba(32,27,59,.17),inset 0 1px 0 rgba(255,255,255,.92),inset 0 -1px 0 rgba(109,74,255,.06)!important;
+        -webkit-backdrop-filter:blur(26px) saturate(180%);backdrop-filter:blur(26px) saturate(180%);
+        overflow:visible;isolation:isolate
+      }
+      .mobile-bottom::before{
+        content:"";position:absolute;z-index:-1;inset:1px;border-radius:27px;pointer-events:none;
+        background:linear-gradient(150deg,rgba(255,255,255,.44),rgba(255,255,255,.08) 54%,rgba(226,217,255,.15));
+      }
+      .mobile-bottom button,.mobile-bottom a{
+        min-width:0!important;height:100%!important;padding:4px 2px!important;gap:5px!important;
+        border:0!important;border-radius:20px!important;background:transparent!important;
+        color:#676675!important;font-size:10px!important;font-weight:680!important;
+        transition:color .18s ease,transform .18s ease!important
+      }
+      .mobile-bottom button:active,.mobile-bottom a:active{transform:scale(.94)}
+      .mobile-bottom .active{
+        color:var(--blue)!important;
+        background:transparent!important;box-shadow:none!important;
+        border-radius:20px!important;font-size:10.5px!important;font-weight:820!important;
+        transform:translateY(-2px) scale(1.08);z-index:1
+      }
+      .mobile-bottom .nav-icon{
+        position:relative;display:grid!important;place-items:center;width:28px;height:27px!important
+      }
+      .mobile-bottom .nav-icon .ui-icon{
+        grid-area:1/1;width:25px!important;height:25px!important;
+        transition:opacity .18s ease,transform .32s cubic-bezier(.22,1,.36,1)!important;
+        will-change:opacity,transform
+      }
+      .mobile-bottom .nav-icon .ui-icon-outline{opacity:1;transform:scale(1) translateZ(0)}
+      .mobile-bottom .nav-icon .ui-icon-solid{opacity:0;transform:scale(.68) translateZ(0)}
+      .mobile-bottom .active .nav-icon .ui-icon-outline{opacity:0;transform:scale(.58) translateZ(0)}
+      .mobile-bottom .active .nav-icon .ui-icon-solid{opacity:1;transform:scale(1.15) translateZ(0)}
+      .mobile-bottom .active .nav-avatar-wrap{transform:scale(1.08) translateZ(0)}
+      .mobile-bottom [data-cart-count]{
+        position:absolute!important;top:2px!important;left:calc(50% + 8px)!important;right:auto!important;
+        min-width:18px!important;height:18px!important;padding:0 5px!important;border:2px solid rgba(255,255,255,.9)!important;
+        border-radius:10px!important;background:var(--blue)!important;color:#fff!important;
+        display:grid!important;place-items:center!important;font-size:9px!important;font-weight:850!important;
+        line-height:1!important;box-shadow:0 4px 10px rgba(109,74,255,.3)
+      }
+      .mk-action[data-action="cart"]{
+        position:relative!important;width:42px!important;min-width:42px!important;height:42px!important;padding:0!important;
+        display:grid!important;place-items:center!important;overflow:visible!important;
+        border:1px solid rgba(255,255,255,.82)!important;border-radius:14px!important;
+        background:rgba(255,255,255,.62)!important;
+        box-shadow:0 7px 18px rgba(35,30,62,.08),inset 0 1px 0 rgba(255,255,255,.95)!important;
+        -webkit-backdrop-filter:blur(16px) saturate(160%);backdrop-filter:blur(16px) saturate(160%)
+      }
+      .mk-action[data-action="cart"] .ui-icon{width:23px!important;height:23px!important}
+      .mk-action[data-action="cart"] .cart-count{
+        position:absolute!important;z-index:2;top:-5px!important;right:-5px!important;left:auto!important;
+        min-width:18px!important;height:18px!important;padding:0 5px!important;border:2px solid #fff!important;
+        border-radius:10px!important;font-size:9px!important;font-weight:850!important;
+        box-shadow:0 4px 10px rgba(109,74,255,.28)
+      }
+    }
+    @media(max-width:560px){
+      .mk-quick{overflow:visible;padding-bottom:14px!important}
+      .mk-quick-grid{
+        padding:6px 2px 13px!important;margin:-6px -2px -13px!important;
+        overscroll-behavior-inline:contain;scroll-padding-inline:2px
+      }
+      .mk-quick-item{transform:none!important}
+    }
+    @media(prefers-reduced-motion:reduce){
+      .mobile-bottom button,.mobile-bottom a,.mobile-bottom .nav-icon .ui-icon{transition:none!important}
+    }
+
+    /* interaction and mobile polish v17 */
+    #productGrid{overflow-anchor:none}
+    .mobile-menu{position:relative;z-index:3;pointer-events:auto!important;touch-action:manipulation}
+    #sheetHost .sheet-layer.menu-layer.sheet-visible>.sheet.menu-sheet{transform:translate3d(0,0,0)!important}
+    .mk-quick-grid{position:relative;isolation:isolate}
+    .mk-quick-item{
+      position:relative;z-index:1;isolation:isolate;overflow:visible;
+      transition:transform .26s cubic-bezier(.22,1,.36,1),border-color .2s ease,box-shadow .26s ease,background .2s ease!important
+    }
+    .mk-quick-item::after{
+      content:"";position:absolute;z-index:-1;inset:7px;border-radius:14px;
+      background:rgba(109,74,255,.22);opacity:0;pointer-events:none
+    }
+    .mk-quick-item.active{
+      transform:translateY(-4px) scale(1.025)!important;
+      border-color:rgba(109,74,255,.18)!important;
+      box-shadow:0 16px 30px rgba(76,49,160,.18),inset 0 1px 0 rgba(255,255,255,.96)!important
+    }
+    .mk-quick-selection-ring{
+      --quick-ring-x:0px;--quick-ring-y:0px;
+      position:absolute;z-index:4;left:0;top:0;display:block;pointer-events:none;
+      width:84px;height:70px;border-radius:14px;
+      transform:translate3d(var(--quick-ring-x),calc(var(--quick-ring-y) - 4px),0) scale(1.025);
+      transform-origin:center;filter:drop-shadow(0 6px 9px rgba(109,74,255,.16));
+      will-change:transform,width,height
+    }
+    .mk-quick-selection-ring.is-ready{
+      transition:transform .48s cubic-bezier(.22,1,.36,1),width .48s cubic-bezier(.22,1,.36,1),height .48s cubic-bezier(.22,1,.36,1),border-radius .32s ease
+    }
+    .mk-quick-selection-ring::before{
+      content:"";position:absolute;inset:-1px;border-radius:inherit;padding:2px;
+      background:conic-gradient(from 0deg,rgba(109,74,255,.16),#a98cff 18%,#6844f6 37%,rgba(255,255,255,.95) 53%,#7653f8 70%,rgba(109,74,255,.12));
+      -webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);
+      -webkit-mask-composite:xor;mask-composite:exclude;
+      animation:mkQuickRingSpin 2.8s linear infinite
+    }
+    .mk-quick-item.is-popping::after{animation:mkQuickHalo .42s cubic-bezier(.22,1,.36,1)}
+    .mk-quick-item.is-popping .mk-quick-icon{animation:mkQuickIconPop .42s cubic-bezier(.22,1,.36,1)}
+    @keyframes mkQuickRingSpin{to{transform:rotate(1turn)}}
+    @keyframes mkQuickHalo{0%{opacity:.42;transform:scale(.82)}100%{opacity:0;transform:scale(1.28)}}
+    @keyframes mkQuickIconPop{0%{transform:scale(.82)}55%{transform:scale(1.13)}100%{transform:scale(1)}}
+
+    .mk-promo{
+      isolation:isolate;text-align:left;cursor:pointer;
+      transition:transform .24s cubic-bezier(.22,1,.36,1),box-shadow .24s ease,border-color .24s ease
+    }
+    .mk-promo>*{position:relative;z-index:2}
+    .mk-promo::before{
+      content:"";position:absolute;z-index:0;inset:0;pointer-events:none;opacity:.72
+    }
+    .mk-promo.pink::before{
+      background:radial-gradient(circle at 84% 24%,rgba(255,255,255,.82) 0 4px,transparent 5px),radial-gradient(circle at 84% 24%,transparent 0 31px,rgba(209,62,119,.10) 32px 33px,transparent 34px)
+    }
+    .mk-promo.mint::before{
+      background:linear-gradient(125deg,transparent 54%,rgba(0,139,118,.07) 54% 56%,transparent 56%),radial-gradient(circle at 84% 22%,rgba(255,255,255,.78) 0 5px,transparent 6px)
+    }
+    .mk-promo-symbol{
+      position:absolute!important;z-index:2!important;top:16px;right:16px;width:46px;height:46px;border-radius:15px;
+      display:grid!important;place-items:center;font-size:20px;font-weight:900;line-height:1;
+      border:1px solid rgba(255,255,255,.74);background:rgba(255,255,255,.54);
+      box-shadow:0 10px 22px rgba(77,31,58,.10),inset 0 1px 0 rgba(255,255,255,.8)
+    }
+    .mk-promo.pink .mk-promo-symbol{color:#c8326d}
+    .mk-promo.mint .mk-promo-symbol{color:#087c68}
+    .mk-promo-symbol{font-size:0}
+    .mk-promo.pink .mk-promo-symbol::before{content:"";width:0;height:0;margin-left:2px;border-top:7px solid transparent;border-bottom:7px solid transparent;border-left:11px solid currentColor}
+    .mk-promo.mint .mk-promo-symbol::before{content:"";width:18px;height:18px;background:currentColor;clip-path:polygon(50% 0,61% 35%,100% 50%,61% 65%,50% 100%,39% 65%,0 50%,39% 35%)}
+    .mk-promo-products{display:block;margin-top:8px;font-size:10px;opacity:.72}
+    @media(hover:hover) and (pointer:fine){
+      .mk-promo:hover{transform:translateY(-4px);box-shadow:0 18px 38px rgba(39,33,70,.13)}
+    }
+    .mk-promo:active{transform:translateY(-1px) scale(.985)}
+
+    @media(max-width:560px){
+      .mk-quick .container{width:min(100% - 26px,640px)!important}
+      .mk-quick-grid{padding:6px 4px 13px!important;margin:-6px auto -13px!important;scroll-padding-inline:4px!important}
+      .mk-promo{min-height:112px!important;padding:14px!important}
+      .mk-promo .mk-promo-symbol{display:grid!important;top:10px;right:10px;width:34px;height:34px;border-radius:11px;font-size:0}
+      .mk-promo .mk-promo-products{display:none!important}
+      .mk-promo small{max-width:calc(100% - 38px);font-size:7px!important;letter-spacing:.18px}
+      .mk-promo strong{max-width:calc(100% - 12px);font-size:14px!important;line-height:1.16!important}
+    }
+    @media(prefers-reduced-motion:reduce){
+      .mk-quick-item,.mk-promo{transition:none!important}
+      .mk-quick-item.is-popping::after,.mk-quick-item.is-popping .mk-quick-icon{animation:none!important}
+      .mk-quick-selection-ring,.mk-quick-selection-ring::before{transition:none!important;animation:none!important}
+    }
 </style>
 </head>
 <body>
@@ -296,16 +584,17 @@
     const stockId=(productId,plan)=>`${productId}__${slug(plan)}`;
     const svgData=svg=>`data:image/svg+xml;charset=UTF-8,${encodeURIComponent(svg)}`;
     const BRAND_ICONS={
-      apple:"https://cdn.simpleicons.org/apple/000000",
-      youtube:svgData(`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128"><rect x="8" y="25" width="112" height="78" rx="23" fill="#ff0033"/><path d="M54 45v38l34-19z" fill="#fff"/></svg>`),
-      netflix:svgData(`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128"><path fill="#b20710" d="M26 14h25v100H26zM77 14h25v100H77z"/><path fill="#e50914" d="M26 14h25l51 100H77z"/></svg>`),
-      spotify:svgData(`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128"><circle cx="64" cy="64" r="58" fill="#1ed760"/><g fill="none" stroke="#101010" stroke-linecap="round"><path d="M31 48c25-8 52-6 70 4" stroke-width="10"/><path d="M36 67c22-6 43-4 60 5" stroke-width="8"/><path d="M42 84c17-4 32-2 45 4" stroke-width="7"/></g></svg>`),
-      canva:svgData(`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128"><defs><linearGradient id="g" x1="8" y1="8" x2="120" y2="120" gradientUnits="userSpaceOnUse"><stop stop-color="#00c4cc"/><stop offset=".48" stop-color="#18a0fb"/><stop offset="1" stop-color="#8b3dff"/></linearGradient></defs><rect width="128" height="128" rx="28" fill="url(#g)"/><text x="61" y="88" text-anchor="middle" fill="white" font-size="83" font-family="Georgia,Times New Roman,serif" font-style="italic">C</text></svg>`),
-      adobe:svgData(`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128"><defs><linearGradient id="g" x1="10" y1="8" x2="118" y2="120" gradientUnits="userSpaceOnUse"><stop stop-color="#ff1f56"/><stop offset=".24" stop-color="#ff8a00"/><stop offset=".5" stop-color="#ffd838"/><stop offset=".72" stop-color="#34cda4"/><stop offset="1" stop-color="#3978ff"/></linearGradient></defs><rect width="128" height="128" rx="28" fill="url(#g)"/><path d="M56 43c-7-7-18-7-25 0-10 10-10 27 0 37 8 8 21 7 28-1l18-20" fill="none" stroke="white" stroke-width="9" stroke-linecap="round"/><path d="M72 85c7 7 18 7 25 0 10-10 10-27 0-37-8-8-21-7-28 1L51 69" fill="none" stroke="white" stroke-width="9" stroke-linecap="round"/></svg>`),
-      capcut:svgData(`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128"><path d="M22 32h84L77 60l29 36H22l29-36z" fill="none" stroke="#111827" stroke-width="11" stroke-linejoin="round"/><path d="m24 92 80-60" stroke="#111827" stroke-width="11" stroke-linecap="round"/></svg>`),
-      gemini:svgData(`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128"><defs><linearGradient id="g" x1="23" y1="108" x2="105" y2="20" gradientUnits="userSpaceOnUse"><stop stop-color="#2f6fed"/><stop offset=".5" stop-color="#8b5cf6"/><stop offset="1" stop-color="#ef5da8"/></linearGradient></defs><path d="M64 10c7 30 24 47 54 54-30 7-47 24-54 54-7-30-24-47-54-54 30-7 47-24 54-54Z" fill="url(#g)"/></svg>`),
-      chatgpt:"https://cdn.simpleicons.org/openai/000000",
-      grok:svgData(`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128"><rect width="128" height="128" rx="24" fill="#000"/><path d="M86 38A34 34 0 1 0 91 78" fill="none" stroke="#fff" stroke-width="10" stroke-linecap="round"/><path d="M31 98 99 29 87 68c-3 10-10 18-20 22L31 98Z" fill="#fff"/></svg>`)
+      apple:svgData(`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="#000000" d="M12.152 6.896c-.948 0-2.415-1.078-3.96-1.04-2.04.027-3.91 1.183-4.961 3.014-2.117 3.675-.546 9.103 1.519 12.09 1.013 1.454 2.208 3.09 3.792 3.039 1.52-.065 2.09-.987 3.935-.987 1.831 0 2.35.987 3.96.948 1.637-.026 2.676-1.48 3.676-2.948 1.156-1.688 1.636-3.325 1.662-3.415-.039-.013-3.182-1.221-3.22-4.857-.026-3.04 2.48-4.494 2.597-4.559-1.429-2.09-3.623-2.324-4.39-2.376-2-.156-3.675 1.09-4.61 1.09zM15.53 3.83c.843-1.012 1.4-2.427 1.245-3.83-1.207.052-2.662.805-3.532 1.818-.78.896-1.454 2.338-1.273 3.714 1.338.104 2.715-.688 3.559-1.701"/></svg>`),
+      appleWhite:svgData(`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="#ffffff" d="M12.152 6.896c-.948 0-2.415-1.078-3.96-1.04-2.04.027-3.91 1.183-4.961 3.014-2.117 3.675-.546 9.103 1.519 12.09 1.013 1.454 2.208 3.09 3.792 3.039 1.52-.065 2.09-.987 3.935-.987 1.831 0 2.35.987 3.96.948 1.637-.026 2.676-1.48 3.676-2.948 1.156-1.688 1.636-3.325 1.662-3.415-.039-.013-3.182-1.221-3.22-4.857-.026-3.04 2.48-4.494 2.597-4.559-1.429-2.09-3.623-2.324-4.39-2.376-2-.156-3.675 1.09-4.61 1.09zM15.53 3.83c.843-1.012 1.4-2.427 1.245-3.83-1.207.052-2.662.805-3.532 1.818-.78.896-1.454 2.338-1.273 3.714 1.338.104 2.715-.688 3.559-1.701"/></svg>`),
+      youtube:svgData(`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="#ff0033" d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>`),
+      netflix:svgData(`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="#e50914" d="m5.398 0 8.348 23.602c2.346.059 4.856.398 4.856.398L10.113 0H5.398zm8.489 0v9.172l4.715 13.33V0h-4.715zM5.398 1.5V24c1.873-.225 2.81-.312 4.715-.398V14.83L5.398 1.5z"/></svg>`),
+      spotify:svgData(`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="#1ed760" d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"/></svg>`),
+      canva:svgData(`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><defs><linearGradient id="canva" x1="2" y1="2" x2="22" y2="22" gradientUnits="userSpaceOnUse"><stop stop-color="#00c4cc"/><stop offset=".5" stop-color="#18a0fb"/><stop offset="1" stop-color="#8b3dff"/></linearGradient></defs><path fill="url(#canva)" d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zM6.962 7.68c.754 0 1.337.549 1.405 1.2.069.583-.171 1.097-.822 1.406-.343.171-.48.172-.549.069-.034-.069 0-.137.069-.206.617-.514.617-.926.548-1.508-.034-.378-.308-.618-.583-.618-1.2 0-2.914 2.674-2.674 4.629.103.754.549 1.646 1.509 1.646.308 0 .65-.103.96-.24.5-.264.799-.47 1.097-.8-.073-.885.704-2.046 1.851-2.046.515 0 .926.205.96.583.068.514-.377.582-.514.582s-.378-.034-.378-.17c-.034-.138.309-.07.275-.378-.035-.206-.24-.274-.446-.274-.72 0-1.131.994-1.029 1.611.035.275.172.549.447.549.205 0 .514-.31.617-.755.068-.308.343-.514.583-.514.102 0 .17.034.205.171v.138c-.034.137-.137.548-.102.651 0 .069.034.171.17.171.092 0 .436-.18.777-.459.117-.59.253-1.298.253-1.357.034-.24.137-.48.617-.48.103 0 .171.034.205.171v.138l-.136.617c.445-.583 1.097-.994 1.508-.994.172 0 .309.102.309.274 0 .103 0 .274-.069.446-.137.377-.309.96-.412 1.474 0 .137.035.274.207.274.171 0 .685-.206 1.096-.754l.007-.004c-.002-.068-.007-.134-.007-.202 0-.411.035-.754.104-.994.068-.274.411-.514.617-.514.103 0 .205.069.205.171 0 .035 0 .103-.034.137-.137.446-.24.857-.24 1.269 0 .24.034.582.102.788 0 .034.035.069.07.069.068 0 .548-.445.89-1.028-.308-.206-.48-.549-.48-.96 0-.72.446-1.097.858-1.097.343 0 .617.24.617.72 0 .308-.103.65-.274.96h.102a.77.77 0 0 0 .584-.24.293.293 0 0 1 .134-.117c.335-.425.83-.74 1.41-.74.48 0 .924.205.959.582.068.515-.378.618-.515.618l-.002-.002c-.138 0-.377-.035-.377-.172 0-.137.309-.068.274-.376-.034-.206-.24-.275-.446-.275-.686 0-1.13.891-1.028 1.611.034.275.171.583.445.583.206 0 .515-.308.652-.754.068-.274.343-.514.583-.514.103 0 .17.034.205.171 0 .069 0 .206-.137.652-.17.308-.171.48-.137.617.034.274.171.48.309.583.034.034.068.102.068.102 0 .069-.034.138-.137.138-.034 0-.068 0-.103-.035-.514-.205-.72-.548-.789-.891-.205.24-.445.377-.72.377-.445 0-.89-.411-.96-.926a1.609 1.609 0 0 1 .075-.649c-.203.13-.422.203-.623.203h-.17c-.447.652-.927 1.098-1.27 1.303a.896.896 0 0 1-.377.104c-.068 0-.171-.035-.205-.104-.095-.152-.156-.392-.193-.667-.481.527-1.145.805-1.453.805-.343 0-.548-.206-.582-.55v-.376c.102-.754.377-1.2.377-1.337a.074.074 0 0 0-.069-.07c-.24 0-1.028.824-1.166 1.373l-.103.445c-.068.309-.377.515-.582.515-.103 0-.172-.035-.206-.172v-.137l.046-.233c-.435.31-.87.508-1.075.508-.308 0-.48-.172-.514-.412-.206.274-.445.412-.754.412-.352 0-.696-.24-.862-.593-.244.275-.523.553-.852.764-.48.309-1.028.549-1.68.549-.582 0-1.097-.309-1.371-.583-.412-.377-.651-.96-.686-1.509-.205-1.68.823-3.84 2.4-4.8.378-.205.755-.343 1.132-.343zm9.77 3.291c-.104 0-.172.172-.172.343 0 .274.137.583.309.755a1.74 1.74 0 0 0 .102-.583c0-.343-.137-.515-.24-.515z"/></svg>`),
+      adobe:svgData(`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48"><defs><linearGradient id="adobeRed" x1="5" y1="3" x2="43" y2="45" gradientUnits="userSpaceOnUse"><stop stop-color="#ff3b30"/><stop offset="1" stop-color="#e60012"/></linearGradient></defs><rect x="2" y="2" width="44" height="44" rx="10" fill="url(#adobeRed)"/><g transform="translate(6 6) scale(1.5)"><path fill="#fff" d="M14.86 3H23v19zM9.14 3H1v19zM11.992 9.998L17.182 22h-3.394l-1.549-3.813h-3.79z"/></g></svg>`),
+      capcut:svgData(`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="#111827" d="M24.189 6.442V2.671l-4.535 2.383V4.91c.002-1.505-1.078-2.411-2.638-2.411H2.64C.993 2.5 0 3.407 0 4.91V8.72L6.354 12 0 15.316v3.8C0 20.595 1 21.5 2.64 21.5h14.373c1.56 0 2.639-.907 2.639-2.382v-.197l4.536 2.409v-3.828L13.64 12 24.19 6.443zM9.982 13.873l7.797 4.083H2.157l7.825-4.083zm7.741-7.828l-7.742 4.057-7.825-4.057h15.567z"/></svg>`),
+      gemini:svgData(`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.616 10.835a14.147 14.147 0 01-4.45-3.001 14.111 14.111 0 01-3.678-6.452.503.503 0 00-.975 0 14.134 14.134 0 01-3.679 6.452 14.155 14.155 0 01-4.45 3.001c-.65.28-1.318.505-2.002.678a.502.502 0 000 .975c.684.172 1.35.397 2.002.677a14.147 14.147 0 014.45 3.001 14.112 14.112 0 013.679 6.453.502.502 0 00.975 0c.172-.685.397-1.351.677-2.003a14.145 14.145 0 013.001-4.45 14.113 14.113 0 016.453-3.678.503.503 0 000-.975 13.245 13.245 0 01-2.003-.678z" fill="#3186FF"></path><path d="M20.616 10.835a14.147 14.147 0 01-4.45-3.001 14.111 14.111 0 01-3.678-6.452.503.503 0 00-.975 0 14.134 14.134 0 01-3.679 6.452 14.155 14.155 0 01-4.45 3.001c-.65.28-1.318.505-2.002.678a.502.502 0 000 .975c.684.172 1.35.397 2.002.677a14.147 14.147 0 014.45 3.001 14.112 14.112 0 013.679 6.453.502.502 0 00.975 0c.172-.685.397-1.351.677-2.003a14.145 14.145 0 013.001-4.45 14.113 14.113 0 016.453-3.678.503.503 0 000-.975 13.245 13.245 0 01-2.003-.678z" fill="url(#lobe-icons-gemini-0-_R_0_)"></path><path d="M20.616 10.835a14.147 14.147 0 01-4.45-3.001 14.111 14.111 0 01-3.678-6.452.503.503 0 00-.975 0 14.134 14.134 0 01-3.679 6.452 14.155 14.155 0 01-4.45 3.001c-.65.28-1.318.505-2.002.678a.502.502 0 000 .975c.684.172 1.35.397 2.002.677a14.147 14.147 0 014.45 3.001 14.112 14.112 0 013.679 6.453.502.502 0 00.975 0c.172-.685.397-1.351.677-2.003a14.145 14.145 0 013.001-4.45 14.113 14.113 0 016.453-3.678.503.503 0 000-.975 13.245 13.245 0 01-2.003-.678z" fill="url(#lobe-icons-gemini-1-_R_0_)"></path><path d="M20.616 10.835a14.147 14.147 0 01-4.45-3.001 14.111 14.111 0 01-3.678-6.452.503.503 0 00-.975 0 14.134 14.134 0 01-3.679 6.452 14.155 14.155 0 01-4.45 3.001c-.65.28-1.318.505-2.002.678a.502.502 0 000 .975c.684.172 1.35.397 2.002.677a14.147 14.147 0 014.45 3.001 14.112 14.112 0 013.679 6.453.502.502 0 00.975 0c.172-.685.397-1.351.677-2.003a14.145 14.145 0 013.001-4.45 14.113 14.113 0 016.453-3.678.503.503 0 000-.975 13.245 13.245 0 01-2.003-.678z" fill="url(#lobe-icons-gemini-2-_R_0_)"></path><defs><linearGradient gradientUnits="userSpaceOnUse" id="lobe-icons-gemini-0-_R_0_" x1="7" x2="11" y1="15.5" y2="12"><stop stop-color="#08B962"></stop><stop offset="1" stop-color="#08B962" stop-opacity="0"></stop></linearGradient><linearGradient gradientUnits="userSpaceOnUse" id="lobe-icons-gemini-1-_R_0_" x1="8" x2="11.5" y1="5.5" y2="11"><stop stop-color="#F94543"></stop><stop offset="1" stop-color="#F94543" stop-opacity="0"></stop></linearGradient><linearGradient gradientUnits="userSpaceOnUse" id="lobe-icons-gemini-2-_R_0_" x1="3.5" x2="17.5" y1="13.5" y2="12"><stop stop-color="#FABC12"></stop><stop offset=".46" stop-color="#FABC12" stop-opacity="0"></stop></linearGradient></defs></svg>`),
+      chatgpt:svgData(`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="#111827" d="M9.205 8.658v-2.26c0-.19.072-.333.238-.428l4.543-2.616c.619-.357 1.356-.523 2.117-.523 2.854 0 4.662 2.212 4.662 4.566 0 .167 0 .357-.024.547l-4.71-2.759a.797.797 0 00-.856 0l-5.97 3.473zm10.609 8.8V12.06c0-.333-.143-.57-.429-.737l-5.97-3.473 1.95-1.118a.433.433 0 01.476 0l4.543 2.617c1.309.76 2.189 2.378 2.189 3.948 0 1.808-1.07 3.473-2.76 4.163zM7.802 12.703l-1.95-1.142c-.167-.095-.239-.238-.239-.428V5.899c0-2.545 1.95-4.472 4.591-4.472 1 0 1.927.333 2.712.928L8.23 5.067c-.285.166-.428.404-.428.737v6.898zM12 15.128l-2.795-1.57v-3.33L12 8.658l2.795 1.57v3.33L12 15.128zm1.796 7.23c-1 0-1.927-.332-2.712-.927l4.686-2.712c.285-.166.428-.404.428-.737v-6.898l1.974 1.142c.167.095.238.238.238.428v5.233c0 2.545-1.974 4.472-4.614 4.472zm-5.637-5.303l-4.544-2.617c-1.308-.761-2.188-2.378-2.188-3.948A4.482 4.482 0 014.21 6.327v5.423c0 .333.143.571.428.738l5.947 3.449-1.95 1.118a.432.432 0 01-.476 0zm-.262 3.9c-2.688 0-4.662-2.021-4.662-4.519 0-.19.024-.38.047-.57l4.686 2.71c.286.167.571.167.856 0l5.97-3.448v2.26c0 .19-.07.333-.237.428l-4.543 2.616c-.619.357-1.356.523-2.117.523zm5.899 2.83a5.947 5.947 0 005.827-4.756C22.287 18.339 24 15.84 24 13.296c0-1.665-.713-3.282-1.998-4.448.119-.5.19-.999.19-1.498 0-3.401-2.759-5.947-5.946-5.947-.642 0-1.26.095-1.88.31A5.962 5.962 0 0010.205 0a5.947 5.947 0 00-5.827 4.757C1.713 5.447 0 7.945 0 10.49c0 1.666.713 3.283 1.998 4.448-.119.5-.19 1-.19 1.499 0 3.401 2.759 5.946 5.946 5.946.642 0 1.26-.095 1.88-.309a5.96 5.96 0 004.162 1.713z"/></svg>`),
+      grok:svgData(`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="#111827" d="M9.27 15.29l7.978-5.897c.391-.29.95-.177 1.137.272.98 2.369.542 5.215-1.41 7.169-1.951 1.954-4.667 2.382-7.149 1.406l-2.711 1.257c3.889 2.661 8.611 2.003 11.562-.953 2.341-2.344 3.066-5.539 2.388-8.42l.006.007c-.983-4.232.242-5.924 2.75-9.383.06-.082.12-.164.179-.248l-3.301 3.305v-.01L9.267 15.292M7.623 16.723c-2.792-2.67-2.31-6.801.071-9.184 1.761-1.763 4.647-2.483 7.166-1.425l2.705-1.25a7.808 7.808 0 00-1.829-1A8.975 8.975 0 005.984 5.83c-2.533 2.536-3.33 6.436-1.962 9.764 1.022 2.487-.653 4.246-2.34 6.022-.599.63-1.199 1.259-1.682 1.925l7.62-6.815"/></svg>`)
     };
 
     const PRODUCTS=[
@@ -330,14 +619,16 @@
     const defaultSettings={bankId:"",bankName:"",accountNumber:"",accountName:"",zaloUrl:""};
 
     const state={
-      user:null,balance:0,settings:{...defaultSettings},category:"Tất cả",search:"",sort:"popular",
+      user:null,balance:0,settings:{...defaultSettings},category:"Tất cả",search:"",sort:"popular",deal:"hot",
       plans:{},stock:new Map(),stockLoaded:false,stockError:false,cart:[],orders:[],topups:[],sheet:null,payload:null,busy:false,
       admin:false,adminTab:"orders",adminAuthMode:"login",adminOrders:[],adminTopups:[],adminInventory:[],message:"",error:""
     };
     let unsubWallet=null,unsubOrders=null,unsubTopups=null,unsubStock=null,unsubSettings=null;
     let adminUnsubs=[];
-    let productRefreshFrame=0,searchTimer=0,adminRenderFrame=0,sheetCloseTimer=0,previousFocus=null;
+    let productRefreshFrame=0,searchTimer=0,adminRenderFrame=0,sheetCloseTimer=0,previousFocus=null,productRevealObserver=null;
+    let searchSessionActive=false,searchLayoutHeight=0,searchReleaseTimer=0,quickPopTimer=0,quickRingFrame=0;
     const productCards=new Map();
+    const productRevealAnimations=new Map();
     const prefersReducedMotion=matchMedia("(prefers-reduced-motion: reduce)");
     const CART_STORAGE_KEY="novakey_cart_v1";
 
@@ -377,29 +668,79 @@
       };
       return icons[name]||"";
     }
+    function mobileNavIcon(name){
+      const solid={
+        home:`<svg class="ui-icon ui-icon-solid" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" stroke="none" d="M12 2.35 2.65 10.4a1.35 1.35 0 0 0 .88 2.37h1.12v7.8c0 .6.48 1.08 1.08 1.08h4.15v-6.2h4.24v6.2h4.15c.6 0 1.08-.48 1.08-1.08v-7.8h1.12a1.35 1.35 0 0 0 .88-2.37L12 2.35Z"/></svg>`,
+        products:`<svg class="ui-icon ui-icon-solid" viewBox="0 0 24 24" aria-hidden="true"><rect x="2.5" y="2.5" width="8" height="8" rx="2" fill="currentColor" stroke="none"/><rect x="13.5" y="2.5" width="8" height="8" rx="2" fill="currentColor" stroke="none"/><rect x="2.5" y="13.5" width="8" height="8" rx="2" fill="currentColor" stroke="none"/><rect x="13.5" y="13.5" width="8" height="8" rx="2" fill="currentColor" stroke="none"/></svg>`,
+        bank:`<svg class="ui-icon ui-icon-solid" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" stroke="none" d="M12 2 2 6.85V10h20V6.85L12 2ZM4 11.5h3V18H4v-6.5Zm5 0h3V18H9v-6.5Zm5 0h3V18h-3v-6.5Zm5 0h1V18h-1v-6.5ZM2 19.3h20V22H2v-2.7Z"/></svg>`,
+        cart:`<svg class="ui-icon ui-icon-solid" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" stroke="none" d="M3.1 2.5H5c.75 0 1.4.53 1.55 1.27l.25 1.28h13.4c1.02 0 1.78.95 1.55 1.94l-1.7 7.2a2.55 2.55 0 0 1-2.48 1.96H9.42a2.55 2.55 0 0 1-2.5-2.05L5.08 4.8H3.1a1.15 1.15 0 1 1 0-2.3Zm6.1 15.2a2.15 2.15 0 1 0 0 4.3 2.15 2.15 0 0 0 0-4.3Zm8.55 0a2.15 2.15 0 1 0 0 4.3 2.15 2.15 0 0 0 0-4.3Z"/></svg>`,
+        history:`<svg class="ui-icon ui-icon-solid" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10" fill="currentColor" stroke="none"/><path d="M12 6.5v5.85l3.8 2.25" fill="none" stroke="#fff" stroke-width="2.15" stroke-linecap="round" stroke-linejoin="round"/></svg>`
+      };
+      const outline=uiIcon(name).replace('class="ui-icon"','class="ui-icon ui-icon-outline"');
+      return `<span class="nav-icon">${outline}${solid[name]||""}</span>`;
+    }
+    function categoryIcon(name){
+      const icons={
+        all:`<svg class="category-svg" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="7.25" height="7.25" rx="2" fill="currentColor"/><rect x="13.75" y="3" width="7.25" height="7.25" rx="2" fill="currentColor"/><rect x="3" y="13.75" width="7.25" height="7.25" rx="2" fill="currentColor"/><rect x="13.75" y="13.75" width="7.25" height="7.25" rx="2" fill="currentColor"/></svg>`,
+        apple:`<svg class="category-svg" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12.15 6.9c-.95 0-2.42-1.08-3.96-1.04-2.04.03-3.91 1.18-4.96 3.01-2.12 3.68-.55 9.1 1.52 12.09 1.01 1.45 2.21 3.09 3.79 3.04 1.52-.07 2.09-.99 3.94-.99 1.83 0 2.35.99 3.96.95 1.64-.03 2.68-1.48 3.68-2.95 1.16-1.69 1.64-3.33 1.66-3.42-.04-.01-3.18-1.22-3.22-4.86-.03-3.04 2.48-4.49 2.6-4.56-1.43-2.09-3.62-2.32-4.39-2.38-2-.16-3.68 1.09-4.61 1.09Zm3.38-3.07C16.37 2.82 16.93 1.4 16.77 0c-1.21.05-2.66.81-3.53 1.82-.78.9-1.45 2.34-1.27 3.71 1.34.1 2.72-.69 3.56-1.7Z"/></svg>`,
+        entertainment:`<svg class="category-svg" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="1.8"/><path fill="currentColor" d="m10 7.65 6.25 4.35L10 16.35v-8.7Z"/></svg>`,
+        creative:`<svg class="category-svg" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M11.7 2.2c.73 5.13 3.55 7.95 8.68 8.68-5.13.73-7.95 3.55-8.68 8.68-.73-5.13-3.55-7.95-8.68-8.68 5.13-.73 7.95-3.55 8.68-8.68Z"/><path fill="currentColor" d="M19.1 2.4c.22 1.52 1.06 2.36 2.58 2.58-1.52.22-2.36 1.06-2.58 2.58-.22-1.52-1.06-2.36-2.58-2.58 1.52-.22 2.36-1.06 2.58-2.58Z"/></svg>`,
+        ai:`<svg class="category-svg" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 3.2 14.1 8l4.7 2.1-4.7 2.1L12 17l-2.1-4.8-4.7-2.1L9.9 8 12 3.2Z"/><circle cx="18.5" cy="17.7" r="2.1" fill="currentColor"/><circle cx="5.5" cy="18.5" r="1.25" fill="currentColor"/></svg>`,
+        topup:`<svg class="category-svg" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="1.9"/><path d="M12 7.5v9M7.5 12h9" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>`
+      };
+      return icons[name]||"";
+    }
     function storeMarkup(){return `
+      <div class="shop-strip"><div class="container"><span><strong>NovaKey</strong> · Kho dịch vụ số giao nhanh</span><div class="shop-strip-links"><a href="#products">Sản phẩm</a><a href="${esc(state.settings.zaloUrl||"https://zalo.me/")}" target="_blank" rel="noopener noreferrer">Hỗ trợ Zalo</a><span>Phục vụ mỗi ngày</span></div></div></div>
       <header class="header">
         <div class="container header-main storefront-head">
           <button class="head-btn mobile-menu" data-action="mobile-menu" aria-label="Mở menu">${uiIcon("menu")}</button>
-          <a class="brand brand-compact" href="#top"><span class="brand-mark">N</span><span>NovaKey<small>Kho tài khoản số · giao nhanh</small></span></a>
+          <a class="brand brand-compact" href="#top"><span class="brand-mark">N</span><span>NovaKey<small>Tài khoản số · giá rõ ràng</small></span></a>
+          <label class="mk-search desktop-search" aria-label="Tìm kiếm sản phẩm"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.6-3.6"/></svg><input id="desktopSearch" autocomplete="off" placeholder="Tìm game, ứng dụng, tài khoản..." /></label>
           <div class="header-actions compact-actions">
-            <button class="head-btn icon-only" data-action="orders" aria-label="Đơn hàng">${uiIcon("orders")}</button>
-            <button class="head-btn icon-only" data-action="topup" aria-label="Nạp tiền">${uiIcon("bank")}</button>
-            <button class="head-btn icon-only" data-action="cart" aria-label="Giỏ hàng">${uiIcon("cart")}<b class="cart-count" data-cart-count>0</b></button>
+            <button class="head-btn mk-action" data-action="orders" aria-label="Tài khoản và đơn hàng">${uiIcon("orders")}<span class="mk-action-label"><small>Tài khoản</small><strong data-balance>Đăng nhập</strong></span></button>
+            <button class="head-btn mk-action" data-action="topup" aria-label="Nạp tiền">${uiIcon("bank")}<span class="mk-action-label"><small>Ví NovaKey</small><strong>Nạp tiền</strong></span></button>
+            <button class="head-btn mk-action" data-action="cart" aria-label="Giỏ hàng trống">${uiIcon("cart")}<span class="mk-action-label"><small>Giỏ hàng</small><strong>Xem giỏ</strong></span><b class="cart-count" data-cart-count hidden>0</b></button>
           </div>
         </div>
-        <div class="container search-wrap"><label class="search"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.6-3.6"/></svg><input id="desktopSearch" placeholder="Tìm game, app, tài khoản..." /></label></div>
-        <div class="container mobile-search-wrap"><label class="search"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.6-3.6"/></svg><input id="mobileSearch" placeholder="Tìm game, app, tài khoản..." /></label></div>
+        <div class="container mk-mobile-search"><label class="mk-search" aria-label="Tìm kiếm sản phẩm"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.6-3.6"/></svg><input id="mobileSearch" autocomplete="off" placeholder="Tìm game, app, tài khoản..." /></label></div>
+        <div class="mk-nav-wrap"><nav class="container mk-category-nav" aria-label="Danh mục chính">
+          <button class="mk-nav-item active" data-quick-category="Tất cả"><span class="mk-nav-icon">${categoryIcon("all")}</span>Tất cả</button>
+          <button class="mk-nav-item" data-quick-category="Apple"><span class="mk-nav-icon">${categoryIcon("apple")}</span>ID Apple</button>
+          <button class="mk-nav-item" data-quick-category="Giải trí"><span class="mk-nav-icon">${categoryIcon("entertainment")}</span>Giải trí</button>
+          <button class="mk-nav-item" data-quick-category="Sáng tạo"><span class="mk-nav-icon">${categoryIcon("creative")}</span>Sáng tạo</button>
+          <button class="mk-nav-item" data-quick-category="AI"><span class="mk-nav-icon">${categoryIcon("ai")}</span>AI Premium</button>
+          <button class="mk-nav-item" data-action="topup"><span class="mk-nav-icon">${categoryIcon("topup")}</span>Nạp số dư</button>
+        </nav></div>
       </header>
       <main id="top">
+        <section class="mk-hero"><div class="container mk-hero-grid">
+          <article class="mk-main-banner">
+            <div class="mk-hero-copy"><span class="mk-hero-tag">✦ Ưu đãi tại NovaKey</span><h1>Dịch vụ premium<br>giá dễ tiếp cận</h1><p>Chọn gói, kiểm tra kho và đặt mua trong vài chạm. Thông tin giá luôn hiển thị rõ ràng trước khi thanh toán.</p><div class="mk-hero-actions"><button class="mk-primary" data-scroll-products>Khám phá ngay</button><button class="mk-ghost" data-action="topup">Nạp số dư</button></div></div>
+            <div class="mk-app-stack" aria-hidden="true"><span class="mk-float-logo"><img src="${esc(BRAND_ICONS.appleWhite)}" alt=""></span><span class="mk-float-logo"><img src="${esc(BRAND_ICONS.youtube)}" alt=""></span><span class="mk-float-logo"><img src="${esc(BRAND_ICONS.netflix)}" alt=""></span></div>
+          </article>
+          <div class="mk-side-promos"><button class="mk-promo pink" data-quick-category="Giải trí"><span class="mk-promo-symbol" aria-hidden="true">▶</span><small>Đang nổi bật</small><strong>Giải trí không gián đoạn</strong><span class="mk-promo-products">YouTube · Netflix · Spotify</span></button><button class="mk-promo mint" data-quick-category="AI"><span class="mk-promo-symbol" aria-hidden="true">✦</span><small>Học tập & công việc</small><strong>AI mạnh hơn, làm nhanh hơn</strong><span class="mk-promo-products">Gemini · ChatGPT · Grok</span></button></div>
+        </div></section>
+        <section class="mk-quick"><div class="container mk-quick-grid">
+          <button class="mk-quick-item" data-quick-category="Tất cả"><span class="mk-quick-icon">${categoryIcon("all")}</span>Tất cả</button>
+          <button class="mk-quick-item" data-quick-category="Apple"><span class="mk-quick-icon">${categoryIcon("apple")}</span>ID Apple</button>
+          <button class="mk-quick-item" data-quick-category="Giải trí"><span class="mk-quick-icon">${categoryIcon("entertainment")}</span>Giải trí</button>
+          <button class="mk-quick-item" data-quick-category="Sáng tạo"><span class="mk-quick-icon">${categoryIcon("creative")}</span>Sáng tạo</button>
+          <button class="mk-quick-item" data-quick-category="AI"><span class="mk-quick-icon">${categoryIcon("ai")}</span>AI Premium</button>
+        </div></section>
         <section class="catalog game-catalog" id="products"><div class="container">
-          <div class="section-head section-head-game"><div><span class="kicker">CỬA HÀNG</span><h2>Kho dịch vụ nổi bật</h2><p>Chọn gói để xem giá, kiểm tra kho và mua ngay trên từng sản phẩm.</p></div><select class="sort" id="sortSelect"><option value="popular">Phổ biến nhất</option><option value="price-low">Giá thấp đến cao</option><option value="price-high">Giá cao đến thấp</option></select></div>
-          <div class="category-strip" id="categoryStrip"></div>
+          <div class="section-head section-head-game"><div><span class="kicker">KHO SẢN PHẨM</span><h2>Sản phẩm nổi bật</h2><p>Chọn gói để xem giá và số lượng còn trong kho.</p></div></div>
           <div class="product-grid" id="productGrid"></div>
         </div></section>
+        <section class="mk-assurance"><div class="container mk-assurance-grid">
+          <div class="mk-assurance-item"><span class="mk-assurance-icon">✨</span><div><strong>Giá minh bạch</strong><p>Không phát sinh phí bất ngờ.</p></div></div>
+          <div class="mk-assurance-item"><span class="mk-assurance-icon">⚡</span><div><strong>Xử lý nhanh</strong><p>Kiểm tra và giao sản phẩm sớm.</p></div></div>
+          <div class="mk-assurance-item"><span class="mk-assurance-icon">💰</span><div><strong>Thanh toán linh hoạt</strong><p>Số dư, ngân hàng hoặc thẻ cào.</p></div></div>
+          <div class="mk-assurance-item"><span class="mk-assurance-icon">💖</span><div><strong>Hỗ trợ 24/7</strong><p>Liên hệ khi cần trợ giúp.</p></div></div>
+        </div></section>
       </main>
-      <footer class="footer"><div class="container footer-grid"><div><a class="brand" href="#top"><span class="brand-mark">N</span><span>NovaKey</span></a><p>Kho dịch vụ số premium, giao nhanh và hỗ trợ liên tục.</p></div><div><h4>Danh mục</h4><div class="footer-links"><a href="#products">Tất cả sản phẩm</a><a href="#products">Giải trí</a><a href="#products">AI · Sáng tạo</a></div></div><div><h4>Hỗ trợ</h4><div class="footer-links"><button class="back" data-action="topup">Nạp tiền</button><button class="back" data-action="orders">Đơn đã mua</button><a href="${esc(state.settings.zaloUrl||"https://zalo.me/")}" target="_blank" rel="noopener noreferrer">Liên hệ Zalo</a></div></div></div></footer>
-      <nav class="mobile-bottom"><a class="active" href="#top"><span class="nav-icon">${uiIcon("home")}</span><span>Trang chủ</span></a><a href="#products"><span class="nav-icon">${uiIcon("products")}</span><span>Sản phẩm</span></a><button data-action="topup"><span class="nav-icon">${uiIcon("bank")}</span><span>Nạp tiền</span></button><button data-action="cart"><span class="nav-icon">${uiIcon("cart")}</span><span>Giỏ hàng</span><b data-cart-count>0</b></button><button data-action="orders"><span class="nav-icon">${uiIcon("history")}</span><span>Đơn hàng</span></button></nav>`}
+      <footer class="footer"><div class="container footer-grid"><div><a class="brand" href="#top"><span class="brand-mark">N</span><span>NovaKey</span></a><p>Kho dịch vụ số premium, giá rõ ràng, đặt mua nhanh và hỗ trợ tận tâm.</p></div><div><h4>Danh mục</h4><div class="footer-links"><a href="#products">Tất cả sản phẩm</a><a href="#products">Giải trí</a><a href="#products">AI · Sáng tạo</a></div></div><div><h4>Hỗ trợ</h4><div class="footer-links"><button class="back" data-action="topup">Nạp tiền</button><button class="back" data-action="orders">Đơn đã mua</button><a href="${esc(state.settings.zaloUrl||"https://zalo.me/")}" target="_blank" rel="noopener noreferrer">Liên hệ Zalo</a></div></div></div></footer>
+      <nav class="mobile-bottom" aria-label="Điều hướng chính"><a class="active" data-mobile-tab="home" href="#top" aria-current="page">${mobileNavIcon("home")}<span>Trang chủ</span></a><a data-mobile-tab="products" href="#products">${mobileNavIcon("products")}<span>Sản phẩm</span></a><button data-mobile-tab="topup" data-action="topup">${mobileNavIcon("bank")}<span>Nạp tiền</span></button><button data-mobile-tab="cart" data-action="cart" aria-label="Giỏ hàng trống">${mobileNavIcon("cart")}<span>Giỏ hàng</span><b data-cart-count hidden>0</b></button><button data-mobile-tab="orders" data-action="orders">${mobileNavIcon("history")}<span>Đơn hàng</span></button></nav>`}
 
     function queueProductRefresh(animate=false){
       cancelAnimationFrame(productRefreshFrame);
@@ -409,20 +750,81 @@
       const target=$(selector);if(!target)return;
       target.scrollIntoView({behavior:"smooth",block:"start"});
     }
+    function isSearchInput(el=document.activeElement){return Boolean(el?.matches?.("#desktopSearch,#mobileSearch"))}
+    function beginSearchSession(){
+      clearTimeout(searchReleaseTimer);searchSessionActive=true;
+      const grid=$("#productGrid");if(!grid)return;
+      searchLayoutHeight=Math.max(searchLayoutHeight,Math.ceil(grid.getBoundingClientRect().height));
+      if(searchLayoutHeight>0)grid.style.minHeight=`${searchLayoutHeight}px`;
+    }
+    function endSearchSession(){
+      clearTimeout(searchReleaseTimer);searchReleaseTimer=setTimeout(()=>{
+        if(isSearchInput())return;
+        searchSessionActive=false;searchLayoutHeight=0;$("#productGrid")?.style.removeProperty("min-height");
+      },220);
+    }
+    function syncQuickSelectionRing(){
+      const grid=$(".mk-quick-grid"),item=$(".mk-quick-item.active",grid);if(!grid||!item)return;
+      let ring=$(".mk-quick-selection-ring",grid);
+      if(!ring){
+        ring=document.createElement("span");ring.className="mk-quick-selection-ring";ring.setAttribute("aria-hidden","true");grid.append(ring);
+      }
+      ring.style.setProperty("--quick-ring-x",`${item.offsetLeft}px`);
+      ring.style.setProperty("--quick-ring-y",`${item.offsetTop}px`);
+      ring.style.width=`${item.offsetWidth}px`;ring.style.height=`${item.offsetHeight}px`;
+      ring.style.borderRadius=getComputedStyle(item).borderRadius;
+      if(!ring.classList.contains("is-ready"))requestAnimationFrame(()=>ring.classList.add("is-ready"));
+    }
+    window.addEventListener("resize",()=>{
+      cancelAnimationFrame(quickRingFrame);quickRingFrame=requestAnimationFrame(syncQuickSelectionRing);
+    },{passive:true});
+    function popQuickCategory(category){
+      const item=$(`.mk-quick-item[data-quick-category="${CSS.escape(category)}"]`);if(!item)return;
+      clearTimeout(quickPopTimer);item.classList.remove("is-popping");void item.offsetWidth;item.classList.add("is-popping");
+      quickPopTimer=setTimeout(()=>item.classList.remove("is-popping"),460);
+    }
     function renderStore(){
+      clearProductRevealEffects();
       $("#app").innerHTML=storeMarkup();
       $(".mobile-search-wrap")?.classList.remove("hide");
-      renderCategories();renderProducts();updateHeader();
-      const syncSearch=(value,other)=>{state.search=value;if(other&&other.value!==value)other.value=value;clearTimeout(searchTimer);searchTimer=setTimeout(()=>queueProductRefresh(false),70)};
+      renderCategories();renderProducts();updateDealState();updateHeader();
+      const syncSearch=(value,other)=>{beginSearchSession();state.search=value;if(other&&other.value!==value)other.value=value;clearTimeout(searchTimer);searchTimer=setTimeout(()=>queueProductRefresh(false),70)};
+      [$("#desktopSearch"),$("#mobileSearch")].filter(Boolean).forEach(input=>{
+        input.addEventListener("focus",beginSearchSession);
+        input.addEventListener("blur",endSearchSession);
+      });
       $("#desktopSearch")?.addEventListener("input",e=>syncSearch(e.target.value,$("#mobileSearch")));
       $("#mobileSearch")?.addEventListener("input",e=>syncSearch(e.target.value,$("#desktopSearch")));
+      $(".mobile-menu")?.addEventListener("click",e=>{e.preventDefault();e.stopPropagation();openSheet("menu")});
       $("#sortSelect")?.addEventListener("change",e=>{state.sort=e.target.value;queueProductRefresh(true)});
       document.removeEventListener("click",storeClick);
       document.addEventListener("click",storeClick);
     }
+    function setMobileTab(name){
+      $$('[data-mobile-tab]',$("#app")).forEach(el=>{
+        const selected=el.dataset.mobileTab===name;
+        el.classList.toggle("active",selected);
+        if(selected)el.setAttribute("aria-current","page");else el.removeAttribute("aria-current");
+      });
+    }
     function storeClick(e){
+      const mobileTab=e.target.closest("[data-mobile-tab]");
+      if(mobileTab)setMobileTab(mobileTab.dataset.mobileTab);
       const action=e.target.closest("[data-action]")?.dataset.action;
       if(action){e.preventDefault();handleAction(action,e.target.closest("[data-action]"));return}
+      const quick=e.target.closest("[data-quick-category]");
+      if(quick){
+        e.preventDefault();state.category=quick.dataset.quickCategory;state.deal="";
+        updateCategoryState();updateDealState();popQuickCategory(state.category);queueProductRefresh(true);smoothGo("#products");return;
+      }
+      const deal=e.target.closest("[data-deal]");
+      if(deal){
+        e.preventDefault();state.deal=deal.dataset.deal;
+        state.category=state.deal==="entertainment"?"Giải trí":state.deal==="creative"?"Sáng tạo":state.deal==="ai"?"AI":"Tất cả";
+        if(state.deal==="under100")state.sort="price-low";else if(state.sort!=="popular")state.sort="popular";
+        const sort=$("#sortSelect");if(sort)sort.value=state.sort;
+        updateCategoryState();updateDealState();queueProductRefresh(true);smoothGo("#products");return;
+      }
       const anchor=e.target.closest('#app a[href^="#"]');
       if(anchor){
         const selector=anchor.getAttribute("href");
@@ -439,17 +841,20 @@
         host.dataset.ready="1";
         host.onclick=e=>{
           const b=e.target.closest("[data-category]");if(!b||state.category===b.dataset.category)return;
-          state.category=b.dataset.category;updateCategoryState();queueProductRefresh(true);
+          state.category=b.dataset.category;state.deal="";updateCategoryState();updateDealState();queueProductRefresh(true);
         };
       }
       updateCategoryState();
     }
     function updateCategoryState(){
-      $$("[data-category]",$("#categoryStrip")).forEach(b=>{
+      const strip=$("#categoryStrip");if(strip)$$("[data-category]",strip).forEach(b=>{
         const active=b.dataset.category===state.category;
         b.classList.toggle("active",active);b.setAttribute("aria-pressed",String(active));
       });
+      $$("[data-quick-category]",$("#app")).forEach(b=>b.classList.toggle("active",b.dataset.quickCategory===state.category));
+      syncQuickSelectionRing();
     }
+    function updateDealState(){$$("[data-deal]",$("#app")).forEach(b=>b.classList.toggle("active",b.dataset.deal===state.deal))}
     function productCardMarkup(p){
       const plan=selectedPlan(p),count=stockCount(p,plan),out=state.stockLoaded&&count<=0,blocked=!state.stockLoaded||out||state.stockError;
       const stockText=state.stockError?"Không tải được kho":!state.stockLoaded?"Đang kiểm tra kho":out?"Hết hàng":`Còn ${count} tài khoản`;
@@ -457,7 +862,7 @@
         <div class="product-visual" style="background:linear-gradient(135deg,${p.soft} 0%, #ffffff 48%, ${p.accent}22 100%)">
           <span class="badge">${esc(p.badge)}</span>
           <span class="art-glow"></span>
-          <span class="product-logo product-logo-${p.id}" style="color:${p.accent}"><img src="${esc(p.icon)}" alt="Logo ${esc(p.name)}" loading="lazy" decoding="async" referrerpolicy="no-referrer" onerror="this.hidden=true;this.nextElementSibling.hidden=false"><span class="logo-fallback" hidden>${esc(p.logo)}</span></span>
+          <span class="product-logo product-logo-${p.id}" style="color:${p.accent}"><img src="${esc(p.icon)}" alt="Logo ${esc(p.name)}" loading="eager" decoding="async" referrerpolicy="no-referrer" onerror="this.hidden=true;this.nextElementSibling.hidden=false"><span class="logo-fallback" hidden>${esc(p.logo)}</span></span>
           <span class="banner-name">${esc(p.name)}</span>
         </div>
         <div class="product-body">
@@ -490,7 +895,7 @@
           if(buy)addCart(buy.dataset.buy,true);
         };
       }
-      refreshProducts(false);
+      refreshProducts(true);
     }
     function updateProductCard(p){
       if(!p)return;
@@ -509,25 +914,73 @@
       if(!out&&overlay)overlay.remove();
     }
     function updateAllProductCards(){PRODUCTS.forEach(updateProductCard)}
+    function clearProductReveal(card){
+      const animation=productRevealAnimations.get(card);
+      if(animation){animation.onfinish=null;animation.oncancel=null;animation.cancel();productRevealAnimations.delete(card)}
+      card.style.removeProperty("opacity");card.style.removeProperty("transform");card.style.removeProperty("transform-origin");card.style.removeProperty("will-change");delete card.dataset.revealOrder;
+    }
+    function clearProductRevealEffects(){
+      productRevealObserver?.disconnect();productRevealObserver=null;
+      productCards.forEach(clearProductReveal);
+    }
+    function playProductReveal(card,delay){
+      clearProductReveal(card);
+      card.style.transformOrigin="50% 82%";card.style.willChange="transform, opacity";
+      const animation=card.animate([
+        {opacity:0,transform:"translate3d(0,46px,0) scale(.9)"},
+        {opacity:1,offset:.62},
+        {opacity:1,transform:"translate3d(0,0,0) scale(1)"}
+      ],{duration:760,delay,easing:"cubic-bezier(.16,1,.3,1)",fill:"both"});
+      productRevealAnimations.set(card,animation);
+      animation.onfinish=()=>{
+        if(productRevealAnimations.get(card)!==animation)return;
+        animation.onfinish=null;animation.oncancel=null;productRevealAnimations.delete(card);
+        card.style.removeProperty("opacity");card.style.removeProperty("transform");card.style.removeProperty("transform-origin");card.style.removeProperty("will-change");animation.cancel();
+      };
+    }
+    function revealProductCards(cards){
+      clearProductRevealEffects();
+      if(prefersReducedMotion.matches||!("IntersectionObserver" in window)||!("animate" in Element.prototype))return;
+      cards.forEach((card,index)=>{
+        card.dataset.revealOrder=String(index);card.style.opacity="0";card.style.transform="translate3d(0,46px,0) scale(.9)";card.style.transformOrigin="50% 82%";card.style.willChange="transform, opacity";
+      });
+      productRevealObserver=new IntersectionObserver(entries=>{
+        const entering=entries.filter(entry=>entry.isIntersecting).sort((a,b)=>Number(a.target.dataset.revealOrder)-Number(b.target.dataset.revealOrder));
+        entering.forEach((entry,index)=>{
+          productRevealObserver?.unobserve(entry.target);
+          playProductReveal(entry.target,Math.min(index,4)*65);
+        });
+      },{threshold:.08,rootMargin:"0px 0px -4% 0px"});
+      cards.forEach(card=>productRevealObserver.observe(card));
+    }
     function refreshProducts(animate=false){
       const host=$("#productGrid");if(!host||host.dataset.ready!=="1")return;
+      const holdLayout=searchSessionActive||isSearchInput(),scrollBefore=window.scrollY;
+      if(holdLayout){searchLayoutHeight=Math.max(searchLayoutHeight,Math.ceil(host.getBoundingClientRect().height));if(searchLayoutHeight>0)host.style.minHeight=`${searchLayoutHeight}px`}
       const needle=normalizeText(state.search);
       let list=PRODUCTS.filter(p=>(state.category==="Tất cả"||p.category===state.category)&&(!needle||p.searchText.includes(needle)));
+      if(state.deal==="under100")list=list.filter(p=>selectedPlan(p).price<100000);
       if(state.sort==="price-low")list=[...list].sort((a,b)=>selectedPlan(a).price-selectedPlan(b).price);
       if(state.sort==="price-high")list=[...list].sort((a,b)=>selectedPlan(b).price-selectedPlan(a).price);
       const visible=new Set(list.map(p=>p.id)),fragment=document.createDocumentFragment();
       list.forEach((p,index)=>{
         const card=productCards.get(p.id);if(!card)return;
         card.hidden=false;fragment.appendChild(card);
-        if(animate&&!prefersReducedMotion.matches&&card.animate)card.animate([{opacity:.55,transform:"translateY(5px)"},{opacity:1,transform:"translateY(0)"}],{duration:170+Math.min(index,5)*12,easing:"cubic-bezier(.22,1,.36,1)"});
       });
       PRODUCTS.forEach(p=>{if(!visible.has(p.id)){const card=productCards.get(p.id);if(card){card.hidden=true;fragment.appendChild(card)}}});
       const empty=host.querySelector("[data-products-empty]");if(empty){empty.hidden=list.length>0;fragment.appendChild(empty)}
       host.appendChild(fragment);
+      if(holdLayout)requestAnimationFrame(()=>{if(searchSessionActive||isSearchInput())window.scrollTo({top:scrollBefore,left:window.scrollX,behavior:"auto"})});
+      if(animate)revealProductCards(list.map(p=>productCards.get(p.id)).filter(Boolean));
     }
     function updateHeader(){
       $$('[data-balance]').forEach(el=>el.textContent=state.user?money(state.balance):"Đăng nhập");
-      $$('[data-cart-count]').forEach(el=>el.textContent=cartCount());
+      const count=cartCount();
+      $$('[data-cart-count]').forEach(el=>{
+        el.textContent=count;el.hidden=count===0;
+        const button=el.closest('[data-action="cart"]');
+        if(button)button.setAttribute("aria-label",count?`Giỏ hàng, ${count} sản phẩm`:"Giỏ hàng trống");
+      });
     }
     function addCart(id,buy){
       const p=selectedProduct(id),plan=selectedPlan(p),count=stockCount(p,plan);
@@ -698,7 +1151,7 @@
     function authMarkup(){return `<form class="form" data-form="auth"><div class="panel-card"><strong id="authTitle">Đăng nhập để tiếp tục</strong><p style="font-size:10px;color:var(--muted);line-height:1.5">Đơn hàng, số dư và thông tin bàn giao được bảo vệ theo tài khoản.</p></div><label>Email<input name="email" type="email" autocomplete="email" required placeholder="email@example.com"></label><label>Mật khẩu<input name="password" type="password" minlength="6" required placeholder="Tối thiểu 6 ký tự"></label>${feedback()}<button class="full-btn" type="submit" data-mode="login">Đăng nhập</button><button class="outline-btn" type="button" data-sheet-action="toggle-auth">Chưa có tài khoản? Đăng ký</button></form>`}
     function cartMarkup(){
       if(!state.cart.length)return `<div class="empty">🛒<h3>Giỏ hàng đang trống</h3><p>Chọn sản phẩm phù hợp để bắt đầu đặt hàng.</p><button class="full-btn" data-sheet-action="close">Xem sản phẩm</button></div>`;
-      return `<div class="checkout-info-title">Thông tin mua hàng</div><div>${state.cart.map(i=>`<article class="cart-item"><span class="mini-logo mini-logo-${i.product.id}" style="background:${i.product.soft};color:${i.product.accent}"><img src="${esc(i.product.icon)}" alt="" loading="lazy" decoding="async" referrerpolicy="no-referrer" onerror="this.hidden=true;this.nextElementSibling.hidden=false"><span class="logo-fallback" hidden>${esc(i.product.logo)}</span></span><div><strong>${esc(i.product.name)}</strong><small>${esc(i.plan.name)}</small><b>${money(i.plan.price)}</b><div class="qty"><button type="button" data-qty="-1" data-key="${esc(i.key)}" aria-label="Giảm số lượng">−</button><span>${i.quantity}</span><button type="button" data-qty="1" data-key="${esc(i.key)}" aria-label="Tăng số lượng">＋</button></div></div><button type="button" class="remove" data-remove="${esc(i.key)}">Xóa</button></article>`).join("")}</div><div class="summary"><div class="checkout-total-card"><div class="summary-row"><span>Tạm tính</span><b>${money(cartTotal())}</b></div><div class="summary-row"><span>Phí xử lý</span><b>0đ</b></div><div class="summary-row total"><span>Tổng tiền thanh toán</span><b>${money(cartTotal())}</b></div></div>${feedback()}<button class="full-btn" data-sheet-action="checkout">Thanh toán</button></div>`
+      return `<div class="checkout-info-title">Thông tin mua hàng</div><div>${state.cart.map(i=>`<article class="cart-item"><span class="mini-logo mini-logo-${i.product.id}" style="background:${i.product.soft};color:${i.product.accent}"><img src="${esc(i.product.icon)}" alt="" loading="eager" decoding="async" referrerpolicy="no-referrer" onerror="this.hidden=true;this.nextElementSibling.hidden=false"><span class="logo-fallback" hidden>${esc(i.product.logo)}</span></span><div><strong>${esc(i.product.name)}</strong><small>${esc(i.plan.name)}</small><b>${money(i.plan.price)}</b><div class="qty"><button type="button" data-qty="-1" data-key="${esc(i.key)}" aria-label="Giảm số lượng">−</button><span>${i.quantity}</span><button type="button" data-qty="1" data-key="${esc(i.key)}" aria-label="Tăng số lượng">＋</button></div></div><button type="button" class="remove" data-remove="${esc(i.key)}">Xóa</button></article>`).join("")}</div><div class="summary"><div class="checkout-total-card"><div class="summary-row"><span>Tạm tính</span><b>${money(cartTotal())}</b></div><div class="summary-row"><span>Phí xử lý</span><b>0đ</b></div><div class="summary-row total"><span>Tổng tiền thanh toán</span><b>${money(cartTotal())}</b></div></div>${feedback()}<button class="full-btn" data-sheet-action="checkout">Thanh toán</button></div>`
     }
     function paymentMarkup(){return `<button class="back" data-sheet-action="back-cart">← Quay lại giỏ hàng</button><div class="panel-card balance-card"><span>Cần thanh toán</span><strong>${money(cartTotal())}</strong><small>${cartCount()} sản phẩm</small></div><p class="choice-label">Thanh toán bằng số dư</p><button class="method" data-sheet-action="pay-balance"><span class="method-icon">▤</span><span><strong>Số dư NovaKey</strong><small>Hiện có ${money(state.balance)}</small></span><span class="arrow">›</span></button><p class="choice-label">Hoặc thanh toán trực tiếp</p><div class="method-list"><button class="method" data-sheet-action="pay-bank"><span class="method-icon">🏦</span><span><strong>Chuyển khoản ngân hàng</strong><small>Quét VietQR, đúng số tiền và nội dung</small></span><span class="arrow">›</span></button><button class="method" data-sheet-action="pay-card"><span class="method-icon">▰</span><span><strong>Thanh toán bằng thẻ cào</strong><small>Viettel, Mobifone, Vinaphone</small></span><span class="arrow">›</span></button></div>${feedback()}`}
     function topupMarkup(){return `<button class="back" data-sheet-action="close">← Quay lại</button><div class="panel-card balance-card"><span>Số dư hiện tại</span><strong>${money(state.balance)}</strong><small>${esc(state.user?.email)}</small></div>${feedback()}<p class="choice-label">Chọn phương thức nạp</p><div class="method-list"><button class="method" data-sheet-action="open-bank-topup"><span class="method-icon">🏦</span><span><strong>Chuyển khoản ngân hàng</strong><small>QR và nội dung riêng cho tài khoản</small></span><span class="arrow">›</span></button><button class="method" data-sheet-action="open-card-topup"><span class="method-icon">▰</span><span><strong>Nạp bằng thẻ cào</strong><small>Hiển thị rõ số tiền thực nhận</small></span><span class="arrow">›</span></button></div><p class="choice-label">Lịch sử nạp gần đây</p>${state.topups.length?state.topups.slice(0,5).map(t=>`<div class="order-card"><div class="order-top"><strong>${esc(t.reference)}</strong><span class="status ${t.status}">${STATUS[t.status]||esc(t.status)}</span></div><p>${t.method==="bank"?"Ngân hàng":"Thẻ cào"} · ${t.approvedAmount?money(t.approvedAmount):t.expectedCredit?`Dự kiến ${money(t.expectedCredit)}`:"Chờ đối soát"}</p></div>`).join(""):`<div class="empty">Chưa có giao dịch nạp tiền.</div>`}`}
