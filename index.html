@@ -478,27 +478,8 @@
       border-color:rgba(109,74,255,.18)!important;
       box-shadow:0 16px 30px rgba(76,49,160,.18),inset 0 1px 0 rgba(255,255,255,.96)!important
     }
-    .mk-quick-selection-ring{
-      --quick-ring-x:0px;--quick-ring-y:0px;
-      position:absolute;z-index:4;left:0;top:0;display:block;pointer-events:none;
-      width:84px;height:70px;border-radius:14px;
-      transform:translate3d(var(--quick-ring-x),calc(var(--quick-ring-y) - 4px),0) scale(1.025);
-      transform-origin:center;filter:drop-shadow(0 6px 9px rgba(109,74,255,.16));
-      will-change:transform,width,height
-    }
-    .mk-quick-selection-ring.is-ready{
-      transition:transform .48s cubic-bezier(.22,1,.36,1),width .48s cubic-bezier(.22,1,.36,1),height .48s cubic-bezier(.22,1,.36,1),border-radius .32s ease
-    }
-    .mk-quick-selection-ring::before{
-      content:"";position:absolute;inset:-1px;border-radius:inherit;padding:2px;
-      background:conic-gradient(from 0deg,rgba(109,74,255,.16),#a98cff 18%,#6844f6 37%,rgba(255,255,255,.95) 53%,#7653f8 70%,rgba(109,74,255,.12));
-      -webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);
-      -webkit-mask-composite:xor;mask-composite:exclude;
-      animation:mkQuickRingSpin 2.8s linear infinite
-    }
     .mk-quick-item.is-popping::after{animation:mkQuickHalo .42s cubic-bezier(.22,1,.36,1)}
     .mk-quick-item.is-popping .mk-quick-icon{animation:mkQuickIconPop .42s cubic-bezier(.22,1,.36,1)}
-    @keyframes mkQuickRingSpin{to{transform:rotate(1turn)}}
     @keyframes mkQuickHalo{0%{opacity:.42;transform:scale(.82)}100%{opacity:0;transform:scale(1.28)}}
     @keyframes mkQuickIconPop{0%{transform:scale(.82)}55%{transform:scale(1.13)}100%{transform:scale(1)}}
 
@@ -545,7 +526,6 @@
     @media(prefers-reduced-motion:reduce){
       .mk-quick-item,.mk-promo{transition:none!important}
       .mk-quick-item.is-popping::after,.mk-quick-item.is-popping .mk-quick-icon{animation:none!important}
-      .mk-quick-selection-ring,.mk-quick-selection-ring::before{transition:none!important;animation:none!important}
     }
 </style>
 </head>
@@ -626,7 +606,7 @@
     let unsubWallet=null,unsubOrders=null,unsubTopups=null,unsubStock=null,unsubSettings=null;
     let adminUnsubs=[];
     let productRefreshFrame=0,searchTimer=0,adminRenderFrame=0,sheetCloseTimer=0,previousFocus=null,productRevealObserver=null;
-    let searchSessionActive=false,searchLayoutHeight=0,searchReleaseTimer=0,quickPopTimer=0,quickRingFrame=0;
+    let searchSessionActive=false,searchLayoutHeight=0,searchReleaseTimer=0,quickPopTimer=0;
     const productCards=new Map();
     const productRevealAnimations=new Map();
     const prefersReducedMotion=matchMedia("(prefers-reduced-motion: reduce)");
@@ -763,21 +743,6 @@
         searchSessionActive=false;searchLayoutHeight=0;$("#productGrid")?.style.removeProperty("min-height");
       },220);
     }
-    function syncQuickSelectionRing(){
-      const grid=$(".mk-quick-grid"),item=$(".mk-quick-item.active",grid);if(!grid||!item)return;
-      let ring=$(".mk-quick-selection-ring",grid);
-      if(!ring){
-        ring=document.createElement("span");ring.className="mk-quick-selection-ring";ring.setAttribute("aria-hidden","true");grid.append(ring);
-      }
-      ring.style.setProperty("--quick-ring-x",`${item.offsetLeft}px`);
-      ring.style.setProperty("--quick-ring-y",`${item.offsetTop}px`);
-      ring.style.width=`${item.offsetWidth}px`;ring.style.height=`${item.offsetHeight}px`;
-      ring.style.borderRadius=getComputedStyle(item).borderRadius;
-      if(!ring.classList.contains("is-ready"))requestAnimationFrame(()=>ring.classList.add("is-ready"));
-    }
-    window.addEventListener("resize",()=>{
-      cancelAnimationFrame(quickRingFrame);quickRingFrame=requestAnimationFrame(syncQuickSelectionRing);
-    },{passive:true});
     function popQuickCategory(category){
       const item=$(`.mk-quick-item[data-quick-category="${CSS.escape(category)}"]`);if(!item)return;
       clearTimeout(quickPopTimer);item.classList.remove("is-popping");void item.offsetWidth;item.classList.add("is-popping");
@@ -852,7 +817,6 @@
         b.classList.toggle("active",active);b.setAttribute("aria-pressed",String(active));
       });
       $$("[data-quick-category]",$("#app")).forEach(b=>b.classList.toggle("active",b.dataset.quickCategory===state.category));
-      syncQuickSelectionRing();
     }
     function updateDealState(){$$("[data-deal]",$("#app")).forEach(b=>b.classList.toggle("active",b.dataset.deal===state.deal))}
     function productCardMarkup(p){
