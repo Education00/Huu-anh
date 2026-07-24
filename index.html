@@ -533,6 +533,104 @@
     .mk-nav-icon .category-logo-img{width:19px;height:19px}
     .mk-quick-icon .category-logo-img{width:27px;height:27px}.category-logo-ai{border-radius:8px}.mk-nav-icon .category-logo-ai{width:17px;height:17px}.mk-quick-icon .category-logo-ai{width:22px;height:22px}
     @media(max-width:560px){.mk-quick-icon .category-logo-img{width:24px;height:24px}}
+
+
+    /* smooth navigation drawer v18 */
+    #sheetHost .sheet-layer.menu-layer{
+      background:rgba(12,8,28,.34)!important;
+      opacity:0;
+      -webkit-backdrop-filter:blur(0) saturate(112%);
+      backdrop-filter:blur(0) saturate(112%);
+      transition:
+        opacity .34s cubic-bezier(.22,1,.36,1),
+        visibility 0s linear .44s,
+        -webkit-backdrop-filter .42s cubic-bezier(.22,1,.36,1),
+        backdrop-filter .42s cubic-bezier(.22,1,.36,1)!important
+    }
+    #sheetHost .sheet-layer.menu-layer.sheet-visible{
+      opacity:1;
+      -webkit-backdrop-filter:blur(7px) saturate(124%);
+      backdrop-filter:blur(7px) saturate(124%);
+      transition-delay:0s!important
+    }
+    #sheetHost .sheet-layer.menu-layer.sheet-closing{
+      opacity:0;
+      -webkit-backdrop-filter:blur(0) saturate(112%);
+      backdrop-filter:blur(0) saturate(112%);
+      transition-duration:.30s,.30s,.34s,.34s!important;
+      transition-delay:0s!important
+    }
+    #sheetHost .sheet-layer.menu-layer>.sheet.menu-sheet{
+      transform:translate3d(calc(-100% - 18px),0,0) scale(.985)!important;
+      transform-origin:left center!important;
+      transition:transform .44s cubic-bezier(.16,1,.3,1)!important;
+      box-shadow:24px 0 70px rgba(19,12,47,.20)!important
+    }
+    #sheetHost .sheet-layer.menu-layer.sheet-visible>.sheet.menu-sheet{
+      transform:translate3d(0,0,0) scale(1)!important
+    }
+    #sheetHost .sheet-layer.menu-layer.sheet-closing>.sheet.menu-sheet{
+      transform:translate3d(calc(-100% - 12px),0,0) scale(.988)!important;
+      transition-duration:.36s!important;
+      transition-timing-function:cubic-bezier(.4,0,.2,1)!important
+    }
+    /* product-like stagger reveal for drawer content */
+    #sheetHost .menu-layer .menu-sheet .sheet-head{
+      opacity:0;
+      transform:translate3d(0,-8px,0);
+      transition:opacity .24s ease,transform .38s cubic-bezier(.16,1,.3,1)
+    }
+    #sheetHost .menu-layer .menu-sheet .drawer-item{
+      opacity:0;
+      transform:translate3d(0,34px,0) scale(.91);
+      transform-origin:50% 82%;
+      will-change:transform,opacity;
+      transition:opacity .30s ease,transform .56s cubic-bezier(.16,1,.3,1)
+    }
+    #sheetHost .menu-layer .menu-sheet .drawer-divider,
+    #sheetHost .menu-layer .menu-sheet .drawer-help{
+      opacity:0;
+      transform:translate3d(0,22px,0) scale(.96);
+      transform-origin:50% 80%;
+      transition:opacity .28s ease,transform .48s cubic-bezier(.16,1,.3,1)
+    }
+    #sheetHost .menu-layer.sheet-visible .menu-sheet .sheet-head,
+    #sheetHost .menu-layer.sheet-visible .menu-sheet .drawer-item,
+    #sheetHost .menu-layer.sheet-visible .menu-sheet .drawer-divider,
+    #sheetHost .menu-layer.sheet-visible .menu-sheet .drawer-help{
+      opacity:1;
+      transform:translate3d(0,0,0) scale(1)
+    }
+    #sheetHost .menu-layer.sheet-visible .menu-sheet .sheet-head{transition-delay:.035s}
+    #sheetHost .menu-layer.sheet-visible .menu-sheet .drawer-item:nth-of-type(1){transition-delay:.075s}
+    #sheetHost .menu-layer.sheet-visible .menu-sheet .drawer-item:nth-of-type(2){transition-delay:.13s}
+    #sheetHost .menu-layer.sheet-visible .menu-sheet .drawer-divider{transition-delay:.175s}
+    #sheetHost .menu-layer.sheet-visible .menu-sheet .drawer-item:nth-of-type(3){transition-delay:.205s}
+    #sheetHost .menu-layer.sheet-visible .menu-sheet .drawer-item:nth-of-type(4){transition-delay:.26s}
+    #sheetHost .menu-layer.sheet-visible .menu-sheet .drawer-help{transition-delay:.315s}
+    #sheetHost .menu-layer.sheet-closing .menu-sheet .sheet-head,
+    #sheetHost .menu-layer.sheet-closing .menu-sheet .drawer-item,
+    #sheetHost .menu-layer.sheet-closing .menu-sheet .drawer-divider,
+    #sheetHost .menu-layer.sheet-closing .menu-sheet .drawer-help{
+      opacity:0;
+      transform:translate3d(0,10px,0) scale(.98);
+      transition-delay:0s!important;
+      transition-duration:.13s,.20s!important
+    }
+    @media(max-width:520px){
+      #sheetHost .sheet-layer.menu-layer>.sheet.menu-sheet{
+        transform:translate3d(calc(-100% - 12px),0,0) scale(.99)!important
+      }
+      #sheetHost .sheet-layer.menu-layer.sheet-visible>.sheet.menu-sheet{transform:translate3d(0,0,0) scale(1)!important}
+      #sheetHost .sheet-layer.menu-layer.sheet-closing>.sheet.menu-sheet{transform:translate3d(calc(-100% - 8px),0,0) scale(.992)!important}
+    }
+    @media(prefers-reduced-motion:reduce){
+      #sheetHost .menu-layer .menu-sheet .sheet-head,
+      #sheetHost .menu-layer .menu-sheet .drawer-item,
+      #sheetHost .menu-layer .menu-sheet .drawer-divider,
+      #sheetHost .menu-layer .menu-sheet .drawer-help{transition:none!important}
+    }
+
 </style>
 </head>
 <body>
@@ -1005,7 +1103,7 @@
       state.sheet=null;
       layer.classList.remove("sheet-visible");layer.classList.add("sheet-closing");
       if(!animated||prefersReducedMotion.matches){finalizeSheetClose(token);return}
-      sheetCloseTimer=setTimeout(()=>finalizeSheetClose(token),340);
+      sheetCloseTimer=setTimeout(()=>finalizeSheetClose(token),layer.classList.contains("menu-layer")?410:340);
     }
     function sheetTitle(){return({cart:"Thông tin mua hàng",auth:"Tài khoản NovaKey",topup:"Nạp số dư",bankTopup:"Nạp bằng ngân hàng",cardTopup:"Nạp bằng thẻ cào",orders:"Đơn hàng của tôi",orderDetail:"Chi tiết đơn hàng",payment:"Phương thức thanh toán",orderBank:"Thanh toán ngân hàng",orderCard:"Thanh toán bằng thẻ cào",menu:"Điều hướng"})[state.sheet]||"NovaKey"}
     function sheetControlKey(el,index){
@@ -1108,7 +1206,7 @@
         <div class="drawer-divider"></div>
         <button class="drawer-item" data-sheet-action="topup"><span class="drawer-icon"><svg viewBox="0 0 24 24"><path d="M3 10h18"/><path d="M5 10v8M9 10v8M15 10v8M19 10v8"/><path d="M2 21h20M12 3 3 7v3h18V7z"/></svg></span><span><strong>Nạp tiền</strong><small>Ngân hàng hoặc thẻ cào</small></span><span class="drawer-arrow">›</span></button>
         <button class="drawer-item" data-sheet-action="orders"><span class="drawer-icon"><svg viewBox="0 0 24 24"><path d="M3 12a9 9 0 1 0 3-6.7"/><path d="M3 4v5h5"/><path d="M12 7v5l3 2"/></svg></span><span><strong>Lịch sử mua</strong><small>Đơn hàng và thông tin bàn giao</small></span><span class="drawer-arrow">›</span></button>
-        ${state.settings.zaloUrl?`<div class="drawer-help"><strong>Cần hỗ trợ?</strong><p>Liên hệ NovaKey khi bạn gặp vấn đề với đơn hàng.</p><a href="${esc(state.settings.zaloUrl)}" target="_blank" rel="noopener">Liên hệ Zalo</a></div>`:""}
+        <div class="drawer-help"><strong>Cần hỗ trợ?</strong><p>Liên hệ NovaKey khi bạn gặp vấn đề với đơn hàng.</p><a href="${esc(state.settings.zaloUrl||"https://zalo.me/")}" target="_blank" rel="noopener noreferrer">Liên hệ Zalo</a></div>
       </nav>`;
       if(state.sheet==="auth")return authMarkup();
       if(state.sheet==="cart")return cartMarkup();
@@ -1265,7 +1363,7 @@
       let frame=0,samples=[],suppressClickUntil=0;
       const clamp=(x,min=0,max=extent)=>Math.max(min,Math.min(max,x));
       const rubberBand=distance=>{const d=Math.max(1,extent),c=.55;return Math.min(24,(1-(1/(distance*c/d+1)))*d)};
-      const resisted=x=>x<0?-rubberBand(-x):x>extent?extent+rubberBand(x-extent):x;
+      const resisted=x=>x<0?0:x>extent?extent+rubberBand(x-extent):x;
       const transformFor=value=>vertical?`translate3d(0,${value}px,0)`:`translate3d(${direction*value}px,0,0)`;
       const clearInline=()=>{
         sheet.style.removeProperty("transition");sheet.style.removeProperty("transform");sheet.style.removeProperty("pointer-events");
@@ -1288,7 +1386,7 @@
       const finish=cancelled=>{if(!tracking)return;if(!dragging){clearDragState();clearInline();return}flush();const speed=velocity(),projected=current+speed*190;settle(!cancelled&&(speed>.38||projected>extent*.34),speed)};
       const readLiveOffset=()=>{const live=getComputedStyle(sheet).transform;let value=0;if(live&&live!=="none"){try{const matrix=new DOMMatrixReadOnly(live);value=vertical?matrix.m42:matrix.m41*direction}catch{}}return value};
       const begin=(primary,secondary)=>{if(tracking||!state.sheet)return false;tracking=true;dragging=false;extent=Math.max(1,vertical?sheet.getBoundingClientRect().height:sheet.getBoundingClientRect().width);startPrimary=primary;startSecondary=secondary;startOffset=clamp(readLiveOffset());current=target=startOffset;samples=[];record(startOffset);sheet.style.setProperty("transition","none","important");layer.style.transition="none";sheet.style.setProperty("transform",transformFor(startOffset),"important");return true};
-      const move=(primary,secondary,event)=>{if(!tracking)return;const dp=primary-startPrimary,ds=secondary-startSecondary,ap=Math.abs(dp),as=Math.abs(ds);if(!dragging){if(Math.hypot(dp,ds)<6)return;if(as>12&&as>ap*1.35){clearDragState();clearInline();return}if(ap<as*.72)return;if(vertical&&dp<0){clearDragState();clearInline();return}dragging=true;suppressClickUntil=performance.now()+450;sheet.classList.add("is-dragging");layer.classList.add("is-dragging");document.body.style.userSelect="none";document.body.style.webkitUserSelect="none"}event?.preventDefault?.();const next=startOffset+(vertical?dp:direction*dp);setPosition(next);record(clamp(next))};
+      const move=(primary,secondary,event)=>{if(!tracking)return;const dp=primary-startPrimary,ds=secondary-startSecondary,ap=Math.abs(dp),as=Math.abs(ds);if(!dragging){if(Math.hypot(dp,ds)<6)return;if(as>12&&as>ap*1.35){clearDragState();clearInline();return}if(ap<as*.72)return;if(vertical&&dp<0){clearDragState();clearInline();return}if(!vertical&&direction*dp<0){clearDragState();clearInline();return}dragging=true;suppressClickUntil=performance.now()+450;sheet.classList.add("is-dragging");layer.classList.add("is-dragging");document.body.style.userSelect="none";document.body.style.webkitUserSelect="none"}event?.preventDefault?.();const next=startOffset+(vertical?dp:direction*dp);setPosition(next);record(clamp(next))};
       const findTouch=(list,id)=>{for(const touch of list||[])if(touch.identifier===id)return touch;return null};
       const onTouchMove=e=>{const touch=findTouch(e.touches,activeTouchId);if(touch)move(vertical?touch.clientY:touch.clientX,vertical?touch.clientX:touch.clientY,e)};
       const onTouchEnd=e=>{const touch=findTouch(e.changedTouches,activeTouchId);if(touch&&dragging){const primary=vertical?touch.clientY:touch.clientX;const next=startOffset+(vertical?primary-startPrimary:direction*(primary-startPrimary));setPosition(next);record(clamp(next))}finish(false)};
