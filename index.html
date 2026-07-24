@@ -718,7 +718,7 @@
       {face:50000,receive:43000},{face:100000,receive:86000},{face:200000,receive:172000},
       {face:300000,receive:258000},{face:500000,receive:422500},{face:1000000,receive:845000}
     ];
-    const STATUS={awaiting_payment:"Chờ chuyển khoản",payment_review:"Chờ duyệt",fulfilled:"Đã giao hàng",approved:"Đã cộng số dư",rejected:"Đã từ chối"};
+    const STATUS={awaiting_payment:"Chờ chuyển khoản",payment_review:"Chờ xác nhận thanh toán",awaiting_delivery:"Đã thanh toán · Chờ hàng",fulfilled:"Đã giao hàng",approved:"Đã cộng số dư",rejected:"Đã từ chối"};
     const defaultSettings={bankId:"",bankName:"",accountNumber:"",accountName:"",zaloUrl:""};
 
     const state={
@@ -963,9 +963,9 @@
     }
     function updateDealState(){$$("[data-deal]",$("#app")).forEach(b=>b.classList.toggle("active",b.dataset.deal===state.deal))}
     function productCardMarkup(p){
-      const plan=selectedPlan(p),count=stockCount(p,plan),out=state.stockLoaded&&count<=0,blocked=!state.stockLoaded||out||state.stockError;
-      const stockText=state.stockError?"Không tải được kho":!state.stockLoaded?"Đang kiểm tra kho":out?"Hết hàng":`Còn ${count} tài khoản`;
-      return `<article class="product-card game-card ${out?"sold-out":""}" data-product="${p.id}">
+      const plan=selectedPlan(p),count=stockCount(p,plan),out=state.stockLoaded&&count<=0,blocked=!state.stockLoaded||state.stockError;
+      const stockText=state.stockError?"Không tải được kho":!state.stockLoaded?"Đang kiểm tra kho":out?"Hàng order":`Còn ${count} tài khoản`;
+      return `<article class="product-card game-card" data-product="${p.id}">
         <div class="product-visual" style="background:linear-gradient(135deg,${p.soft} 0%, #ffffff 48%, ${p.accent}22 100%)">
           <span class="badge">${esc(p.badge)}</span>
           <span class="art-glow"></span>
@@ -978,9 +978,9 @@
           <p class="product-description">${esc(p.description)}</p>
           <select class="plan-select" data-plan-product="${p.id}">${p.plans.map((x,i)=>`<option value="${i}" ${i===(state.plans[p.id]||0)?"selected":""}>${esc(x.name)}</option>`).join("")}</select>
           <div class="price-stock"><div><small>Giá gói</small><span class="price" data-card-price>${money(plan.price)}</span></div><span class="stock ${out?"out":state.stockError?"stock-error":""}" data-card-stock><i class="stock-dot"></i>${stockText}</span></div>
-          <div class="meta-line"><span>Thời hạn: <b data-card-plan>${esc(plan.name)}</b></span><span data-card-stock-meta>${out?'<b class="out-text">Hết hàng</b>':`<b>Còn ${state.stockLoaded?count:"?"}</b>`}</span></div>
-          <div class="product-actions game-actions-row"><button type="button" class="buy-now" data-buy="${p.id}" ${blocked?"disabled":""}>Mua ngay</button><button type="button" class="add-cart detail-btn" data-add="${p.id}" ${blocked?"disabled":""}>Thêm vào giỏ</button></div>
-        </div>${out?`<div class="sold-overlay"><strong>HẾT HÀNG</strong><span>Sản phẩm tạm hết hàng · Vui lòng chọn dịch vụ khác</span></div>`:""}</article>`;
+          <div class="meta-line"><span>Thời hạn: <b data-card-plan>${esc(plan.name)}</b></span><span data-card-stock-meta>${out?'<b class="out-text">Đặt hàng</b>':`<b>Còn ${state.stockLoaded?count:"?"}</b>`}</span></div>
+          <div class="product-actions game-actions-row"><button type="button" class="buy-now" data-buy="${p.id}" ${blocked?"disabled":""}>${out?"Đặt hàng":"Mua ngay"}</button><button type="button" class="add-cart detail-btn" data-add="${p.id}" ${blocked?"disabled":""}>Thêm vào giỏ</button></div>
+        </div></article>`;
     }
     function renderProducts(){
       const host=$("#productGrid");if(!host)return;
@@ -1007,18 +1007,16 @@
     function updateProductCard(p){
       if(!p)return;
       const card=productCards.get(p.id)||$("#productGrid")?.querySelector(`[data-product="${p.id}"]`);if(!card)return;
-      const plan=selectedPlan(p),count=stockCount(p,plan),out=state.stockLoaded&&count<=0,blocked=!state.stockLoaded||out||state.stockError;
-      const stockText=state.stockError?"Không tải được kho":!state.stockLoaded?"Đang kiểm tra kho":out?"Hết hàng":`Còn ${count} tài khoản`;
+      const plan=selectedPlan(p),count=stockCount(p,plan),out=state.stockLoaded&&count<=0,blocked=!state.stockLoaded||state.stockError;
+      const stockText=state.stockError?"Không tải được kho":!state.stockLoaded?"Đang kiểm tra kho":out?"Hàng order":`Còn ${count} tài khoản`;
       const select=$("[data-plan-product]",card);if(select&&select.value!==String(state.plans[p.id]||0))select.value=String(state.plans[p.id]||0);
       const price=$("[data-card-price]",card);if(price)price.textContent=money(plan.price);
       const stock=$("[data-card-stock]",card);if(stock){stock.classList.toggle("out",out);stock.classList.toggle("stock-error",state.stockError);const text=stock.lastChild;if(text&&text.nodeType===Node.TEXT_NODE)text.nodeValue=stockText;else stock.append(document.createTextNode(stockText))}
       const planName=$("[data-card-plan]",card);if(planName)planName.textContent=plan.name;
-      const meta=$("[data-card-stock-meta]",card);if(meta){const label=state.stockError?"Không khả dụng":!state.stockLoaded?"Đang tải":out?"Hết hàng":`Còn ${count}`;meta.textContent="";const b=document.createElement("b");b.textContent=label;if(out||state.stockError)b.className="out-text";meta.append(b)}
-      $$('[data-buy],[data-add]',card).forEach(btn=>btn.disabled=blocked);
-      card.classList.toggle("sold-out",out);
-      const overlay=$(".sold-overlay",card);
-      if(out&&!overlay)card.insertAdjacentHTML("beforeend",`<div class="sold-overlay"><strong>HẾT HÀNG</strong><span>Sản phẩm tạm hết hàng · Vui lòng chọn dịch vụ khác</span></div>`);
-      if(!out&&overlay)overlay.remove();
+      const meta=$("[data-card-stock-meta]",card);if(meta){const label=state.stockError?"Không khả dụng":!state.stockLoaded?"Đang tải":out?"Đặt hàng":`Còn ${count}`;meta.textContent="";const b=document.createElement("b");b.textContent=label;if(out||state.stockError)b.className="out-text";meta.append(b)}
+      $$('[data-buy],[data-add]',card).forEach(btn=>{btn.disabled=blocked;if(btn.matches('[data-buy]'))btn.textContent=out?"Đặt hàng":"Mua ngay"});
+      card.classList.remove("sold-out");
+      $(".sold-overlay",card)?.remove();
     }
     function updateAllProductCards(){PRODUCTS.forEach(updateProductCard)}
     function clearProductReveal(card){
@@ -1091,9 +1089,9 @@
     }
     function addCart(id,buy){
       const p=selectedProduct(id),plan=selectedPlan(p),count=stockCount(p,plan);
-      if(state.stockError||!state.stockLoaded||count<=0)return;
+      if(state.stockError||!state.stockLoaded)return;
       const key=`${p.id}|${plan.name}`,existing=state.cart.find(i=>i.key===key);
-      if(existing)existing.quantity=Math.min(count||10,existing.quantity+1);else state.cart.push({key,product:p,plan,quantity:1});
+      if(existing)existing.quantity=Math.min(10,existing.quantity+1);else state.cart.push({key,product:p,plan,quantity:1});
       saveCart();updateHeader();if(buy)openSheet("cart");
     }
     function handleAction(action,el){
@@ -1283,14 +1281,14 @@
       return `<button class="back" data-sheet-action="back-topup">← Chọn cách nạp khác</button><div class="gift-card-hero"><span>NOVAKEY GIFT CARD</span><strong>Quà tặng số dư</strong><small>Hệ thống sẽ kiểm tra mã ngay lập tức. Mã hợp lệ được cộng thẳng vào số dư và chỉ dùng được một lần.</small></div><form class="form" data-form="gift-card-topup" style="margin-top:16px"><label>Mã gift card<input name="code" autocomplete="off" maxlength="40" required placeholder="VD: NOVA-50K-ABCD" style="text-transform:uppercase;font-weight:850"></label>${feedback()}<button class="full-btn" type="submit">Nạp số dư ngay</button></form>`
     }
     function ordersMarkup(){return `<div class="panel-card" style="margin-bottom:14px"><span style="font-size:10px;color:var(--muted)">Tài khoản đang dùng</span><strong style="display:block;font-size:12px;margin-top:4px">${esc(state.user?.email)}</strong><button class="back" style="margin:10px 0 0" data-sheet-action="logout">Đăng xuất</button></div>${state.orders.length?state.orders.map(o=>`<button class="order-card" data-order="${o.id}"><div class="order-top"><div><strong>${esc(o.orderCode)}</strong><small style="display:block;margin-top:4px;color:var(--muted)">${time(o.createdAt)}</small></div><span class="status ${o.status}">${STATUS[o.status]||esc(o.status)}</span></div><p>${o.items?.slice(0,2).map(i=>`${esc(i.productName)} × ${i.quantity}`).join(" · ")}</p><b style="color:var(--blue)">${money(o.total)}</b></button>`).join(""):`<div class="empty">Chưa có đơn hàng.</div>`}`}
-    function orderDetailMarkup(o){if(!o)return `<div class="empty">Không tìm thấy đơn hàng.</div>`;return `<button class="back" data-sheet-action="back-orders">← Danh sách đơn hàng</button><div class="panel-card"><span class="status ${o.status}">${STATUS[o.status]||esc(o.status)}</span><h3>${esc(o.orderCode)}</h3><p style="font-size:10px;color:var(--muted)">${time(o.createdAt)}</p><div class="divider"></div>${o.items?.map(i=>`<div class="summary-row"><span>${esc(i.productName)} · ${esc(i.planName)} × ${i.quantity}</span><b>${money(i.lineTotal)}</b></div>`).join("")}${Number(o.discountAmount)>0?`<div class="summary-row discount-row"><span>Mã ${esc(o.discountCode||"")}</span><b>−${money(o.discountAmount)}</b></div>`:""}<div class="summary-row total"><span>Tổng cộng</span><b>${money(o.total)}</b></div></div>${o.status==="awaiting_payment"&&o.paymentMethod==="bank"?`<button class="full-btn" style="margin-top:14px" data-resume-bank="${o.id}">Mở lại mã QR</button>`:""}${o.status==="fulfilled"?`<p class="choice-label">Thông tin bàn giao</p>${(o.delivery||[]).map(d=>`<div class="delivery"><strong>${esc(d.productName)} · ${esc(d.planName)}</strong>${d.type==="credential"?`<code>Tài khoản: ${esc(d.account)}</code><code>Mật khẩu: ${esc(d.password)}</code>`:`<p>${esc(d.note)}</p>`}</div>`).join("")}`:`<div class="notice" style="margin-top:14px">${o.status==="rejected"?esc(o.rejectionReason||"Không xác minh được giao dịch."):"Đơn đang chờ xử lý. Thông tin bàn giao sẽ tự xuất hiện sau khi được duyệt."}</div>`}`}
+    function orderDetailMarkup(o){if(!o)return `<div class="empty">Không tìm thấy đơn hàng.</div>`;return `<button class="back" data-sheet-action="back-orders">← Danh sách đơn hàng</button><div class="panel-card"><span class="status ${o.status}">${STATUS[o.status]||esc(o.status)}</span><h3>${esc(o.orderCode)}</h3><p style="font-size:10px;color:var(--muted)">${time(o.createdAt)}</p><div class="divider"></div>${o.items?.map(i=>`<div class="summary-row"><span>${esc(i.productName)} · ${esc(i.planName)} × ${i.quantity}</span><b>${money(i.lineTotal)}</b></div>`).join("")}${Number(o.discountAmount)>0?`<div class="summary-row discount-row"><span>Mã ${esc(o.discountCode||"")}</span><b>−${money(o.discountAmount)}</b></div>`:""}<div class="summary-row total"><span>Tổng cộng</span><b>${money(o.total)}</b></div></div>${o.status==="awaiting_payment"&&o.paymentMethod==="bank"?`<button class="full-btn" style="margin-top:14px" data-resume-bank="${o.id}">Mở lại mã QR</button>`:""}${o.status==="fulfilled"?`<p class="choice-label">Thông tin bàn giao</p>${(o.delivery||[]).map(d=>`<div class="delivery"><strong>${esc(d.productName)} · ${esc(d.planName)}</strong>${d.type==="credential"?`<code>Tài khoản: ${esc(d.account)}</code><code>Mật khẩu: ${esc(d.password)}</code>`:`<p>${esc(d.note)}</p>`}</div>`).join("")}`:`<div class="notice" style="margin-top:14px">${o.status==="rejected"?esc(o.rejectionReason||"Không xác minh được giao dịch."):o.status==="awaiting_delivery"?"Đã thanh toán. Đây là hàng order, thông tin bàn giao sẽ xuất hiện ngay khi kho được bổ sung.":"Đơn đang chờ xác nhận thanh toán. Thông tin bàn giao sẽ tự xuất hiện sau khi được duyệt."}</div>`}`}
     function orderBankMarkup(o){
       const qr=bankQr({amount:o.total,content:o.orderCode});
       return `<button class="back" data-sheet-action="back-payment">← Chọn cách khác</button>${qr?`<div class="qr-wrap"><div class="qr-card"><img src="${qr}" alt="VietQR thanh toán đơn hàng" decoding="async"></div></div>`:`<div class="error">Admin chưa cấu hình tài khoản ngân hàng.</div>`}<div class="transfer-info"><div class="transfer-row"><span>Ngân hàng</span><b>${esc(state.settings.bankName||"-")}</b></div><div class="transfer-row"><span>Số tài khoản</span><b>${esc(state.settings.accountNumber||"-")}</b></div><div class="transfer-row"><span>Số tiền</span><b style="color:var(--blue)">${money(o.total)}</b></div><div class="transfer-row"><span>Nội dung</span><b style="color:var(--blue)">${esc(o.orderCode)}</b></div></div>${feedback()}<button class="full-btn" style="margin-top:15px" data-sheet-action="confirm-order-bank" data-order-id="${o.id}">Tôi đã chuyển khoản</button>`
     }
     function orderCardMarkup(){
       const face=Number(state.payload?.face||100000),rate=CARD_RATES.find(x=>x.face===face)||CARD_RATES[4];
-      return `<button class="back" data-sheet-action="back-payment">← Chọn cách khác</button><div class="notice-important"><div class="notice-title">⚠ LƯU Ý QUAN TRỌNG</div><div class="notice-content"><b>Vui lòng nhập đúng số seri thẻ, mã thẻ và chọn đúng mệnh giá thẻ.</b><div class="divider"></div><strong>Nếu khai báo sai mệnh giá:</strong> giao dịch được tính trên <b>50%</b> giá trị của mệnh giá thấp hơn.</div></div><div class="notice" style="margin-bottom:14px">Tổng đơn: <b>${money(cartTotal())}</b>. Có thể cần nhiều thẻ nếu số tiền thực nhận chưa đủ.</div><form class="form" data-form="order-card"><label>Loại thẻ<select name="provider"><option>Viettel</option><option>Mobifone</option><option>Vinaphone</option></select></label><label>Mệnh giá<select name="face" id="orderCardFace">${CARD_RATES.map(x=>`<option value="${x.face}" ${x.face===rate.face?"selected":""}>${money(x.face)} - Nhận ${money(x.receive)}</option>`).join("")}</select></label><label>Serial thẻ<input name="serial" required minlength="6" inputmode="numeric"></label><label>Mã thẻ (PIN)<input name="pin" required minlength="6" inputmode="numeric"></label><div class="receive-box"><span>Số tiền thực nhận</span><strong>${money(rate.receive)}</strong></div>${feedback()}<button class="full-btn" type="submit">Gửi thẻ thanh toán</button></form>`
+      return `<button class="back" data-sheet-action="back-payment">← Chọn cách khác</button><div class="notice-important"><div class="notice-title">⚠ LƯU Ý QUAN TRỌNG</div><div class="notice-content"><b>Vui lòng nhập đúng số seri thẻ, mã thẻ và chọn đúng mệnh giá thẻ.</b><div class="divider"></div><strong>Nếu khai báo sai mệnh giá:</strong> giao dịch được tính trên <b>50%</b> giá trị của mệnh giá thấp hơn.</div></div><div class="notice" style="margin-bottom:14px">Tổng đơn: <b>${money(cartPayable())}</b>. Có thể cần nhiều thẻ nếu số tiền thực nhận chưa đủ.</div><form class="form" data-form="order-card"><label>Loại thẻ<select name="provider"><option>Viettel</option><option>Mobifone</option><option>Vinaphone</option></select></label><label>Mệnh giá<select name="face" id="orderCardFace">${CARD_RATES.map(x=>`<option value="${x.face}" ${x.face===rate.face?"selected":""}>${money(x.face)} - Nhận ${money(x.receive)}</option>`).join("")}</select></label><label>Serial thẻ<input name="serial" required minlength="6" inputmode="numeric"></label><label>Mã thẻ (PIN)<input name="pin" required minlength="6" inputmode="numeric"></label><div class="receive-box"><span>Số tiền thực nhận</span><strong>${money(rate.receive)}</strong></div>${feedback()}<button class="full-btn" type="submit">Gửi thẻ thanh toán</button></form>`
     }
 
     async function sheetClick(e){
@@ -1299,7 +1297,7 @@
       const qty=e.target.closest("[data-qty]");if(qty){
         const item=state.cart.find(i=>i.key===qty.dataset.key);
         if(item){
-          const delta=Number(qty.dataset.qty)||0,max=state.stockLoaded&&!state.stockError?Math.max(0,stockCount(item.product,item.plan)):10;
+          const delta=Number(qty.dataset.qty)||0,max=10;
           if(delta>0){if(max>item.quantity)item.quantity=Math.min(max,item.quantity+delta)}else item.quantity=Math.max(0,item.quantity+delta);
           if(item.quantity<=0)state.cart=state.cart.filter(i=>i!==item);
           saveCart();renderSheet({preserve:true});updateHeader();
@@ -1367,7 +1365,17 @@
       if(!state.cart.length)throw Error("Giỏ hàng đang trống.");
       if(state.stockError)throw Error("Không thể kiểm tra kho lúc này, vui lòng thử lại sau.");
       if(!state.stockLoaded)throw Error("Kho hàng vẫn đang tải, vui lòng đợi vài giây.");
-      for(const i of state.cart){const count=stockCount(i.product,i.plan);if(state.stockLoaded&&count<i.quantity)throw Error(`${i.product.name} - ${i.plan.name} chỉ còn ${count} tài khoản.`)}
+      for(const i of state.cart)if(!Number.isInteger(i.quantity)||i.quantity<1||i.quantity>10)throw Error("Số lượng sản phẩm không hợp lệ.");
+    }
+    async function inventoryReservationPlan(){
+      const snap=await getDocs(query(collection(db,"inventory"),where("status","==","available")));
+      const pool=snap.docs.map(d=>({id:d.id,ref:d.ref,...d.data()})),chosen=[],pending=[];
+      for(const item of state.cart){
+        const available=pool.filter(x=>x.productId===item.product.id&&x.planName===item.plan.name&&!chosen.some(c=>c.id===x.id));
+        chosen.push(...available.slice(0,item.quantity));
+        if(available.length<item.quantity)pending.push({productId:item.product.id,productName:item.product.name,planName:item.plan.name,quantity:item.quantity-available.length});
+      }
+      return {ready:pending.length===0,chosen,pending};
     }
     async function createOrder(method,card=null){
       try{
@@ -1377,13 +1385,39 @@
         const payable=cartPayable();
         if(method==="balance"&&state.balance<payable)throw Error(`Số dư còn thiếu ${money(payable-state.balance)}.`);
         const ref=doc(collection(db,"orders")),code=`NVK-${ref.id.slice(0,8).toUpperCase()}`;
-        const data={...orderPayload(method,card),orderCode:code};
+
+        if(method==="balance"){
+          const reservation=await inventoryReservationPlan(),walletRef=doc(db,"wallets",state.user.uid),couponRef=coupon?doc(db,"discountCodes",coupon.code):null;
+          let finalData=null;
+          await runTransaction(db,async tx=>{
+            const walletSnap=await tx.get(walletRef),balance=walletSnap.exists()?Number(walletSnap.data().balance)||0:0;
+            if(balance<payable)throw Error(`Số dư còn thiếu ${money(payable-balance)}.`);
+            let liveCoupon=null;
+            if(couponRef){const snap=await tx.get(couponRef);if(!snap.exists())throw Error("Mã giảm giá không còn tồn tại.");liveCoupon={id:snap.id,...snap.data(),code:snap.id};assertCouponUsable(liveCoupon)}
+            const liveInventory=[];
+            if(reservation.ready){for(const item of reservation.chosen){const snap=await tx.get(item.ref);if(!snap.exists()||snap.data().status!=="available")throw Error("Một tài khoản trong kho vừa được người khác mua.");liveInventory.push({id:snap.id,ref:item.ref,...snap.data()})}}
+            const delivery=reservation.ready?liveInventory.map(x=>({productName:x.productName,planName:x.planName,type:"credential",account:x.account,password:x.password,note:x.note||"Đổi mật khẩu sau khi đăng nhập nếu sản phẩm cho phép."})):[];
+            finalData={...orderPayload(method,card),orderCode:code,status:reservation.ready?"fulfilled":"awaiting_delivery",delivery,pendingItems:reservation.pending,paidAt:serverTimestamp(),...(reservation.ready?{fulfilledAt:serverTimestamp()}:{})};
+            tx.set(ref,finalData);
+            tx.set(walletRef,{balance:balance-payable,updatedAt:serverTimestamp()},{merge:true});
+            if(couponRef)tx.update(couponRef,{usedCount:(Number(liveCoupon.usedCount)||0)+1,updatedAt:serverTimestamp()});
+            if(reservation.ready){
+              for(const item of liveInventory)tx.update(item.ref,{status:"sold",orderId:ref.id,userId:state.user.uid,soldAt:serverTimestamp()});
+              for(const item of state.cart)tx.set(doc(db,"stock",stockId(item.product.id,item.plan.name)),{productId:item.product.id,productName:item.product.name,planName:item.plan.name,count:Math.max(0,stockCount(item.product,item.plan)-item.quantity),updatedAt:serverTimestamp()},{merge:true});
+            }
+          });
+          const o={id:ref.id,...finalData,createdAt:null};state.cart=[];state.coupon=null;saveCart();updateHeader();openSheet("orderDetail",o);
+          state.message=reservation.ready?"Thanh toán thành công, sản phẩm trong kho đã được giao ngay.":"Thanh toán thành công, sản phẩm order đang chờ bổ sung kho để giao.";
+          return;
+        }
+
+        const data={...orderPayload(method,card),orderCode:code,pendingItems:[]};
         if(coupon){
           const couponRef=doc(db,"discountCodes",coupon.code);
           await runTransaction(db,async tx=>{const snap=await tx.get(couponRef);if(!snap.exists())throw Error("Mã giảm giá không còn tồn tại.");const live={id:snap.id,...snap.data(),code:snap.id};assertCouponUsable(live);tx.set(ref,data);tx.update(couponRef,{usedCount:(Number(live.usedCount)||0)+1,updatedAt:serverTimestamp()})});
         }else await setDoc(ref,data);
         const o={id:ref.id,...data,createdAt:null};
-        if(method==="bank")openSheet("orderBank",o);else{state.cart=[];state.coupon=null;saveCart();updateHeader();openSheet("orderDetail",{...o,status:"payment_review"});state.message="Đơn đã được gửi và đang chờ duyệt."}
+        if(method==="bank")openSheet("orderBank",o);else{state.cart=[];state.coupon=null;saveCart();updateHeader();openSheet("orderDetail",{...o,status:"payment_review"});state.message="Đã gửi thông tin thanh toán, đang chờ xác nhận."}
       }catch(err){state.error=friendlyError(err);renderSheet()}
     }
     async function confirmOrderBank(id){
@@ -1495,9 +1529,9 @@
     }
 
     function adminLoginMarkup(knownUser=false){const register=state.adminAuthMode==="register";return `<main class="admin-login-wrap"><section class="admin-login"><a class="brand" href="./"><span class="brand-mark">N</span><span>NovaKey</span></a><span class="kicker">Quản trị cửa hàng</span><h1>${knownUser?"Tài khoản chưa có quyền admin":register?"Tạo tài khoản admin":"Đăng nhập admin"}</h1>${knownUser?`<p style="font-size:11px;color:var(--muted);line-height:1.6">Tạo document trong collection <b>admins</b> với ID đúng bằng UID:</p><code class="uid">${esc(state.user.uid)}</code>${feedback()}<button class="full-btn" data-admin-action="retry-admin">Tôi đã tạo, kiểm tra lại</button><button class="outline-btn" data-admin-action="logout">Đăng xuất</button>`:`<form class="form" data-admin-form="login"><label>Email<input name="email" type="email" required></label><label>Mật khẩu<input name="password" type="password" minlength="6" required></label>${feedback()}<button class="full-btn" type="submit">${register?"Đăng ký":"Đăng nhập"}</button><button class="outline-btn" type="button" data-admin-action="switch-register">${register?"Đã có tài khoản? Đăng nhập":"Chưa có tài khoản? Đăng ký"}</button></form>`}<a class="back" href="./" style="display:block;margin-top:14px">← Quay lại cửa hàng</a></section></main>`}
-    function adminShell(){return `<main class="admin"><header class="admin-head"><a class="brand" href="./"><span class="brand-mark">N</span><span>NovaKey <small>ADMIN</small></span></a><div class="admin-head-actions"><a href="./">Xem cửa hàng</a><button data-admin-action="logout">Đăng xuất</button></div></header><div class="admin-wrap"><div class="stats"><div class="stat"><span>Đơn chờ duyệt</span><strong>${state.adminOrders.filter(x=>x.status==="payment_review").length}</strong></div><div class="stat"><span>Nạp tiền chờ duyệt</span><strong>${state.adminTopups.filter(x=>x.status==="payment_review").length}</strong></div><div class="stat"><span>Tài khoản sẵn có</span><strong>${state.adminInventory.filter(x=>x.status==="available").length}</strong></div></div><nav class="tabs">${[["orders","Đơn hàng"],["topups","Nạp tiền"],["inventory","Kho tài khoản"],["giftcards","Gift card"],["discounts","Mã giảm giá"],["settings","Cấu hình"]].map(([id,name])=>`<button class="${state.adminTab===id?"active":""}" data-admin-tab="${id}">${name}</button>`).join("")}</nav>${state.error?`<p class="error">${esc(state.error)}</p>`:""}${state.message?`<p class="success">${esc(state.message)}</p>`:""}<section class="admin-section">${adminSection()}</section></div></main>`}
+    function adminShell(){return `<main class="admin"><header class="admin-head"><a class="brand" href="./"><span class="brand-mark">N</span><span>NovaKey <small>ADMIN</small></span></a><div class="admin-head-actions"><a href="./">Xem cửa hàng</a><button data-admin-action="logout">Đăng xuất</button></div></header><div class="admin-wrap"><div class="stats"><div class="stat"><span>Đơn chờ duyệt</span><strong>${state.adminOrders.filter(x=>["payment_review","awaiting_delivery"].includes(x.status)).length}</strong></div><div class="stat"><span>Nạp tiền chờ duyệt</span><strong>${state.adminTopups.filter(x=>x.status==="payment_review").length}</strong></div><div class="stat"><span>Tài khoản sẵn có</span><strong>${state.adminInventory.filter(x=>x.status==="available").length}</strong></div></div><nav class="tabs">${[["orders","Đơn hàng"],["topups","Nạp tiền"],["inventory","Kho tài khoản"],["giftcards","Gift card"],["discounts","Mã giảm giá"],["settings","Cấu hình"]].map(([id,name])=>`<button class="${state.adminTab===id?"active":""}" data-admin-tab="${id}">${name}</button>`).join("")}</nav>${state.error?`<p class="error">${esc(state.error)}</p>`:""}${state.message?`<p class="success">${esc(state.message)}</p>`:""}<section class="admin-section">${adminSection()}</section></div></main>`}
     function adminSection(){if(state.adminTab==="orders")return adminOrdersMarkup();if(state.adminTab==="topups")return adminTopupsMarkup();if(state.adminTab==="inventory")return adminInventoryMarkup();if(state.adminTab==="giftcards")return adminGiftCardsMarkup();if(state.adminTab==="discounts")return adminDiscountsMarkup();return adminSettingsMarkup()}
-    function adminOrdersMarkup(){return `<div class="admin-title"><div><span class="kicker">Đơn hàng</span><h1>Đối soát và giao sản phẩm</h1></div><small>${state.adminOrders.length} đơn gần nhất</small></div><div class="admin-list">${state.adminOrders.length?state.adminOrders.map(o=>`<article class="admin-record"><div class="admin-record-head"><div><strong>${esc(o.orderCode)}</strong><small>${esc(o.customerEmail||o.userId)}</small></div><span class="status ${o.status}">${STATUS[o.status]||esc(o.status)}</span></div><div class="record-meta"><span>${o.paymentMethod==="bank"?"Ngân hàng":o.paymentMethod==="card"?"Thẻ cào":"Số dư"}</span><span>${time(o.createdAt)}</span><b>${money(o.total)}</b></div><div class="record-items">${(o.items||[]).map(i=>`<div>${esc(i.productName)} · ${esc(i.planName)} × ${i.quantity} — ${money(i.lineTotal)}</div>`).join("")}</div>${o.card?`<div class="secret"><b>${esc(o.card.provider)}</b><br>Serial: ${esc(o.card.serial)}<br>Mã thẻ: ${esc(o.card.code)}<br>Mệnh giá khai báo: ${money(o.card.declaredAmount||0)} · Dự kiến nhận: ${money(o.card.expectedCredit||0)}</div>`:""}${o.status==="payment_review"?`<div class="record-actions"><button data-approve-order="${o.id}">Duyệt & giao từ kho</button><button class="secondary-admin" data-support-order="${o.id}">Giao hỗ trợ</button><button class="danger" data-reject-order="${o.id}">Từ chối</button></div>`:""}</article>`).join(""):`<div class="empty">Chưa có đơn hàng.</div>`}</div>`}
+    function adminOrdersMarkup(){return `<div class="admin-title"><div><span class="kicker">Đơn hàng</span><h1>Đối soát và giao sản phẩm</h1></div><small>${state.adminOrders.length} đơn gần nhất</small></div><div class="admin-list">${state.adminOrders.length?state.adminOrders.map(o=>`<article class="admin-record"><div class="admin-record-head"><div><strong>${esc(o.orderCode)}</strong><small>${esc(o.customerEmail||o.userId)}</small></div><span class="status ${o.status}">${STATUS[o.status]||esc(o.status)}</span></div><div class="record-meta"><span>${o.paymentMethod==="bank"?"Ngân hàng":o.paymentMethod==="card"?"Thẻ cào":"Số dư"}</span><span>${time(o.createdAt)}</span><b>${money(o.total)}</b></div><div class="record-items">${(o.items||[]).map(i=>`<div>${esc(i.productName)} · ${esc(i.planName)} × ${i.quantity} — ${money(i.lineTotal)}</div>`).join("")}</div>${o.card?`<div class="secret"><b>${esc(o.card.provider)}</b><br>Serial: ${esc(o.card.serial)}<br>Mã thẻ: ${esc(o.card.code)}<br>Mệnh giá khai báo: ${money(o.card.declaredAmount||0)} · Dự kiến nhận: ${money(o.card.expectedCredit||0)}</div>`:""}${["payment_review","awaiting_delivery"].includes(o.status)?`<div class="record-actions"><button data-approve-order="${o.id}">Duyệt & giao từ kho</button><button class="secondary-admin" data-support-order="${o.id}">Giao hỗ trợ</button><button class="danger" data-reject-order="${o.id}">Từ chối</button></div>`:""}</article>`).join(""):`<div class="empty">Chưa có đơn hàng.</div>`}</div>`}
     function adminTopupsMarkup(){return `<div class="admin-title"><div><span class="kicker">Nạp số dư</span><h1>Duyệt ngân hàng, thẻ cào và gift card</h1></div></div><div class="admin-list">${state.adminTopups.length?state.adminTopups.map(t=>{const gift=state.adminGiftCards.find(g=>g.id===t.giftCardCode);const method=t.method==="bank"?"Chuyển khoản":t.method==="giftcard"?"Gift card":"Thẻ cào";return `<article class="admin-record"><div class="admin-record-head"><div><strong>${esc(t.reference)}</strong><small>${esc(t.customerEmail||t.userId)}</small></div><span class="status ${t.status}">${STATUS[t.status]||esc(t.status)}</span></div><div class="record-meta"><span>${method}</span><span>${time(t.createdAt)}</span><b>${t.method==="giftcard"?(gift?money(gift.value):"Mã không tồn tại"):t.method==="card"?money(t.amount):"Nhập số thực nhận"}</b></div>${t.card?`<div class="secret"><b>${esc(t.card.provider)}</b><br>Serial: ${esc(t.card.serial)}<br>Mã thẻ: ${esc(t.card.code)}<br>Khai báo: ${money(t.amount)} · Dự kiến: ${money(t.expectedCredit)}</div>`:""}${t.method==="giftcard"?`<div class="secret"><b>Mã gift card</b><br><span class="code-pill ${gift?.active===false?"inactive":""}">${esc(t.giftCardCode||"")}</span><br>Trạng thái: ${gift?gift.active===false?"Đã dùng / đã tắt":"Sẵn sàng":"Không tìm thấy mã"}</div>`:""}${t.status==="payment_review"?`<div class="record-actions">${t.method==="giftcard"?`<button data-approve-topup="${t.id}" ${!gift||gift.active===false?"disabled":""}>Xác nhận & cộng ${gift?money(gift.value):"tiền"}</button>`:`<input class="credit-input" type="number" min="2000" step="1000" value="${t.expectedCredit||t.approvedAmount||2000}" data-credit="${t.id}"><button data-approve-topup="${t.id}">Xác nhận & cộng tiền</button>`}<button class="danger" data-reject-topup="${t.id}">Từ chối</button></div>`:""}</article>`}).join(""):`<div class="empty">Chưa có yêu cầu nạp tiền.</div>`}</div>`}
     function adminInventoryMarkup(){return `<div class="admin-grid"><form class="admin-card form" data-admin-form="inventory"><div><span class="kicker">Kho tài khoản</span><h2>Thêm sản phẩm bàn giao</h2></div><label>Sản phẩm<select name="product" id="adminProduct">${PRODUCTS.map(p=>`<option value="${p.id}">${esc(p.name)}</option>`).join("")}</select></label><label>Gói<select name="plan" id="adminPlan">${PRODUCTS[0].plans.map(p=>`<option>${esc(p.name)}</option>`).join("")}</select></label><label>Tài khoản / key<input name="account" required></label><label>Mật khẩu<input name="password" required></label><label>Ghi chú<textarea name="note"></textarea></label><button class="full-btn" type="submit">Thêm vào kho</button><button class="outline-btn" type="button" data-admin-action="sync-stock">Đồng bộ số lượng công khai</button></form><div class="admin-card"><div class="admin-title"><div><span class="kicker">Tồn kho</span><h2>${state.adminInventory.filter(x=>x.status==="available").length} tài khoản sẵn có</h2></div></div>${state.adminInventory.map(i=>`<div class="inventory-row"><div><b>${esc(i.productName)}</b><small style="display:block;color:var(--muted)">${esc(i.planName)}</small></div><code>${esc(i.account)}</code><span class="status ${i.status}">${i.status==="available"?"Sẵn có":"Đã bán"}</span></div>`).join("")||`<div class="empty">Kho đang trống.</div>`}</div></div>`}
     function adminGiftCardsMarkup(){return `<div class="admin-code-grid"><form class="admin-card form" data-admin-form="giftcard"><div><span class="kicker">Gift card</span><h2>Tạo mã nạp số dư</h2></div><label>Mã gift card<input name="code" required maxlength="40" placeholder="NOVA-50K-ABCD" style="text-transform:uppercase"></label><label>Giá trị<input name="value" type="number" min="1000" step="1000" required placeholder="50000"></label><button class="full-btn" type="submit">Tạo gift card</button></form><div class="admin-card"><div class="admin-title"><div><span class="kicker">Danh sách</span><h2>${state.adminGiftCards.length} mã</h2></div></div><div class="admin-list">${state.adminGiftCards.length?state.adminGiftCards.map(g=>`<article class="admin-record"><div class="admin-record-head"><div><span class="code-pill ${g.active===false?"inactive":""}">${esc(g.id)}</span><small>${g.active===false?`Đã dùng bởi ${esc(g.usedByEmail||g.usedBy||"-")}`:"Chưa sử dụng"}</small></div><b>${money(g.value)}</b></div><div class="record-actions"><button class="${g.active===false?"secondary-admin":"danger"}" data-toggle-gift="${esc(g.id)}">${g.active===false?"Kích hoạt lại":"Tắt mã"}</button></div></article>`).join(""):`<div class="empty">Chưa có gift card.</div>`}</div></div></div>`}
@@ -1564,10 +1598,14 @@
         }
         const orderRef=doc(db,"orders",id),walletRef=doc(db,"wallets",o.userId),invRefs=chosen.map(x=>doc(db,"inventory",x.id));
         await runTransaction(db,async tx=>{
-          const os=await tx.get(orderRef);if(!os.exists()||os.data().status!=="payment_review")throw Error("Đơn đã được xử lý.");
-          if(o.paymentMethod==="balance"){const ws=await tx.get(walletRef),bal=ws.exists()?Number(ws.data().balance)||0:0;if(bal<total)throw Error("Số dư khách hàng không đủ.");tx.set(walletRef,{balance:bal-total,updatedAt:serverTimestamp()},{merge:true})}
-          for(const r of invRefs){const s=await tx.get(r);if(!s.exists()||s.data().status!=="available")throw Error("Một tài khoản trong kho vừa được dùng.");tx.update(r,{status:"sold",orderId:id,soldAt:serverTimestamp()})}
-          tx.update(orderRef,{status:"fulfilled",delivery,paidAt:serverTimestamp(),fulfilledAt:serverTimestamp(),updatedAt:serverTimestamp()});
+          const os=await tx.get(orderRef);if(!os.exists()||!["payment_review","awaiting_delivery"].includes(os.data().status))throw Error("Đơn đã được xử lý.");
+          let walletBalance=null;
+          if(o.paymentMethod==="balance"&&os.data().status==="payment_review"){const ws=await tx.get(walletRef);walletBalance=ws.exists()?Number(ws.data().balance)||0:0;if(walletBalance<total)throw Error("Số dư khách hàng không đủ.")}
+          const liveInventory=[];
+          for(const r of invRefs){const snap=await tx.get(r);if(!snap.exists()||snap.data().status!=="available")throw Error("Một tài khoản trong kho vừa được dùng.");liveInventory.push({ref:r,...snap.data()})}
+          if(walletBalance!==null)tx.set(walletRef,{balance:walletBalance-total,updatedAt:serverTimestamp()},{merge:true});
+          for(const item of liveInventory)tx.update(item.ref,{status:"sold",orderId:id,userId:o.userId,soldAt:serverTimestamp()});
+          tx.update(orderRef,{status:"fulfilled",delivery,pendingItems:[],paidAt:os.data().paidAt||serverTimestamp(),fulfilledAt:serverTimestamp(),updatedAt:serverTimestamp()});
         });
         state.message="Đã duyệt và bàn giao đơn hàng.";await syncStock(false);renderAdmin();
       }catch(err){state.error=friendlyError(err);renderAdmin()}
