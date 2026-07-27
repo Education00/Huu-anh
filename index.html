@@ -709,8 +709,47 @@
     .inventory-summary-row{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:10px;align-items:center;padding:12px;border:1px solid var(--line);border-radius:12px}
     .inventory-summary-row strong,.inventory-summary-row small{display:block}.inventory-summary-row small{margin-top:4px;color:var(--muted);font-size:9px}
     .inventory-summary-row b{color:var(--blue);font-size:12px}
+    .price-stack{display:flex;flex-direction:column;align-items:flex-start;min-width:0}
+    .original-price{color:var(--muted);font-size:10px;font-weight:700;text-decoration:line-through;line-height:1.2}
+    .original-price[hidden],.sale-badge[hidden]{display:none!important}
+    .sale-badge{position:absolute;z-index:5;right:13px;top:13px;border-radius:9px;padding:6px 8px;background:#e5232d;color:#fff;font-size:9px;font-weight:950;letter-spacing:.2px;box-shadow:0 5px 15px rgba(229,35,45,.24)}
+    .product-visual.has-cover .sale-badge{background:rgba(229,35,45,.94)}
+    .admin-product-item{user-select:none;-webkit-user-select:none;touch-action:pan-y;transition:transform .18s ease,box-shadow .18s ease,border-color .18s ease,opacity .18s ease;cursor:pointer}
+    .admin-product-item.dragging{opacity:.92;transform:scale(1.02);box-shadow:0 14px 34px rgba(40,28,92,.18);border-color:var(--blue);cursor:grabbing;z-index:3}
+    .admin-product-item.drag-over{border-color:var(--blue);box-shadow:0 0 0 3px var(--blue-soft)}
+    .admin-product-hold{display:flex;align-items:center;gap:5px;color:var(--muted);font-size:9px;font-weight:750}
+    .admin-product-hold:before{content:"⋮⋮";color:var(--blue);font-weight:950;letter-spacing:-2px}
+    .admin-back-row{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:15px}
+    .admin-back-button{height:39px;border:1px solid var(--line);border-radius:11px;background:var(--surface);padding:0 13px;color:var(--blue);font-size:10px;font-weight:850;cursor:pointer}
+    .admin-detail-grid{display:grid;grid-template-columns:minmax(0,.92fr) minmax(0,1.08fr);gap:18px;align-items:start}
+    .admin-detail-stack{display:flex;flex-direction:column;gap:14px}
+    .admin-detail-hero{display:grid;grid-template-columns:62px minmax(0,1fr);gap:13px;align-items:center}
+    .admin-detail-logo{width:62px;height:62px;border-radius:17px;display:grid;place-items:center;overflow:hidden;font-size:20px;font-weight:900}
+    .admin-detail-logo img{width:72%;height:72%;object-fit:contain}
+    .admin-detail-hero h1{font-size:23px;margin:0}.admin-detail-hero p{margin:5px 0 0;color:var(--muted);font-size:10px}
+    .admin-inline-stats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin-top:14px}
+    .admin-inline-stat{padding:11px;border:1px solid var(--line);border-radius:12px;background:var(--soft)}
+    .admin-inline-stat span{display:block;color:var(--muted);font-size:8px}.admin-inline-stat b{display:block;margin-top:4px;font-size:15px}
+    .admin-section-label{display:flex;align-items:end;justify-content:space-between;gap:12px;margin-bottom:11px}
+    .admin-section-label h2{font-size:17px;margin:4px 0 0}.admin-section-label small{color:var(--muted);font-size:9px}
+    .admin-current-cover{height:130px;border:1px solid var(--line);border-radius:13px;background:var(--soft);overflow:hidden;display:grid;place-items:center;color:var(--muted);font-size:9px}
+    .admin-current-cover img{width:100%;height:100%;object-fit:cover}
+    .admin-inventory-toolbar{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:10px}
+    .admin-inventory-toolbar select{height:38px;border:1px solid var(--line);border-radius:10px;background:var(--surface);padding:0 10px;font-size:10px;font-weight:750}
+    .inventory-account-list{display:flex;flex-direction:column;gap:8px;max-height:620px;overflow:auto;padding-right:2px}
+    .inventory-account-item{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:10px;align-items:center;border:1px solid var(--line);border-radius:12px;padding:11px;background:var(--surface)}
+    .inventory-account-item strong,.inventory-account-item small{display:block}.inventory-account-item strong{font-size:10px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.inventory-account-item small{font-size:8px;color:var(--muted);margin-top:4px}
+    .inventory-account-actions{display:flex;gap:5px}.inventory-account-actions button{height:32px;border:1px solid var(--line);border-radius:9px;background:var(--surface);padding:0 9px;font-size:9px;font-weight:850;cursor:pointer}.inventory-account-actions .danger{color:var(--red);border-color:#efc4c8}
+    .inventory-status{display:inline-flex;padding:4px 6px;border-radius:7px;background:#eff9f4;color:var(--green);font-size:8px;font-weight:850}.inventory-status.reserved{background:#fff6df;color:#8a6100}.inventory-status.sold{background:#eef1f7;color:#5f6673}.inventory-status.disabled{background:#fff0f1;color:var(--red)}
+    .inventory-summary-row{width:100%;background:var(--surface);text-align:left;cursor:pointer}
+    .inventory-summary-row:hover,.admin-customer-item:hover{border-color:#b9aafa;background:var(--blue-soft)}
+    .admin-customer-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+    .admin-customer-item{width:100%;display:grid;grid-template-columns:minmax(0,1fr) auto;gap:12px;align-items:center;padding:14px;border:1px solid var(--line);border-radius:13px;background:var(--surface);text-align:left;cursor:pointer}
+    .admin-customer-item strong,.admin-customer-item small{display:block}.admin-customer-item strong{font-size:11px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.admin-customer-item small{margin-top:4px;color:var(--muted);font-size:9px}.admin-customer-item b{color:var(--blue);font-size:12px}
+    .admin-ledger{display:flex;flex-direction:column;gap:8px}.admin-ledger-row{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:10px;padding:11px;border:1px solid var(--line);border-radius:11px}.admin-ledger-row strong,.admin-ledger-row small{display:block}.admin-ledger-row strong{font-size:10px}.admin-ledger-row small{font-size:8px;color:var(--muted);margin-top:4px}.admin-ledger-row b{font-size:11px;color:var(--blue)}
     @media(max-width:760px){.coupon-form{grid-template-columns:minmax(0,1fr) 104px}.coupon-form button{width:100%}.admin-code-grid{grid-template-columns:1fr}}
-    @media(max-width:760px){.admin-product-list{grid-template-columns:1fr}.admin-media-grid{grid-template-columns:1fr}.admin-plan-row{grid-template-columns:minmax(0,1fr) 112px 40px}.admin-product-item{grid-template-columns:auto minmax(0,1fr)}.admin-product-actions{grid-column:1/-1;justify-content:flex-start}.game-card .product-visual.has-cover .product-logo{width:38px!important;height:38px!important;border-radius:11px!important;left:8px!important;bottom:8px!important}.sold-ribbon{right:-35px;top:10px;font-size:6px;padding:4px 0}}
+    @media(max-width:760px){.admin-product-list,.admin-customer-list{grid-template-columns:1fr}.admin-media-grid{grid-template-columns:1fr}.admin-plan-row{grid-template-columns:minmax(0,1fr) 112px 40px}.admin-product-item{grid-template-columns:auto minmax(0,1fr)}.admin-product-actions{grid-column:1/-1;justify-content:flex-start}.admin-detail-grid{grid-template-columns:1fr}.game-card .product-visual.has-cover .product-logo{width:38px!important;height:38px!important;border-radius:11px!important;left:8px!important;bottom:8px!important}.sold-ribbon{right:-35px;top:10px;font-size:6px;padding:4px 0}}
+    @media(max-width:560px){.game-card .stock{font-size:7.5px!important;padding:5px 6px!important;white-space:nowrap}.game-card .stock-dot{width:6px!important;height:6px!important}.sale-badge{right:8px;top:8px;padding:4px 5px;font-size:6px;border-radius:6px}.original-price{font-size:7px}.admin-inline-stats{grid-template-columns:1fr}.inventory-account-item{grid-template-columns:1fr}.inventory-account-actions{justify-content:flex-start}}
 
 
     /* Active tab: chỉ phủ màu icon, không có nền/pill trượt */
@@ -4165,6 +4204,8 @@ html.nova-keyboard-open #sheetHost .auth-sheet[data-view="auth"] .nova-auth-page
       return {
         productId:item?.product_id??item?.productId??"",productName:item?.product_name??item?.productName??selectedProduct(item?.product_id??item?.productId)?.name??"Sản phẩm",
         planName:item?.plan_name??item?.planName??"",quantity:numberValue(item?.quantity),unitPrice:numberValue(item?.unit_price??item?.unitPrice),
+        originalUnitPrice:numberValue(item?.original_unit_price??item?.originalUnitPrice??item?.unit_price??item?.unitPrice),
+        productDiscountPercent:numberValue(item?.product_discount_percent??item?.productDiscountPercent),
         lineTotal:numberValue(item?.line_total??item?.lineTotal)
       }
     }
@@ -4178,7 +4219,7 @@ html.nova-keyboard-open #sheetHost .auth-sheet[data-view="auth"] .nova-auth-page
     function mapOrder(row){
       return {
         id:row.id,orderCode:row.order_code,userId:row.user_id,customerEmail:row.customer_email||"",items:(row.items||[]).map(mapOrderItem),
-        subtotal:numberValue(row.subtotal),discountAmount:numberValue(row.discount_amount),discountCode:row.discount_code||"",total:numberValue(row.total),
+        subtotal:numberValue(row.subtotal),discountAmount:numberValue(row.discount_amount),discountCode:row.discount_code||"",discountBreakdown:row.discount_breakdown||{},total:numberValue(row.total),
         itemCount:numberValue(row.item_count),paymentMethod:row.payment_method,status:row.status,delivery:(row.delivery||[]).map(mapDeliveryItem),
         rejectionReason:row.rejection_reason||"",reservedUntil:row.reserved_until,paidAt:row.paid_at,fulfilledAt:row.fulfilled_at,
         createdAt:row.created_at,updatedAt:row.updated_at,idempotencyKey:row.idempotency_key
@@ -4201,6 +4242,8 @@ html.nova-keyboard-open #sheetHost .auth-sheet[data-view="auth"] .nova-auth-page
     }
     function mapGiftCard(row){return {id:row.code,code:row.code,value:numberValue(row.value),active:row.active,usageLimit:numberValue(row.usage_limit),usedCount:numberValue(row.used_count),usedBy:row.used_by,usedByEmail:row.used_by_email||"",usedAt:row.used_at,createdAt:row.created_at,updatedAt:row.updated_at}}
     function mapDiscount(row){return {id:row.code,code:row.code,type:row.type,value:numberValue(row.value),minOrder:numberValue(row.min_order),maxDiscount:numberValue(row.max_discount),usageLimit:numberValue(row.usage_limit),usedCount:numberValue(row.used_count),productIds:Array.isArray(row.product_ids)?row.product_ids:[],active:row.active,startsAt:row.starts_at,expiresAt:row.expires_at,createdAt:row.created_at,updatedAt:row.updated_at}}
+    function mapCustomer(row){return {id:row.user_id||row.id,email:row.email||"",phone:row.phone||"",displayName:row.display_name||"",balance:numberValue(row.balance),discountPercent:numberValue(row.default_discount_percent),createdAt:row.created_at,updatedAt:row.updated_at}}
+    function mapAudit(row){return {id:row.id,actorId:row.actor_id,action:row.action||"",entityType:row.entity_type||"",entityId:row.entity_id||"",data:row.data||{},createdAt:row.created_at}}
     function mapStock(row){return {id:row.id,productId:row.product_id,productName:row.product_name,planName:row.plan_name,count:numberValue(row.count),updatedAt:row.updated_at}}
     function stableRequestKey(scope,payload){
       const raw=JSON.stringify(payload),storageKey=`novakey_idem_${scope}_${simpleHash(raw)}`;
@@ -4213,14 +4256,14 @@ html.nova-keyboard-open #sheetHost .auth-sheet[data-view="auth"] .nova-auth-page
     function channelUnsubscribe(channel){return ()=>{try{supabase.removeChannel(channel)}catch{}}}
     function catalogProductFromRow(row,plans,fallback){
       const rowPlans=(plans||[]).filter(x=>x.product_id===row.id&&x.is_active!==false).map(x=>({
-        name:x.name,price:numberValue(x.price),sortOrder:numberValue(x.sort_order)
+        id:x.id,name:x.name,price:numberValue(x.price),sortOrder:numberValue(x.sort_order),isActive:x.is_active!==false
       }));
       return {
         id:row.id,name:row.name,category:row.category,description:row.description||"",badge:row.badge||"",
         logo:row.logo||fallback?.logo||"N",logoUrl:row.logo_url||"",imageUrl:row.image_url||"",
         accent:row.accent||fallback?.accent||"#6d4aff",soft:row.soft||fallback?.soft||"#f1edff",
         icon:row.logo_url||BRAND_ICONS[row.id]||fallback?.icon||"",plans:rowPlans,
-        isActive:row.is_active!==false,sortOrder:numberValue(row.sort_order),deletedAt:row.deleted_at||null,
+        discountPercent:numberValue(row.discount_percent),isActive:row.is_active!==false,sortOrder:numberValue(row.sort_order),deletedAt:row.deleted_at||null,
         searchText:normalizeText(`${row.name} ${row.category} ${row.description||""}`)
       };
     }
@@ -4376,14 +4419,14 @@ html.nova-keyboard-open #sheetHost .auth-sheet[data-view="auth"] .nova-auth-page
     }
 
     const state={
-      user:null,balance:0,settings:{...defaultSettings},category:"Tất cả",search:"",sort:"popular",deal:"hot",coupon:null,
+      user:null,balance:0,customerDiscountPercent:0,settings:{...defaultSettings},category:"Tất cả",search:"",sort:"popular",deal:"hot",coupon:null,
       plans:{},stock:new Map(),stockLoaded:false,stockError:false,cart:[],orders:[],topups:[],sheet:null,payload:null,busy:false,authView:"login",authStep:1,authDraftEmail:"",verificationEmail:"",verificationPhone:"",passwordResetEmail:"",passwordRecovery:false,
-      admin:false,adminTab:"orders",adminAuthMode:"login",adminOrders:[],adminTopups:[],adminInventory:[],adminProducts:[],adminGiftCards:[],adminDiscountCodes:[],message:"",error:""
+      admin:false,adminTab:"orders",adminAuthMode:"login",adminOrders:[],adminTopups:[],adminInventory:[],adminProducts:[],adminGiftCards:[],adminDiscountCodes:[],adminCustomers:[],adminCustomerLogs:[],adminProductId:"",adminInventoryEditId:"",adminCustomerId:"",adminInventoryFilter:"all",message:"",error:""
     };
-    let unsubWallet=null,unsubOrders=null,unsubTopups=null,unsubStock=null,unsubSettings=null,unsubCatalog=null;
+    let unsubWallet=null,unsubProfile=null,unsubOrders=null,unsubTopups=null,unsubStock=null,unsubSettings=null,unsubCatalog=null;
     let loggingOut=false;
     let adminUnsubs=[];
-    let productRefreshFrame=0,searchTimer=0,adminRenderFrame=0,sheetCloseTimer=0,previousFocus=null,productRevealObserver=null,draggedProductId="";
+    let productRefreshFrame=0,searchTimer=0,adminRenderFrame=0,sheetCloseTimer=0,previousFocus=null,productRevealObserver=null,draggedProductId="",adminHoldTimer=0,adminPointerId=null,adminPointerStartX=0,adminPointerStartY=0,adminDragActive=false,adminSuppressClick=false;
     let searchSessionActive=false,searchLayoutHeight=0,searchReleaseTimer=0,quickPopTimer=0,qtyRenderTimer=0;
     const productCards=new Map();
     const productRevealAnimations=new Map();
@@ -4393,11 +4436,14 @@ html.nova-keyboard-open #sheetHost .auth-sheet[data-view="auth"] .nova-auth-page
     function selectedPlan(p){return p.plans[state.plans[p.id]||0]}
     function stockCount(p,plan){return Number(state.stock.get(`${p.id}|${plan.name}`)??0)}
     function cartCount(){return state.cart.reduce((n,i)=>n+i.quantity,0)}
-    function cartTotal(){return state.cart.reduce((n,i)=>n+i.plan.price*i.quantity,0)}
+    function clampPercent(value){return Math.max(0,Math.min(100,Number(value)||0))}
+    function formatPercent(value){const n=clampPercent(value);return Number.isInteger(n)?String(n):n.toFixed(2).replace(/0+$/,"").replace(/\.$/,"")}
+    function effectivePlanPrice(product,plan){return Math.max(0,Math.floor((Number(plan?.price)||0)*(100-clampPercent(product?.discountPercent))/100))}
+    function cartTotal(){return state.cart.reduce((n,i)=>n+effectivePlanPrice(i.product,i.plan)*i.quantity,0)}
     function couponEligibleSubtotal(coupon=state.coupon){
       if(!coupon)return 0;
       const ids=Array.isArray(coupon.productIds)?coupon.productIds.filter(Boolean):[];
-      return state.cart.reduce((sum,item)=>sum+(!ids.length||ids.includes(item.product.id)?item.plan.price*item.quantity:0),0)
+      return state.cart.reduce((sum,item)=>sum+(!ids.length||ids.includes(item.product.id)?effectivePlanPrice(item.product,item.plan)*item.quantity:0),0)
     }
     function couponDiscount(coupon=state.coupon){
       if(!coupon||coupon.active===false||cartTotal()<Number(coupon.minOrder||0))return 0;
@@ -4406,7 +4452,8 @@ html.nova-keyboard-open #sheetHost .auth-sheet[data-view="auth"] .nova-auth-page
       const cap=Number(coupon.maxDiscount||0);if(cap>0)amount=Math.min(amount,cap);
       return Math.max(0,Math.min(eligible,Math.floor(amount)))
     }
-    function cartPayable(){return Math.max(0,cartTotal()-couponDiscount())}
+    function customerDiscountAmount(){return Math.max(0,Math.floor(Math.max(0,cartTotal()-couponDiscount())*clampPercent(state.customerDiscountPercent)/100))}
+    function cartPayable(){return Math.max(0,cartTotal()-couponDiscount()-customerDiscountAmount())}
     function normalizeCode(value){return String(value||"").trim().toUpperCase().replace(/\s+/g,"")}
     function customProductId(name){const base=(slug(String(name||""))||"san-pham").slice(0,38);return `${base}-${Date.now().toString(36).slice(-5)}`}
     function couponLabel(coupon=state.coupon){if(!coupon)return"";return coupon.type==="fixed"?`Giảm ${money(coupon.value)}`:`Giảm ${Number(coupon.value)||0}%${Number(coupon.maxDiscount||0)>0?` · tối đa ${money(coupon.maxDiscount)}`:""}`}
@@ -4673,12 +4720,13 @@ html.nova-keyboard-open #sheetHost .auth-sheet[data-view="auth"] .nova-auth-page
     }
     function productCardMarkup(p){
       const plan=selectedPlan(p),count=stockCount(p,plan),out=state.stockLoaded&&count<=0,blocked=!state.stockLoaded||state.stockError;
-      const hasCover=Boolean(p.imageUrl),multiPlan=p.plans.length>1,planLabel=plan.name==="Mặc định"?"Không chia gói":plan.name;
-      const stockText=state.stockError?"Không tải được kho":!state.stockLoaded?"Đang kiểm tra kho":out?"Hàng order":`Còn ${count} tài khoản`;
+      const hasCover=Boolean(p.imageUrl),multiPlan=p.plans.length>1,planLabel=plan.name==="Mặc định"?"Không chia gói":plan.name,salePercent=clampPercent(p.discountPercent),salePrice=effectivePlanPrice(p,plan);
+      const stockText=state.stockError?"Lỗi kho":!state.stockLoaded?"Đang tải":out?"Hết hàng":`Còn ${count}`;
       return `<article class="product-card game-card" data-product="${p.id}">
         <div class="product-visual ${hasCover?"has-cover":""}" style="background:linear-gradient(135deg,${p.soft} 0%, #ffffff 48%, ${p.accent}22 100%)">
           ${hasCover?`<img class="product-cover" src="${esc(p.imageUrl)}" alt="Ảnh minh họa ${esc(p.name)}" loading="lazy" decoding="async">`:""}
           ${p.badge?`<span class="badge">${esc(p.badge)}</span>`:""}
+          <span class="sale-badge" data-card-sale ${salePercent>0?"":"hidden"}>−${formatPercent(salePercent)}%</span>
           <span class="sold-ribbon" data-sold-ribbon ${out?"":"hidden"}>Hết hàng</span>
           <span class="art-glow"></span>
           <span class="product-logo product-logo-${p.id}" style="color:${p.accent}">${p.icon?`<img src="${esc(p.icon)}" alt="Logo ${esc(p.name)}" loading="eager" decoding="async" referrerpolicy="no-referrer" onerror="this.hidden=true;this.nextElementSibling.hidden=false"><span class="logo-fallback" hidden>${esc(p.logo)}</span>`:`<span class="logo-fallback">${esc(p.logo)}</span>`}</span>
@@ -4689,7 +4737,7 @@ html.nova-keyboard-open #sheetHost .auth-sheet[data-view="auth"] .nova-auth-page
           <h3>${esc(p.name)}</h3>
           <p class="product-description">${esc(p.description)}</p>
           <select class="plan-select" data-plan-product="${p.id}" ${multiPlan?"":"hidden"}>${p.plans.map((x,i)=>`<option value="${i}" ${i===(state.plans[p.id]||0)?"selected":""}>${esc(x.name)}</option>`).join("")}</select>
-          <div class="price-stock"><div><small>${multiPlan?"Giá gói":"Giá bán"}</small><span class="price" data-card-price>${money(plan.price)}</span></div><span class="stock ${out?"out":state.stockError?"stock-error":""}" data-card-stock><i class="stock-dot"></i>${stockText}</span></div>
+          <div class="price-stock"><div class="price-stack"><small>${multiPlan?"Giá gói":"Giá bán"}</small><span class="original-price" data-card-original ${salePercent>0?"":"hidden"}>${money(plan.price)}</span><span class="price" data-card-price>${money(salePrice)}</span></div><span class="stock ${out?"out":state.stockError?"stock-error":""}" data-card-stock><i class="stock-dot"></i>${stockText}</span></div>
           <div class="meta-line"><span>${multiPlan?"Gói":"Loại"}: <b data-card-plan>${esc(planLabel)}</b></span><span data-card-stock-meta>${out?'<b class="out-text">Đặt hàng</b>':`<b>Còn ${state.stockLoaded?count:"?"}</b>`}</span></div>
           <div class="product-actions game-actions-row"><button type="button" class="buy-now" data-buy="${p.id}" ${blocked?"disabled":""}>${out?"Đặt hàng":"Mua ngay"}</button></div>
         </div></article>`;
@@ -4718,10 +4766,12 @@ html.nova-keyboard-open #sheetHost .auth-sheet[data-view="auth"] .nova-auth-page
     function updateProductCard(p){
       if(!p)return;
       const card=productCards.get(p.id)||$("#productGrid")?.querySelector(`[data-product="${p.id}"]`);if(!card)return;
-      const plan=selectedPlan(p),count=stockCount(p,plan),out=state.stockLoaded&&count<=0,blocked=!state.stockLoaded||state.stockError;
-      const stockText=state.stockError?"Không tải được kho":!state.stockLoaded?"Đang kiểm tra kho":out?"Hàng order":`Còn ${count} tài khoản`;
+      const plan=selectedPlan(p),count=stockCount(p,plan),out=state.stockLoaded&&count<=0,blocked=!state.stockLoaded||state.stockError,salePercent=clampPercent(p.discountPercent),salePrice=effectivePlanPrice(p,plan);
+      const stockText=state.stockError?"Lỗi kho":!state.stockLoaded?"Đang tải":out?"Hết hàng":`Còn ${count}`;
       const select=$("[data-plan-product]",card);if(select&&select.value!==String(state.plans[p.id]||0))select.value=String(state.plans[p.id]||0);
-      const price=$("[data-card-price]",card);if(price)price.textContent=money(plan.price);
+      const price=$("[data-card-price]",card);if(price)price.textContent=money(salePrice);
+      const original=$("[data-card-original]",card);if(original){original.textContent=money(plan.price);original.hidden=salePercent<=0}
+      const sale=$("[data-card-sale]",card);if(sale){sale.textContent=`−${formatPercent(salePercent)}%`;sale.hidden=salePercent<=0}
       const stock=$("[data-card-stock]",card);if(stock){stock.classList.toggle("out",out);stock.classList.toggle("stock-error",state.stockError);const text=stock.lastChild;if(text&&text.nodeType===Node.TEXT_NODE)text.nodeValue=stockText;else stock.append(document.createTextNode(stockText))}
       const planName=$("[data-card-plan]",card);if(planName)planName.textContent=plan.name==="Mặc định"?"Không chia gói":plan.name;
       const meta=$("[data-card-stock-meta]",card);if(meta){const label=state.stockError?"Không khả dụng":!state.stockLoaded?"Đang tải":out?"Đặt hàng":`Còn ${count}`;meta.textContent="";const b=document.createElement("b");b.textContent=label;if(out||state.stockError)b.className="out-text";meta.append(b)}
@@ -4777,9 +4827,9 @@ html.nova-keyboard-open #sheetHost .auth-sheet[data-view="auth"] .nova-auth-page
       searchLayoutHeight=0;
       const needle=normalizeText(state.search);
       let list=PRODUCTS.filter(p=>(state.category==="Tất cả"||p.category===state.category)&&(!needle||p.searchText.includes(needle)));
-      if(state.deal==="under100")list=list.filter(p=>selectedPlan(p).price<100000);
-      if(state.sort==="price-low")list=[...list].sort((a,b)=>selectedPlan(a).price-selectedPlan(b).price);
-      if(state.sort==="price-high")list=[...list].sort((a,b)=>selectedPlan(b).price-selectedPlan(a).price);
+      if(state.deal==="under100")list=list.filter(p=>effectivePlanPrice(p,selectedPlan(p))<100000);
+      if(state.sort==="price-low")list=[...list].sort((a,b)=>effectivePlanPrice(a,selectedPlan(a))-effectivePlanPrice(b,selectedPlan(b)));
+      if(state.sort==="price-high")list=[...list].sort((a,b)=>effectivePlanPrice(b,selectedPlan(b))-effectivePlanPrice(a,selectedPlan(a)));
       const visible=new Set(list.map(p=>p.id)),fragment=document.createDocumentFragment();
       list.forEach((p,index)=>{
         const card=productCards.get(p.id);if(!card)return;
@@ -5256,18 +5306,18 @@ html.nova-keyboard-open #sheetHost .auth-sheet[data-view="auth"] .nova-auth-page
       const identity=userIdentity()||"Tài khoản NovaKey",initial=identity.trim().charAt(0).toUpperCase()||"N";
       return `<section class="nova-account-page"><header class="nova-page-head"><h1>Tôi</h1><p>${esc(identity)}</p></header>
         <article class="nova-profile-card"><span class="nova-avatar">${esc(initial)}</span><div class="nova-profile-copy"><small>Tài khoản NovaKey</small><strong>${esc(identity)}</strong><span class="nova-profile-status">● Đã đăng nhập</span></div></article>
-        <article class="nova-balance-card"><small>Số dư hiện tại</small><strong>${money(state.balance)}</strong><p>Dùng để thanh toán nhanh các sản phẩm có sẵn trong kho.</p></article>
+        <article class="nova-balance-card"><small>Số dư hiện tại</small><strong>${money(state.balance)}</strong><p>${state.customerDiscountPercent>0?`Ưu đãi mặc định ${formatPercent(state.customerDiscountPercent)}% được tự động áp dụng khi thanh toán.`:"Dùng để thanh toán nhanh các sản phẩm có sẵn trong kho."}</p></article>
         <p class="nova-section-label">Quản lý tài khoản</p><div class="nova-account-actions"><button class="nova-account-action" data-sheet-action="orders"><span class="nova-account-action-icon">▤</span><span><strong>Đơn hàng của tôi</strong><small>Xem trạng thái và thông tin bàn giao</small></span><span class="arrow">›</span></button><button class="nova-account-action" data-sheet-action="topup"><span class="nova-account-action-icon">＋</span><span><strong>Nạp tiền</strong><small>Ngân hàng, thẻ cào hoặc gift card</small></span><span class="arrow">›</span></button></div>
         <button class="nova-logout" data-sheet-action="logout">Đăng xuất</button></section>`;
     }
 
     function cartMarkup(){
       if(!state.cart.length)return `<div class="empty">🛍<h3>Chưa chọn sản phẩm</h3><p>Quay lại cửa hàng và bấm "Mua ngay" ở sản phẩm bạn cần.</p><button class="full-btn" data-sheet-action="close">Xem sản phẩm</button></div>`;
-      const discount=couponDiscount();
+      const discount=couponDiscount(),accountDiscount=customerDiscountAmount();
       const couponBox=state.coupon
         ?`<div class="coupon-box"><div class="coupon-applied"><div><strong>${esc(state.coupon.code)}</strong><small>${esc(couponLabel())}</small></div><button type="button" class="coupon-remove" data-sheet-action="remove-coupon">Bỏ mã</button></div></div>`
         :`<div class="coupon-box"><form class="coupon-form" data-form="coupon"><input name="code" type="text" autocomplete="off" maxlength="32" required placeholder="Nhập mã giảm giá"><button type="submit">Xác minh</button></form></div>`;
-      return `<div class="checkout-info-title">Thông tin mua hàng</div><div>${state.cart.map(i=>`<article class="cart-item"><span class="mini-logo mini-logo-${i.product.id}" style="background:${i.product.soft};color:${i.product.accent}">${i.product.icon?`<img src="${esc(i.product.icon)}" alt="" loading="eager" decoding="async" referrerpolicy="no-referrer" onerror="this.hidden=true;this.nextElementSibling.hidden=false"><span class="logo-fallback" hidden>${esc(i.product.logo)}</span>`:`<span class="logo-fallback">${esc(i.product.logo)}</span>`}</span><div><strong>${esc(i.product.name)}</strong>${i.plan.name==="Mặc định"?"":`<small>${esc(i.plan.name)}</small>`}<b>${money(i.plan.price)}</b><div class="qty"><button type="button" data-qty="-1" data-key="${esc(i.key)}" aria-label="Giảm số lượng" ${i.quantity<=1?"disabled":""}>−</button><span class="qty-number" aria-live="polite">${i.quantity}</span><button type="button" data-qty="1" data-key="${esc(i.key)}" aria-label="Tăng số lượng">＋</button></div></div><button type="button" class="remove" data-remove="${esc(i.key)}">Xóa</button></article>`).join("")}</div><div class="summary">${couponBox}<div class="checkout-total-card"><div class="summary-row"><span>Tạm tính</span><b>${money(cartTotal())}</b></div>${discount?`<div class="summary-row discount-row"><span>Mã ${esc(state.coupon.code)}</span><b>−${money(discount)}</b></div>`:""}<div class="summary-row"><span>Phí xử lý</span><b>0đ</b></div><div class="summary-row total"><span>Tổng tiền thanh toán</span><b>${money(cartPayable())}</b></div></div>${feedback()}<button class="full-btn" data-sheet-action="checkout">Đặt hàng</button></div>`
+      return `<div class="checkout-info-title">Thông tin mua hàng</div><div>${state.cart.map(i=>{const sale=effectivePlanPrice(i.product,i.plan),hasSale=sale<i.plan.price;return `<article class="cart-item"><span class="mini-logo mini-logo-${i.product.id}" style="background:${i.product.soft};color:${i.product.accent}">${i.product.icon?`<img src="${esc(i.product.icon)}" alt="" loading="eager" decoding="async" referrerpolicy="no-referrer" onerror="this.hidden=true;this.nextElementSibling.hidden=false"><span class="logo-fallback" hidden>${esc(i.product.logo)}</span>`:`<span class="logo-fallback">${esc(i.product.logo)}</span>`}</span><div><strong>${esc(i.product.name)}</strong>${i.plan.name==="Mặc định"?"":`<small>${esc(i.plan.name)}</small>`}${hasSale?`<small style="text-decoration:line-through">${money(i.plan.price)}</small>`:""}<b>${money(sale)}</b><div class="qty"><button type="button" data-qty="-1" data-key="${esc(i.key)}" aria-label="Giảm số lượng" ${i.quantity<=1?"disabled":""}>−</button><span class="qty-number" aria-live="polite">${i.quantity}</span><button type="button" data-qty="1" data-key="${esc(i.key)}" aria-label="Tăng số lượng">＋</button></div></div><button type="button" class="remove" data-remove="${esc(i.key)}">Xóa</button></article>`}).join("")}</div><div class="summary">${couponBox}<div class="checkout-total-card"><div class="summary-row"><span>Tạm tính</span><b>${money(cartTotal())}</b></div>${discount?`<div class="summary-row discount-row"><span>Mã ${esc(state.coupon.code)}</span><b>−${money(discount)}</b></div>`:""}${accountDiscount?`<div class="summary-row discount-row"><span>Ưu đãi tài khoản ${formatPercent(state.customerDiscountPercent)}%</span><b>−${money(accountDiscount)}</b></div>`:""}<div class="summary-row"><span>Phí xử lý</span><b>0đ</b></div><div class="summary-row total"><span>Tổng tiền thanh toán</span><b>${money(cartPayable())}</b></div></div>${feedback()}<button class="full-btn" data-sheet-action="checkout">Đặt hàng</button></div>`
     }
     function paymentMarkup(){return `<button class="back" data-sheet-action="back-cart">← Quay lại giỏ hàng</button><div class="panel-card balance-card"><span>Cần thanh toán</span><strong>${money(cartPayable())}</strong><small>${cartCount()} sản phẩm</small></div><p class="choice-label">Thanh toán bằng số dư</p><button class="method" data-sheet-action="pay-balance"><span class="method-icon">▤</span><span><strong>Số dư NovaKey</strong><small>Hiện có ${money(state.balance)}</small></span><span class="arrow">›</span></button><p class="choice-label">Hoặc thanh toán trực tiếp</p><div class="method-list"><button class="method" data-sheet-action="pay-bank"><span class="method-icon">🏦</span><span><strong>Chuyển khoản ngân hàng</strong><small>Quét VietQR, đúng số tiền và nội dung</small></span><span class="arrow">›</span></button></div><div class="notice" style="margin-top:12px">Thanh toán đơn trực tiếp bằng thẻ cào đang tạm tắt. Bạn vẫn có thể nạp số dư bằng thẻ cào rồi thanh toán.</div>${feedback()}`}
     function topupMarkup(){return `<div class="panel-card balance-card"><span>Số dư hiện tại</span><strong>${money(state.balance)}</strong><small>${esc(userIdentity())}</small></div>${feedback()}<p class="choice-label">Chọn phương thức nạp</p><div class="method-list"><button class="method" data-sheet-action="open-bank-topup"><span class="method-icon">🏦</span><span><strong>Chuyển khoản ngân hàng</strong><small>QR và nội dung riêng cho tài khoản</small></span><span class="arrow">›</span></button><button class="method" data-sheet-action="open-card-topup"><span class="method-icon">▰</span><span><strong>Nạp bằng thẻ cào</strong><small>Hiển thị rõ số tiền thực nhận</small></span><span class="arrow">›</span></button><button class="method" data-sheet-action="open-gift-card-topup"><span class="method-icon">🎁</span><span><strong>Nạp bằng gift card</strong><small>Nhập mã quà tặng NovaKey</small></span><span class="arrow">›</span></button></div><p class="choice-label">Lịch sử nạp gần đây</p>${state.topups.length?state.topups.slice(0,5).map(t=>`<div class="order-card"><div class="order-top"><strong>${esc(t.reference)}</strong><span class="status ${t.status}">${STATUS[t.status]||esc(t.status)}</span></div><p>${t.method==="bank"?"Ngân hàng":t.method==="giftcard"?"Gift card":"Thẻ cào"} · ${t.approvedAmount?money(t.approvedAmount):t.expectedCredit?`Dự kiến ${money(t.expectedCredit)}`:"Chờ đối soát"}</p></div>`).join(""):`<div class="empty">Chưa có giao dịch nạp tiền.</div>`}`}
@@ -5294,7 +5344,12 @@ html.nova-keyboard-open #sheetHost .auth-sheet[data-view="auth"] .nova-auth-page
         ${state.orders.length?`<div class="nova-orders-list">${state.orders.map(o=>`<button class="nova-order-card" data-order="${o.id}"><div class="order-top"><div><strong>${esc(o.orderCode)}</strong><small style="display:block;margin-top:4px;color:var(--muted)">${time(o.createdAt)}</small></div><span class="status ${o.status}">${STATUS[o.status]||esc(o.status)}</span></div><p>${o.items?.slice(0,2).map(i=>`${esc(i.productName)} × ${i.quantity}`).join(" · ")}</p><b style="color:var(--blue)">${money(o.total)}</b></button>`).join("")}</div>`:`<div class="nova-orders-empty"><div class="nova-orders-empty-icon">▤</div><strong>Chưa có đơn hàng</strong><p>Đơn hàng mới của bạn sẽ xuất hiện tại đây.</p></div>`}
       </section>`;
     }
-    function orderDetailMarkup(o){if(!o)return `<div class="empty">Không tìm thấy đơn hàng.</div>`;return `<button class="back" data-sheet-action="back-orders">← Danh sách đơn hàng</button><div class="panel-card"><span class="status ${o.status}">${STATUS[o.status]||esc(o.status)}</span><h3>${esc(o.orderCode)}</h3><p style="font-size:10px;color:var(--muted)">${time(o.createdAt)}</p><div class="divider"></div>${o.items?.map(i=>`<div class="summary-row"><span>${esc(i.productName)} · ${esc(i.planName)} × ${i.quantity}</span><b>${money(i.lineTotal)}</b></div>`).join("")}${Number(o.discountAmount)>0?`<div class="summary-row discount-row"><span>Mã ${esc(o.discountCode||"")}</span><b>−${money(o.discountAmount)}</b></div>`:""}<div class="summary-row total"><span>Tổng cộng</span><b>${money(o.total)}</b></div></div>${o.status==="awaiting_payment"&&o.paymentMethod==="bank"?`<button class="full-btn" style="margin-top:14px" data-resume-bank="${o.id}">Mở lại mã QR</button>`:""}${o.status==="fulfilled"?`<p class="choice-label">Thông tin bàn giao</p>${(o.delivery||[]).map(d=>`<div class="delivery"><strong>${esc(d.productName)} · ${esc(d.planName)}</strong>${d.type==="credential"?`<code>Tài khoản: ${esc(d.account)}</code><code>Mật khẩu: ${esc(d.password)}</code>`:`<p>${esc(d.note)}</p>`}</div>`).join("")}`:`<div class="notice" style="margin-top:14px">${o.status==="rejected"?esc(o.rejectionReason||"Không xác minh được giao dịch."):o.status==="awaiting_delivery"?"Đã thanh toán. Đây là hàng order, thông tin bàn giao sẽ xuất hiện ngay khi kho được bổ sung.":"Đơn đang chờ xác nhận thanh toán. Thông tin bàn giao sẽ tự xuất hiện sau khi được duyệt."}</div>`}`}
+    function orderDetailMarkup(o){
+      if(!o)return `<div class="empty">Không tìm thấy đơn hàng.</div>`;
+      const breakdown=o.discountBreakdown||{},couponAmount=numberValue(breakdown.coupon_amount),customerAmount=numberValue(breakdown.customer_amount),customerPercent=numberValue(breakdown.customer_percent);
+      const legacyDiscount=Math.max(0,numberValue(o.discountAmount)-couponAmount-customerAmount);
+      return `<button class="back" data-sheet-action="back-orders">← Danh sách đơn hàng</button><div class="panel-card"><span class="status ${o.status}">${STATUS[o.status]||esc(o.status)}</span><h3>${esc(o.orderCode)}</h3><p style="font-size:10px;color:var(--muted)">${time(o.createdAt)}</p><div class="divider"></div>${o.items?.map(i=>`<div class="summary-row"><span>${esc(i.productName)} · ${esc(i.planName)} × ${i.quantity}</span><b>${money(i.lineTotal)}</b></div>`).join("")}${couponAmount?`<div class="summary-row discount-row"><span>Mã ${esc(o.discountCode||breakdown.coupon_code||"")}</span><b>−${money(couponAmount)}</b></div>`:""}${customerAmount?`<div class="summary-row discount-row"><span>Ưu đãi tài khoản ${formatPercent(customerPercent)}%</span><b>−${money(customerAmount)}</b></div>`:""}${legacyDiscount?`<div class="summary-row discount-row"><span>Giảm giá</span><b>−${money(legacyDiscount)}</b></div>`:""}<div class="summary-row total"><span>Tổng cộng</span><b>${money(o.total)}</b></div></div>${o.status==="awaiting_payment"&&o.paymentMethod==="bank"?`<button class="full-btn" style="margin-top:14px" data-resume-bank="${o.id}">Mở lại mã QR</button>`:""}${o.status==="fulfilled"?`<p class="choice-label">Thông tin bàn giao</p>${(o.delivery||[]).map(d=>`<div class="delivery"><strong>${esc(d.productName)} · ${esc(d.planName)}</strong>${d.type==="credential"?`<code>Tài khoản: ${esc(d.account)}</code><code>Mật khẩu: ${esc(d.password)}</code>`:`<p>${esc(d.note)}</p>`}</div>`).join("")}`:`<div class="notice" style="margin-top:14px">${o.status==="rejected"?esc(o.rejectionReason||"Không xác minh được giao dịch."):o.status==="awaiting_delivery"?"Đã thanh toán. Đây là hàng order, thông tin bàn giao sẽ xuất hiện ngay khi kho được bổ sung.":"Đơn đang chờ xác nhận thanh toán. Thông tin bàn giao sẽ tự xuất hiện sau khi được duyệt."}</div>`}`
+    }
     function orderBankMarkup(o){
       const qr=bankQr({amount:o.total,content:o.orderCode});
       return `<button class="back" data-sheet-action="back-payment">← Chọn cách khác</button>${qr?`<div class="qr-wrap"><div class="qr-card"><img src="${qr}" alt="VietQR thanh toán đơn hàng" decoding="async"></div></div>`:`<div class="error">Admin chưa cấu hình tài khoản ngân hàng.</div>`}<div class="transfer-info"><div class="transfer-row"><span>Ngân hàng</span><b>${esc(state.settings.bankName||"-")}</b></div><div class="transfer-row"><span>Số tài khoản</span><b>${esc(state.settings.accountNumber||"-")}</b></div><div class="transfer-row"><span>Số tiền</span><b style="color:var(--blue)">${money(o.total)}</b></div><div class="transfer-row"><span>Nội dung</span><b style="color:var(--blue)">${esc(o.orderCode)}</b></div></div>${feedback()}<button class="full-btn" style="margin-top:15px" data-sheet-action="confirm-order-bank" data-order-id="${o.id}">Tôi đã chuyển khoản</button>`
@@ -5704,7 +5759,7 @@ html.nova-keyboard-open #sheetHost .auth-sheet[data-view="auth"] .nova-auth-page
           // Token hết hạn / mất mạng: phiên phía máy đã xoá, coi như đã đăng xuất.
           console.warn("signOut:",err);
         }finally{
-          state.user=null;state.balance=0;state.orders=[];state.topups=[];
+          state.user=null;state.balance=0;state.customerDiscountPercent=0;state.orders=[];state.topups=[];
           state.cart=[];state.coupon=null;state.payload=null;
           clearUserSubs();
           updateHeader();
@@ -5987,7 +6042,31 @@ html.nova-keyboard-open #sheetHost .auth-sheet[data-view="auth"] .nova-auth-page
         if(kind==="auth"&&form.isConnected)setAuthSubmitBusy(form,false);
       }
     }
-    function friendlyError(err){const c=String(err?.code||"").toLowerCase(),m=String(err?.message||"");if(c.includes("invalid_credentials")||/invalid login credentials/i.test(m))return"Email, số điện thoại hoặc mật khẩu không đúng.";if(c.includes("user_already_exists")||/already registered|already exists/i.test(m))return"Email hoặc số điện thoại này đã được sử dụng.";if(/phone.*not.*enabled|unsupported phone provider/i.test(m))return"Đăng nhập số điện thoại chưa được bật trong Supabase.";if(c.includes("23505")&&/gift_cards|gift card/i.test(m))return"Mã gift card này đã tồn tại.";if(c.includes("23505")&&/products|product/i.test(m))return"Sản phẩm này đã tồn tại.";if(/gift card usage limit reached|gift card is disabled|invalid gift card/i.test(m))return"Gift card không hợp lệ, đã tắt hoặc đã đủ lượt sử dụng.";if(/invalid discount code|discount code inactive/i.test(m))return"Mã giảm giá không hợp lệ hoặc đã bị tắt.";if(/discount usage limit reached/i.test(m))return"Mã giảm giá đã hết lượt sử dụng.";if(/discount code not started/i.test(m))return"Mã giảm giá chưa đến thời gian sử dụng.";if(/discount code expired/i.test(m))return"Mã giảm giá đã hết hạn.";if(/order minimum not reached/i.test(m))return"Đơn hàng chưa đạt giá trị tối thiểu của mã.";if(/discount code does not apply/i.test(m))return"Mã không áp dụng cho sản phẩm này.";if(c.includes("42501")||/row-level security|permission denied|forbidden/i.test(m))return"Supabase chưa cấp quyền cho thao tác này.";if(/insufficient inventory/i.test(m))return"Kho chưa có đủ thông tin để giao đơn này.";if(/insufficient balance/i.test(m))return"Số dư không đủ để thanh toán.";if(/otp_expired|expired|invalid.*token|session.*missing/i.test(`${c} ${m}`))return"Mã xác minh hoặc liên kết đã hết hạn. Hãy yêu cầu mã mới.";if(/network|fetch|failed to fetch/i.test(m))return"Kết nối mạng không ổn định, vui lòng thử lại.";return m||"Không thể hoàn tất thao tác, vui lòng thử lại."}
+    function friendlyError(err){
+      const c=String(err?.code||"").toLowerCase(),m=String(err?.message||"");
+      if(c.includes("invalid_credentials")||/invalid login credentials/i.test(m))return"Email, số điện thoại hoặc mật khẩu không đúng.";
+      if(c.includes("user_already_exists")||/already registered|already exists/i.test(m))return"Email hoặc số điện thoại này đã được sử dụng.";
+      if(/phone.*not.*enabled|unsupported phone provider/i.test(m))return"Đăng nhập số điện thoại chưa được bật trong Supabase.";
+      if(c.includes("23505")&&/gift_cards|gift card/i.test(m))return"Mã gift card này đã tồn tại.";
+      if(c.includes("23505")&&/products|product/i.test(m))return"Sản phẩm này đã tồn tại.";
+      if(/gift card usage limit reached|gift card is disabled|invalid gift card/i.test(m))return"Gift card không hợp lệ, đã tắt hoặc đã đủ lượt sử dụng.";
+      if(/invalid discount code|discount code inactive/i.test(m))return"Mã giảm giá không hợp lệ hoặc đã bị tắt.";
+      if(/discount usage limit reached/i.test(m))return"Mã giảm giá đã hết lượt sử dụng.";
+      if(/discount code not started/i.test(m))return"Mã giảm giá chưa đến thời gian sử dụng.";
+      if(/discount code expired/i.test(m))return"Mã giảm giá đã hết hạn.";
+      if(/order minimum not reached/i.test(m))return"Đơn hàng chưa đạt giá trị tối thiểu của mã.";
+      if(/discount code does not apply/i.test(m))return"Mã không áp dụng cho sản phẩm này.";
+      if(/active plan has inventory|plan.*inventory/i.test(m))return"Gói này vẫn còn tài khoản trong kho nên chưa thể xóa.";
+      if(/reserved or sold inventory/i.test(m))return"Tài khoản đang được giữ hoặc đã bán nên không thể sửa/xóa.";
+      if(/negative balance/i.test(m))return"Không thể trừ quá số dư hiện có của khách.";
+      if(/invalid customer discount|invalid balance adjustment/i.test(m))return"Số tiền hoặc mức giảm giá khách hàng không hợp lệ.";
+      if(c.includes("42501")||/row-level security|permission denied|forbidden/i.test(m))return"Supabase chưa cấp quyền cho thao tác này.";
+      if(/insufficient inventory/i.test(m))return"Kho chưa có đủ thông tin để giao đơn này.";
+      if(/insufficient balance/i.test(m))return"Số dư không đủ để thanh toán.";
+      if(/otp_expired|expired|invalid.*token|session.*missing/i.test(`${c} ${m}`))return"Mã xác minh hoặc liên kết đã hết hạn. Hãy yêu cầu mã mới.";
+      if(/network|fetch|failed to fetch/i.test(m))return"Kết nối mạng không ổn định, vui lòng thử lại.";
+      return m||"Không thể hoàn tất thao tác, vui lòng thử lại."
+    }
 
     function validateCart(){
       if(!state.cart.length)throw Error("Giỏ hàng đang trống.");
@@ -6133,7 +6212,7 @@ html.nova-keyboard-open #sheetHost .auth-sheet[data-view="auth"] .nova-auth-page
       sheet.addEventListener("click",e=>{if(performance.now()<suppressClickUntil){e.preventDefault();e.stopImmediatePropagation()}},true);
     }
 
-    function clearUserSubs(){[unsubWallet,unsubOrders,unsubTopups].forEach(u=>u?.());unsubWallet=unsubOrders=unsubTopups=null;state.balance=0;state.orders=[];state.topups=[]}
+    function clearUserSubs(){[unsubWallet,unsubProfile,unsubOrders,unsubTopups].forEach(u=>u?.());unsubWallet=unsubProfile=unsubOrders=unsubTopups=null;state.balance=0;state.customerDiscountPercent=0;state.orders=[];state.topups=[]}
     async function loadSettings(){
       const {data,error}=await supabase.from("settings").select("data").eq("key","payment").maybeSingle();
       if(error)throw error;state.settings=data?{...defaultSettings,...mapSettingsRow(data)}:{...defaultSettings};
@@ -6159,6 +6238,11 @@ html.nova-keyboard-open #sheetHost .auth-sheet[data-view="auth"] .nova-auth-page
       if(!state.user)return;const {data,error}=await supabase.from("wallets").select("balance").eq("user_id",state.user.uid).maybeSingle();if(error)throw error;
       state.balance=numberValue(data?.balance);updateHeader();if(state.sheet==="topup"||state.sheet==="payment")renderSheet();
     }
+    async function loadProfile(){
+      if(!state.user)return;const {data,error}=await supabase.from("profiles").select("default_discount_percent").eq("id",state.user.uid).maybeSingle();if(error)throw error;
+      state.customerDiscountPercent=clampPercent(data?.default_discount_percent);
+      if(["account","cart","payment"].includes(state.sheet))renderSheet();
+    }
     async function loadOrders(){
       if(!state.user)return;const {data,error}=await supabase.from("orders").select("*").eq("user_id",state.user.uid).order("created_at",{ascending:false});if(error)throw error;
       state.orders=(data||[]).map(mapOrder);
@@ -6172,7 +6256,7 @@ html.nova-keyboard-open #sheetHost .auth-sheet[data-view="auth"] .nova-auth-page
       if(!state.user)return;const {data,error}=await supabase.from("topups").select("*").eq("user_id",state.user.uid).order("created_at",{ascending:false});if(error)throw error;
       state.topups=(data||[]).map(mapTopup);if(state.sheet==="topup")renderSheet();
     }
-    async function refreshUserData(){if(!state.user)return;await Promise.all([loadWallet(),loadOrders(),loadTopups()])}
+    async function refreshUserData(){if(!state.user)return;await Promise.all([loadWallet(),loadProfile(),loadOrders(),loadTopups()])}
     function subscribePublic(){
       loadSettings().catch(console.warn);loadStock().catch(err=>{console.warn(err);state.stockLoaded=false;state.stockError=true;if(!isAdminPage){updateAllProductCards();queueProductRefresh(false)}});
       const settingsChannel=supabase.channel("public-settings").on("postgres_changes",{event:"*",schema:"public",table:"settings",filter:"key=eq.payment"},()=>loadSettings().catch(console.warn)).subscribe();
@@ -6187,31 +6271,52 @@ html.nova-keyboard-open #sheetHost .auth-sheet[data-view="auth"] .nova-auth-page
       clearUserSubs();if(!user){updateHeader();return}
       refreshUserData().catch(console.warn);
       const walletChannel=supabase.channel(`wallet-${user.uid}`).on("postgres_changes",{event:"*",schema:"public",table:"wallets",filter:`user_id=eq.${user.uid}`},()=>loadWallet().catch(console.warn)).subscribe();
+      const profileChannel=supabase.channel(`profile-${user.uid}`).on("postgres_changes",{event:"*",schema:"public",table:"profiles",filter:`id=eq.${user.uid}`},()=>loadProfile().catch(console.warn)).subscribe();
       const orderChannel=supabase.channel(`orders-${user.uid}`).on("postgres_changes",{event:"*",schema:"public",table:"orders",filter:`user_id=eq.${user.uid}`},()=>loadOrders().catch(console.warn)).subscribe();
       const topupChannel=supabase.channel(`topups-${user.uid}`).on("postgres_changes",{event:"*",schema:"public",table:"topups",filter:`user_id=eq.${user.uid}`},()=>loadTopups().catch(console.warn)).subscribe();
-      unsubWallet=channelUnsubscribe(walletChannel);unsubOrders=channelUnsubscribe(orderChannel);unsubTopups=channelUnsubscribe(topupChannel);
+      unsubWallet=channelUnsubscribe(walletChannel);unsubProfile=channelUnsubscribe(profileChannel);unsubOrders=channelUnsubscribe(orderChannel);unsubTopups=channelUnsubscribe(topupChannel);
     }
 
     function adminLoginMarkup(knownUser=false){const register=state.adminAuthMode==="register";return `<main class="admin-login-wrap"><section class="admin-login"><a class="brand" href="./"><span class="brand-mark"><span class="novakey-logo-static-stack" aria-hidden="true"><img class="novakey-logo-static" src="${NOVAKEY_LOGO_STATIC}" alt=""></span></span><span>NovaKey</span></a><span class="kicker">Quản trị cửa hàng</span><h1>${knownUser?"Tài khoản chưa có quyền admin":register?"Tạo tài khoản admin":"Đăng nhập admin"}</h1>${knownUser?`<p style="font-size:11px;color:var(--muted);line-height:1.6">Tạo document trong collection <b>admins</b> với ID đúng bằng UID:</p><code class="uid">${esc(state.user.uid)}</code>${feedback()}<button class="full-btn" data-admin-action="retry-admin">Tôi đã tạo, kiểm tra lại</button><button class="outline-btn" data-admin-action="logout">Đăng xuất</button>`:`<form class="form" data-admin-form="login"><label>Email<input name="email" type="email" required></label><label>Mật khẩu<input name="password" type="password" minlength="6" required></label>${feedback()}<button class="full-btn" type="submit">${register?"Đăng ký":"Đăng nhập"}</button><button class="outline-btn" type="button" data-admin-action="switch-register">${register?"Đã có tài khoản? Đăng nhập":"Chưa có tài khoản? Đăng ký"}</button></form>`}<a class="back" href="./" style="display:block;margin-top:14px">← Quay lại cửa hàng</a></section></main>`}
-    function adminShell(){return `<main class="admin"><header class="admin-head"><a class="brand" href="./"><span class="brand-mark"><span class="novakey-logo-static-stack" aria-hidden="true"><img class="novakey-logo-static" src="${NOVAKEY_LOGO_STATIC}" alt=""></span></span><span>NovaKey <small>ADMIN</small></span></a><div class="admin-head-actions"><a href="./">Xem cửa hàng</a><button data-admin-action="logout">Đăng xuất</button></div></header><div class="admin-wrap"><div class="stats"><div class="stat"><span>Đơn chờ duyệt</span><strong>${state.adminOrders.filter(x=>["payment_review","awaiting_delivery"].includes(x.status)).length}</strong></div><div class="stat"><span>Nạp tiền chờ duyệt</span><strong>${state.adminTopups.filter(x=>x.status==="payment_review").length}</strong></div><div class="stat"><span>Hàng giao ngay</span><strong>${state.adminInventory.filter(x=>x.status==="available"&&inventoryHasDelivery(x)).length}</strong></div></div><nav class="tabs">${[["orders","Đơn hàng"],["topups","Nạp tiền"],["products","Sản phẩm"],["inventory","Kho tài khoản"],["giftcards","Gift card"],["discounts","Mã giảm giá"],["announcement","Thông báo"],["settings","Cấu hình"]].map(([id,name])=>`<button class="${state.adminTab===id?"active":""}" data-admin-tab="${id}">${name}</button>`).join("")}</nav>${state.error?`<p class="error">${esc(state.error)}</p>`:""}${state.message?`<p class="success">${esc(state.message)}</p>`:""}<section class="admin-section">${adminSection()}</section></div></main>`}
-    function adminSection(){if(state.adminTab==="orders")return adminOrdersMarkup();if(state.adminTab==="topups")return adminTopupsMarkup();if(state.adminTab==="products")return adminProductsMarkup();if(state.adminTab==="inventory")return adminInventoryMarkup();if(state.adminTab==="giftcards")return adminGiftCardsMarkup();if(state.adminTab==="discounts")return adminDiscountsMarkup();if(state.adminTab==="announcement")return adminAnnouncementMarkup();return adminSettingsMarkup()}
+    function adminShell(){return `<main class="admin"><header class="admin-head"><a class="brand" href="./"><span class="brand-mark"><span class="novakey-logo-static-stack" aria-hidden="true"><img class="novakey-logo-static" src="${NOVAKEY_LOGO_STATIC}" alt=""></span></span><span>NovaKey <small>ADMIN</small></span></a><div class="admin-head-actions"><a href="./">Xem cửa hàng</a><button data-admin-action="logout">Đăng xuất</button></div></header><div class="admin-wrap"><div class="stats"><div class="stat"><span>Đơn chờ duyệt</span><strong>${state.adminOrders.filter(x=>["payment_review","awaiting_delivery"].includes(x.status)).length}</strong></div><div class="stat"><span>Khách hàng</span><strong>${state.adminCustomers.length}</strong></div><div class="stat"><span>Hàng giao ngay</span><strong>${state.adminInventory.filter(x=>x.status==="available"&&inventoryHasDelivery(x)).length}</strong></div></div><nav class="tabs">${[["orders","Đơn hàng"],["topups","Nạp tiền"],["products","Sản phẩm"],["inventory","Kho tài khoản"],["customers","Khách hàng"],["giftcards","Gift card"],["discounts","Mã giảm giá"],["announcement","Thông báo"],["settings","Cấu hình"]].map(([id,name])=>`<button class="${state.adminTab===id?"active":""}" data-admin-tab="${id}">${name}</button>`).join("")}</nav>${state.error?`<p class="error">${esc(state.error)}</p>`:""}${state.message?`<p class="success">${esc(state.message)}</p>`:""}<section class="admin-section">${adminSection()}</section></div></main>`}
+    function adminSection(){if(state.adminTab==="orders")return adminOrdersMarkup();if(state.adminTab==="topups")return adminTopupsMarkup();if(state.adminTab==="products")return adminProductsMarkup();if(state.adminTab==="inventory")return adminInventoryMarkup();if(state.adminTab==="customers")return adminCustomersMarkup();if(state.adminTab==="giftcards")return adminGiftCardsMarkup();if(state.adminTab==="discounts")return adminDiscountsMarkup();if(state.adminTab==="announcement")return adminAnnouncementMarkup();return adminSettingsMarkup()}
     function adminOrdersMarkup(){return `<div class="admin-title"><div><span class="kicker">Đơn hàng</span><h1>Đối soát và giao sản phẩm</h1></div><small>${state.adminOrders.length} đơn gần nhất</small></div><div class="admin-list">${state.adminOrders.length?state.adminOrders.map(o=>`<article class="admin-record"><div class="admin-record-head"><div><strong>${esc(o.orderCode)}</strong><small>${esc(o.customerEmail||o.userId)}</small></div><span class="status ${o.status}">${STATUS[o.status]||esc(o.status)}</span></div><div class="record-meta"><span>${o.paymentMethod==="bank"?"Ngân hàng":o.paymentMethod==="card"?"Thẻ cào":"Số dư"}</span><span>${time(o.createdAt)}</span><b>${money(o.total)}</b></div><div class="record-items">${(o.items||[]).map(i=>`<div>${esc(i.productName)} · ${esc(i.planName)} × ${i.quantity} — ${money(i.lineTotal)}</div>`).join("")}</div>${o.card?`<div class="secret"><b>${esc(o.card.provider)}</b><br>Serial: ${esc(o.card.serial)}<br>Mã thẻ: ${esc(o.card.code)}<br>Mệnh giá khai báo: ${money(o.card.declaredAmount||0)} · Dự kiến nhận: ${money(o.card.expectedCredit||0)}</div>`:""}${["payment_review","awaiting_delivery"].includes(o.status)?`<div class="record-actions"><button data-approve-order="${o.id}">Duyệt & giao từ kho</button><button class="secondary-admin" data-support-order="${o.id}">Giao hỗ trợ</button><button class="danger" data-reject-order="${o.id}">Từ chối</button></div>`:""}</article>`).join(""):`<div class="empty">Chưa có đơn hàng.</div>`}</div>`}
     function adminTopupsMarkup(){return `<div class="admin-title"><div><span class="kicker">Nạp số dư</span><h1>Duyệt ngân hàng, thẻ cào và gift card</h1></div></div><div class="admin-list">${state.adminTopups.length?state.adminTopups.map(t=>{const gift=state.adminGiftCards.find(g=>g.id===t.giftCardCode);const method=t.method==="bank"?"Chuyển khoản":t.method==="giftcard"?"Gift card":"Thẻ cào";return `<article class="admin-record"><div class="admin-record-head"><div><strong>${esc(t.reference)}</strong><small>${esc(t.customerEmail||t.userId)}</small></div><span class="status ${t.status}">${STATUS[t.status]||esc(t.status)}</span></div><div class="record-meta"><span>${method}</span><span>${time(t.createdAt)}</span><b>${t.method==="giftcard"?(gift?money(gift.value):"Mã không tồn tại"):t.method==="card"?money(t.amount):"Nhập số thực nhận"}</b></div>${t.card?`<div class="secret"><b>${esc(t.card.provider)}</b><br>Serial: ${esc(t.card.serial)}<br>Mã thẻ: ${esc(t.card.code)}<br>Khai báo: ${money(t.amount)} · Dự kiến: ${money(t.expectedCredit)}</div>`:""}${t.method==="giftcard"?`<div class="secret"><b>Mã gift card</b><br><span class="code-pill ${gift?.active===false?"inactive":""}">${esc(t.giftCardCode||"")}</span><br>Trạng thái: ${gift?gift.active===false?"Đã dùng / đã tắt":"Sẵn sàng":"Không tìm thấy mã"}</div>`:""}${t.status==="payment_review"?`<div class="record-actions">${t.method==="giftcard"?`<button data-approve-topup="${t.id}" ${!gift||gift.active===false?"disabled":""}>Xác nhận & cộng ${gift?money(gift.value):"tiền"}</button>`:`<input class="credit-input" type="number" min="2000" step="1000" value="${t.expectedCredit||t.approvedAmount||2000}" data-credit="${t.id}"><button data-approve-topup="${t.id}">Xác nhận & cộng tiền</button>`}<button class="danger" data-reject-topup="${t.id}">Từ chối</button></div>`:""}</article>`}).join(""):`<div class="empty">Chưa có yêu cầu nạp tiền.</div>`}</div>`}
-    function adminPlanRowMarkup(index=0){
-      return `<div class="admin-plan-row" data-plan-row><label>Tên gói<input name="planName" maxlength="100" placeholder="${index?"Ví dụ: 3 tháng":"Để trống nếu không chia gói"}"></label><label>Giá bán<input name="planPrice" type="number" min="0" max="100000000" step="1000" required placeholder="50000"></label><button class="admin-plan-remove" type="button" data-remove-plan aria-label="Xóa gói" ${index?"":"hidden"}>×</button></div>`;
+    function adminPlanRowMarkup(index=0,plan=null){
+      return `<div class="admin-plan-row" data-plan-row><input type="hidden" name="planId" value="${esc(plan?.id||"")}"><label>Tên gói<input name="planName" maxlength="100" value="${esc(plan?.name==="Mặc định"?"":plan?.name||"")}" placeholder="${index?"Ví dụ: 3 tháng":"Để trống nếu không chia gói"}"></label><label>Giá gốc<input name="planPrice" type="number" min="0" max="100000000" step="1000" required value="${plan?Number(plan.price)||0:""}" placeholder="50000"></label><button class="admin-plan-remove" type="button" data-remove-plan aria-label="Xóa gói" ${index?"":"hidden"}>×</button></div>`;
     }
     function adminProductLogoMarkup(p){
-      return p.icon?`<img src="${esc(p.icon)}" alt="">`:`<span>${esc(p.logo||"N")}</span>`;
+      return p.icon?`<img src="${esc(p.icon)}" alt="">`:`<span>${esc(p.logo||p.name?.slice(0,1)||"N")}</span>`;
+    }
+    function inventoryStatusLabel(status){
+      return {available:"Trong kho",reserved:"Đang giữ",sold:"Đã bán",disabled:"Đã tắt"}[status]||status;
     }
     function adminProductsMarkup(){
       const products=state.adminProducts;
-      return `<div class="admin-grid"><form class="admin-card form" data-admin-form="product"><div><span class="kicker">Sản phẩm tự do</span><h2>Tạo sản phẩm mới</h2></div><label>Tên sản phẩm<input name="name" required maxlength="100" placeholder="Ví dụ: Tài khoản Claude Pro"></label><label>Danh mục<input name="category" required maxlength="60" placeholder="AI, Giải trí, Apple..."></label><label>Mô tả<textarea name="description" maxlength="500" placeholder="Mô tả ngắn hiển thị ngoài cửa hàng"></textarea></label><label>Nhãn nổi bật<input name="badge" maxlength="40" placeholder="Bán chạy"></label><div class="admin-media-grid"><div class="admin-upload"><span>Logo thật (không nén ảnh)</span><input name="logoFile" type="file" accept="image/jpeg,image/png,image/webp,image/gif,image/avif" data-admin-media="logo"><div class="admin-media-preview" data-media-preview="logo">Chọn ảnh từ thư viện máy</div></div><div class="admin-upload"><span>Ảnh minh họa sản phẩm (không nén ảnh)</span><input name="imageFile" type="file" accept="image/jpeg,image/png,image/webp,image/gif,image/avif" data-admin-media="image"><div class="admin-media-preview cover" data-media-preview="image">Chọn ảnh từ thư viện máy</div></div></div><label>Logo chữ / emoji dự phòng<input name="logo" maxlength="16" value="N" placeholder="N hoặc 🎮"></label><div class="admin-form-row"><label>Màu chính<input name="accent" type="color" value="#6d4aff"></label><label>Màu nền<input name="soft" type="color" value="#f1edff"></label></div><div><span class="kicker">Gói và giá bán</span><p class="admin-help" style="margin:5px 0 9px">Chỉ để một dòng và bỏ trống tên gói nếu sản phẩm không chia thành nhiều gói.</p><div class="admin-plan-list" id="adminPlans">${adminPlanRowMarkup()}</div></div><button class="admin-add-plan" type="button" data-admin-action="add-plan">＋ Thêm gói khác</button><p class="admin-help">Sau khi tạo, sang “Kho tài khoản” để nhập thông tin bàn giao và số lượng hàng.</p><button class="full-btn" type="submit">Tạo sản phẩm</button></form><div class="admin-card"><div class="admin-title"><div><span class="kicker">Quản lý sản phẩm</span><h2>${products.length} sản phẩm</h2></div><small>Kéo thả hoặc dùng ↑ ↓</small></div><div class="admin-product-list">${products.map((p,index)=>`<div class="admin-product-item ${p.isActive?"":"is-hidden"}" draggable="true" data-product-row="${esc(p.id)}"><span class="admin-product-item-logo" style="background:${esc(p.soft)};color:${esc(p.accent)}">${adminProductLogoMarkup(p)}</span><div><strong>${esc(p.name)}</strong><small>${esc(p.category)} · ${p.plans.length>1?`${p.plans.length} gói`:"Không chia gói"}${p.isActive?"":" · Đang ẩn"}</small></div><div class="admin-product-actions"><button type="button" data-move-product="${esc(p.id)}" data-direction="-1" ${index===0?"disabled":""}>↑</button><button type="button" data-move-product="${esc(p.id)}" data-direction="1" ${index===products.length-1?"disabled":""}>↓</button><button type="button" class="visibility" data-toggle-product="${esc(p.id)}">${p.isActive?"Ẩn":"Hiện"}</button><button type="button" class="delete" data-delete-product="${esc(p.id)}">Xóa</button></div></div>`).join("")||`<div class="empty">Chưa có sản phẩm.</div>`}</div></div></div>`;
+      if(state.adminProductId){
+        const product=products.find(p=>p.id===state.adminProductId);
+        if(product)return adminProductDetailMarkup(product);
+        state.adminProductId="";
+      }
+      return `<div class="admin-grid"><form class="admin-card form" data-admin-form="product"><div><span class="kicker">Sản phẩm tự do</span><h2>Tạo sản phẩm mới</h2></div><label>Tên sản phẩm<input name="name" required maxlength="100" placeholder="Ví dụ: Tài khoản Claude Pro"></label><label>Danh mục<input name="category" required maxlength="60" placeholder="AI, Giải trí, Apple..."></label><label>Mô tả<textarea name="description" maxlength="500" placeholder="Mô tả ngắn hiển thị ngoài cửa hàng"></textarea></label><label>Nhãn nổi bật<input name="badge" maxlength="40" placeholder="Bán chạy"></label><div class="admin-upload"><span>Ảnh minh họa sản phẩm (giữ nguyên file gốc)</span><input name="imageFile" type="file" accept="image/jpeg,image/png,image/webp,image/gif,image/avif" data-admin-media="image"><div class="admin-media-preview cover" data-media-preview="image">Chọn ảnh từ thư viện máy</div></div><div class="admin-form-row"><label>Màu chính<input name="accent" type="color" value="#6d4aff"></label><label>Màu nền<input name="soft" type="color" value="#f1edff"></label></div><div><span class="kicker">Gói và giá bán</span><p class="admin-help" style="margin:5px 0 9px">Chỉ để một dòng và bỏ trống tên gói nếu sản phẩm không chia thành nhiều gói.</p><div class="admin-plan-list" id="adminPlans">${adminPlanRowMarkup()}</div></div><button class="admin-add-plan" type="button" data-admin-action="add-plan">＋ Thêm gói khác</button><p class="admin-help">Sau khi tạo, chạm vào sản phẩm để sửa giá, giảm giá và quản lý từng tài khoản kho.</p><button class="full-btn" type="submit">Tạo sản phẩm</button></form><div class="admin-card"><div class="admin-title"><div><span class="kicker">Quản lý sản phẩm</span><h2>${products.length} sản phẩm</h2></div><span class="admin-product-hold">Nhấn giữ rồi kéo để đổi vị trí</span></div><div class="admin-product-list" data-product-sort-list>${products.map(p=>`<div class="admin-product-item ${p.isActive?"":"is-hidden"}" data-product-row="${esc(p.id)}" data-open-product="${esc(p.id)}" role="button" tabindex="0"><span class="admin-product-item-logo" style="background:${esc(p.soft)};color:${esc(p.accent)}">${adminProductLogoMarkup(p)}</span><div><strong>${esc(p.name)}</strong><small>${esc(p.category)} · ${p.plans.length>1?`${p.plans.length} gói`:"Không chia gói"}${p.discountPercent>0?` · Giảm ${formatPercent(p.discountPercent)}%`:""}${p.isActive?"":" · Đang ẩn"}</small></div><div class="admin-product-actions"><button type="button" class="visibility" data-toggle-product="${esc(p.id)}">${p.isActive?"Ẩn":"Hiện"}</button><button type="button" class="delete" data-delete-product="${esc(p.id)}">Xóa</button></div></div>`).join("")||`<div class="empty">Chưa có sản phẩm.</div>`}</div></div></div>`;
+    }
+    function adminProductDetailMarkup(p){
+      const allInventory=state.adminInventory.filter(i=>i.productId===p.id);
+      const ready=allInventory.filter(i=>i.status==="available"&&inventoryHasDelivery(i)).length;
+      const order=allInventory.filter(i=>i.status==="available"&&!inventoryHasDelivery(i)).length;
+      const sold=allInventory.filter(i=>i.status==="sold").length;
+      const filter=state.adminInventoryFilter||"all";
+      const inventory=allInventory.filter(i=>filter==="all"||i.status===filter);
+      const editing=allInventory.find(i=>i.id===state.adminInventoryEditId);
+      const editable=editing&&["available","disabled"].includes(editing.status);
+      const accountEditor=editing?editable?`<form class="admin-card form" data-admin-form="inventory-edit"><input type="hidden" name="inventoryId" value="${editing.id}"><div class="admin-section-label"><div><span class="kicker">Sửa tài khoản kho</span><h2>${esc(editing.planName)}</h2></div><button type="button" class="admin-back-button" data-admin-action="cancel-inventory-edit">Đóng</button></div><label>Tài khoản / key<input name="account" value="${esc(editing.account||"")}"></label><label>Mật khẩu<input name="password" value="${esc(editing.password||"")}"></label><label>Ghi chú / nội dung giao<textarea name="note">${esc(editing.note||"")}</textarea></label><label>Trạng thái<select name="status"><option value="available" ${editing.status==="available"?"selected":""}>Đang bán</option><option value="disabled" ${editing.status==="disabled"?"selected":""}>Tạm tắt</option></select></label><button class="full-btn" type="submit">Lưu tài khoản kho</button></form>`:`<div class="admin-card"><div class="notice warn">Tài khoản đang được giữ hoặc đã bán nên chỉ có thể xem, không thể sửa để tránh thay đổi nội dung đã giao.</div><button type="button" class="outline-btn" data-admin-action="cancel-inventory-edit" style="margin-top:10px">Đóng</button></div>`:"";
+      return `<div class="admin-back-row"><button class="admin-back-button" type="button" data-admin-action="back-products">← Danh sách sản phẩm</button><span class="admin-product-hold">Tất cả thay đổi giá được lưu ngay vào Supabase</span></div><div class="admin-card" style="margin-bottom:18px"><div class="admin-detail-hero"><span class="admin-detail-logo" style="background:${esc(p.soft)};color:${esc(p.accent)}">${adminProductLogoMarkup(p)}</span><div><h1>${esc(p.name)}</h1><p>${esc(p.category)} · ${p.isActive?"Đang hiển thị":"Đang ẩn"}${p.discountPercent>0?` · Đang giảm ${formatPercent(p.discountPercent)}%`:""}</p></div></div><div class="admin-inline-stats"><div class="admin-inline-stat"><span>GIAO NGAY</span><b>${ready}</b></div><div class="admin-inline-stat"><span>HÀNG ORDER</span><b>${order}</b></div><div class="admin-inline-stat"><span>ĐÃ BÁN</span><b>${sold}</b></div></div></div><div class="admin-detail-grid"><div class="admin-detail-stack"><form class="admin-card form" data-admin-form="product-edit"><input type="hidden" name="productId" value="${esc(p.id)}"><div><span class="kicker">Thông tin & giá</span><h2>Sửa sản phẩm</h2></div><label>Tên sản phẩm<input name="name" required maxlength="100" value="${esc(p.name)}"></label><label>Danh mục<input name="category" required maxlength="60" value="${esc(p.category)}"></label><label>Mô tả<textarea name="description" maxlength="500">${esc(p.description)}</textarea></label><label>Nhãn nổi bật<input name="badge" maxlength="40" value="${esc(p.badge||"")}"></label><label>Giảm giá trực tiếp (%)<input name="discountPercent" type="number" min="0" max="100" step="0.01" value="${formatPercent(p.discountPercent)}"></label><p class="admin-help">Nhập 0 để tắt giảm giá. Cửa hàng tự gạch giá gốc, tính giá mới và hiện mác phần trăm.</p><div class="admin-current-cover">${p.imageUrl?`<img src="${esc(p.imageUrl)}" alt="Ảnh hiện tại">`:"Chưa có ảnh minh họa"}</div><div class="admin-upload"><span>Thay ảnh minh họa (không chọn nếu muốn giữ ảnh hiện tại)</span><input name="imageFile" type="file" accept="image/jpeg,image/png,image/webp,image/gif,image/avif" data-admin-media="edit-image"><div class="admin-media-preview cover" data-media-preview="edit-image">Chọn ảnh mới từ thư viện máy</div></div><div class="admin-form-row"><label>Màu chính<input name="accent" type="color" value="${esc(p.accent)}"></label><label>Màu nền<input name="soft" type="color" value="${esc(p.soft)}"></label></div><div><span class="kicker">Các gói & giá gốc</span><div class="admin-plan-list" id="adminEditPlans">${p.plans.map((plan,index)=>adminPlanRowMarkup(index,plan)).join("")}</div></div><button class="admin-add-plan" type="button" data-admin-action="add-edit-plan">＋ Thêm gói khác</button><button class="full-btn" type="submit">Lưu thay đổi sản phẩm</button></form></div><div class="admin-detail-stack"><form class="admin-card form" data-admin-form="inventory"><input type="hidden" name="product" value="${esc(p.id)}"><div><span class="kicker">Thêm kho</span><h2>${esc(p.name)}</h2></div><label>Gói<select name="plan">${p.plans.map(plan=>`<option>${esc(plan.name)}</option>`).join("")}</select></label><label>Tài khoản / key<input name="account" placeholder="Có thể để trống"></label><label>Mật khẩu<input name="password" placeholder="Có thể để trống"></label><label>Ghi chú / nội dung giao<textarea name="note" placeholder="Link, hướng dẫn hoặc nội dung bất kỳ"></textarea></label><label>Số lượng hàng thêm<input name="quantity" type="number" min="1" max="500" value="1" required></label><p class="admin-help">Có nội dung ở bất kỳ ô nào là hàng giao ngay; để trống cả ba ô là hàng order.</p><button class="full-btn" type="submit">Thêm vào kho</button></form>${accountEditor}<div class="admin-card"><div class="admin-section-label"><div><span class="kicker">Tài khoản kho</span><h2>${allInventory.length} mục</h2></div><small>Chạm Sửa để quản lý</small></div><div class="admin-inventory-toolbar"><select data-inventory-filter><option value="all" ${filter==="all"?"selected":""}>Tất cả</option><option value="available" ${filter==="available"?"selected":""}>Trong kho</option><option value="reserved" ${filter==="reserved"?"selected":""}>Đang giữ</option><option value="sold" ${filter==="sold"?"selected":""}>Đã bán</option><option value="disabled" ${filter==="disabled"?"selected":""}>Đã tắt</option></select></div><div class="inventory-account-list">${inventory.length?inventory.map(i=>`<div class="inventory-account-item"><div><strong>${esc(i.account||i.note||"Hàng order")}</strong><small>${esc(i.planName==="Mặc định"?"Không chia gói":i.planName)} · <span class="inventory-status ${esc(i.status)}">${inventoryStatusLabel(i.status)}</span>${i.password?" · Có mật khẩu":""}</small></div><div class="inventory-account-actions"><button type="button" data-edit-inventory="${i.id}">${["available","disabled"].includes(i.status)?"Sửa":"Xem"}</button>${["available","disabled"].includes(i.status)?`<button type="button" class="danger" data-delete-inventory="${i.id}">Xóa</button>`:""}</div></div>`).join(""):`<div class="empty">Không có tài khoản ở trạng thái này.</div>`}</div></div></div></div>`;
     }
     function inventoryHasDelivery(i){return Boolean(String(i.account||"").trim()||String(i.password||"").trim()||String(i.note||"").trim())}
     function adminInventoryMarkup(){
       const products=state.adminProducts.length?state.adminProducts:PRODUCTS,first=products[0],groups=new Map();
       state.adminInventory.forEach(i=>{
-        const key=`${i.productId}|${i.planName}`,g=groups.get(key)||{productName:i.productName,planName:i.planName,ready:0,order:0,reserved:0,sold:0};
+        const key=`${i.productId}|${i.planName}`,g=groups.get(key)||{productId:i.productId,productName:i.productName,planName:i.planName,ready:0,order:0,reserved:0,sold:0};
         if(i.status==="available"&&inventoryHasDelivery(i))g.ready++;
         else if(i.status==="available")g.order++;
         else if(i.status==="reserved")g.reserved++;
@@ -6219,7 +6324,16 @@ html.nova-keyboard-open #sheetHost .auth-sheet[data-view="auth"] .nova-auth-page
         groups.set(key,g);
       });
       const ready=state.adminInventory.filter(i=>i.status==="available"&&inventoryHasDelivery(i)).length;
-      return `<div class="admin-grid"><form class="admin-card form" data-admin-form="inventory"><div><span class="kicker">Kho sản phẩm</span><h2>Thêm thông tin bàn giao</h2></div><label>Sản phẩm<select name="product" id="adminProduct">${products.map(p=>`<option value="${p.id}">${esc(p.name)}${p.isActive?"":" (đang ẩn)"}</option>`).join("")}</select></label><label>Gói<select name="plan" id="adminPlan">${(first?.plans||[]).map(p=>`<option>${esc(p.name)}</option>`).join("")}</select></label><label>Tài khoản / key<input name="account" placeholder="Có thể để trống"></label><label>Mật khẩu<input name="password" placeholder="Có thể để trống"></label><label>Ghi chú / nội dung giao<textarea name="note" placeholder="Link, hướng dẫn hoặc nội dung bất kỳ"></textarea></label><label>Số lượng hàng thêm<input name="quantity" type="number" min="1" max="500" value="1" required></label><p class="admin-help">Chỉ cần một trong ba ô có dù một ký tự thì khách sẽ được giao ngay sau thanh toán. Cả ba ô trống sẽ được tính là hàng order.</p><button class="full-btn" type="submit">Thêm vào kho</button></form><div class="admin-card"><div class="admin-title"><div><span class="kicker">Tồn kho tự động</span><h2>${ready} hàng giao ngay</h2></div></div><div class="inventory-summary">${[...groups.values()].map(g=>`<div class="inventory-summary-row"><div><strong>${esc(g.productName)}</strong><small>${esc(g.planName==="Mặc định"?"Không chia gói":g.planName)} · Đang giữ ${g.reserved} · Đã bán ${g.sold}${g.order?` · Order ${g.order}`:""}</small></div><b>Còn ${g.ready}</b></div>`).join("")||`<div class="empty">Kho đang trống.</div>`}</div></div></div>`;
+      return `<div class="admin-grid"><form class="admin-card form" data-admin-form="inventory"><div><span class="kicker">Kho sản phẩm</span><h2>Thêm thông tin bàn giao</h2></div><label>Sản phẩm<select name="product" id="adminProduct">${products.map(p=>`<option value="${p.id}">${esc(p.name)}${p.isActive?"":" (đang ẩn)"}</option>`).join("")}</select></label><label>Gói<select name="plan" id="adminPlan">${(first?.plans||[]).map(p=>`<option>${esc(p.name)}</option>`).join("")}</select></label><label>Tài khoản / key<input name="account" placeholder="Có thể để trống"></label><label>Mật khẩu<input name="password" placeholder="Có thể để trống"></label><label>Ghi chú / nội dung giao<textarea name="note" placeholder="Link, hướng dẫn hoặc nội dung bất kỳ"></textarea></label><label>Số lượng hàng thêm<input name="quantity" type="number" min="1" max="500" value="1" required></label><p class="admin-help">Chỉ cần một trong ba ô có dù một ký tự thì khách sẽ được giao ngay sau thanh toán. Cả ba ô trống sẽ được tính là hàng order.</p><button class="full-btn" type="submit">Thêm vào kho</button></form><div class="admin-card"><div class="admin-title"><div><span class="kicker">Tồn kho tự động</span><h2>${ready} hàng giao ngay</h2></div><small>Chạm sản phẩm để quản lý tài khoản</small></div><div class="inventory-summary">${[...groups.values()].map(g=>`<button type="button" class="inventory-summary-row" data-open-product="${esc(g.productId)}"><div><strong>${esc(g.productName)}</strong><small>${esc(g.planName==="Mặc định"?"Không chia gói":g.planName)} · Đang giữ ${g.reserved} · Đã bán ${g.sold}${g.order?` · Order ${g.order}`:""}</small></div><b>Còn ${g.ready}</b></button>`).join("")||`<div class="empty">Kho đang trống.</div>`}</div></div></div>`;
+    }
+    function adminCustomersMarkup(){
+      const customer=state.adminCustomers.find(x=>x.id===state.adminCustomerId);
+      if(customer){
+        const identity=customer.displayName||customer.email||customer.phone||customer.id;
+        const logs=state.adminCustomerLogs.filter(log=>log.entityId===customer.id);
+        return `<div class="admin-back-row"><button class="admin-back-button" type="button" data-admin-action="back-customers">← Danh sách khách hàng</button><span class="admin-product-hold">Mọi thay đổi số dư đều được lưu lịch sử</span></div><div class="admin-detail-grid"><div class="admin-detail-stack"><div class="admin-card"><span class="kicker">Tài khoản khách hàng</span><h1>${esc(identity)}</h1><p style="color:var(--muted);font-size:9px;overflow-wrap:anywhere">${esc(customer.email||customer.phone||customer.id)}</p><div class="admin-inline-stats"><div class="admin-inline-stat"><span>SỐ DƯ</span><b>${money(customer.balance)}</b></div><div class="admin-inline-stat"><span>GIẢM MẶC ĐỊNH</span><b>${formatPercent(customer.discountPercent)}%</b></div></div></div><form class="admin-card form" data-admin-form="customer-adjust"><input type="hidden" name="userId" value="${esc(customer.id)}"><div><span class="kicker">Điều chỉnh tài khoản</span><h2>Cộng/trừ số dư và ưu đãi</h2></div><label>Thao tác<select name="operation"><option value="add">Cộng số dư</option><option value="subtract">Trừ số dư</option></select></label><label>Số tiền<input name="amount" type="number" min="0" max="1000000000" step="1000" value="0" required></label><label>Giảm giá mặc định (%)<input name="discountPercent" type="number" min="0" max="100" step="0.01" value="${formatPercent(customer.discountPercent)}" required></label><label>Lý do<textarea name="reason" maxlength="300" placeholder="Ví dụ: Hoàn tiền đơn #..., khách VIP tháng 7"></textarea></label><p class="admin-help">Giảm giá mặc định được áp dụng tự động sau mã giảm giá của đơn. Nhập 0 để tắt ưu đãi tài khoản.</p><button class="full-btn" type="submit">Lưu điều chỉnh</button></form></div><div class="admin-card"><div class="admin-title"><div><span class="kicker">Lịch sử quản trị</span><h2>${logs.length} thay đổi gần nhất</h2></div></div><div class="admin-ledger">${logs.length?logs.map(log=>{const data=log.data||{},delta=numberValue(data.balance_delta),discountBefore=numberValue(data.discount_before),discountAfter=numberValue(data.discount_after);return `<article class="admin-ledger-row"><div><strong>${delta>0?`+${money(delta)}`:delta<0?`−${money(Math.abs(delta))}`:"Không đổi số dư"}</strong><small>${time(log.createdAt)}${data.reason?` · ${esc(data.reason)}`:""}</small></div><b>${discountBefore!==discountAfter?`${formatPercent(discountBefore)}% → ${formatPercent(discountAfter)}%`:""}</b></article>`}).join(""):`<div class="empty">Chưa có thay đổi từ admin.</div>`}</div></div></div>`;
+      }
+      return `<div class="admin-title"><div><span class="kicker">Khách hàng</span><h1>Quản lý tài khoản</h1></div><small>${state.adminCustomers.length} tài khoản</small></div><div class="admin-customer-list">${state.adminCustomers.length?state.adminCustomers.map(customer=>{const identity=customer.displayName||customer.email||customer.phone||customer.id;return `<button type="button" class="admin-customer-item" data-open-customer="${esc(customer.id)}"><div><strong>${esc(identity)}</strong><small>${esc(customer.email||customer.phone||customer.id)} · Tham gia ${time(customer.createdAt)}</small></div><div><b>${money(customer.balance)}</b><small>${customer.discountPercent>0?`Giảm mặc định ${formatPercent(customer.discountPercent)}%`:"Không có giảm mặc định"}</small></div></button>`}).join(""):`<div class="empty">Chưa có khách hàng.</div>`}</div>`;
     }
     function adminGiftCardsMarkup(){return `<div class="admin-code-grid"><form class="admin-card form" data-admin-form="giftcard"><div><span class="kicker">Gift card</span><h2>Tạo mã nạp số dư</h2></div><label>Mã gift card<input name="code" required maxlength="40" placeholder="NOVA-50K-ABCD" style="text-transform:uppercase"></label><label>Giá trị<input name="value" type="number" min="1000" step="1000" required placeholder="50000"></label><label>Số người được sử dụng (0 = không giới hạn)<input name="usageLimit" type="number" min="0" max="1000000" value="1" required></label><p class="admin-help">Mỗi tài khoản chỉ dùng được mã này một lần. Mã tự tắt khi đủ số người.</p><button class="full-btn" type="submit">Tạo gift card</button></form><div class="admin-card"><div class="admin-title"><div><span class="kicker">Danh sách</span><h2>${state.adminGiftCards.length} mã</h2></div></div><div class="admin-list">${state.adminGiftCards.length?state.adminGiftCards.map(g=>{const exhausted=g.usageLimit>0&&g.usedCount>=g.usageLimit,limit=g.usageLimit>0?g.usageLimit:"∞";return `<article class="admin-record"><div class="admin-record-head"><div><span class="code-pill ${g.active===false?"inactive":""}">${esc(g.id)}</span><small>Đã dùng ${g.usedCount}/${limit}${g.usedByEmail?` · gần nhất: ${esc(g.usedByEmail)}`:""}</small></div><b>${money(g.value)}</b></div><div class="record-actions"><button class="${g.active===false?"secondary-admin":"danger"}" data-toggle-gift="${esc(g.id)}" ${g.active===false&&exhausted?"disabled":""}>${g.active===false?(exhausted?"Đã đủ lượt":"Kích hoạt lại"):"Tắt mã"}</button></div></article>`}).join(""):`<div class="empty">Chưa có gift card.</div>`}</div></div></div>`}
     function adminDiscountsMarkup(){return `<div class="admin-code-grid"><form class="admin-card form" data-admin-form="discount"><div><span class="kicker">Khuyến mãi</span><h2>Tạo mã giảm giá</h2></div><label>Mã giảm giá<input name="code" required maxlength="32" placeholder="SALE20" style="text-transform:uppercase"></label><label>Loại giảm<select name="type"><option value="percent">Theo phần trăm (%)</option><option value="fixed">Số tiền cố định</option></select></label><label>Giá trị<input name="value" type="number" min="1" required placeholder="20"></label><label>Đơn tối thiểu<input name="minOrder" type="number" min="0" step="1000" value="0"></label><label>Giảm tối đa (0 = không giới hạn)<input name="maxDiscount" type="number" min="0" step="1000" value="0"></label><label>Áp dụng cho<select name="productId"><option value="">Tất cả sản phẩm</option>${PRODUCTS.map(p=>`<option value="${p.id}">${esc(p.name)}</option>`).join("")}</select></label><label>Số lượt dùng (0 = không giới hạn)<input name="usageLimit" type="number" min="0" value="0"></label><button class="full-btn" type="submit">Tạo mã giảm giá</button></form><div class="admin-card"><div class="admin-title"><div><span class="kicker">Danh sách</span><h2>${state.adminDiscountCodes.length} mã</h2></div></div><div class="admin-list">${state.adminDiscountCodes.length?state.adminDiscountCodes.map(c=>`<article class="admin-record"><div class="admin-record-head"><div><span class="code-pill ${c.active===false?"inactive":""}">${esc(c.id)}</span><small>${esc(c.type==="fixed"?`Giảm ${money(c.value)}`:`Giảm ${c.value}%`)} · đã dùng ${Number(c.usedCount)||0}${Number(c.usageLimit)>0?`/${c.usageLimit}`:""}</small></div><span class="status ${c.active===false?"rejected":"approved"}">${c.active===false?"Đã tắt":"Đang bật"}</span></div><div class="record-meta"><span>Đơn từ ${money(c.minOrder||0)}</span><span>${c.productIds?.length?esc(PRODUCTS.find(p=>p.id===c.productIds[0])?.name||c.productIds[0]):"Tất cả sản phẩm"}</span><b>${Number(c.maxDiscount)>0?`Tối đa ${money(c.maxDiscount)}`:"Không giới hạn"}</b></div><div class="record-actions"><button class="${c.active===false?"secondary-admin":"danger"}" data-toggle-discount="${esc(c.id)}">${c.active===false?"Bật lại":"Tắt mã"}</button></div></article>`).join(""):`<div class="empty">Chưa có mã giảm giá.</div>`}</div></div></div>`}
@@ -6294,12 +6408,56 @@ html.nova-keyboard-open #sheetHost .auth-sheet[data-view="auth"] .nova-auth-page
     function bindAdmin(){
       const root=$("#app");root.onclick=adminClick;root.onsubmit=adminSubmit;root.onchange=e=>{
         if(e.target.id==="adminProduct"){const p=selectedProduct(e.target.value),plan=$("#adminPlan");if(p&&plan)plan.innerHTML=p.plans.map(x=>`<option>${esc(x.name)}</option>`).join("")}
+        if(e.target.matches("[data-inventory-filter]")){state.adminInventoryFilter=e.target.value;state.adminInventoryEditId="";renderAdmin();return}
         const media=e.target.closest("[data-admin-media]");if(media)previewAdminMedia(media)
       };
-      root.ondragstart=e=>{const row=e.target.closest("[data-product-row]");if(!row)return;draggedProductId=row.dataset.productRow;row.classList.add("dragging");if(e.dataTransfer){e.dataTransfer.effectAllowed="move";e.dataTransfer.setData("text/plain",draggedProductId)}};
-      root.ondragover=e=>{const row=e.target.closest("[data-product-row]");if(!row||row.dataset.productRow===draggedProductId)return;e.preventDefault();$$("[data-product-row]",root).forEach(x=>x.classList.toggle("drag-over",x===row))};
-      root.ondrop=e=>{const row=e.target.closest("[data-product-row]");if(!row||!draggedProductId||row.dataset.productRow===draggedProductId)return;e.preventDefault();$$("[data-product-row]",root).forEach(x=>x.classList.remove("drag-over","dragging"));const source=draggedProductId;draggedProductId="";guarded(()=>dropProductAt(source,row.dataset.productRow))};
-      root.ondragend=()=>{$$("[data-product-row]",root).forEach(x=>x.classList.remove("drag-over","dragging"));draggedProductId=""};
+      root.onkeydown=e=>{if(!["Enter"," "].includes(e.key)||!e.target.matches("[data-product-row]"))return;e.preventDefault();state.adminProductId=e.target.dataset.productRow;state.adminInventoryEditId="";renderAdmin()};
+      bindAdminProductHold(root);
+    }
+    function clearAdminHold(){
+      if(adminHoldTimer)clearTimeout(adminHoldTimer);
+      adminHoldTimer=0;
+    }
+    function finishAdminProductDrag(root,saveOrder){
+      clearAdminHold();
+      const wasActive=adminDragActive;
+      const ids=wasActive?$$("[data-product-row]",root).map(row=>row.dataset.productRow):[];
+      $$("[data-product-row]",root).forEach(row=>row.classList.remove("drag-over","dragging"));
+      adminPointerId=null;adminDragActive=false;draggedProductId="";
+      if(!wasActive)return;
+      adminSuppressClick=true;setTimeout(()=>{adminSuppressClick=false},350);
+      if(saveOrder&&ids.length&&ids.join("|")!==state.adminProducts.map(p=>p.id).join("|"))guarded(()=>persistProductOrder(ids));
+    }
+    function bindAdminProductHold(root){
+      root.oncontextmenu=e=>{if(e.target.closest("[data-product-row]"))e.preventDefault()};
+      root.onpointerdown=e=>{
+        const row=e.target.closest("[data-product-row]");
+        if(!row||e.target.closest("button,input,select,textarea,a"))return;
+        finishAdminProductDrag(root,false);
+        adminPointerId=e.pointerId;adminPointerStartX=e.clientX;adminPointerStartY=e.clientY;draggedProductId=row.dataset.productRow;
+        adminHoldTimer=setTimeout(()=>{
+          if(adminPointerId!==e.pointerId)return;
+          adminDragActive=true;row.classList.add("dragging");
+          try{row.setPointerCapture(e.pointerId);navigator.vibrate?.(12)}catch(_){}
+        },320);
+      };
+      root.onpointermove=e=>{
+        if(e.pointerId!==adminPointerId)return;
+        if(!adminDragActive){
+          if(Math.hypot(e.clientX-adminPointerStartX,e.clientY-adminPointerStartY)>9)finishAdminProductDrag(root,false);
+          return;
+        }
+        e.preventDefault();
+        const source=$(`[data-product-row="${CSS.escape(draggedProductId)}"]`,root),list=source?.closest("[data-product-sort-list]");
+        if(!source||!list)return;
+        const target=document.elementsFromPoint(e.clientX,e.clientY).map(el=>el.closest?.("[data-product-row]")).find(row=>row&&row!==source&&row.closest("[data-product-sort-list]")===list);
+        $$("[data-product-row]",root).forEach(row=>row.classList.toggle("drag-over",row===target));
+        if(!target)return;
+        const rect=target.getBoundingClientRect(),after=e.clientY>rect.top+rect.height/2;
+        list.insertBefore(source,after?target.nextSibling:target);
+      };
+      root.onpointerup=e=>{if(e.pointerId===adminPointerId)finishAdminProductDrag(root,true)};
+      root.onpointercancel=e=>{if(e.pointerId===adminPointerId)finishAdminProductDrag(root,true)};
     }
     function previewAdminMedia(input){
       const preview=$(`[data-media-preview="${input.dataset.adminMedia}"]`,input.closest("form"));if(!preview)return;
@@ -6313,10 +6471,15 @@ html.nova-keyboard-open #sheetHost .auth-sheet[data-view="auth"] .nova-auth-page
       const rows=$$("[data-plan-row]",form);rows.forEach((row,index)=>{const btn=$("[data-remove-plan]",row);if(btn)btn.hidden=rows.length===1||index===0&&rows.length===1})
     }
     async function adminClick(e){
-      const tab=e.target.closest("[data-admin-tab]");if(tab){state.adminTab=tab.dataset.adminTab;state.message=state.error="";renderAdmin();return}
+      if(adminSuppressClick){e.preventDefault();return}
+      const tab=e.target.closest("[data-admin-tab]");if(tab){state.adminTab=tab.dataset.adminTab;state.adminProductId=state.adminInventoryEditId=state.adminCustomerId="";state.message=state.error="";renderAdmin();return}
       const removePlan=e.target.closest("[data-remove-plan]");if(removePlan){const form=removePlan.closest("form"),rows=$$("[data-plan-row]",form);if(rows.length>1)removePlan.closest("[data-plan-row]")?.remove();refreshPlanRemoveButtons(form);return}
       const a=e.target.closest("[data-admin-action]")?.dataset.adminAction;
       if(a==="add-plan"){const list=$("#adminPlans");if(list&&$$("[data-plan-row]",list).length<20){list.insertAdjacentHTML("beforeend",adminPlanRowMarkup($$("[data-plan-row]",list).length));refreshPlanRemoveButtons(list.closest("form"))}return}
+      if(a==="add-edit-plan"){const list=$("#adminEditPlans");if(list&&$$("[data-plan-row]",list).length<20){list.insertAdjacentHTML("beforeend",adminPlanRowMarkup($$("[data-plan-row]",list).length));refreshPlanRemoveButtons(list.closest("form"))}return}
+      if(a==="back-products"){state.adminProductId=state.adminInventoryEditId="";renderAdmin();return}
+      if(a==="cancel-inventory-edit"){state.adminInventoryEditId="";renderAdmin();return}
+      if(a==="back-customers"){state.adminCustomerId="";renderAdmin();return}
       if(a==="logout")return guarded(signOutUser);if(a==="retry-admin")return guarded(checkAdmin);if(a==="switch-register"){state.adminAuthMode=state.adminAuthMode==="login"?"register":"login";state.error="";renderAdmin();return}
       const approve=e.target.closest("[data-approve-order]");if(approve)return guarded(()=>adminApproveOrder(approve.dataset.approveOrder,false));
       const support=e.target.closest("[data-support-order]");if(support)return guarded(()=>adminApproveOrder(support.dataset.supportOrder,true));
@@ -6325,23 +6488,22 @@ html.nova-keyboard-open #sheetHost .auth-sheet[data-view="auth"] .nova-auth-page
       const rt=e.target.closest("[data-reject-topup]");if(rt)return guarded(()=>adminRejectTopup(rt.dataset.rejectTopup));
       const tg=e.target.closest("[data-toggle-gift]");if(tg)return guarded(()=>toggleGiftCard(tg.dataset.toggleGift));
       const td=e.target.closest("[data-toggle-discount]");if(td)return guarded(()=>toggleDiscountCode(td.dataset.toggleDiscount));
-      const move=e.target.closest("[data-move-product]");if(move)return guarded(()=>moveProduct(move.dataset.moveProduct,Number(move.dataset.direction)));
       const toggle=e.target.closest("[data-toggle-product]");if(toggle)return guarded(()=>toggleProductVisibility(toggle.dataset.toggleProduct));
       const del=e.target.closest("[data-delete-product]");if(del)return guarded(()=>deleteProduct(del.dataset.deleteProduct));
+      const editInventory=e.target.closest("[data-edit-inventory]");if(editInventory){state.adminInventoryEditId=editInventory.dataset.editInventory;renderAdmin();return}
+      const deleteInventoryButton=e.target.closest("[data-delete-inventory]");if(deleteInventoryButton)return guarded(()=>deleteInventoryItem(deleteInventoryButton.dataset.deleteInventory));
+      const customer=e.target.closest("[data-open-customer]");if(customer){state.adminCustomerId=customer.dataset.openCustomer;renderAdmin();return}
+      const product=e.target.closest("[data-open-product]");if(product){state.adminTab="products";state.adminProductId=product.dataset.openProduct;state.adminInventoryEditId="";state.message=state.error="";renderAdmin();return}
     }
     async function persistProductOrder(ids,message="Đã lưu vị trí sản phẩm."){
       const {error}=await supabase.rpc("admin_reorder_products",{p_product_ids:ids});if(error)throw error;
       state.message=message;state.error="";await loadAdminData();renderAdmin()
     }
-    async function moveProduct(id,direction){
-      const ids=state.adminProducts.map(p=>p.id),from=ids.indexOf(id),to=from+direction;
-      if(from<0||to<0||to>=ids.length)return;
-      [ids[from],ids[to]]=[ids[to],ids[from]];await persistProductOrder(ids)
-    }
-    async function dropProductAt(sourceId,targetId){
-      const ids=state.adminProducts.map(p=>p.id),from=ids.indexOf(sourceId),to=ids.indexOf(targetId);
-      if(from<0||to<0||from===to)return;
-      ids.splice(to,0,ids.splice(from,1)[0]);await persistProductOrder(ids)
+    async function deleteInventoryItem(id){
+      const item=state.adminInventory.find(x=>x.id===id);if(!item)return;
+      if(!confirm(`Xóa tài khoản kho “${item.account||item.note||"Hàng order"}”?`))return;
+      const {error}=await supabase.rpc("admin_delete_inventory",{p_inventory_id:id});if(error)throw error;
+      state.adminInventoryEditId="";state.message="Đã xóa tài khoản khỏi kho.";await loadAdminData();await loadStock();renderAdmin()
     }
     async function toggleProductVisibility(id){
       const product=state.adminProducts.find(p=>p.id===id);if(!product)return;
@@ -6370,6 +6532,21 @@ html.nova-keyboard-open #sheetHost .auth-sheet[data-view="auth"] .nova-auth-page
       const valid=paths.filter(Boolean);if(!valid.length)return;
       const {error}=await supabase.storage.from("product-media").remove(valid);if(error)console.warn("Không thể dọn ảnh tải lên:",error)
     }
+    function readAdminPlans(form){
+      return $$("[data-plan-row]",form).map((row,index)=>({
+        id:String($('[name="planId"]',row)?.value||"").trim(),
+        name:String($('[name="planName"]',row)?.value||"").trim(),
+        price:Number($('[name="planPrice"]',row)?.value),
+        sort_order:index
+      }))
+    }
+    function validateAdminPlans(plans){
+      if(!plans.length||plans.length>20)throw Error("Sản phẩm phải có từ 1 đến 20 gói.");
+      if(plans.some(p=>!Number.isInteger(p.price)||p.price<0||p.price>100000000))throw Error("Giá bán không hợp lệ.");
+      if(plans.length>1&&plans.some(p=>!p.name))throw Error("Hãy nhập tên cho tất cả các gói.");
+      if(new Set(plans.map(p=>(p.name||"Mặc định").toLocaleLowerCase("vi"))).size!==plans.length)throw Error("Tên các gói không được trùng nhau.");
+      return plans.map(p=>({...p,name:p.name||"Mặc định"}))
+    }
     async function adminSubmit(e){
       e.preventDefault();if(state.busy)return;const form=e.target,kind=form.dataset.adminForm;state.error=state.message="";
       await guarded(async()=>{
@@ -6379,31 +6556,55 @@ html.nova-keyboard-open #sheetHost .auth-sheet[data-view="auth"] .nova-auth-page
             if(state.adminAuthMode==="register"){const signed=await signUpUser(email,password);if(!signed.session)state.message="Đã đăng ký. Hãy xác nhận email rồi đăng nhập."}else await signInUser(email,password);return
           }
           if(kind==="product"){
-            const d=new FormData(form),name=String(d.get("name")||"").trim(),category=String(d.get("category")||"").trim(),description=String(d.get("description")||"").trim(),badge=String(d.get("badge")||"").trim(),logo=String(d.get("logo")||"").trim()||"N",accent=String(d.get("accent")||"#6d4aff"),soft=String(d.get("soft")||"#f1edff"),productId=customProductId(name);
-            const plans=$$("[data-plan-row]",form).map(row=>({name:String($('[name="planName"]',row)?.value||"").trim(),price:Number($('[name="planPrice"]',row)?.value)}));
-            if(name.length<2||category.length<2||!plans.length||plans.length>20)throw Error("Thông tin sản phẩm không hợp lệ.");
-            if(plans.some(p=>!Number.isInteger(p.price)||p.price<0||p.price>100000000))throw Error("Giá bán không hợp lệ.");
-            if(plans.length>1&&plans.some(p=>!p.name))throw Error("Hãy nhập tên cho tất cả các gói.");
-            if(new Set(plans.map(p=>(p.name||"Mặc định").toLocaleLowerCase("vi"))).size!==plans.length)throw Error("Tên các gói không được trùng nhau.");
-            const logoFile=d.get("logoFile") instanceof File&&d.get("logoFile").size?d.get("logoFile"):null;
+            const d=new FormData(form),name=String(d.get("name")||"").trim(),category=String(d.get("category")||"").trim(),description=String(d.get("description")||"").trim(),badge=String(d.get("badge")||"").trim(),logo=name.slice(0,2).toLocaleUpperCase("vi")||"N",accent=String(d.get("accent")||"#6d4aff"),soft=String(d.get("soft")||"#f1edff"),productId=customProductId(name);
+            const plans=validateAdminPlans(readAdminPlans(form));
+            if(name.length<2||category.length<2)throw Error("Thông tin sản phẩm không hợp lệ.");
             const imageFile=d.get("imageFile") instanceof File&&d.get("imageFile").size?d.get("imageFile"):null;
             const uploaded=[];
             try{
-              const logoUpload=await uploadProductMedia(logoFile,productId,"logo");if(logoUpload.path)uploaded.push(logoUpload.path);
               const imageUpload=await uploadProductMedia(imageFile,productId,"cover");if(imageUpload.path)uploaded.push(imageUpload.path);
               const {error}=await supabase.rpc("admin_create_product_v2",{
                 p_product_id:productId,p_name:name,p_category:category,p_description:description,p_badge:badge,p_logo:logo,
-                p_logo_url:logoUpload.url||null,p_image_url:imageUpload.url||null,p_accent:accent,p_soft:soft,
-                p_plans:plans.map(p=>({name:p.name||"Mặc định",price:p.price}))
+                p_logo_url:null,p_image_url:imageUpload.url||null,p_accent:accent,p_soft:soft,
+                p_plans:plans.map(p=>({name:p.name,price:p.price}))
               });if(error)throw error;
             }catch(err){await cleanupProductMedia(uploaded);throw err}
             state.message=`Đã tạo sản phẩm ${name}.`;form.reset();await loadCatalog();await loadStock();await loadAdminData();renderAdmin();return
+          }
+          if(kind==="product-edit"){
+            const d=new FormData(form),productId=String(d.get("productId")||""),product=state.adminProducts.find(p=>p.id===productId);
+            if(!product)throw Error("Không tìm thấy sản phẩm.");
+            const name=String(d.get("name")||"").trim(),category=String(d.get("category")||"").trim(),description=String(d.get("description")||"").trim(),badge=String(d.get("badge")||"").trim(),discountPercent=Number(d.get("discountPercent")||0),accent=String(d.get("accent")||product.accent),soft=String(d.get("soft")||product.soft);
+            const plans=validateAdminPlans(readAdminPlans(form));
+            if(name.length<2||category.length<2||!Number.isFinite(discountPercent)||discountPercent<0||discountPercent>100)throw Error("Thông tin sản phẩm hoặc mức giảm giá không hợp lệ.");
+            const imageFile=d.get("imageFile") instanceof File&&d.get("imageFile").size?d.get("imageFile"):null,uploaded=[];
+            try{
+              const imageUpload=await uploadProductMedia(imageFile,productId,"cover");if(imageUpload.path)uploaded.push(imageUpload.path);
+              const {error}=await supabase.rpc("admin_update_product_v3",{
+                p_product_id:productId,p_name:name,p_category:category,p_description:description,p_badge:badge,
+                p_image_url:imageUpload.url||product.imageUrl||null,p_accent:accent,p_soft:soft,p_discount_percent:discountPercent,
+                p_plans:plans.map(p=>({id:p.id||null,name:p.name,price:p.price,sort_order:p.sort_order}))
+              });if(error)throw error;
+            }catch(err){await cleanupProductMedia(uploaded);throw err}
+            state.message=`Đã lưu giá và thông tin của ${name}.`;await loadCatalog();await loadStock();await loadAdminData();state.adminProductId=productId;renderAdmin();return
           }
           if(kind==="inventory"){
             const d=new FormData(form),p=selectedProduct(String(d.get("product"))),plan=String(d.get("plan")||""),account=String(d.get("account")||"").trim(),password=String(d.get("password")||"").trim(),note=String(d.get("note")||"").trim(),quantity=Number(d.get("quantity"));if(!p||!p.plans.some(x=>x.name===plan))throw Error("Sản phẩm hoặc gói không hợp lệ.");if(!Number.isInteger(quantity)||quantity<1||quantity>500)throw Error("Số lượng hàng không hợp lệ.");
             const rows=Array.from({length:quantity},()=>({product_id:p.id,plan_name:plan,account,password,note,status:"available"}));
             const {error}=await supabase.from("inventory").insert(rows);if(error)throw error;
             state.message=account||password||note?`Đã thêm ${quantity} hàng giao ngay vào kho.`:`Đã thêm ${quantity} hàng order.`;form.reset();await loadAdminData();await loadStock();renderAdmin();return
+          }
+          if(kind==="inventory-edit"){
+            const d=new FormData(form),inventoryId=String(d.get("inventoryId")||""),account=String(d.get("account")||"").trim(),password=String(d.get("password")||"").trim(),note=String(d.get("note")||"").trim(),status=String(d.get("status")||"available");
+            const {error}=await supabase.rpc("admin_update_inventory",{p_inventory_id:inventoryId,p_account:account,p_password:password,p_note:note,p_status:status});if(error)throw error;
+            state.adminInventoryEditId="";state.message="Đã cập nhật tài khoản kho.";await loadAdminData();await loadStock();renderAdmin();return
+          }
+          if(kind==="customer-adjust"){
+            const d=new FormData(form),userId=String(d.get("userId")||""),operation=String(d.get("operation")||"add"),amount=Number(d.get("amount")||0),discountPercent=Number(d.get("discountPercent")||0),reason=String(d.get("reason")||"").trim();
+            if(!Number.isInteger(amount)||amount<0||amount>1000000000||!Number.isFinite(discountPercent)||discountPercent<0||discountPercent>100)throw Error("Số tiền hoặc mức giảm giá không hợp lệ.");
+            const balanceDelta=operation==="subtract"?-amount:amount;
+            const {error}=await supabase.rpc("admin_adjust_customer",{p_user_id:userId,p_balance_delta:balanceDelta,p_discount_percent:discountPercent,p_reason:reason});if(error)throw error;
+            state.message="Đã cập nhật số dư và ưu đãi của khách hàng.";await loadAdminData();state.adminCustomerId=userId;renderAdmin();return
           }
           if(kind==="giftcard"){
             const d=new FormData(form),code=normalizeCode(d.get("code")),value=Number(d.get("value")),usageLimit=Number(d.get("usageLimit"));if(code.length<6||!Number.isInteger(value)||value<1000||!Number.isInteger(usageLimit)||usageLimit<0||usageLimit>1000000)throw Error("Mã, giá trị hoặc số người sử dụng không hợp lệ.");
@@ -6479,26 +6680,28 @@ html.nova-keyboard-open #sheetHost .auth-sheet[data-view="auth"] .nova-auth-page
     }
     function queueAdminRender(){cancelAnimationFrame(adminRenderFrame);adminRenderFrame=requestAnimationFrame(renderAdmin)}
     async function loadAdminData(){
-      const [[orders,topups,inventory,gifts,discounts]]=await Promise.all([
+      const [[orders,topups,inventory,gifts,discounts,customers,audits]]=await Promise.all([
         Promise.all([
           supabase.from("orders").select("*").order("created_at",{ascending:false}),supabase.from("topups").select("*").order("created_at",{ascending:false}),
           supabase.from("inventory").select("*").order("created_at",{ascending:false}),supabase.from("gift_cards").select("*").order("code"),
-          supabase.from("discount_codes").select("*").order("code")
+          supabase.from("discount_codes").select("*").order("code"),supabase.rpc("admin_list_customers"),
+          supabase.from("audit_logs").select("*").eq("entity_type","customer").order("created_at",{ascending:false}).limit(200)
         ]),
         loadAdminCatalog()
       ]);
-      [orders,topups,inventory,gifts,discounts].forEach(throwIfError);
+      [orders,topups,inventory,gifts,discounts,customers,audits].forEach(throwIfError);
       state.adminOrders=(orders.data||[]).map(mapOrder);state.adminTopups=(topups.data||[]).map(mapTopup);state.adminInventory=(inventory.data||[]).map(mapInventory);
-      state.adminGiftCards=(gifts.data||[]).map(mapGiftCard);state.adminDiscountCodes=(discounts.data||[]).map(mapDiscount);queueAdminRender();
+      state.adminGiftCards=(gifts.data||[]).map(mapGiftCard);state.adminDiscountCodes=(discounts.data||[]).map(mapDiscount);
+      state.adminCustomers=(customers.data||[]).map(mapCustomer);state.adminCustomerLogs=(audits.data||[]).map(mapAudit);queueAdminRender();
     }
     function subscribeAdmin(){
       adminUnsubs.forEach(u=>u());adminUnsubs=[];loadAdminData().catch(err=>{state.error=friendlyError(err);renderAdmin()});
-      for(const table of ["orders","topups","inventory","gift_cards","discount_codes","products","product_plans"]){
+      for(const table of ["orders","topups","inventory","gift_cards","discount_codes","products","product_plans","profiles","wallets","audit_logs"]){
         const channel=supabase.channel(`admin-${table}`).on("postgres_changes",{event:"*",schema:"public",table},()=>loadAdminData().catch(console.warn)).subscribe();adminUnsubs.push(channelUnsubscribe(channel));
       }
     }
     function validateOrderPricing(o){
-      let subtotal=0,count=0;for(const i of o.items||[]){const p=selectedProduct(i.productId),plan=p?.plans.find(x=>x.name===i.planName);if(!p||!plan||i.productName!==p.name||i.unitPrice!==plan.price||i.lineTotal!==plan.price*i.quantity||i.quantity<1)throw Error("Dữ liệu giá của đơn không hợp lệ.");subtotal+=i.lineTotal;count+=i.quantity}const discount=Math.max(0,Number(o.discountAmount)||0),expected=Math.max(0,subtotal-discount);if((o.subtotal!==undefined&&Number(o.subtotal)!==subtotal)||Number(o.total)!==expected||count!==o.itemCount||discount>subtotal)throw Error("Tổng tiền của đơn không hợp lệ.");return expected
+      let subtotal=0,count=0;for(const i of o.items||[]){const p=selectedProduct(i.productId),plan=p?.plans.find(x=>x.name===i.planName),price=effectivePlanPrice(p,plan);if(!p||!plan||i.productName!==p.name||i.unitPrice!==price||i.lineTotal!==price*i.quantity||i.quantity<1)throw Error("Dữ liệu giá của đơn không hợp lệ.");subtotal+=i.lineTotal;count+=i.quantity}const discount=Math.max(0,Number(o.discountAmount)||0),expected=Math.max(0,subtotal-discount);if((o.subtotal!==undefined&&Number(o.subtotal)!==subtotal)||Number(o.total)!==expected||count!==o.itemCount||discount>subtotal)throw Error("Tổng tiền của đơn không hợp lệ.");return expected
     }
     async function adminApproveOrder(id,support){
       state.error=state.message="";
