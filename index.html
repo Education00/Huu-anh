@@ -4052,12 +4052,6 @@ body.dark-mode #sheetHost .nova-auth-logo{
   border-radius:0 0 18px 18px!important;
 }
 
-#sheetHost .nova-phone-verify-form input[name="token"]{
-  text-align:center;
-  letter-spacing:.32em;
-  font-weight:800!important;
-}
-
 /* Chrome/Android Password Manager không được phủ một hình chữ nhật trắng lên ô. */
 #sheetHost .nova-auth-form .nova-auth-fields input:-webkit-autofill,
 #sheetHost .nova-auth-form .nova-auth-fields input:-webkit-autofill:hover,
@@ -4607,13 +4601,7 @@ body.dark-mode #sheetHost .nova-copy-button.is-copied{
     function normalizeAuthIdentifier(input){
       const raw=String(input||"").trim();
       if(AUTH_EMAIL_PATTERN.test(raw))return{kind:"email",value:raw.toLowerCase(),display:raw};
-
-      const compact=raw.replace(/[\s().-]/g,"");
-      let phone="";
-      if(/^0\d{9}$/.test(compact))phone=`+84${compact.slice(1)}`;
-      else if(/^84\d{9}$/.test(compact))phone=`+${compact}`;
-      else if(/^\+\d{8,15}$/.test(compact))phone=compact;
-      return phone?{kind:"phone",value:phone,display:raw}:null;
+      return null;
     }
     function displayAuthIdentifier(value){
       const text=String(value||"");
@@ -4624,7 +4612,7 @@ body.dark-mode #sheetHost .nova-copy-button.is-copied{
     }
     function authCredentials(identifier,password){
       const parsed=normalizeAuthIdentifier(identifier);
-      if(!parsed)throw new Error("Email hoặc số điện thoại chưa đúng định dạng.");
+      if(!parsed)throw new Error("Email chưa đúng định dạng.");
       return{parsed,payload:{[parsed.kind]:parsed.value,password}};
     }
     async function signInUser(identifier,password){
@@ -4639,12 +4627,6 @@ body.dark-mode #sheetHost .nova-copy-button.is-copied{
       if(error)throw error;
       return{...data,authIdentifier:parsed};
     }
-    async function verifyPhoneSignup(phone,token){
-      const {data,error}=await supabase.auth.verifyOtp({phone,token,type:"sms"});
-      if(error)throw error;
-      return data;
-    }
-
     function passwordResetRedirectUrl(){
       try{
         const url=new URL(location.href);
@@ -4737,7 +4719,7 @@ body.dark-mode #sheetHost .nova-copy-button.is-copied{
 
     const state={
       user:null,balance:0,customerDiscountPercent:0,settings:{...defaultSettings},category:"Tất cả",search:"",sort:"popular",deal:"hot",coupon:null,
-      plans:{},stock:new Map(),stockLoaded:false,stockError:false,cart:[],orders:[],topups:[],sheet:null,payload:null,busy:false,authView:"login",authStep:1,authDraftEmail:"",verificationEmail:"",verificationPhone:"",passwordResetEmail:"",passwordRecovery:false,
+      plans:{},stock:new Map(),stockLoaded:false,stockError:false,cart:[],orders:[],topups:[],sheet:null,payload:null,busy:false,authView:"login",authStep:1,authDraftEmail:"",verificationEmail:"",passwordResetEmail:"",passwordRecovery:false,
       admin:false,adminTab:"orders",adminAuthMode:"login",adminOrders:[],adminTopups:[],adminInventory:[],adminProducts:[],adminGiftCards:[],adminDiscountCodes:[],adminCustomers:[],adminCustomerLogs:[],adminProductId:"",adminInventoryEditId:"",adminCustomerId:"",adminInventoryFilter:"all",message:"",error:""
     };
     let unsubWallet=null,unsubProfile=null,unsubOrders=null,unsubTopups=null,unsubStock=null,unsubSettings=null,unsubCatalog=null;
@@ -5215,7 +5197,6 @@ body.dark-mode #sheetHost .nova-copy-button.is-copied{
         if(state.authView==="login")return state.authStep===2?"Nhập mật khẩu để tiếp tục":"Đăng nhập an toàn vào tài khoản";
         if(state.authView==="register")return state.authStep===2?"Tạo mật khẩu bảo vệ tài khoản":"Tạo tài khoản NovaKey mới";
         if(state.authView==="verify")return"Xác minh email để hoàn tất đăng ký";
-        if(state.authView==="verifyPhone")return"Nhập mã SMS để xác minh số điện thoại";
         if(state.authView==="forgot")return"Nhận liên kết đặt lại mật khẩu qua email";
         if(state.authView==="forgotSent")return"Kiểm tra hộp thư để tiếp tục";
         if(state.authView==="reset")return"Tạo mật khẩu mới cho tài khoản";
@@ -5258,7 +5239,7 @@ body.dark-mode #sheetHost .nova-copy-button.is-copied{
       state.sheet=view;state.payload=payload;state.message="";state.error="";
       if(view==="auth"&&previousView!=="auth"&&!state.passwordRecovery){
         state.authView="login";state.authStep=1;state.authDraftEmail="";
-        state.verificationEmail="";state.verificationPhone="";
+        state.verificationEmail="";
       }
       renderSheet({preserve:previousView===view,animateContent:false,animateOpen:!hadLayer});
     }
@@ -5277,7 +5258,6 @@ body.dark-mode #sheetHost .nova-copy-button.is-copied{
         if(state.authView==="login")return"Đăng nhập";
         if(state.authView==="register")return"Tạo tài khoản";
         if(state.authView==="verify")return"Xác minh email";
-        if(state.authView==="verifyPhone")return"Xác minh số điện thoại";
         if(state.authView==="forgot"||state.authView==="forgotSent")return"Quên mật khẩu";
         if(state.authView==="reset")return"Đặt mật khẩu mới";
         if(state.authView==="resetDone")return"Đổi mật khẩu thành công";
@@ -5450,34 +5430,6 @@ body.dark-mode #sheetHost .nova-copy-button.is-copied{
         </div></div></section>`;
       }
 
-      if(view==="verifyPhone"){
-        const phone=String(state.verificationPhone||"");
-        return `<section class="nova-verify-page"><div class="nova-verify-card"><div class="auth-verify-card">
-          <span class="auth-verify-icon"><svg class="ui-icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="6.5" y="2.5" width="11" height="19" rx="2.5"/><path d="M10 5h4"/><path d="M11 18.5h2"/></svg></span>
-          <h3>Xác minh số điện thoại</h3>
-          <p>Nhập mã xác minh 6 số NovaKey vừa gửi qua SMS.</p>
-          <div class="auth-verify-email">${esc(displayAuthIdentifier(phone))}</div>
-          <form class="nova-auth-form auth-form nova-phone-verify-form" data-form="phone-verification" novalidate>
-            <div class="nova-auth-fields">
-              <label class="nova-field">
-                <span class="nova-field-title">Mã xác minh</span>
-                <span class="nova-input-shell">
-                  <input name="token" type="text" inputmode="numeric" autocomplete="one-time-code" maxlength="6" required autofocus placeholder="Nhập mã 6 số">
-                </span>
-              </label>
-            </div>
-            <div class="nova-field-feedback" aria-live="polite"></div>
-            <div class="nova-auth-feedback" aria-live="polite">${feedback()}</div>
-            <button class="nova-auth-submit" type="submit">Xác minh</button>
-          </form>
-          <div class="auth-verify-actions">
-            <button type="button" class="outline-btn" data-sheet-action="auth-resend-phone-verification">Gửi lại mã SMS</button>
-          </div>
-          <button type="button" class="auth-back" data-sheet-action="auth-use-different-phone">← Dùng số điện thoại khác</button>
-        </div></div></section>`;
-      }
-
-
       if(view==="forgot"){
         const email=String(state.passwordResetEmail||state.authDraftEmail||"");
         return `<section class="nova-auth-page"><div class="nova-auth-shell">
@@ -5578,9 +5530,9 @@ body.dark-mode #sheetHost .nova-copy-button.is-copied{
           <form class="nova-auth-form auth-form nova-auth-flow ${register?"is-register":"is-login"} ${stepTwo?"is-password-step":""}" data-form="auth" data-auth-mode="${register?"register":"login"}" data-auth-step="${stepTwo?2:1}" novalidate>
             <div class="nova-auth-fields">
               <label class="nova-field nova-email-flow-field ${stepTwo?"is-email-summary-tap":""}" ${stepTwo?'data-sheet-action="auth-step-back" aria-label="Chạm để sửa email"':""}>
-                <span class="nova-field-title">Email hoặc số điện thoại</span>
+                <span class="nova-field-title">Email</span>
                 <span class="nova-input-shell">
-                  <input name="email" type="text" inputmode="email" autocomplete="username" autocapitalize="none" spellcheck="false" value="${esc(email)}" required ${stepTwo?'readonly aria-readonly="true"':''} placeholder="">
+                  <input name="email" type="email" inputmode="email" autocomplete="email" autocapitalize="none" spellcheck="false" value="${esc(email)}" required ${stepTwo?'readonly aria-readonly="true"':''} placeholder="">
                 </span>
               </label>
 
@@ -6078,30 +6030,12 @@ body.dark-mode #sheetHost .nova-copy-button.is-copied{
           }
         });
       }
-      if(a==="auth-login"||a==="auth-switch-login"){state.passwordRecovery=false;state.authView="login";state.authStep=1;state.authDraftEmail="";state.verificationPhone="";state.error="";state.message="";return renderSheet({preserve:false})}
-      if(a==="auth-register"||a==="auth-switch-register"){state.authView="register";state.authStep=1;state.authDraftEmail="";state.verificationPhone="";state.error="";state.message="";return renderSheet({preserve:false})}
+      if(a==="auth-login"||a==="auth-switch-login"){state.passwordRecovery=false;state.authView="login";state.authStep=1;state.authDraftEmail="";state.error="";state.message="";return renderSheet({preserve:false})}
+      if(a==="auth-register"||a==="auth-switch-register"){state.authView="register";state.authStep=1;state.authDraftEmail="";state.error="";state.message="";return renderSheet({preserve:false})}
       if(a==="auth-step-back")return returnAuthToEmail();
       if(a==="auth-back"){state.authView="login";state.authStep=1;state.authDraftEmail="";state.error="";state.message="";return renderSheet({preserve:false})}
       if(a==="auth-verify-login"){state.authView="login";state.authStep=1;state.authDraftEmail=state.verificationEmail||"";state.error="";state.message="";return renderSheet({preserve:false})}
       if(a==="auth-use-different-email"){state.authView="register";state.authStep=1;state.authDraftEmail="";state.error="";state.message="";state.verificationEmail="";return renderSheet({preserve:false})}
-      if(a==="auth-use-different-phone"){state.authView="register";state.authStep=1;state.authDraftEmail="";state.error="";state.message="";state.verificationPhone="";return renderSheet({preserve:false})}
-      if(a==="auth-resend-phone-verification"){
-        return guarded(async()=>{
-          try{
-            const phone=String(state.verificationPhone||"").trim();
-            if(!phone)throw new Error("Không tìm thấy số điện thoại cần gửi lại.");
-            const {error}=await supabase.auth.resend({type:"sms",phone});
-            if(error)throw error;
-            state.error="";
-            state.message="Đã gửi lại mã xác minh qua SMS.";
-            renderSheet({preserve:true});
-          }catch(err){
-            state.message="";
-            state.error=friendlyError(err);
-            renderSheet({preserve:true});
-          }
-        });
-      }
       if(a==="auth-resend-verification"){
         return guarded(async()=>{
           try{
@@ -6215,7 +6149,7 @@ body.dark-mode #sheetHost .nova-copy-button.is-copied{
       const mode=form.dataset.authMode||"login",step=Number(form.dataset.authStep||2),email=form.elements.email,password=form.elements.password,confirmPassword=form.elements.confirmPassword;
       let firstInvalid=null;const mark=(input,message)=>{if(!input)return;showAuthFieldError(input,message);if(!firstInvalid)firstInvalid=input};
       const emailValue=String(email?.value||"").trim();
-      if(!emailValue)mark(email,"Vui lòng nhập email hoặc số điện thoại.");else if(!normalizeAuthIdentifier(emailValue))mark(email,"Email hoặc số điện thoại chưa đúng định dạng.");
+      if(!emailValue)mark(email,"Vui lòng nhập email.");else if(!normalizeAuthIdentifier(emailValue))mark(email,"Email chưa đúng định dạng.");
       if(step>=2){const passwordValue=String(password?.value||"");if(!passwordValue)mark(password,"Vui lòng nhập mật khẩu.");else if(passwordValue.length<6)mark(password,"Mật khẩu cần ít nhất 6 ký tự.");if(mode==="register"){const confirmValue=String(confirmPassword?.value||"");if(!confirmValue)mark(confirmPassword,"Vui lòng nhập lại mật khẩu.");else if(confirmValue!==passwordValue)mark(confirmPassword,"Mật khẩu nhập lại chưa khớp.")}}
       if(firstInvalid){firstInvalid.focus({preventScroll:false});return false}return true;
     }
@@ -6292,39 +6226,6 @@ body.dark-mode #sheetHost .nova-copy-button.is-copied{
 
       const form=e.target,kind=form.dataset.form;
 
-      if(kind==="phone-verification"){
-        clearAuthFieldErrors(form);
-        const tokenInput=form.elements.token;
-        const token=String(tokenInput?.value||"").replace(/\D/g,"");
-        const phone=String(state.verificationPhone||"");
-        if(!/^\d{6}$/.test(token)){
-          showAuthFieldError(tokenInput,"Mã xác minh phải gồm đúng 6 số.");
-          tokenInput?.focus();
-          return;
-        }
-        if(!phone){
-          updateAuthInlineFeedback(form,"Không tìm thấy số điện thoại cần xác minh.","error");
-          return;
-        }
-
-        updateAuthInlineFeedback(form,"");
-        setRecoverySubmitBusy(form,true,"Xác minh");
-        try{
-          const verified=await verifyPhoneSignup(phone,token);
-          if(!verified.user)throw new Error("Không thể xác minh số điện thoại.");
-          state.verificationPhone="";
-          state.error="";
-          state.message="";
-          await handleAuthUser(verified.user);
-        }catch(err){
-          state.error=friendlyError(err);
-          updateAuthInlineFeedback(form,state.error,"error");
-        }finally{
-          if(form.isConnected)setRecoverySubmitBusy(form,false,"Xác minh");
-        }
-        return;
-      }
-
       if(kind==="password-reset-request"){
         if(!validatePasswordResetRequest(form))return;
         const email=String(new FormData(form).get("email")||"").trim();
@@ -6394,11 +6295,10 @@ body.dark-mode #sheetHost .nova-copy-button.is-copied{
               const signed=await signUpUser(email,password);
               const identifier=signed.authIdentifier||normalizeAuthIdentifier(email);
               state.authDraftEmail=email;
-              state.verificationEmail=identifier?.kind==="email"?identifier.value:"";
-              state.verificationPhone=identifier?.kind==="phone"?identifier.value:"";
+              state.verificationEmail=identifier?.value||"";
 
               if(!signed.session){
-                state.authView=identifier?.kind==="phone"?"verifyPhone":"verify";state.authStep=1;
+                state.authView="verify";state.authStep=1;
                 state.message="";
                 state.error="";
                 renderSheet({preserve:false});
@@ -6427,11 +6327,20 @@ body.dark-mode #sheetHost .nova-copy-button.is-copied{
         if(kind==="auth"&&form.isConnected)setAuthSubmitBusy(form,false);
       }
     }
+    function readableErrorMessage(err){
+      const values=[typeof err==="string"?err:"",err?.message,err?.error_description,err?.details,err?.hint,err?.error];
+      for(const value of values){
+        if(typeof value!=="string")continue;
+        const text=value.trim();
+        if(text&&text!=="{}"&&text!=="[object Object]")return text;
+      }
+      return "";
+    }
     function friendlyError(err){
-      const c=String(err?.code||"").toLowerCase(),m=String(err?.message||"");
-      if(c.includes("invalid_credentials")||/invalid login credentials/i.test(m))return"Email, số điện thoại hoặc mật khẩu không đúng.";
-      if(c.includes("user_already_exists")||/already registered|already exists/i.test(m))return"Email hoặc số điện thoại này đã được sử dụng.";
-      if(/phone.*not.*enabled|unsupported phone provider/i.test(m))return"Đăng nhập số điện thoại chưa được bật trong Supabase.";
+      const c=String(err?.code||"").toLowerCase(),m=readableErrorMessage(err),raw=String(err?.message||"").trim();
+      if((c.includes("unexpected_failure")&&!m)||raw==="{}"||/error sending confirmation email|failed to send.*email|smtp|no such host/i.test(m))return"Hệ thống đang không gửi được email xác minh. Vui lòng thử lại sau.";
+      if(c.includes("invalid_credentials")||/invalid login credentials/i.test(m))return"Email hoặc mật khẩu không đúng.";
+      if(c.includes("user_already_exists")||/already registered|already exists/i.test(m))return"Email này đã được sử dụng.";
       if(c.includes("23505")&&/gift_cards|gift card/i.test(m))return"Mã gift card này đã tồn tại.";
       if(c.includes("23505")&&/products|product/i.test(m))return"Sản phẩm này đã tồn tại.";
       if(/gift card usage limit reached|gift card is disabled|invalid gift card/i.test(m))return"Gift card không hợp lệ, đã tắt hoặc đã đủ lượt sử dụng.";
