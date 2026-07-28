@@ -5423,8 +5423,8 @@ body.dark-mode #sheetHost .nova-copy-button.is-copied{
         const email=state.verificationEmail||state.authDraftEmail||"email của bạn";
         return `<section class="nova-verify-page"><div class="nova-verify-card"><div class="auth-verify-card">
           <span class="auth-verify-icon"><svg class="ui-icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="2.8" y="5" width="18.4" height="14" rx="3"/><path d="m4.4 7 7.6 6 7.6-6"/><path d="m16.5 17.2 1.6 1.6 3.1-3.4"/></svg></span>
-          <h3>Kiểm tra email của bạn</h3><p>NovaKey đã gửi liên kết xác minh. Hãy mở email và bấm <b>Confirm email address</b> để hoàn tất đăng ký.</p>
-          <div class="auth-verify-email">${esc(email)}</div><div class="auth-verify-note">Sau khi xác minh xong, quay lại NovaKey và đăng nhập bằng tài khoản vừa tạo.</div>${feedback()}
+          <h3>Kiểm tra email của bạn</h3><p>NovaKey đã gửi liên kết xác minh. Hãy mở email và bấm <b>Xác nhận địa chỉ email</b> để hoàn tất đăng ký.</p>
+          <div class="auth-verify-email">${esc(email)}</div><div class="auth-verify-note">Nếu chưa thấy email, hãy kiểm tra cả hộp thư rác. Sau khi xác minh xong, quay lại NovaKey và đăng nhập bằng tài khoản vừa tạo.</div>${feedback()}
           <div class="auth-verify-actions"><button type="button" class="full-btn" data-sheet-action="auth-verify-login">Tôi đã xác minh · Đăng nhập</button><button type="button" class="outline-btn" data-sheet-action="auth-resend-verification">Gửi lại email xác minh</button></div>
           <button type="button" class="auth-back" data-sheet-action="auth-use-different-email">← Dùng email khác</button>
         </div></div></section>`;
