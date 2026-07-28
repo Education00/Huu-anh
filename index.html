@@ -4645,9 +4645,13 @@ html.nova-keyboard-open #sheetHost .auth-sheet[data-view="auth"] .nova-auth-page
       <footer class="footer"><div class="container footer-grid"><div><a class="brand" href="#top"><span class="brand-mark"><span class="novakey-logo-static-stack" aria-hidden="true"><img class="novakey-logo-static" src="${NOVAKEY_LOGO_STATIC}" alt=""></span></span><span>NovaKey</span></a><p>Kho dịch vụ số premium, giá rõ ràng, đặt mua nhanh và hỗ trợ tận tâm.</p></div><div><h4>Danh mục</h4><div class="footer-links"><a href="#products">Tất cả sản phẩm</a><a href="#products">Giải trí</a><a href="#products">AI · Sáng tạo</a></div></div><div><h4>Hỗ trợ</h4><div class="footer-links"><button class="back" data-action="topup">Nạp tiền</button><button class="back" data-action="orders">Đơn đã mua</button><a href="${esc(state.settings.zaloUrl||"https://zalo.me/0369587039")}" target="_blank" rel="noopener noreferrer">Liên hệ Zalo</a></div></div></div></footer>
       <nav class="mobile-bottom" aria-label="Điều hướng chính"><a class="active" data-mobile-tab="home" href="#top" aria-current="page">${mobileNavIcon("home")}<span>Trang chủ</span></a><a data-mobile-tab="products" href="#products">${mobileNavIcon("products")}<span>Sản phẩm</span></a><button data-mobile-tab="topup" data-action="topup">${mobileNavIcon("bank")}<span>Nạp tiền</span></button><button data-mobile-tab="orders" data-action="orders">${mobileNavIcon("history")}<span>Lịch sử</span></button><button data-mobile-tab="account" data-action="account">${mobileNavIcon("profile")}<span>Tôi</span></button></nav>`}
 
-    function queueProductRefresh(animate=false){
+    function queueProductRefresh(animate=false,preserveScroll=false){
       cancelAnimationFrame(productRefreshFrame);
-      productRefreshFrame=requestAnimationFrame(()=>refreshProducts(animate));
+      const scrollPosition=preserveScroll?{top:window.scrollY,left:window.scrollX}:null;
+      productRefreshFrame=requestAnimationFrame(()=>{
+        refreshProducts(animate);
+        if(scrollPosition)requestAnimationFrame(()=>window.scrollTo({top:scrollPosition.top,left:scrollPosition.left,behavior:"auto"}));
+      });
     }
     function smoothGo(selector){
       const target=$(selector);if(!target)return;
@@ -4754,7 +4758,7 @@ html.nova-keyboard-open #sheetHost .auth-sheet[data-view="auth"] .nova-auth-page
           if(state.plans[id]===index)return;
           state.plans[id]=index;
           updateProductCard(selectedProduct(id));
-          queueProductRefresh(false);
+          if(state.deal==="under100"||state.sort==="price-low"||state.sort==="price-high")queueProductRefresh(false,true);
         };
         host.onclick=e=>{
           const buy=e.target.closest("[data-buy]");
@@ -6223,7 +6227,7 @@ html.nova-keyboard-open #sheetHost .auth-sheet[data-view="auth"] .nova-auth-page
     async function loadStock(){
       const {data,error}=await supabase.from("stock").select("*");
       if(error)throw error;state.stock.clear();(data||[]).map(mapStock).forEach(x=>state.stock.set(`${x.productId}|${x.planName}`,x.count));state.stockLoaded=true;state.stockError=false;
-      if(!isAdminPage){updateAllProductCards();queueProductRefresh(false)}
+      if(!isAdminPage)updateAllProductCards();
     }
     async function refreshCatalog(){
       await loadCatalog();
@@ -6258,7 +6262,7 @@ html.nova-keyboard-open #sheetHost .auth-sheet[data-view="auth"] .nova-auth-page
     }
     async function refreshUserData(){if(!state.user)return;await Promise.all([loadWallet(),loadProfile(),loadOrders(),loadTopups()])}
     function subscribePublic(){
-      loadSettings().catch(console.warn);loadStock().catch(err=>{console.warn(err);state.stockLoaded=false;state.stockError=true;if(!isAdminPage){updateAllProductCards();queueProductRefresh(false)}});
+      loadSettings().catch(console.warn);loadStock().catch(err=>{console.warn(err);state.stockLoaded=false;state.stockError=true;if(!isAdminPage)updateAllProductCards()});
       const settingsChannel=supabase.channel("public-settings").on("postgres_changes",{event:"*",schema:"public",table:"settings",filter:"key=eq.payment"},()=>loadSettings().catch(console.warn)).subscribe();
       const stockChannel=supabase.channel("public-stock").on("postgres_changes",{event:"*",schema:"public",table:"stock"},()=>loadStock().catch(console.warn)).subscribe();
       const catalogChannel=supabase.channel("public-catalog")
