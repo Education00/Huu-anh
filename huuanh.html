@@ -1,0 +1,1390 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+  <meta name="theme-color" content="#ffffff" />
+  <meta name="description" content="NovaKey - kho dịch vụ số chính hãng, giá rõ ràng, giao nhanh." />
+  <meta name="color-scheme" content="light" />
+  <link rel="preconnect" href="https://www.gstatic.com" crossorigin />
+  <link rel="dns-prefetch" href="https://img.vietqr.io" />
+  <title>NovaKey | Dịch vụ số premium</title>
+  <style>
+    :root{
+      --blue:#8b5cf6;--blue2:#7c3aed;--blue-soft:#f3ecff;--ink:#2b2b34;--muted:#747484;
+      --line:#e7e6f0;--surface:#fff;--soft:#f3f4f8;--green:#12a163;--red:#e5232d;
+      --shadow:0 16px 45px rgba(24,50,95,.10);--radius:20px
+    }
+    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--soft);color:var(--ink);font-family:Inter,ui-sans-serif,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;-webkit-font-smoothing:antialiased}button,input,select,textarea{font:inherit}button,a{-webkit-tap-highlight-color:transparent}button{color:inherit}a{text-decoration:none;color:inherit}.hide{display:none!important}.container{width:min(1240px,calc(100% - 40px));margin:auto}
+    .topbar{height:34px;background:#10131a;color:#dce2ed;font-size:12px;display:flex;align-items:center}.topbar .container{display:flex;justify-content:space-between;gap:20px}.topbar b{color:#fff}.header{position:sticky;top:0;z-index:40;background:rgba(255,255,255,.94);backdrop-filter:blur(18px);border-bottom:1px solid var(--line)}
+    .header-main{height:76px;display:grid;grid-template-columns:220px minmax(260px,1fr) auto;align-items:center;gap:26px}.brand{display:flex;align-items:center;gap:12px;font-size:24px;font-weight:850}.brand-mark{width:44px;height:44px;border-radius:13px;background:linear-gradient(145deg,#2f7cff,#0848e7);color:#fff;display:grid;place-items:center;font-weight:900;font-size:26px;box-shadow:0 8px 20px rgba(23,100,255,.3)}.brand small{display:block;font-size:10px;color:var(--muted);font-weight:650;margin-top:2px}
+    .search{height:46px;border:1px solid var(--line);border-radius:13px;background:#f7f9fc;display:flex;align-items:center;gap:10px;padding:0 15px;transition:.18s}.search:focus-within{background:#fff;border-color:var(--blue);box-shadow:0 0 0 4px var(--blue-soft)}.search input{border:0;outline:0;background:transparent;min-width:0;width:100%;font-size:14px}.search svg{color:#667085;flex:none}
+    .header-actions{display:flex;align-items:center;gap:9px}.head-btn{height:46px;border:1px solid var(--line);background:#fff;border-radius:13px;padding:0 13px;display:flex;align-items:center;gap:9px;cursor:pointer;font-weight:750}.head-btn:hover{border-color:#b8c9f7}.head-btn .meta{display:flex;flex-direction:column;align-items:flex-start}.head-btn small{font-size:9px;color:var(--muted);font-weight:600}.head-btn strong{font-size:12px}.cart-count{min-width:20px;height:20px;padding:0 5px;border-radius:10px;background:var(--blue);color:#fff;display:grid;place-items:center;font-size:10px}.mobile-menu{display:none;width:46px;padding:0;justify-content:center}
+    .desktop-nav{height:48px;border-top:1px solid #f0f2f6;display:flex;align-items:center}.desktop-nav .container{display:flex;gap:30px;align-items:center}.desktop-nav button,.desktop-nav a{border:0;background:transparent;cursor:pointer;font-size:13px;font-weight:700;color:#414957}.desktop-nav .active{color:var(--blue)}
+    .hero{padding:26px 0 18px}.hero-box{min-height:380px;border-radius:26px;overflow:hidden;position:relative;background:radial-gradient(circle at 72% 35%,rgba(45,121,255,.65),transparent 26%),radial-gradient(circle at 84% 66%,rgba(10,225,255,.35),transparent 25%),linear-gradient(125deg,#030817 0%,#071a45 54%,#0b2d78 100%);box-shadow:var(--shadow)}.hero-box:after{content:"";position:absolute;width:380px;height:380px;border-radius:50%;right:7%;top:0;border:1px solid rgba(89,153,255,.38);box-shadow:0 0 80px rgba(31,113,255,.28) inset}.hero-copy{position:relative;z-index:2;color:#fff;padding:60px;max-width:650px}.eyebrow{display:inline-flex;padding:7px 11px;border-radius:99px;background:rgba(69,133,255,.16);color:#8eb7ff;font-size:11px;font-weight:800;text-transform:uppercase}.hero h1{font-size:48px;line-height:1.08;margin:18px 0 0;letter-spacing:-1.5px}.hero h1 span{color:#4d8cff}.hero p{color:#d7e3ff;line-height:1.65;margin:18px 0 0;font-size:15px}.hero-actions{display:flex;gap:11px;margin-top:28px}.primary,.secondary{height:48px;padding:0 20px;border-radius:12px;border:0;font-weight:800;cursor:pointer}.primary{background:var(--blue);color:#fff}.primary:hover{background:#3679ff}.secondary{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.18);color:#fff}.hero-trust{position:absolute;z-index:2;right:32px;bottom:30px;color:#fff;background:rgba(6,14,34,.66);border:1px solid rgba(255,255,255,.15);border-radius:16px;padding:16px 18px;backdrop-filter:blur(10px)}.hero-trust b{display:block;font-size:23px}.hero-trust span{color:#b9c9eb;font-size:11px}
+    .category-strip{background:#fff;border:1px solid var(--line);border-radius:19px;padding:13px;display:flex;gap:10px;overflow-x:auto;scrollbar-width:none;box-shadow:0 8px 28px rgba(20,40,80,.06)}.category-strip::-webkit-scrollbar{display:none}.category-chip{flex:none;min-width:130px;height:58px;padding:0 16px;border:1px solid var(--line);background:#fff;border-radius:13px;display:flex;align-items:center;justify-content:center;gap:9px;font-weight:750;cursor:pointer}.category-chip.active{background:var(--blue);color:#fff;border-color:var(--blue);box-shadow:0 8px 18px rgba(23,100,255,.24)}
+    .catalog{padding:58px 0 72px}.section-head{display:flex;justify-content:space-between;align-items:end;gap:30px;margin-bottom:21px}.section-head h2{font-size:34px;margin:8px 0 0;letter-spacing:-.7px}.section-head p{color:var(--muted);margin:8px 0 0;font-size:13px}.kicker{color:var(--blue);text-transform:uppercase;font-size:11px;font-weight:850}.sort{height:43px;border:1px solid var(--line);border-radius:11px;background:#fff;padding:0 12px;outline:0;font-weight:700;font-size:12px}
+    .product-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px}.product-card{position:relative;min-width:0;overflow:hidden;border:1px solid #dbe2ee;background:#fff;border-radius:20px;box-shadow:0 10px 28px rgba(28,49,85,.08);transition:.2s;display:flex;flex-direction:column}.product-card:hover{transform:translateY(-8px);box-shadow:0 18px 42px rgba(28,49,85,.14);border-color:#aebfe8}.product-visual{height:145px;padding:18px;position:relative;display:flex;align-items:center;justify-content:center}.product-logo{width:90px;height:90px;border-radius:23px;background:#fff;display:grid;place-items:center;font-size:31px;font-weight:900;box-shadow:0 13px 30px rgba(21,38,72,.13)}.badge{position:absolute;left:14px;top:14px;background:var(--red);color:#fff;border-radius:7px;padding:6px 9px;font-size:9px;text-transform:uppercase;font-weight:850;box-shadow:0 4px 13px rgba(229,35,45,.22)}.product-body{padding:17px;display:flex;flex-direction:column;flex:1}.product-category{font-size:10px;color:var(--blue);font-weight:850;text-transform:uppercase}.product-card h3{font-size:19px;white-space:nowrap;text-overflow:ellipsis;overflow:hidden;margin:7px 0 0}.product-description{color:var(--muted);font-size:12px;line-height:1.55;min-height:38px;margin:8px 0 14px}.plan-select{height:40px;border:1px solid var(--line);border-radius:10px;background:#f7f9fc;padding:0 10px;outline:0;font-size:11px;font-weight:700}.price-stock{border-top:1px solid var(--line);margin-top:15px;padding-top:14px;display:flex;justify-content:space-between;align-items:end;gap:8px}.price-stock small{display:block;color:var(--muted);font-size:9px}.price{font-size:21px;color:var(--blue);font-weight:850}.stock{display:flex;align-items:center;gap:6px;color:var(--green);font-size:9px;font-weight:800;text-align:right}.stock-dot{width:8px;height:8px;border-radius:50%;background:currentColor;flex:none}.stock.out{color:var(--red)}.product-actions{display:grid;grid-template-columns:45px 1fr;gap:9px;margin-top:15px}.product-actions button{height:44px;border-radius:11px;font-weight:800;cursor:pointer}.add-cart{border:1px solid var(--blue);background:#fff;color:var(--blue)}.buy-now{border:1px solid var(--blue);background:var(--blue);color:#fff}.product-actions button:disabled{cursor:not-allowed;opacity:.45}
+    .sold-overlay{position:absolute;z-index:5;inset:0;background:rgba(14,18,27,.72);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;color:#fff;backdrop-filter:grayscale(.35)}.sold-overlay strong{font-size:31px;letter-spacing:.8px;text-shadow:0 3px 15px rgba(0,0,0,.4)}.sold-overlay span{font-size:11px;margin-top:8px;color:#e6e9ef}.sold-overlay:before{content:"";position:absolute;left:0;right:0;height:110px;background:linear-gradient(90deg,rgba(215,25,35,.72),rgba(239,57,46,.86));z-index:-1}.product-card.sold-out:hover{transform:none}
+    .benefits{padding:0 0 70px}.benefit-box{background:#fff;border:1px solid var(--line);border-radius:20px;display:grid;grid-template-columns:repeat(4,1fr);box-shadow:0 10px 32px rgba(18,42,82,.06)}.benefit{padding:24px;display:flex;gap:13px;align-items:center;border-right:1px solid var(--line)}.benefit:last-child{border-right:0}.benefit-icon{width:46px;height:46px;flex:none;border-radius:50%;display:grid;place-items:center;background:var(--blue-soft);color:var(--blue);font-size:20px}.benefit strong{font-size:13px}.benefit p{font-size:10px;color:var(--muted);margin:5px 0 0;line-height:1.4}
+    .footer{background:#11151d;color:#fff;padding:52px 0 95px}.footer-grid{display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:50px}.footer p,.footer a{color:#9da6b5;font-size:11px;line-height:1.7}.footer h4{margin:0 0 13px;font-size:12px}.footer-links{display:flex;flex-direction:column;gap:8px}.mobile-bottom{display:none}
+    .sheet-layer{position:fixed;z-index:100;inset:0;background:rgba(7,12,22,.58);animation:fade .24s cubic-bezier(.22,1,.36,1);overscroll-behavior:none;will-change:opacity;opacity:1}.sheet{position:absolute;right:0;top:0;width:min(490px,100%);height:100%;background:#fff;box-shadow:-20px 0 60px rgba(5,15,35,.22);display:flex;flex-direction:column;animation:slide .36s cubic-bezier(.22,1,.36,1);touch-action:pan-y;overscroll-behavior:contain;will-change:transform;transform:translate3d(0,0,0);backface-visibility:hidden;transform-origin:right center;contain:layout paint style}.sheet-layer.is-dragging,.sheet.is-dragging{animation:none!important;transition:none!important}.sheet.is-dragging{user-select:none;-webkit-user-select:none;cursor:grabbing}.sheet.is-dragging .sheet-body{overflow:hidden}.sheet-head{height:78px;flex:none;border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;padding:0 21px}.sheet-head h2{font-size:19px;margin:0}.sheet-head small{color:var(--muted);font-size:10px}.icon-btn{width:42px;height:42px;border:1px solid var(--line);border-radius:12px;background:#fff;cursor:pointer;font-size:24px}.sheet-body{padding:20px;overflow-y:auto;flex:1;overscroll-behavior:contain;-webkit-overflow-scrolling:touch}.back{border:0;background:transparent;color:var(--blue);font-weight:800;font-size:11px;cursor:pointer;padding:0;margin-bottom:18px}.panel-card{border:1px solid var(--line);border-radius:16px;background:#fff;padding:16px}.balance-card{background:linear-gradient(135deg,#f3f6fb,#eef3ff);padding:22px}.balance-card span{font-size:11px;color:var(--muted)}.balance-card strong{display:block;color:var(--blue);font-size:31px;margin-top:5px}.balance-card small{color:#89909c}.choice-label{font-size:10px;text-transform:uppercase;color:#596170;font-weight:850;margin:23px 0 10px}.method-list{display:flex;flex-direction:column;gap:10px}.method{min-height:72px;width:100%;border:1px solid var(--line);border-radius:14px;background:#fff;padding:12px;display:grid;grid-template-columns:46px 1fr auto;align-items:center;gap:11px;text-align:left;cursor:pointer}.method:hover{border-color:#a9bff7}.method-icon{width:46px;height:46px;border-radius:12px;background:var(--blue-soft);color:var(--blue);display:grid;place-items:center;font-size:21px}.method strong{display:block;font-size:13px}.method small{display:block;color:var(--muted);font-size:10px;margin-top:4px}.arrow{font-size:20px;color:#7b8492}.notice{border:1px solid #cddcff;background:#f2f6ff;color:#244d9b;border-radius:12px;padding:12px;font-size:10px;line-height:1.55}.notice.warn{border-color:#ffb8b8;background:#fff4f4;color:#9f1f25}.notice-important{overflow:hidden;border:1px solid #ffb8b8;border-radius:16px;background:#fff;margin-bottom:17px}.notice-title{background:linear-gradient(90deg,#ed2f1f,#ff5a12);color:#fff;padding:15px 17px;font-weight:900;font-size:17px}.notice-content{padding:17px;color:#252b35;font-size:13px;line-height:1.65}.notice-content b,.notice-content strong{color:#df281f}.divider{height:1px;background:var(--line);margin:14px 0}.form{display:flex;flex-direction:column;gap:14px}.form label{display:flex;flex-direction:column;gap:7px;font-size:10px;color:#4c5360;font-weight:800}.input,.form input,.form select,.form textarea{width:100%;border:1px solid var(--line);border-radius:12px;background:#fff;outline:0;padding:0 13px;color:var(--ink)}.form input,.form select{height:46px}.form textarea{min-height:90px;padding-top:12px;resize:vertical}.form input:focus,.form select:focus,.form textarea:focus{border-color:var(--blue);box-shadow:0 0 0 4px var(--blue-soft)}.full-btn{height:49px;border:0;border-radius:12px;background:var(--blue);color:#fff;font-weight:850;cursor:pointer;width:100%}.full-btn:disabled{opacity:.55;cursor:wait}.outline-btn{height:43px;border:1px solid var(--line);border-radius:11px;background:#fff;color:var(--blue);font-weight:800;cursor:pointer;width:100%}.error{background:#fff2f3;border:1px solid #f3c3c7;color:#a7212b;border-radius:11px;padding:11px;font-size:10px;line-height:1.5}.success{background:#effbf5;border:1px solid #b8e7cf;color:#15734a;border-radius:11px;padding:11px;font-size:10px;line-height:1.5}.qr-wrap{text-align:center}.qr-card{width:min(310px,100%);margin:14px auto;border:1px solid var(--line);border-radius:18px;background:#fff;overflow:hidden;box-shadow:0 13px 35px rgba(20,44,87,.09)}.qr-card img{display:block;width:100%}.transfer-info{border:1px solid var(--line);border-radius:14px;overflow:hidden;text-align:left}.transfer-row{display:flex;justify-content:space-between;align-items:center;gap:15px;padding:12px 13px;border-bottom:1px solid var(--line)}.transfer-row:last-child{border-bottom:0}.transfer-row span{font-size:10px;color:var(--muted)}.transfer-row b{font-size:11px;text-align:right;overflow-wrap:anywhere}.min-topup{background:linear-gradient(90deg,#fff8e7,#fff3cf);border:1px solid #f5d27c;color:#835d08;border-radius:12px;padding:12px;font-size:11px;font-weight:800;margin-bottom:12px}.receive-box{border:1px solid #bce7d3;background:#effbf6;border-radius:13px;padding:14px;text-align:center}.receive-box span{font-size:11px;color:#477565}.receive-box strong{display:block;font-size:25px;color:var(--green);margin-top:5px}.cart-item{display:grid;grid-template-columns:50px 1fr auto;gap:11px;padding:14px 0;border-bottom:1px solid var(--line)}.mini-logo{width:50px;height:50px;border-radius:13px;display:grid;place-items:center;font-weight:900}.cart-item strong{font-size:12px}.cart-item small{display:block;font-size:9px;color:var(--muted);margin-top:4px}.cart-item b{font-size:12px;color:var(--blue)}.qty{display:flex;align-items:center;gap:8px;margin-top:8px}.qty button{width:27px;height:27px;border:1px solid var(--line);border-radius:8px;background:#fff;cursor:pointer}.remove{border:0;background:transparent;color:var(--red);cursor:pointer}.summary{padding-top:17px}.summary-row{display:flex;justify-content:space-between;gap:15px;margin:10px 0;font-size:12px;color:var(--muted)}.summary-row.total{border-top:1px solid var(--line);padding-top:14px;color:var(--ink);font-size:14px}.summary-row.total b{font-size:22px;color:var(--blue)}.order-card{width:100%;border:1px solid var(--line);border-radius:14px;background:#fff;padding:14px;text-align:left;margin-bottom:10px;cursor:pointer}.order-top{display:flex;justify-content:space-between;gap:10px}.order-top strong{font-size:12px}.order-card p{font-size:10px;color:var(--muted);line-height:1.45}.status{padding:5px 7px;border-radius:7px;font-size:8px;font-weight:850;background:#fff5db;color:#855900;white-space:nowrap}.status.fulfilled,.status.approved{background:#eaf9f1;color:#087044}.status.rejected{background:#fff0f1;color:#a51f29}.delivery{border:1px solid var(--line);border-radius:13px;padding:13px;margin-top:10px;text-align:left}.delivery code{display:block;background:#f4f6f9;border-radius:8px;padding:9px;margin-top:7px;overflow-wrap:anywhere}.empty{text-align:center;color:var(--muted);padding:50px 15px;font-size:12px}
+    @keyframes fade{from{opacity:0}to{opacity:1}}@keyframes slide{from{transform:translate3d(100%,0,0)}to{transform:translate3d(0,0,0)}}
+    .admin{min-height:100vh;background:#f4f6fa}.admin-head{height:70px;background:#fff;border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;padding:0 max(20px,calc((100vw - 1200px)/2));position:sticky;top:0;z-index:20}.admin-head-actions{display:flex;gap:9px}.admin-head-actions button,.admin-head-actions a{height:39px;border:1px solid var(--line);border-radius:10px;background:#fff;padding:0 13px;display:flex;align-items:center;cursor:pointer;font-size:11px;font-weight:750}.admin-wrap{width:min(1200px,calc(100% - 36px));margin:auto;padding:28px 0 70px}.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:13px}.stat{background:#fff;border:1px solid var(--line);border-radius:16px;padding:19px}.stat span{font-size:10px;color:var(--muted)}.stat strong{display:block;font-size:28px;margin-top:5px}.tabs{display:flex;gap:7px;overflow-x:auto;border-bottom:1px solid var(--line);padding:22px 0 10px}.tabs button{height:39px;border:1px solid transparent;border-radius:10px;background:transparent;padding:0 13px;cursor:pointer;white-space:nowrap;font-size:11px;font-weight:800}.tabs button.active{background:var(--blue-soft);border-color:#cbd9ff;color:var(--blue)}.admin-section{padding-top:25px}.admin-title{display:flex;justify-content:space-between;align-items:end;margin-bottom:16px}.admin-title h1{font-size:25px;margin:4px 0 0}.admin-list{display:flex;flex-direction:column;gap:11px}.admin-record{background:#fff;border:1px solid var(--line);border-radius:16px;padding:17px}.admin-record-head{display:flex;justify-content:space-between;gap:13px}.admin-record-head strong{font-size:13px}.admin-record-head small{display:block;color:var(--muted);font-size:9px;margin-top:4px}.record-meta{display:flex;gap:15px;flex-wrap:wrap;border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:11px 0;margin:13px 0;color:var(--muted);font-size:10px}.record-meta b{color:var(--blue);margin-left:auto}.record-items{font-size:10px;line-height:1.7}.record-actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px}.record-actions button{min-height:38px;padding:0 12px;border:1px solid var(--blue);background:var(--blue);color:#fff;border-radius:10px;font-size:10px;font-weight:800;cursor:pointer}.record-actions .secondary-admin{background:#fff;color:var(--blue)}.record-actions .danger{background:#fff;color:var(--red);border-color:#efb8bc}.admin-grid{display:grid;grid-template-columns:.85fr 1.15fr;gap:18px;align-items:start}.admin-card{background:#fff;border:1px solid var(--line);border-radius:16px;padding:18px}.inventory-row{display:grid;grid-template-columns:1fr 1fr auto;gap:10px;align-items:center;padding:11px 0;border-bottom:1px solid var(--line);font-size:10px}.inventory-row code{overflow:hidden;text-overflow:ellipsis}.credit-input{height:38px;border:1px solid var(--line);border-radius:9px;padding:0 10px;width:150px}.secret{background:#f5f7fa;border:1px solid var(--line);border-radius:10px;padding:10px;margin-top:10px;font-size:10px}.admin-login-wrap{min-height:100vh;display:grid;place-items:center;padding:20px;background:#f4f6fa}.admin-login{width:min(430px,100%);background:#fff;border:1px solid var(--line);border-radius:18px;padding:27px;box-shadow:var(--shadow)}.uid{display:block;background:#f4f6f9;border-radius:10px;padding:11px;overflow-wrap:anywhere;font-size:11px;margin:12px 0}
+    @media(max-width:1050px){.header-main{grid-template-columns:190px minmax(220px,1fr) auto;gap:15px}.head-btn .meta{display:none}.product-grid{grid-template-columns:repeat(3,minmax(0,1fr))}.benefit-box{grid-template-columns:repeat(2,1fr)}.benefit:nth-child(2){border-right:0}.benefit:nth-child(-n+2){border-bottom:1px solid var(--line)}}
+    @media(max-width:760px){body{padding-bottom:70px}.topbar,.desktop-nav,.header-main>.search{display:none}.container{width:min(100% - 24px,620px)}.header-main{height:68px;grid-template-columns:1fr auto}.brand-mark{width:38px;height:38px;font-size:22px}.brand{font-size:21px}.header-actions .head-btn:not(.mobile-menu):not([data-action="cart"]):not([data-action="topup"]){display:none}.head-btn{width:44px;padding:0;justify-content:center}.mobile-menu{display:flex}.mobile-search-wrap{display:block;padding-bottom:12px}.mobile-search-wrap .search{height:44px}.hero{padding-top:14px}.hero-box{min-height:320px;border-radius:20px}.hero-copy{padding:38px 24px 100px}.hero h1{font-size:35px}.hero p{font-size:13px}.hero-trust{left:24px;right:auto;bottom:20px}.category-strip{margin-top:12px}.category-chip{min-width:115px;height:54px}.product-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.section-head{align-items:flex-start;flex-direction:column;gap:14px}.sort{width:100%}.footer-grid{grid-template-columns:1fr 1fr}.footer-grid>div:first-child{grid-column:1/-1}.mobile-bottom{position:fixed;z-index:60;left:0;right:0;bottom:0;height:68px;padding-bottom:env(safe-area-inset-bottom);display:grid;grid-template-columns:repeat(5,1fr);background:#fff;border-top:1px solid var(--line);box-shadow:0 -8px 25px rgba(14,32,65,.08)}.mobile-bottom button,.mobile-bottom a{border:0;background:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;color:#687180;font-size:9px;position:relative}.mobile-bottom .active{color:var(--blue)}.mobile-bottom b{position:absolute;top:5px;right:calc(50% - 22px);background:var(--blue);color:#fff;border-radius:8px;min-width:17px;height:17px;display:grid;place-items:center;font-size:8px}.admin-grid{grid-template-columns:1fr}.stats{grid-template-columns:1fr}.admin-wrap{width:min(100% - 24px,620px)}.inventory-row{grid-template-columns:1fr auto}.inventory-row code{grid-column:1/-1;grid-row:2}.admin-head{padding:0 13px}}
+    @media(max-width:520px){.hero-box{min-height:300px}.hero h1{font-size:30px}.hero-actions{flex-direction:column;width:170px}.hero-actions button{width:100%}.catalog{padding:42px 0 55px}.section-head h2{font-size:28px}.product-grid{grid-template-columns:1fr}.product-visual{height:135px}.benefit-box{grid-template-columns:1fr}.benefit{border-right:0;border-bottom:1px solid var(--line)}.benefit:last-child{border-bottom:0}.footer-grid{grid-template-columns:1fr}.footer-grid>div:first-child{grid-column:auto}.sheet{width:100%;padding-bottom:env(safe-area-inset-bottom)}.sheet-head{height:72px}.sheet-body{padding:17px}.notice-content{font-size:12px}.admin-title{align-items:flex-start;flex-direction:column;gap:10px}.record-meta b{width:100%;margin-left:0}}
+    @media(prefers-reduced-motion:reduce){*{animation-duration:.01ms!important;transition-duration:.01ms!important}}
+  
+    /* ui override v3 */
+    .topbar,.hero,.benefits,.desktop-nav{display:none!important}.search-wrap{display:none}.header{position:sticky;top:0;z-index:40;background:rgba(255,255,255,.96);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}.storefront-head{grid-template-columns:auto minmax(0,1fr) auto;height:84px;gap:14px}.brand-compact{min-width:0}.brand-compact span:last-child{min-width:0}.brand-compact small{font-size:11px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.compact-actions{gap:10px}.icon-only{width:46px;height:46px;padding:0;border-radius:16px;justify-content:center;position:relative}.mobile-menu{display:flex!important}.search-wrap,.mobile-search-wrap{padding-bottom:14px}.mobile-search-wrap .search,.search-wrap .search{height:52px;border-radius:18px;background:#f6f6fb}.section-head-game{margin-bottom:14px}.section-head-game h2{font-size:32px}.section-head-game p{font-size:14px}.catalog.game-catalog{padding:26px 0 60px}.category-strip{margin-bottom:18px}.product-grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:22px}.game-card{border-radius:24px;box-shadow:0 12px 32px rgba(39,31,78,.08);border:1px solid #ebe9f3}.game-card:hover{transform:translateY(-3px)}.game-card .product-visual{height:250px;position:relative;overflow:hidden;border-bottom:1px solid #efedf7;align-items:flex-end;justify-content:flex-start;padding:18px}.art-glow{position:absolute;inset:auto auto 32px 24px;width:120px;height:120px;border-radius:999px;background:radial-gradient(circle,#ffffffaa 0%,#ffffff00 70%)}.wish-btn{position:absolute;right:16px;top:16px;width:48px;height:48px;border-radius:999px;border:0;background:rgba(255,255,255,.95);box-shadow:0 10px 22px rgba(38,34,64,.14);font-size:24px;color:#6f7080;display:grid;place-items:center}.game-card .product-logo{width:90px;height:90px;border-radius:24px;position:relative;z-index:2;background:rgba(255,255,255,.92);overflow:hidden;display:flex;align-items:center;justify-content:center;transform:translateY(-10px)}.banner-name{position:absolute;left:18px;right:18px;bottom:18px;font-size:34px;line-height:1;font-weight:900;color:rgba(36,33,51,.88);text-shadow:0 2px 10px rgba(255,255,255,.35);letter-spacing:-1px}.game-card .badge{border-radius:10px;padding:8px 12px;font-size:11px}.game-card .product-body{padding:20px}.game-card .product-category{font-size:12px;letter-spacing:.3px}.game-card h3{font-size:20px;white-space:normal;line-height:1.2}.game-card .product-description{font-size:14px;line-height:1.55;min-height:auto;color:#7b7d8d}.game-card .plan-select{height:48px;border-radius:14px;background:#fbfbfe;font-size:14px}.game-card .price-stock{margin-top:16px;padding-top:0;border-top:0;align-items:center}.game-card .price{font-size:20px;color:var(--blue)}.game-card .stock{font-size:12px;padding:8px 10px;border-radius:999px;background:#f1f8f5;color:var(--green)}.game-card .stock.out{background:#fff1f1;color:var(--red)}.game-card .stock-dot{width:8px;height:8px}.meta-line{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-top:12px;font-size:13px;color:#696b78}.meta-line b{color:#2d2f39}.meta-line .out-text{color:var(--red)}.game-actions-row{grid-template-columns:1fr;gap:10px;margin-top:18px}.game-actions-row .buy-now,.game-actions-row .detail-btn{height:54px;border-radius:14px;font-size:16px}.game-actions-row .buy-now{background:linear-gradient(90deg,var(--blue),var(--blue2))}.game-actions-row .detail-btn{background:#fff;border:1px solid var(--line);color:#3a3c48}.sold-overlay{background:rgba(38,34,52,.68)}.sold-overlay:before{height:136px;background:linear-gradient(90deg,rgba(100,74,202,.76),rgba(142,92,246,.86))}.sold-overlay strong{font-size:42px}.footer{padding:48px 0 96px}.mobile-bottom{border-top:1px solid #e9e6f3;background:rgba(255,255,255,.98)}.mobile-bottom .active{color:var(--blue)}
+    @media(max-width:1100px){.product-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+    @media(max-width:760px){.search-wrap{display:none}.mobile-search-wrap{display:block;padding-bottom:12px}.storefront-head{height:78px;grid-template-columns:auto minmax(0,1fr) auto;gap:10px}.brand{font-size:18px}.brand-mark{width:44px;height:44px;font-size:24px;border-radius:15px}.icon-only,.mobile-menu{width:44px;height:44px;border-radius:14px}.compact-actions{gap:8px}.section-head-game h2{font-size:26px}.section-head-game p{font-size:13px}.product-grid{grid-template-columns:1fr;gap:18px}.game-card .product-visual{height:184px}.banner-name{font-size:24px;bottom:16px}.game-card .product-logo{width:76px;height:76px;transform:translateY(-11px)}.game-card .product-body{padding:18px}.game-card h3{font-size:18px}.game-card .product-description{font-size:13px}.game-card .plan-select{height:46px}.game-actions-row .buy-now,.game-actions-row .detail-btn{height:52px;font-size:15px}.section-head-game{gap:12px}.sort{width:100%;height:48px;border-radius:14px}.footer{padding-bottom:92px}}
+    @media(max-width:520px){.container{width:min(100% - 22px,640px)}.header{border-bottom:0}.storefront-head{height:76px}.brand{font-size:17px}.brand small{font-size:10px}.section-head-game h2{font-size:24px}.section-head-game p{font-size:12px}.category-chip{min-width:104px;height:46px;font-size:13px}.game-card{border-radius:22px}.game-card .product-visual{height:172px;padding:16px}.banner-name{font-size:20px;left:16px;right:16px}.wish-btn{width:44px;height:44px;font-size:22px}.game-card .product-logo{width:72px;height:72px;border-radius:22px;transform:translateY(-30px)}.game-card .badge{font-size:10px;padding:7px 10px}.game-card .product-body{padding:16px}.game-card .product-category{font-size:11px}.game-card h3{font-size:17px}.game-card .product-description{font-size:13px}.game-card .price{font-size:18px}.meta-line{font-size:12px}.mobile-bottom button,.mobile-bottom a{font-size:10px}}
+
+  
+    .product-logo img{width:68%;height:68%;object-fit:contain;object-position:center;display:block;transform:translateY(-2px)}.product-logo .logo-fallback{font:inherit}.mini-logo img{width:65%;height:65%;object-fit:contain;display:block}.mini-logo .logo-fallback{font-weight:900}
+
+    /* left navigation drawer v4 */
+    .sheet.menu-sheet{left:0;right:auto;width:min(82vw,420px);max-width:420px;border-radius:0 26px 26px 0;box-shadow:22px 0 58px rgba(9,15,28,.24);animation:slideMenu .36s cubic-bezier(.22,1,.36,1);transform-origin:left center}
+    .menu-sheet .sheet-head{height:92px;padding:0 22px;border-bottom:1px solid #efedf5}
+    .menu-sheet .sheet-head h2{font-size:23px;letter-spacing:-.4px}
+    .menu-sheet .sheet-head small{font-size:11px;margin-top:5px;display:block;max-width:230px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+    .menu-sheet .icon-btn{width:44px;height:44px;border-radius:14px;font-size:27px}
+    .menu-sheet .sheet-body{padding:16px 14px 30px}
+    .drawer-nav{display:flex;flex-direction:column;gap:4px}
+    .drawer-item{width:100%;min-height:66px;border:0;background:transparent;border-radius:16px;padding:10px 12px;display:grid;grid-template-columns:48px 1fr 22px;align-items:center;gap:13px;text-align:left;cursor:pointer;transition:background .18s,color .18s,transform .18s}
+    .drawer-item:hover,.drawer-item:active{background:var(--blue-soft)}
+    .drawer-item.active{background:linear-gradient(100deg,var(--blue),var(--blue2));color:#fff;box-shadow:0 10px 25px rgba(124,58,237,.24)}
+    .drawer-icon{width:46px;height:46px;border-radius:14px;display:grid;place-items:center;color:#62636d;background:#f5f4f8}
+    .drawer-item.active .drawer-icon{color:#fff;background:rgba(255,255,255,.16)}
+    .drawer-icon svg{width:27px;height:27px;display:block;stroke:currentColor;fill:none;stroke-width:2.1;stroke-linecap:round;stroke-linejoin:round}
+    .drawer-item strong{font-size:16px;font-weight:800}
+    .drawer-item small{display:block;margin-top:3px;color:#8a8993;font-size:11px}
+    .drawer-item.active small{color:rgba(255,255,255,.78)}
+    .drawer-arrow{font-size:23px;color:#aaa8b1}
+    .drawer-item.active .drawer-arrow{color:#fff}
+    .drawer-divider{height:1px;background:#efedf4;margin:12px 10px}
+    .drawer-help{margin:20px 8px 0;padding:17px;border-radius:18px;background:linear-gradient(135deg,#f4edff,#faf8ff);border:1px solid #e6dcff}
+    .drawer-help strong{display:block;font-size:13px}.drawer-help p{margin:6px 0 12px;color:var(--muted);font-size:10px;line-height:1.5}.drawer-help a{height:40px;border-radius:11px;background:var(--blue);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:11px}
+    @keyframes slideMenu{from{transform:translate3d(-100%,0,0)}to{transform:translate3d(0,0,0)}}
+    @media(max-width:520px){.sheet.menu-sheet{width:82vw;max-width:390px;padding-bottom:env(safe-area-inset-bottom);border-radius:0 24px 24px 0}.menu-sheet .sheet-head{height:86px;padding:0 18px}.menu-sheet .sheet-body{padding:14px 10px 26px}.drawer-item{min-height:64px;padding:9px 10px;grid-template-columns:46px 1fr 20px}.drawer-item strong{font-size:15px}}
+
+
+    /* ui fixes v5: sharp icons, correct app logos, flush-left drawer */
+    .ui-icon{width:24px;height:24px;display:block;flex:none;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+    .mobile-menu .ui-icon{width:27px;height:27px;stroke-width:2.2}
+    .icon-only .ui-icon{width:26px;height:26px;stroke-width:2.05}
+    .icon-only[data-action="cart"] .ui-icon{width:27px;height:27px}
+    .product-logo-canva img,.product-logo-adobe img,.product-logo-grok img{width:84%;height:84%;transform:none;border-radius:18px}
+    .mini-logo-canva img,.mini-logo-adobe img,.mini-logo-grok img{width:82%;height:82%;border-radius:10px}
+
+    .sheet.menu-sheet{position:fixed!important;inset:0 auto 0 0!important;left:0!important;right:auto!important;top:0!important;bottom:0!important;margin:0!important;height:100dvh!important;width:min(82vw,420px)!important;max-width:420px!important;border-radius:0 26px 26px 0!important}
+    .menu-layer{padding:0!important}
+
+    .mobile-bottom .nav-icon{height:28px;display:grid;place-items:center;line-height:0}
+    .mobile-bottom .nav-icon .ui-icon{width:25px;height:25px;stroke-width:2.05}
+    .mobile-bottom button,.mobile-bottom a{gap:5px;font-size:10px;font-weight:650}
+    .mobile-bottom b{top:5px;right:calc(50% - 26px);min-width:20px;height:20px;border-radius:10px;font-size:10px;padding:0 5px}
+
+    @media(max-width:760px){
+      body{padding-bottom:calc(78px + env(safe-area-inset-bottom))}
+      .storefront-head{height:80px}
+      .icon-only,.mobile-menu{width:48px;height:48px;border-radius:15px}
+      .compact-actions{gap:7px}
+      .mobile-bottom{height:calc(78px + env(safe-area-inset-bottom));padding-bottom:env(safe-area-inset-bottom)}
+      .mobile-bottom .nav-icon .ui-icon{width:24px;height:24px}
+      .mobile-bottom button,.mobile-bottom a{font-size:10px}
+    }
+    @media(max-width:520px){
+      .sheet.menu-sheet{width:82vw!important;max-width:390px!important;border-radius:0 24px 24px 0!important}
+      .product-logo-canva img,.product-logo-adobe img,.product-logo-grok img{width:88%;height:88%;border-radius:16px}
+    }
+  
+    /* logo fit normalization v7 */
+    .game-card .product-logo{display:grid!important;place-items:center!important;padding:0!important}
+    .game-card .product-logo img{width:76%!important;height:76%!important;display:block!important;margin:auto!important;object-fit:contain!important;object-position:center!important;transform:none!important;border-radius:0!important}
+    .game-card .product-logo-apple img{width:72%!important;height:72%!important}
+    .game-card .product-logo-youtube img{width:78%!important;height:78%!important}
+    .game-card .product-logo-netflix img{width:72%!important;height:72%!important}
+    .game-card .product-logo-spotify img{width:78%!important;height:78%!important}
+    .game-card .product-logo-canva img,.game-card .product-logo-adobe img{width:88%!important;height:88%!important;border-radius:17px!important}
+    .game-card .product-logo-capcut img{width:78%!important;height:78%!important}
+    .game-card .product-logo-gemini img{width:78%!important;height:78%!important}
+    .game-card .product-logo-chatgpt img{width:76%!important;height:76%!important}
+    .game-card .product-logo-grok img{width:88%!important;height:88%!important;border-radius:16px!important}
+    .mini-logo{display:grid!important;place-items:center!important;overflow:hidden}
+    .mini-logo img{width:68%!important;height:68%!important;margin:auto!important;object-fit:contain!important;object-position:center!important;transform:none!important;border-radius:0!important}
+    .mini-logo-canva img,.mini-logo-adobe img,.mini-logo-grok img{width:84%!important;height:84%!important;border-radius:10px!important}
+
+    /* smooth in-page interactions v8 */
+    .product-card[hidden]{display:none!important}
+    .product-grid>.empty[hidden]{display:none!important}
+    .product-card{content-visibility:auto;contain-intrinsic-size:650px;transition:transform .2s ease,box-shadow .2s ease,border-color .2s ease,opacity .16s ease}
+    .category-chip,.plan-select,.sort,.mobile-bottom button,.mobile-bottom a,.head-btn{touch-action:manipulation}
+    @keyframes cardSoftIn{from{opacity:.35;transform:translateY(5px)}to{opacity:1;transform:translateY(0)}}
+    .product-card.soft-enter{animation:cardSoftIn .18s ease both}
+
+
+    /* production polish v9 */
+    html{scroll-padding-top:112px;color-scheme:light}
+    body{overflow-x:hidden;overscroll-behavior-y:none;text-rendering:optimizeLegibility}
+    button,a,select{user-select:none;-webkit-user-select:none}
+    button:focus-visible,a:focus-visible,select:focus-visible,input:focus-visible,textarea:focus-visible{outline:3px solid rgba(139,92,246,.28);outline-offset:2px}
+    img{max-width:100%;-webkit-user-drag:none}
+    #products{scroll-margin-top:112px}
+    .header{transform:translateZ(0);backface-visibility:hidden}
+    .product-card{content-visibility:visible!important;contain:layout paint style;isolation:isolate;transform:translateZ(0)}
+    .product-card.soft-enter{animation:none!important}
+    .sheet-layer{overscroll-behavior:contain;touch-action:none}
+    .sheet{overscroll-behavior:contain;backface-visibility:hidden;transform:translate3d(0,0,0)}
+    .sheet-body{overscroll-behavior:contain;-webkit-overflow-scrolling:touch}
+    .sheet[aria-busy="true"]{cursor:progress}
+    .sheet[aria-busy="true"] button,.sheet[aria-busy="true"] input,.sheet[aria-busy="true"] select,.sheet[aria-busy="true"] textarea{pointer-events:none}
+    .stock.stock-error{color:var(--red);background:#fff1f1!important}
+    .product-actions button{transition:transform .16s ease,box-shadow .16s ease,background-color .16s ease,opacity .16s ease}
+    .product-actions button:active,.head-btn:active,.category-chip:active,.drawer-item:active{transform:scale(.98)}
+    .mobile-bottom{transform:translateZ(0);backface-visibility:hidden}
+    @media(hover:hover) and (pointer:fine){
+      .product-card:hover{transform:translateY(-4px);box-shadow:0 18px 42px rgba(28,49,85,.14);border-color:#aebfe8}
+      .buy-now:hover{box-shadow:0 10px 22px rgba(124,58,237,.22)}
+    }
+    @media(hover:none){.product-card:hover{transform:none!important}.drawer-item:hover{background:transparent}.drawer-item.active:hover{background:linear-gradient(100deg,var(--blue),var(--blue2))}}
+    @media(max-width:760px){html{scroll-padding-top:106px}#products{scroll-margin-top:106px}.game-card{contain-intrinsic-size:auto!important}}
+    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.product-card,.sheet,.sheet-layer,.product-actions button{transition:none!important;animation:none!important}}
+
+    /* stable sheet rendering v10: keep the drawer mounted during in-panel updates */
+    .sheet-body{scrollbar-gutter:stable;contain:layout style}
+    .sheet-body.sheet-content-enter{animation:sheetContentIn .16s cubic-bezier(.22,1,.36,1)}
+    @keyframes sheetContentIn{from{opacity:.45;transform:translate3d(0,5px,0)}to{opacity:1;transform:translate3d(0,0,0)}}
+    .qty button,.remove,.method,.order-card,.back,.full-btn,.outline-btn{touch-action:manipulation}
+    @media(prefers-reduced-motion:reduce){.sheet-body.sheet-content-enter{animation:none!important}}
+
+
+    /* transition system v14: one stable overlay, no stale sheets or black edge */
+    #sheetHost{position:fixed;inset:0;z-index:100;pointer-events:none;isolation:isolate;contain:layout paint style}
+    #sheetHost.sheet-host-active{pointer-events:auto}
+    #sheetHost .sheet-layer{
+      position:absolute!important;inset:0!important;display:block!important;padding:0!important;
+      background:rgba(7,12,22,.58);opacity:0;visibility:hidden;pointer-events:none;
+      animation:none!important;transition:opacity .22s ease-out,visibility 0s linear .30s;
+      will-change:opacity;overflow:hidden;overscroll-behavior:none;touch-action:none
+    }
+    #sheetHost .sheet-layer.sheet-visible,
+    #sheetHost .sheet-layer.sheet-closing{visibility:visible;transition-delay:0s}
+    #sheetHost .sheet-layer.sheet-visible{opacity:1;pointer-events:auto}
+    #sheetHost .sheet-layer.sheet-closing{opacity:0;pointer-events:none}
+    #sheetHost .sheet-layer>.sheet{
+      position:absolute!important;top:0!important;bottom:0!important;height:100%!important;min-height:100%!important;
+      margin:0!important;background:#fff;animation:none!important;
+      transition:transform .30s cubic-bezier(.32,.72,0,1)!important;
+      will-change:transform;backface-visibility:hidden;-webkit-backface-visibility:hidden;
+      contain:layout paint style;overflow:hidden
+    }
+    #sheetHost .sheet-layer:not(.menu-layer)>.sheet{
+      left:auto!important;right:0!important;width:min(490px,100vw)!important;max-width:100vw!important;
+      border-radius:0!important;transform:translate3d(100%,0,0)!important
+    }
+    #sheetHost .sheet-layer.menu-layer>.sheet.menu-sheet{
+      position:absolute!important;left:0!important;right:auto!important;width:min(82vw,420px)!important;max-width:420px!important;
+      border-radius:0 26px 26px 0!important;transform:translate3d(-100%,0,0)!important
+    }
+    #sheetHost .sheet-layer.sheet-visible>.sheet{transform:translate3d(0,0,0)!important}
+    #sheetHost .sheet-layer.is-dragging,
+    #sheetHost .sheet-layer.is-dragging>.sheet{transition:none!important}
+    #sheetHost .sheet-head,#sheetHost .sheet-body{transform:translateZ(0);backface-visibility:hidden}
+    #sheetHost .sheet-body{contain:layout style;animation:none!important}
+    #sheetHost .sheet-body.sheet-content-enter{animation:none!important;transform:none!important;opacity:1!important}
+    @media(max-width:520px){
+      #sheetHost .sheet-layer:not(.menu-layer)>.sheet{width:100vw!important;max-width:100vw!important}
+      #sheetHost .sheet-layer.menu-layer>.sheet.menu-sheet{width:82vw!important;max-width:390px!important;border-radius:0 24px 24px 0!important}
+    }
+    @media(prefers-reduced-motion:reduce){
+      #sheetHost .sheet-layer,#sheetHost .sheet-layer>.sheet{transition:none!important}
+    }
+
+
+
+    /* payment bottom sheet v15 */
+    #sheetHost .sheet-layer:not(.menu-layer){
+      display:flex!important;align-items:flex-end!important;justify-content:center!important;
+      padding:0!important;background:rgba(10,12,20,.48)!important;
+      -webkit-backdrop-filter:blur(3px);backdrop-filter:blur(3px)
+    }
+    #sheetHost .sheet-layer:not(.menu-layer)>.sheet{
+      position:relative!important;left:auto!important;right:auto!important;top:auto!important;bottom:0!important;
+      width:min(680px,100vw)!important;max-width:100vw!important;
+      height:auto!important;min-height:0!important;max-height:min(88dvh,820px)!important;
+      margin:0!important;border-radius:28px 28px 0 0!important;
+      box-shadow:0 -18px 55px rgba(20,18,35,.22)!important;
+      transform:translate3d(0,105%,0)!important;
+      overflow:hidden!important
+    }
+    #sheetHost .sheet-layer:not(.menu-layer).sheet-visible>.sheet{transform:translate3d(0,0,0)!important}
+    #sheetHost .sheet-layer:not(.menu-layer)>.sheet::before{
+      content:"";position:absolute;z-index:4;top:8px;left:50%;transform:translateX(-50%);
+      width:44px;height:5px;border-radius:999px;background:#d9d7e0;pointer-events:none
+    }
+    #sheetHost .sheet-layer:not(.menu-layer) .sheet-head{
+      position:relative;z-index:3;height:74px;padding:19px 20px 10px;border-bottom:1px solid var(--line);
+      background:rgba(255,255,255,.96);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px)
+    }
+    #sheetHost .sheet-layer:not(.menu-layer) .sheet-head h2{font-size:20px;letter-spacing:-.3px}
+    #sheetHost .sheet-layer:not(.menu-layer) .sheet-head small{font-size:10px}
+    #sheetHost .sheet-layer:not(.menu-layer) .sheet-body{
+      padding:18px 18px calc(22px + env(safe-area-inset-bottom));overflow:auto;min-height:0
+    }
+    #sheetHost .sheet-layer:not(.menu-layer) .icon-btn{width:40px;height:40px;border-radius:50%;font-size:23px}
+    #sheetHost .sheet-layer:not(.menu-layer) .cart-item{border:1px solid var(--line);border-radius:16px;padding:13px;margin-bottom:10px;background:#fff}
+    #sheetHost .sheet-layer:not(.menu-layer) .summary{position:sticky;bottom:-1px;background:linear-gradient(180deg,rgba(255,255,255,.76),#fff 18%);padding-top:16px}
+    #sheetHost .sheet-layer:not(.menu-layer) .full-btn{height:52px;border-radius:14px;font-size:14px}
+    #sheetHost .sheet-layer:not(.menu-layer) .method{min-height:68px;border-radius:15px}
+    #sheetHost .sheet-layer:not(.menu-layer) .balance-card{border-radius:18px}
+    #sheetHost .sheet-layer:not(.menu-layer) .qr-card{max-width:280px}
+    #sheetHost .sheet-layer:not(.menu-layer) .checkout-info-title{
+      margin:0 0 10px;padding:11px 13px;border:1px solid var(--line);border-radius:12px;background:#faf9fd;
+      text-align:center;font-size:11px;font-weight:900;text-transform:uppercase;letter-spacing:.45px
+    }
+    #sheetHost .sheet-layer:not(.menu-layer) .checkout-total-card{
+      border:1px solid var(--line);border-radius:16px;overflow:hidden;background:#fff;margin-top:12px
+    }
+    #sheetHost .sheet-layer:not(.menu-layer) .checkout-total-card .summary-row{padding:0 14px}
+    #sheetHost .sheet-layer:not(.menu-layer) .checkout-total-card .summary-row.total{margin-bottom:0;padding:14px}
+    @media(min-width:700px){
+      #sheetHost .sheet-layer:not(.menu-layer){padding:18px!important}
+      #sheetHost .sheet-layer:not(.menu-layer)>.sheet{bottom:auto!important;border-radius:28px!important;max-height:min(86dvh,820px)!important}
+    }
+    @media(max-width:520px){
+      #sheetHost .sheet-layer:not(.menu-layer)>.sheet{width:100vw!important;max-width:100vw!important;border-radius:24px 24px 0 0!important;max-height:90dvh!important}
+      #sheetHost .sheet-layer:not(.menu-layer) .sheet-body{padding-left:14px;padding-right:14px}
+    }
+
+    /* storefront v16: original NovaKey marketplace layout inspired by modern game stores */
+    :root{--blue:#6d4aff;--blue2:#8b5cf6;--blue-soft:#f1edff;--ink:#20202b;--muted:#777789;--line:#e7e5ef;--soft:#f5f6fa;--shadow:0 18px 55px rgba(37,31,76,.10)}
+    body{background:#f5f6fa}
+    .shop-strip{height:34px;background:#211a3c;color:#dcd7ef;font-size:11px;display:flex;align-items:center}
+    .shop-strip .container{display:flex;align-items:center;justify-content:space-between;gap:20px}
+    .shop-strip-links{display:flex;align-items:center;gap:18px}.shop-strip a{color:#dcd7ef}.shop-strip strong{color:#fff}
+    .header{background:rgba(255,255,255,.96);border-bottom:1px solid #ebe9f1;box-shadow:0 8px 30px rgba(35,31,59,.04)}
+    .storefront-head{height:76px!important;grid-template-columns:auto 190px minmax(260px,1fr) auto!important;gap:18px!important}
+    .brand-compact{min-width:190px}.brand-mark{background:linear-gradient(145deg,#7c5cff,#5a36df);box-shadow:0 9px 22px rgba(109,74,255,.30)}
+    .mk-search{height:46px;max-width:640px;justify-self:center;width:100%;border:1px solid #e3e1eb;border-radius:13px;background:#f7f7fb;display:flex;align-items:center;gap:10px;padding:0 15px;transition:border-color .18s,box-shadow .18s,background .18s}
+    .mk-search:focus-within{background:#fff;border-color:#9f8cff;box-shadow:0 0 0 4px rgba(109,74,255,.10)}
+    .mk-search input{border:0;outline:0;background:transparent;width:100%;min-width:0;color:var(--ink);font-size:13px}.mk-search svg{color:#7b7889;flex:none}
+    .compact-actions{gap:8px!important}.mk-action{height:46px;border-radius:13px;padding:0 12px;min-width:46px;justify-content:center;position:relative}
+    .mk-action .ui-icon{width:22px;height:22px}.mk-action-label{display:flex;flex-direction:column;align-items:flex-start;line-height:1.15}.mk-action-label small{font-size:9px}.mk-action-label strong{font-size:11px;max-width:82px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+    .mk-mobile-search{display:none;padding:0 0 12px}.mk-mobile-search .mk-search{max-width:none;height:44px}
+    .mk-nav-wrap{background:#fff;border-bottom:1px solid #eceaf2}.mk-category-nav{min-height:52px;display:flex;align-items:center;gap:8px;overflow-x:auto;scrollbar-width:none;padding:7px 0}.mk-category-nav::-webkit-scrollbar{display:none}
+    .mk-nav-item{height:38px;flex:none;border:0;background:transparent;border-radius:10px;padding:0 13px;display:flex;align-items:center;gap:8px;font-size:12px;font-weight:750;color:#555463;cursor:pointer;transition:background .16s,color .16s,transform .16s}
+    .mk-nav-item:hover,.mk-nav-item.active{background:var(--blue-soft);color:var(--blue)}.mk-nav-item:active{transform:scale(.98)}.mk-nav-icon{font-size:15px}
+    .mk-hero{padding:22px 0 14px}.mk-hero-grid{display:grid;grid-template-columns:minmax(0,2.08fr) minmax(250px,.92fr);gap:14px}
+    .mk-main-banner{min-height:310px;border-radius:22px;overflow:hidden;position:relative;background:radial-gradient(circle at 78% 25%,rgba(167,129,255,.62),transparent 27%),radial-gradient(circle at 90% 88%,rgba(46,221,255,.34),transparent 28%),linear-gradient(125deg,#211148 0%,#4c26a8 52%,#7b45ed 100%);box-shadow:0 20px 48px rgba(68,38,141,.25)}
+    .mk-main-banner:before,.mk-main-banner:after{content:"";position:absolute;border:1px solid rgba(255,255,255,.16);border-radius:50%}.mk-main-banner:before{width:300px;height:300px;right:-45px;top:-70px}.mk-main-banner:after{width:210px;height:210px;right:90px;bottom:-135px}
+    .mk-hero-copy{position:relative;z-index:2;width:min(610px,72%);padding:42px;color:#fff}.mk-hero-tag{display:inline-flex;align-items:center;gap:7px;height:28px;padding:0 10px;border:1px solid rgba(255,255,255,.22);border-radius:99px;background:rgba(255,255,255,.12);font-size:10px;font-weight:850;text-transform:uppercase;letter-spacing:.35px}
+    .mk-hero-copy h1{margin:15px 0 0;font-size:39px;line-height:1.08;letter-spacing:-1.2px}.mk-hero-copy p{margin:13px 0 0;max-width:500px;color:#e7e0ff;font-size:13px;line-height:1.62}
+    .mk-hero-actions{display:flex;gap:9px;margin-top:21px}.mk-hero-actions button{height:43px;border-radius:11px;padding:0 16px;border:1px solid rgba(255,255,255,.22);font-size:12px;font-weight:850;cursor:pointer}.mk-hero-actions .mk-primary{border-color:#fff;background:#fff;color:#512eb4}.mk-hero-actions .mk-ghost{background:rgba(255,255,255,.11);color:#fff}
+    .mk-app-stack{position:absolute;z-index:2;right:35px;top:50%;width:190px;height:190px;transform:translateY(-50%)}.mk-float-logo{position:absolute;width:72px;height:72px;border-radius:21px;background:rgba(255,255,255,.94);display:grid;place-items:center;box-shadow:0 18px 35px rgba(29,12,78,.28);animation:mkFloat 5s ease-in-out infinite}.mk-float-logo img{width:62%;height:62%;object-fit:contain}.mk-float-logo:nth-child(1){left:0;top:54px}.mk-float-logo:nth-child(2){right:0;top:8px;animation-delay:-1.4s}.mk-float-logo:nth-child(3){right:9px;bottom:2px;animation-delay:-2.8s}
+    @keyframes mkFloat{0%,100%{transform:translateY(0) rotate(-2deg)}50%{transform:translateY(-9px) rotate(2deg)}}
+    .mk-side-promos{display:grid;grid-template-rows:1fr 1fr;gap:14px}.mk-promo{position:relative;overflow:hidden;border-radius:19px;padding:22px;display:flex;flex-direction:column;justify-content:flex-end;min-height:148px;border:1px solid rgba(255,255,255,.65);box-shadow:0 12px 34px rgba(39,33,70,.08)}
+    .mk-promo:after{content:"";position:absolute;width:125px;height:125px;border-radius:50%;right:-30px;top:-35px;background:rgba(255,255,255,.36)}.mk-promo.pink{background:linear-gradient(135deg,#ffe6ef,#ffd6e6);color:#6f2242}.mk-promo.mint{background:linear-gradient(135deg,#dcf8f1,#c9f0e6);color:#145b4b}.mk-promo small{font-size:10px;font-weight:850;text-transform:uppercase;opacity:.7}.mk-promo strong{font-size:20px;line-height:1.15;margin-top:7px;max-width:190px}.mk-promo span{font-size:10px;margin-top:8px;opacity:.72}
+    .mk-quick{padding:0 0 16px}.mk-quick-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:10px}.mk-quick-item{min-width:0;height:82px;border:1px solid #e6e4ed;border-radius:16px;background:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;font-size:11px;font-weight:800;color:#4b4a58;cursor:pointer;box-shadow:0 8px 24px rgba(35,31,60,.045);transition:transform .16s,border-color .16s,box-shadow .16s}.mk-quick-item:hover{transform:translateY(-3px);border-color:#b9adf5;box-shadow:0 13px 28px rgba(72,52,145,.10)}.mk-quick-icon{width:34px;height:34px;border-radius:11px;background:var(--blue-soft);color:var(--blue);display:grid;place-items:center;font-size:17px}
+    .catalog.game-catalog{padding:20px 0 66px!important}.section-head-game{align-items:center!important;margin-bottom:17px!important}.section-head-game h2{font-size:28px!important;letter-spacing:-.55px}.section-head-game p{font-size:12px!important}.section-head-game .kicker{font-size:10px}
+    .product-grid{grid-template-columns:repeat(4,minmax(0,1fr))!important;gap:14px!important}.game-card{border-radius:17px!important;border-color:#e5e3eb!important;box-shadow:0 9px 26px rgba(36,31,62,.06)!important}.game-card:hover{transform:translateY(-4px)!important;box-shadow:0 16px 36px rgba(36,31,62,.12)!important}
+    .game-card .product-visual{height:152px!important;padding:15px!important;align-items:center!important;justify-content:center!important;border-bottom:1px solid #ebe9f1!important}.game-card .product-logo{width:68px!important;height:68px!important;border-radius:19px!important;transform:none!important;box-shadow:0 12px 26px rgba(31,27,55,.13)!important}.game-card .banner-name{display:none!important}.game-card .badge{left:11px!important;top:11px!important;border-radius:8px!important;padding:6px 8px!important;font-size:8px!important}.game-card .art-glow{inset:50% auto auto 50%!important;width:115px!important;height:115px!important;transform:translate(-50%,-50%)!important}
+    .game-card .product-body{padding:14px!important}.game-card .product-category{font-size:9px!important}.game-card h3{font-size:16px!important;line-height:1.2!important;margin-top:5px!important;white-space:nowrap!important}.game-card .product-description{font-size:11px!important;line-height:1.45!important;min-height:32px!important;margin:7px 0 11px!important}.game-card .plan-select{height:40px!important;border-radius:10px!important;font-size:11px!important;background:#f8f8fb!important}.game-card .price-stock{margin-top:12px!important;padding-top:11px!important;border-top:1px solid #eceaf1!important}.game-card .price{font-size:18px!important}.game-card .stock{font-size:8px!important;padding:6px 7px!important}.game-card .meta-line{font-size:9px!important;margin-top:9px!important}.game-actions-row{grid-template-columns:1fr 1fr!important;gap:7px!important;margin-top:12px!important}.game-actions-row .buy-now,.game-actions-row .detail-btn{height:40px!important;border-radius:10px!important;font-size:10px!important}.game-actions-row .buy-now{background:linear-gradient(90deg,#6845ed,#8059f2)!important}.sold-overlay strong{font-size:26px!important}.sold-overlay:before{height:92px!important}
+    .mk-assurance{padding:0 0 52px}.mk-assurance-grid{display:grid;grid-template-columns:repeat(4,1fr);background:#fff;border:1px solid #e6e4ec;border-radius:18px;overflow:hidden}.mk-assurance-item{padding:20px;display:flex;align-items:center;gap:11px;border-right:1px solid #eceaf1}.mk-assurance-item:last-child{border-right:0}.mk-assurance-icon{width:40px;height:40px;flex:none;border-radius:12px;background:var(--blue-soft);color:var(--blue);display:grid;place-items:center;font-size:18px}.mk-assurance-item strong{font-size:11px}.mk-assurance-item p{margin:4px 0 0;color:var(--muted);font-size:9px;line-height:1.4}
+    .footer{background:#1d192b!important;padding-top:44px!important}
+    @media(max-width:1080px){.product-grid{grid-template-columns:repeat(3,minmax(0,1fr))!important}.mk-quick-grid{grid-template-columns:repeat(3,1fr)}.mk-app-stack{right:22px;transform:translateY(-50%) scale(.9);transform-origin:center}.mk-hero-copy{width:68%;padding:36px}.mk-hero-copy h1{font-size:34px}}
+    @media(max-width:820px){.shop-strip{display:none}.storefront-head{grid-template-columns:auto minmax(0,1fr) auto!important;height:70px!important;gap:10px!important}.brand-compact{min-width:0}.mk-search.desktop-search{display:none}.mk-mobile-search{display:block}.mk-action-label{display:none}.mk-action{width:44px;padding:0}.mk-action[data-action="orders"]{display:none}.mk-hero{padding-top:14px}.mk-hero-grid{grid-template-columns:1fr}.mk-main-banner{min-height:270px}.mk-side-promos{grid-template-columns:1fr 1fr;grid-template-rows:auto}.mk-promo{min-height:120px;padding:17px}.product-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important}.mk-assurance-grid{grid-template-columns:repeat(2,1fr)}.mk-assurance-item:nth-child(2){border-right:0}.mk-assurance-item:nth-child(-n+2){border-bottom:1px solid #eceaf1}}
+    @media(max-width:560px){.container{width:min(100% - 20px,640px)!important}.header{box-shadow:none}.storefront-head{height:66px!important}.brand-mark{width:39px!important;height:39px!important;border-radius:12px!important;font-size:21px!important}.brand{font-size:16px!important;gap:8px!important}.brand small{display:none}.mobile-menu{width:41px!important;height:41px!important;border-radius:12px!important}.mk-action{width:41px!important;height:41px!important;border-radius:12px!important}.compact-actions{gap:5px!important}.mk-action[data-action="topup"]{display:none}.mk-nav-wrap{display:none}.mk-mobile-search{padding-bottom:10px}.mk-mobile-search .mk-search{height:42px;border-radius:12px}.mk-hero-copy{width:75%;padding:25px 20px}.mk-main-banner{min-height:230px;border-radius:17px}.mk-hero-copy h1{font-size:26px;letter-spacing:-.7px}.mk-hero-copy p{font-size:10px;line-height:1.5}.mk-hero-tag{height:24px;font-size:8px}.mk-hero-actions{margin-top:15px}.mk-hero-actions button{height:37px;padding:0 12px;font-size:10px}.mk-app-stack{right:-4px;width:120px;height:145px;transform:translateY(-50%) scale(.78)}.mk-float-logo{width:57px;height:57px;border-radius:17px}.mk-side-promos{gap:9px}.mk-promo{min-height:105px;border-radius:15px;padding:14px}.mk-promo strong{font-size:15px}.mk-promo span{display:none}.mk-quick{padding-bottom:12px}.mk-quick-grid{display:flex;overflow-x:auto;gap:8px;scrollbar-width:none}.mk-quick-grid::-webkit-scrollbar{display:none}.mk-quick-item{flex:0 0 84px;height:70px;border-radius:14px;font-size:9px}.mk-quick-icon{width:30px;height:30px}.catalog.game-catalog{padding-top:16px!important}.section-head-game{align-items:flex-start!important;gap:10px!important}.section-head-game h2{font-size:22px!important}.section-head-game p{font-size:10px!important}.product-grid{gap:9px!important}.game-card{border-radius:14px!important}.game-card .product-visual{height:112px!important;padding:10px!important}.game-card .product-logo{width:54px!important;height:54px!important;border-radius:15px!important}.game-card .badge{font-size:6px!important;padding:5px 6px!important}.game-card .product-body{padding:10px!important}.game-card .product-category{font-size:7px!important}.game-card h3{font-size:13px!important}.game-card .product-description{display:none}.game-card .plan-select{height:36px!important;border-radius:8px!important;font-size:9px!important;margin-top:8px}.game-card .price-stock{margin-top:9px!important;padding-top:8px!important}.game-card .price-stock small{font-size:7px}.game-card .price{font-size:15px!important}.game-card .stock{font-size:0!important;padding:5px!important}.game-card .stock-dot{width:7px!important;height:7px!important}.game-card .meta-line{display:none}.game-actions-row{grid-template-columns:1fr!important;margin-top:9px!important}.game-actions-row .buy-now{height:37px!important;font-size:9px!important}.game-actions-row .detail-btn{display:none}.sold-overlay span{display:none}.sold-overlay strong{font-size:18px!important}.mk-assurance{padding-bottom:36px}.mk-assurance-item{padding:13px;gap:8px}.mk-assurance-icon{width:34px;height:34px}.mk-assurance-item strong{font-size:9px}.mk-assurance-item p{display:none}.footer{padding-top:36px!important}}
+    @media(max-width:350px){.product-grid{grid-template-columns:1fr!important}.game-card .product-description{display:block}.game-card .stock{font-size:8px!important;padding:6px 7px!important}.game-actions-row{grid-template-columns:1fr 1fr!important}.game-actions-row .detail-btn{display:block}}
+    @media(prefers-reduced-motion:reduce){.mk-float-logo{animation:none!important}}
+
+
+    /* official embedded brand marks — transparent, borderless presentation */
+    .product-logo,
+    .game-card .product-logo{
+      background:transparent!important;
+      border:0!important;
+      border-radius:0!important;
+      box-shadow:none!important;
+      overflow:visible!important;
+    }
+    .game-card .art-glow{display:none!important}
+    .product-logo img,
+    .game-card .product-logo img{
+      width:78%!important;
+      height:78%!important;
+      margin:auto!important;
+      border:0!important;
+      border-radius:0!important;
+      background:transparent!important;
+      box-shadow:none!important;
+      object-fit:contain!important;
+      object-position:center!important;
+      transform:none!important;
+      filter:drop-shadow(0 7px 9px rgba(23,20,37,.14));
+    }
+    .game-card .product-logo-apple img{width:70%!important;height:70%!important}
+    .game-card .product-logo-youtube img{width:84%!important;height:84%!important}
+    .game-card .product-logo-netflix img{width:66%!important;height:66%!important}
+    .game-card .product-logo-spotify img{width:78%!important;height:78%!important}
+    .game-card .product-logo-canva img{width:82%!important;height:82%!important}
+    .game-card .product-logo-adobe img{width:77%!important;height:77%!important}
+    .game-card .product-logo-capcut img{width:83%!important;height:83%!important}
+    .game-card .product-logo-gemini img{width:78%!important;height:78%!important}
+    .game-card .product-logo-chatgpt img{width:77%!important;height:77%!important}
+    .game-card .product-logo-grok img{width:82%!important;height:82%!important}
+    .mini-logo{
+      background:transparent!important;
+      border:0!important;
+      border-radius:0!important;
+      box-shadow:none!important;
+      overflow:visible!important;
+    }
+    .mini-logo img{
+      width:72%!important;
+      height:72%!important;
+      border:0!important;
+      border-radius:0!important;
+      background:transparent!important;
+      box-shadow:none!important;
+      object-fit:contain!important;
+      filter:drop-shadow(0 4px 6px rgba(23,20,37,.12));
+    }
+    .mini-logo-youtube img{width:80%!important;height:80%!important}
+    .mini-logo-netflix img{width:62%!important;height:62%!important}
+    .mini-logo-canva img,.mini-logo-grok img{width:78%!important;height:78%!important}
+    .mk-float-logo{
+      background:transparent!important;
+      border:0!important;
+      border-radius:0!important;
+      box-shadow:none!important;
+    }
+    .mk-float-logo img{
+      width:72%!important;
+      height:72%!important;
+      border:0!important;
+      background:transparent!important;
+      filter:drop-shadow(0 11px 12px rgba(23,16,53,.22));
+    }
+
+    /* iOS-style glass tab bar, compact cart badge, unclipped category state */
+    .mk-quick-item.active{
+      color:var(--blue);
+      border-color:rgba(109,74,255,.46);
+      background:linear-gradient(145deg,rgba(255,255,255,.98),rgba(244,240,255,.98));
+      box-shadow:inset 0 0 0 1px rgba(109,74,255,.13),0 9px 22px rgba(80,55,166,.13);
+      transform:none;
+    }
+    .mk-quick-item.active .mk-quick-icon{
+      background:linear-gradient(145deg,#eee9ff,#f7f4ff);
+      box-shadow:inset 0 0 0 1px rgba(109,74,255,.08);
+    }
+    .cart-count[hidden],.mobile-bottom [data-cart-count][hidden]{display:none!important}
+    @media(hover:hover) and (pointer:fine){
+      .mk-quick-item:hover:not(.active){transform:translateY(-2px)}
+    }
+    @media(hover:none){.mk-quick-item:hover{transform:none}}
+    @media(max-width:760px){
+      body{padding-bottom:calc(104px + env(safe-area-inset-bottom))!important}
+      .mobile-bottom{
+        left:12px!important;right:12px!important;bottom:max(10px,env(safe-area-inset-bottom))!important;
+        height:72px!important;padding:5px 4px!important;border:1px solid rgba(255,255,255,.76)!important;
+        border-radius:28px!important;background:rgba(255,255,255,.42)!important;
+        box-shadow:0 16px 38px rgba(32,27,59,.17),inset 0 1px 0 rgba(255,255,255,.92),inset 0 -1px 0 rgba(109,74,255,.06)!important;
+        -webkit-backdrop-filter:blur(32px) saturate(190%);backdrop-filter:blur(32px) saturate(190%);
+        overflow:visible;isolation:isolate
+      }
+      .mobile-bottom::before{
+        content:"";position:absolute;z-index:-1;inset:1px;border-radius:27px;pointer-events:none;
+        background:linear-gradient(150deg,rgba(255,255,255,.44),rgba(255,255,255,.08) 54%,rgba(226,217,255,.15));
+      }
+      .mobile-bottom button,.mobile-bottom a{
+        min-width:0!important;height:100%!important;padding:4px 2px!important;gap:5px!important;
+        border:0!important;border-radius:20px!important;background:transparent!important;
+        color:#676675!important;font-size:10px!important;font-weight:680!important;
+        transition:color .18s ease,transform .18s ease!important
+      }
+      .mobile-bottom button:active,.mobile-bottom a:active{transform:scale(.94)}
+      .mobile-bottom button:focus,.mobile-bottom a:focus,
+      .mobile-bottom button:focus-visible,.mobile-bottom a:focus-visible{
+        outline:none!important;outline-offset:0!important
+      }
+      .mobile-bottom .active{
+        color:var(--blue)!important;
+        background:transparent!important;box-shadow:none!important;
+        border-radius:20px!important;font-size:10.5px!important;font-weight:820!important;
+        transform:translateY(-2px) scale(1.08);z-index:1
+      }
+      .mobile-bottom .nav-icon{
+        position:relative;display:grid!important;place-items:center;width:28px;height:27px!important
+      }
+      .mobile-bottom .nav-icon .ui-icon{
+        grid-area:1/1;width:25px!important;height:25px!important;
+        transition:opacity .18s ease,transform .32s cubic-bezier(.22,1,.36,1)!important;
+        will-change:opacity,transform
+      }
+      .mobile-bottom .nav-icon .ui-icon-outline{opacity:1;transform:scale(1) translateZ(0)}
+      .mobile-bottom .nav-icon .ui-icon-solid{opacity:0;transform:scale(.68) translateZ(0)}
+      .mobile-bottom .active .nav-icon .ui-icon-outline{opacity:0;transform:scale(.58) translateZ(0)}
+      .mobile-bottom .active .nav-icon .ui-icon-solid{opacity:1;transform:scale(1.15) translateZ(0)}
+      .mobile-bottom .active .nav-avatar-wrap{transform:scale(1.08) translateZ(0)}
+      .mobile-bottom [data-cart-count]{
+        position:absolute!important;top:2px!important;left:calc(50% + 8px)!important;right:auto!important;
+        min-width:18px!important;height:18px!important;padding:0 5px!important;border:2px solid rgba(255,255,255,.9)!important;
+        border-radius:10px!important;background:var(--blue)!important;color:#fff!important;
+        display:grid!important;place-items:center!important;font-size:9px!important;font-weight:850!important;
+        line-height:1!important;box-shadow:0 4px 10px rgba(109,74,255,.3)
+      }
+      .mk-action[data-action="cart"]{
+        position:relative!important;width:42px!important;min-width:42px!important;height:42px!important;padding:0!important;
+        display:grid!important;place-items:center!important;overflow:visible!important;
+        border:1px solid rgba(255,255,255,.82)!important;border-radius:14px!important;
+        background:rgba(255,255,255,.62)!important;
+        box-shadow:0 7px 18px rgba(35,30,62,.08),inset 0 1px 0 rgba(255,255,255,.95)!important;
+        -webkit-backdrop-filter:blur(16px) saturate(160%);backdrop-filter:blur(16px) saturate(160%)
+      }
+      .mk-action[data-action="cart"] .ui-icon{width:23px!important;height:23px!important}
+      .mk-action[data-action="cart"] .cart-count{
+        position:absolute!important;z-index:2;top:-5px!important;right:-5px!important;left:auto!important;
+        min-width:18px!important;height:18px!important;padding:0 5px!important;border:2px solid #fff!important;
+        border-radius:10px!important;font-size:9px!important;font-weight:850!important;
+        box-shadow:0 4px 10px rgba(109,74,255,.28)
+      }
+    }
+    @media(max-width:560px){
+      .mk-quick{overflow:visible;padding-bottom:14px!important}
+      .mk-quick-grid{
+        padding:6px 2px 13px!important;margin:-6px -2px -13px!important;
+        overscroll-behavior-inline:contain;scroll-padding-inline:2px
+      }
+      .mk-quick-item{transform:none!important}
+    }
+    @media(prefers-reduced-motion:reduce){
+      .mobile-bottom button,.mobile-bottom a,.mobile-bottom .nav-icon .ui-icon{transition:none!important}
+    }
+
+    /* interaction and mobile polish v17 */
+    #productGrid{overflow-anchor:none}
+    .mobile-menu{position:relative;z-index:3;pointer-events:auto!important;touch-action:manipulation}
+    #sheetHost .sheet-layer.menu-layer.sheet-visible>.sheet.menu-sheet{transform:translate3d(0,0,0)!important}
+    .mk-quick-item{
+      position:relative;isolation:isolate;overflow:visible;
+      transition:transform .26s cubic-bezier(.22,1,.36,1),border-color .2s ease,box-shadow .26s ease,background .2s ease!important
+    }
+    .mk-quick-item::after{
+      content:"";position:absolute;z-index:-1;inset:7px;border-radius:14px;
+      background:rgba(109,74,255,.22);opacity:0;pointer-events:none
+    }
+    .mk-quick-item.active{
+      transform:translateY(-4px) scale(1.025)!important;
+      border-color:rgba(109,74,255,.58)!important;
+      box-shadow:0 16px 30px rgba(76,49,160,.18),inset 0 1px 0 rgba(255,255,255,.96)!important
+    }
+    .mk-quick-item.is-popping::after{animation:mkQuickHalo .42s cubic-bezier(.22,1,.36,1)}
+    .mk-quick-item.is-popping .mk-quick-icon{animation:mkQuickIconPop .42s cubic-bezier(.22,1,.36,1)}
+    @keyframes mkQuickHalo{0%{opacity:.42;transform:scale(.82)}100%{opacity:0;transform:scale(1.28)}}
+    @keyframes mkQuickIconPop{0%{transform:scale(.82)}55%{transform:scale(1.13)}100%{transform:scale(1)}}
+
+    .mk-promo{
+      isolation:isolate;text-align:left;cursor:pointer;
+      transition:transform .24s cubic-bezier(.22,1,.36,1),box-shadow .24s ease,border-color .24s ease
+    }
+    .mk-promo>*{position:relative;z-index:2}
+    .mk-promo::before{
+      content:"";position:absolute;z-index:0;inset:0;pointer-events:none;opacity:.72
+    }
+    .mk-promo.pink::before{
+      background:radial-gradient(circle at 84% 24%,rgba(255,255,255,.82) 0 4px,transparent 5px),radial-gradient(circle at 84% 24%,transparent 0 31px,rgba(209,62,119,.10) 32px 33px,transparent 34px)
+    }
+    .mk-promo.mint::before{
+      background:linear-gradient(125deg,transparent 54%,rgba(0,139,118,.07) 54% 56%,transparent 56%),radial-gradient(circle at 84% 22%,rgba(255,255,255,.78) 0 5px,transparent 6px)
+    }
+    .mk-promo-symbol{
+      position:absolute!important;z-index:2!important;top:16px;right:16px;width:46px;height:46px;border-radius:15px;
+      display:grid!important;place-items:center;font-size:20px;font-weight:900;line-height:1;
+      border:1px solid rgba(255,255,255,.74);background:rgba(255,255,255,.54);
+      box-shadow:0 10px 22px rgba(77,31,58,.10),inset 0 1px 0 rgba(255,255,255,.8)
+    }
+    .mk-promo.pink .mk-promo-symbol{color:#c8326d}
+    .mk-promo.mint .mk-promo-symbol{color:#087c68}
+    .mk-promo-symbol{font-size:0}
+    .mk-promo.pink .mk-promo-symbol::before{content:"";width:0;height:0;margin-left:2px;border-top:7px solid transparent;border-bottom:7px solid transparent;border-left:11px solid currentColor}
+    .mk-promo.mint .mk-promo-symbol::before{content:"";width:18px;height:18px;background:currentColor;clip-path:polygon(50% 0,61% 35%,100% 50%,61% 65%,50% 100%,39% 65%,0 50%,39% 35%)}
+    .mk-promo-products{display:block;margin-top:8px;font-size:10px;opacity:.72}
+    @media(hover:hover) and (pointer:fine){
+      .mk-promo:hover{transform:translateY(-4px);box-shadow:0 18px 38px rgba(39,33,70,.13)}
+    }
+    .mk-promo:active{transform:translateY(-1px) scale(.985)}
+
+    @media(max-width:560px){
+      .mk-quick .container{width:min(100% - 26px,640px)!important}
+      .mk-quick-grid{padding:6px 4px 13px!important;margin:-6px auto -13px!important;scroll-padding-inline:4px!important}
+      .mk-promo{min-height:112px!important;padding:14px!important}
+      .mk-promo .mk-promo-symbol{display:grid!important;top:10px;right:10px;width:34px;height:34px;border-radius:11px;font-size:0}
+      .mk-promo .mk-promo-products{display:none!important}
+      .mk-promo small{max-width:calc(100% - 38px);font-size:7px!important;letter-spacing:.18px}
+      .mk-promo strong{max-width:calc(100% - 12px);font-size:14px!important;line-height:1.16!important}
+    }
+    @media(prefers-reduced-motion:reduce){
+      .mk-quick-item,.mk-promo{transition:none!important}
+      .mk-quick-item.is-popping::after,.mk-quick-item.is-popping .mk-quick-icon{animation:none!important}
+    }
+</style>
+</head>
+<body>
+  <div id="app"></div>
+  <div id="sheetHost"></div>
+
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-app.js";
+    import {
+      getAuth,onAuthStateChanged,createUserWithEmailAndPassword,signInWithEmailAndPassword,signOut
+    } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-auth.js";
+    import {
+      getFirestore,collection,doc,getDoc,getDocs,setDoc,addDoc,updateDoc,onSnapshot,query,where,
+      serverTimestamp,runTransaction,writeBatch
+    } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore.js";
+
+    const firebaseConfig={
+      apiKey:"AIzaSyCLmF_xtLbxbqmHaOn_Oqm-GAEzMrW6DMw",
+      authDomain:"novakey-store.firebaseapp.com",
+      projectId:"novakey-store",
+      storageBucket:"novakey-store.firebasestorage.app",
+      messagingSenderId:"1051799451318",
+      appId:"1:1051799451318:web:baa53aa0893c545b911817"
+    };
+    const fb=initializeApp(firebaseConfig),auth=getAuth(fb),db=getFirestore(fb);
+    const isAdminPage=new URLSearchParams(location.search).has("admin");
+    const $=(s,r=document)=>r.querySelector(s), $$=(s,r=document)=>[...r.querySelectorAll(s)];
+    const moneyFormatter=new Intl.NumberFormat("vi-VN");
+    const dateFormatter=new Intl.DateTimeFormat("vi-VN",{dateStyle:"short",timeStyle:"short"});
+    const money=n=>`${moneyFormatter.format(Number(n)||0)}đ`;
+    const normalizeText=v=>String(v??"").normalize("NFD").replace(/[\u0300-\u036f]/g,"").toLowerCase().trim();
+    const esc=v=>String(v??"").replace(/[&<>'"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;","'":"&#39;",'"':"&quot;"}[c]));
+    const time=v=>{try{const d=v?.toDate?.();return d?dateFormatter.format(d):"Vừa tạo"}catch{return"Vừa tạo"}};
+    const slug=s=>s.normalize("NFD").replace(/[\u0300-\u036f]/g,"").toLowerCase().replace(/[^a-z0-9]+/g,"-").replace(/^-|-$/g,"");
+    const stockId=(productId,plan)=>`${productId}__${slug(plan)}`;
+    const svgData=svg=>`data:image/svg+xml;charset=UTF-8,${encodeURIComponent(svg)}`;
+    const BRAND_ICONS={
+      apple:svgData(`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="#000000" d="M12.152 6.896c-.948 0-2.415-1.078-3.96-1.04-2.04.027-3.91 1.183-4.961 3.014-2.117 3.675-.546 9.103 1.519 12.09 1.013 1.454 2.208 3.09 3.792 3.039 1.52-.065 2.09-.987 3.935-.987 1.831 0 2.35.987 3.96.948 1.637-.026 2.676-1.48 3.676-2.948 1.156-1.688 1.636-3.325 1.662-3.415-.039-.013-3.182-1.221-3.22-4.857-.026-3.04 2.48-4.494 2.597-4.559-1.429-2.09-3.623-2.324-4.39-2.376-2-.156-3.675 1.09-4.61 1.09zM15.53 3.83c.843-1.012 1.4-2.427 1.245-3.83-1.207.052-2.662.805-3.532 1.818-.78.896-1.454 2.338-1.273 3.714 1.338.104 2.715-.688 3.559-1.701"/></svg>`),
+      appleWhite:svgData(`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="#ffffff" d="M12.152 6.896c-.948 0-2.415-1.078-3.96-1.04-2.04.027-3.91 1.183-4.961 3.014-2.117 3.675-.546 9.103 1.519 12.09 1.013 1.454 2.208 3.09 3.792 3.039 1.52-.065 2.09-.987 3.935-.987 1.831 0 2.35.987 3.96.948 1.637-.026 2.676-1.48 3.676-2.948 1.156-1.688 1.636-3.325 1.662-3.415-.039-.013-3.182-1.221-3.22-4.857-.026-3.04 2.48-4.494 2.597-4.559-1.429-2.09-3.623-2.324-4.39-2.376-2-.156-3.675 1.09-4.61 1.09zM15.53 3.83c.843-1.012 1.4-2.427 1.245-3.83-1.207.052-2.662.805-3.532 1.818-.78.896-1.454 2.338-1.273 3.714 1.338.104 2.715-.688 3.559-1.701"/></svg>`),
+      youtube:svgData(`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="#ff0033" d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>`),
+      netflix:svgData(`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="#e50914" d="m5.398 0 8.348 23.602c2.346.059 4.856.398 4.856.398L10.113 0H5.398zm8.489 0v9.172l4.715 13.33V0h-4.715zM5.398 1.5V24c1.873-.225 2.81-.312 4.715-.398V14.83L5.398 1.5z"/></svg>`),
+      spotify:svgData(`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="#1ed760" d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"/></svg>`),
+      canva:svgData(`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><defs><linearGradient id="canva" x1="2" y1="2" x2="22" y2="22" gradientUnits="userSpaceOnUse"><stop stop-color="#00c4cc"/><stop offset=".5" stop-color="#18a0fb"/><stop offset="1" stop-color="#8b3dff"/></linearGradient></defs><path fill="url(#canva)" d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zM6.962 7.68c.754 0 1.337.549 1.405 1.2.069.583-.171 1.097-.822 1.406-.343.171-.48.172-.549.069-.034-.069 0-.137.069-.206.617-.514.617-.926.548-1.508-.034-.378-.308-.618-.583-.618-1.2 0-2.914 2.674-2.674 4.629.103.754.549 1.646 1.509 1.646.308 0 .65-.103.96-.24.5-.264.799-.47 1.097-.8-.073-.885.704-2.046 1.851-2.046.515 0 .926.205.96.583.068.514-.377.582-.514.582s-.378-.034-.378-.17c-.034-.138.309-.07.275-.378-.035-.206-.24-.274-.446-.274-.72 0-1.131.994-1.029 1.611.035.275.172.549.447.549.205 0 .514-.31.617-.755.068-.308.343-.514.583-.514.102 0 .17.034.205.171v.138c-.034.137-.137.548-.102.651 0 .069.034.171.17.171.092 0 .436-.18.777-.459.117-.59.253-1.298.253-1.357.034-.24.137-.48.617-.48.103 0 .171.034.205.171v.138l-.136.617c.445-.583 1.097-.994 1.508-.994.172 0 .309.102.309.274 0 .103 0 .274-.069.446-.137.377-.309.96-.412 1.474 0 .137.035.274.207.274.171 0 .685-.206 1.096-.754l.007-.004c-.002-.068-.007-.134-.007-.202 0-.411.035-.754.104-.994.068-.274.411-.514.617-.514.103 0 .205.069.205.171 0 .035 0 .103-.034.137-.137.446-.24.857-.24 1.269 0 .24.034.582.102.788 0 .034.035.069.07.069.068 0 .548-.445.89-1.028-.308-.206-.48-.549-.48-.96 0-.72.446-1.097.858-1.097.343 0 .617.24.617.72 0 .308-.103.65-.274.96h.102a.77.77 0 0 0 .584-.24.293.293 0 0 1 .134-.117c.335-.425.83-.74 1.41-.74.48 0 .924.205.959.582.068.515-.378.618-.515.618l-.002-.002c-.138 0-.377-.035-.377-.172 0-.137.309-.068.274-.376-.034-.206-.24-.275-.446-.275-.686 0-1.13.891-1.028 1.611.034.275.171.583.445.583.206 0 .515-.308.652-.754.068-.274.343-.514.583-.514.103 0 .17.034.205.171 0 .069 0 .206-.137.652-.17.308-.171.48-.137.617.034.274.171.48.309.583.034.034.068.102.068.102 0 .069-.034.138-.137.138-.034 0-.068 0-.103-.035-.514-.205-.72-.548-.789-.891-.205.24-.445.377-.72.377-.445 0-.89-.411-.96-.926a1.609 1.609 0 0 1 .075-.649c-.203.13-.422.203-.623.203h-.17c-.447.652-.927 1.098-1.27 1.303a.896.896 0 0 1-.377.104c-.068 0-.171-.035-.205-.104-.095-.152-.156-.392-.193-.667-.481.527-1.145.805-1.453.805-.343 0-.548-.206-.582-.55v-.376c.102-.754.377-1.2.377-1.337a.074.074 0 0 0-.069-.07c-.24 0-1.028.824-1.166 1.373l-.103.445c-.068.309-.377.515-.582.515-.103 0-.172-.035-.206-.172v-.137l.046-.233c-.435.31-.87.508-1.075.508-.308 0-.48-.172-.514-.412-.206.274-.445.412-.754.412-.352 0-.696-.24-.862-.593-.244.275-.523.553-.852.764-.48.309-1.028.549-1.68.549-.582 0-1.097-.309-1.371-.583-.412-.377-.651-.96-.686-1.509-.205-1.68.823-3.84 2.4-4.8.378-.205.755-.343 1.132-.343zm9.77 3.291c-.104 0-.172.172-.172.343 0 .274.137.583.309.755a1.74 1.74 0 0 0 .102-.583c0-.343-.137-.515-.24-.515z"/></svg>`),
+      adobe:svgData(`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48"><defs><linearGradient id="adobeRed" x1="5" y1="3" x2="43" y2="45" gradientUnits="userSpaceOnUse"><stop stop-color="#ff3b30"/><stop offset="1" stop-color="#e60012"/></linearGradient></defs><rect x="2" y="2" width="44" height="44" rx="10" fill="url(#adobeRed)"/><g transform="translate(6 6) scale(1.5)"><path fill="#fff" d="M14.86 3H23v19zM9.14 3H1v19zM11.992 9.998L17.182 22h-3.394l-1.549-3.813h-3.79z"/></g></svg>`),
+      capcut:svgData(`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="#111827" d="M24.189 6.442V2.671l-4.535 2.383V4.91c.002-1.505-1.078-2.411-2.638-2.411H2.64C.993 2.5 0 3.407 0 4.91V8.72L6.354 12 0 15.316v3.8C0 20.595 1 21.5 2.64 21.5h14.373c1.56 0 2.639-.907 2.639-2.382v-.197l4.536 2.409v-3.828L13.64 12 24.19 6.443zM9.982 13.873l7.797 4.083H2.157l7.825-4.083zm7.741-7.828l-7.742 4.057-7.825-4.057h15.567z"/></svg>`),
+      gemini:svgData(`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.616 10.835a14.147 14.147 0 01-4.45-3.001 14.111 14.111 0 01-3.678-6.452.503.503 0 00-.975 0 14.134 14.134 0 01-3.679 6.452 14.155 14.155 0 01-4.45 3.001c-.65.28-1.318.505-2.002.678a.502.502 0 000 .975c.684.172 1.35.397 2.002.677a14.147 14.147 0 014.45 3.001 14.112 14.112 0 013.679 6.453.502.502 0 00.975 0c.172-.685.397-1.351.677-2.003a14.145 14.145 0 013.001-4.45 14.113 14.113 0 016.453-3.678.503.503 0 000-.975 13.245 13.245 0 01-2.003-.678z" fill="#3186FF"></path><path d="M20.616 10.835a14.147 14.147 0 01-4.45-3.001 14.111 14.111 0 01-3.678-6.452.503.503 0 00-.975 0 14.134 14.134 0 01-3.679 6.452 14.155 14.155 0 01-4.45 3.001c-.65.28-1.318.505-2.002.678a.502.502 0 000 .975c.684.172 1.35.397 2.002.677a14.147 14.147 0 014.45 3.001 14.112 14.112 0 013.679 6.453.502.502 0 00.975 0c.172-.685.397-1.351.677-2.003a14.145 14.145 0 013.001-4.45 14.113 14.113 0 016.453-3.678.503.503 0 000-.975 13.245 13.245 0 01-2.003-.678z" fill="url(#lobe-icons-gemini-0-_R_0_)"></path><path d="M20.616 10.835a14.147 14.147 0 01-4.45-3.001 14.111 14.111 0 01-3.678-6.452.503.503 0 00-.975 0 14.134 14.134 0 01-3.679 6.452 14.155 14.155 0 01-4.45 3.001c-.65.28-1.318.505-2.002.678a.502.502 0 000 .975c.684.172 1.35.397 2.002.677a14.147 14.147 0 014.45 3.001 14.112 14.112 0 013.679 6.453.502.502 0 00.975 0c.172-.685.397-1.351.677-2.003a14.145 14.145 0 013.001-4.45 14.113 14.113 0 016.453-3.678.503.503 0 000-.975 13.245 13.245 0 01-2.003-.678z" fill="url(#lobe-icons-gemini-1-_R_0_)"></path><path d="M20.616 10.835a14.147 14.147 0 01-4.45-3.001 14.111 14.111 0 01-3.678-6.452.503.503 0 00-.975 0 14.134 14.134 0 01-3.679 6.452 14.155 14.155 0 01-4.45 3.001c-.65.28-1.318.505-2.002.678a.502.502 0 000 .975c.684.172 1.35.397 2.002.677a14.147 14.147 0 014.45 3.001 14.112 14.112 0 013.679 6.453.502.502 0 00.975 0c.172-.685.397-1.351.677-2.003a14.145 14.145 0 013.001-4.45 14.113 14.113 0 016.453-3.678.503.503 0 000-.975 13.245 13.245 0 01-2.003-.678z" fill="url(#lobe-icons-gemini-2-_R_0_)"></path><defs><linearGradient gradientUnits="userSpaceOnUse" id="lobe-icons-gemini-0-_R_0_" x1="7" x2="11" y1="15.5" y2="12"><stop stop-color="#08B962"></stop><stop offset="1" stop-color="#08B962" stop-opacity="0"></stop></linearGradient><linearGradient gradientUnits="userSpaceOnUse" id="lobe-icons-gemini-1-_R_0_" x1="8" x2="11.5" y1="5.5" y2="11"><stop stop-color="#F94543"></stop><stop offset="1" stop-color="#F94543" stop-opacity="0"></stop></linearGradient><linearGradient gradientUnits="userSpaceOnUse" id="lobe-icons-gemini-2-_R_0_" x1="3.5" x2="17.5" y1="13.5" y2="12"><stop stop-color="#FABC12"></stop><stop offset=".46" stop-color="#FABC12" stop-opacity="0"></stop></linearGradient></defs></svg>`),
+      chatgpt:svgData(`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="#111827" d="M9.205 8.658v-2.26c0-.19.072-.333.238-.428l4.543-2.616c.619-.357 1.356-.523 2.117-.523 2.854 0 4.662 2.212 4.662 4.566 0 .167 0 .357-.024.547l-4.71-2.759a.797.797 0 00-.856 0l-5.97 3.473zm10.609 8.8V12.06c0-.333-.143-.57-.429-.737l-5.97-3.473 1.95-1.118a.433.433 0 01.476 0l4.543 2.617c1.309.76 2.189 2.378 2.189 3.948 0 1.808-1.07 3.473-2.76 4.163zM7.802 12.703l-1.95-1.142c-.167-.095-.239-.238-.239-.428V5.899c0-2.545 1.95-4.472 4.591-4.472 1 0 1.927.333 2.712.928L8.23 5.067c-.285.166-.428.404-.428.737v6.898zM12 15.128l-2.795-1.57v-3.33L12 8.658l2.795 1.57v3.33L12 15.128zm1.796 7.23c-1 0-1.927-.332-2.712-.927l4.686-2.712c.285-.166.428-.404.428-.737v-6.898l1.974 1.142c.167.095.238.238.238.428v5.233c0 2.545-1.974 4.472-4.614 4.472zm-5.637-5.303l-4.544-2.617c-1.308-.761-2.188-2.378-2.188-3.948A4.482 4.482 0 014.21 6.327v5.423c0 .333.143.571.428.738l5.947 3.449-1.95 1.118a.432.432 0 01-.476 0zm-.262 3.9c-2.688 0-4.662-2.021-4.662-4.519 0-.19.024-.38.047-.57l4.686 2.71c.286.167.571.167.856 0l5.97-3.448v2.26c0 .19-.07.333-.237.428l-4.543 2.616c-.619.357-1.356.523-2.117.523zm5.899 2.83a5.947 5.947 0 005.827-4.756C22.287 18.339 24 15.84 24 13.296c0-1.665-.713-3.282-1.998-4.448.119-.5.19-.999.19-1.498 0-3.401-2.759-5.947-5.946-5.947-.642 0-1.26.095-1.88.31A5.962 5.962 0 0010.205 0a5.947 5.947 0 00-5.827 4.757C1.713 5.447 0 7.945 0 10.49c0 1.666.713 3.283 1.998 4.448-.119.5-.19 1-.19 1.499 0 3.401 2.759 5.946 5.946 5.946.642 0 1.26-.095 1.88-.309a5.96 5.96 0 004.162 1.713z"/></svg>`),
+      grok:svgData(`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="#111827" d="M9.27 15.29l7.978-5.897c.391-.29.95-.177 1.137.272.98 2.369.542 5.215-1.41 7.169-1.951 1.954-4.667 2.382-7.149 1.406l-2.711 1.257c3.889 2.661 8.611 2.003 11.562-.953 2.341-2.344 3.066-5.539 2.388-8.42l.006.007c-.983-4.232.242-5.924 2.75-9.383.06-.082.12-.164.179-.248l-3.301 3.305v-.01L9.267 15.292M7.623 16.723c-2.792-2.67-2.31-6.801.071-9.184 1.761-1.763 4.647-2.483 7.166-1.425l2.705-1.25a7.808 7.808 0 00-1.829-1A8.975 8.975 0 005.984 5.83c-2.533 2.536-3.33 6.436-1.962 9.764 1.022 2.487-.653 4.246-2.34 6.022-.599.63-1.199 1.259-1.682 1.925l7.62-6.815"/></svg>`)
+    };
+
+    const PRODUCTS=[
+      {id:"apple",name:"ID Apple Game/App",category:"Apple",description:"Thuê ID Apple tải game và ứng dụng bản quyền.",badge:"Kho lớn",logo:"●",accent:"#111827",soft:"#f0f1f3",icon:BRAND_ICONS.apple,plans:[["Gói thường",10000],["Gói cập nhật trọn đời",15000],["Mua game chính chủ",120000]]},
+      {id:"youtube",name:"YouTube Premium",category:"Giải trí",description:"Không quảng cáo, phát nền và dùng YouTube Music.",badge:"Bán chạy",logo:"▶",accent:"#ff0033",soft:"#fff0f3",icon:BRAND_ICONS.youtube,plans:[["1 tháng",25000],["3 tháng",75000],["6 tháng",150000]]},
+      {id:"netflix",name:"Netflix Premium",category:"Giải trí",description:"4K Ultra HD, dùng trên điện thoại, máy tính và TV.",badge:"Phổ biến",logo:"N",accent:"#e50914",soft:"#fff0f0",icon:BRAND_ICONS.netflix,plans:[["Trải nghiệm 5 giờ",0],["1 ngày",15000],["1 tháng",60000]]},
+      {id:"spotify",name:"Spotify Premium",category:"Giải trí",description:"Nghe nhạc không quảng cáo và tải xuống ngoại tuyến.",badge:"Giao nhanh",logo:"♪",accent:"#18a45b",soft:"#ecfaf3",icon:BRAND_ICONS.spotify,plans:[["1 tháng",30000],["3 tháng",80000]]},
+      {id:"canva",name:"Canva Pro",category:"Sáng tạo",description:"Kho tài nguyên Pro và bộ công cụ thiết kế nâng cao.",badge:"Tiết kiệm",logo:"C",accent:"#00a4c7",soft:"#e9fbff",icon:BRAND_ICONS.canva,plans:[["Canva EDU - 1 năm",20000],["Canva Pro - 1 năm",130000]]},
+      {id:"adobe",name:"Adobe Full Apps",category:"Sáng tạo",description:"Bộ ứng dụng Adobe đầy đủ, sử dụng trên 2 thiết bị.",badge:"Bản quyền",logo:"A",accent:"#ed1c24",soft:"#fff0f1",icon:BRAND_ICONS.adobe,plans:[["1 tháng - 2 thiết bị",99000],["2 tháng - 2 thiết bị",159000]]},
+      {id:"capcut",name:"CapCut Pro",category:"Sáng tạo",description:"Hiệu ứng Pro, công cụ AI và xuất video chất lượng cao.",badge:"Phổ biến",logo:"CC",accent:"#111827",soft:"#eef0f4",icon:BRAND_ICONS.capcut,plans:[["7 ngày",15000],["1 tháng",79000]]},
+      {id:"gemini",name:"Gemini Advanced",category:"AI",description:"Trợ lý AI nâng cao cho học tập và công việc.",badge:"Chính chủ",logo:"✦",accent:"#2f6fed",soft:"#edf4ff",icon:BRAND_ICONS.gemini,plans:[["Nâng cấp chính chủ - 1 năm",79000],["Link nhận 18 tháng",55000]]},
+      {id:"chatgpt",name:"ChatGPT Plus",category:"AI",description:"Truy cập các tính năng AI mạnh hơn trên tài khoản của bạn.",badge:"Hỗ trợ 24/7",logo:"AI",accent:"#10a37f",soft:"#eafaf5",icon:BRAND_ICONS.chatgpt,plans:[["1 tháng",200000]]},
+      {id:"grok",name:"Grok Premium",category:"AI",description:"Truy cập Grok nâng cao với thời hạn sử dụng dài.",badge:"Giá tốt",logo:"G",accent:"#111827",soft:"#eef0f4",icon:BRAND_ICONS.grok,plans:[["1 năm",99000]]}
+    ].map(p=>({...p,searchText:normalizeText(`${p.name} ${p.category} ${p.description}`),plans:p.plans.map(([name,price])=>({name,price}))}));
+    const CATEGORIES=["Tất cả","Giải trí","Sáng tạo","AI","Apple"];
+    const CARD_RATES=[
+      {face:10000,receive:8350},{face:20000,receive:16600},{face:30000,receive:24900},
+      {face:50000,receive:43000},{face:100000,receive:86000},{face:200000,receive:172000},
+      {face:300000,receive:258000},{face:500000,receive:422500},{face:1000000,receive:845000}
+    ];
+    const STATUS={awaiting_payment:"Chờ chuyển khoản",payment_review:"Chờ duyệt",fulfilled:"Đã giao hàng",approved:"Đã cộng số dư",rejected:"Đã từ chối"};
+    const defaultSettings={bankId:"",bankName:"",accountNumber:"",accountName:"",zaloUrl:""};
+
+    const state={
+      user:null,balance:0,settings:{...defaultSettings},category:"Tất cả",search:"",sort:"popular",deal:"hot",
+      plans:{},stock:new Map(),stockLoaded:false,stockError:false,cart:[],orders:[],topups:[],sheet:null,payload:null,busy:false,
+      admin:false,adminTab:"orders",adminAuthMode:"login",adminOrders:[],adminTopups:[],adminInventory:[],message:"",error:""
+    };
+    let unsubWallet=null,unsubOrders=null,unsubTopups=null,unsubStock=null,unsubSettings=null;
+    let adminUnsubs=[];
+    let productRefreshFrame=0,searchTimer=0,adminRenderFrame=0,sheetCloseTimer=0,previousFocus=null,productRevealObserver=null;
+    let searchSessionActive=false,searchLayoutHeight=0,searchReleaseTimer=0,quickPopTimer=0;
+    const productCards=new Map();
+    const productRevealAnimations=new Map();
+    const prefersReducedMotion=matchMedia("(prefers-reduced-motion: reduce)");
+    const CART_STORAGE_KEY="novakey_cart_v1";
+
+    function selectedPlan(p){return p.plans[state.plans[p.id]||0]}
+    function stockCount(p,plan){return Number(state.stock.get(`${p.id}|${plan.name}`)??0)}
+    function cartCount(){return state.cart.reduce((n,i)=>n+i.quantity,0)}
+    function cartTotal(){return state.cart.reduce((n,i)=>n+i.plan.price*i.quantity,0)}
+    function selectedProduct(id){return PRODUCTS.find(p=>p.id===id)}
+    function saveCart(){
+      try{localStorage.setItem(CART_STORAGE_KEY,JSON.stringify(state.cart.map(i=>({productId:i.product.id,planName:i.plan.name,quantity:i.quantity}))))}catch{}
+    }
+    function restoreCart(){
+      try{
+        const rows=JSON.parse(localStorage.getItem(CART_STORAGE_KEY)||"[]");
+        state.cart=(Array.isArray(rows)?rows:[]).flatMap(row=>{
+          const product=selectedProduct(row.productId),plan=product?.plans.find(x=>x.name===row.planName),quantity=Math.max(1,Math.min(10,Number(row.quantity)||1));
+          return product&&plan?[{key:`${product.id}|${plan.name}`,product,plan,quantity}]:[];
+        });
+      }catch{state.cart=[]}
+    }
+    function setBusy(value){
+      state.busy=Boolean(value);
+      const sheet=$(".sheet");if(sheet)sheet.setAttribute("aria-busy",String(state.busy));
+      $$("button",$("#sheetHost")||document).forEach(el=>{if(state.busy){el.dataset.busyDisabled=String(el.disabled);el.disabled=true}else if(el.dataset.busyDisabled!==undefined){el.disabled=el.dataset.busyDisabled==="true";delete el.dataset.busyDisabled}});
+    }
+    async function guarded(task){if(state.busy)return;setBusy(true);try{return await task()}finally{setBusy(false)}}
+    function setMessage(msg="",err=""){state.message=msg;state.error=err;renderSheet()}
+    function uiIcon(name){
+      const icons={
+        menu:`<svg class="ui-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>`,
+        home:`<svg class="ui-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 10.8 12 3l9 7.8"/><path d="M5.5 9.8V21h13V9.8"/><path d="M9.5 21v-7h5v7"/></svg>`,
+        products:`<svg class="ui-icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="7" height="7" rx="1.4"/><rect x="14" y="3" width="7" height="7" rx="1.4"/><rect x="3" y="14" width="7" height="7" rx="1.4"/><rect x="14" y="14" width="7" height="7" rx="1.4"/></svg>`,
+        bank:`<svg class="ui-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 10h18M5 10v8M9 10v8M15 10v8M19 10v8M2 21h20M12 3 3 7v3h18V7z"/></svg>`,
+        cart:`<svg class="ui-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="9" cy="20" r="1.35"/><circle cx="18" cy="20" r="1.35"/><path d="M2.5 3.5h2.7l2.1 11.1a2 2 0 0 0 2 1.6h8.6a2 2 0 0 0 1.9-1.5L21.5 7H6"/></svg>`,
+        history:`<svg class="ui-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 12a9 9 0 1 0 3-6.7"/><path d="M3 4v5h5"/><path d="M12 7v5l3 2"/></svg>`,
+        orders:`<svg class="ui-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3h12v18H6z"/><path d="M9 7h6M9 11h6M9 15h4"/></svg>`
+      };
+      return icons[name]||"";
+    }
+    function mobileNavIcon(name){
+      const solid={
+        home:`<svg class="ui-icon ui-icon-solid" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" stroke="none" d="M12 2.35 2.65 10.4a1.35 1.35 0 0 0 .88 2.37h1.12v7.8c0 .6.48 1.08 1.08 1.08h4.15v-6.2h4.24v6.2h4.15c.6 0 1.08-.48 1.08-1.08v-7.8h1.12a1.35 1.35 0 0 0 .88-2.37L12 2.35Z"/></svg>`,
+        products:`<svg class="ui-icon ui-icon-solid" viewBox="0 0 24 24" aria-hidden="true"><rect x="2.5" y="2.5" width="8" height="8" rx="2" fill="currentColor" stroke="none"/><rect x="13.5" y="2.5" width="8" height="8" rx="2" fill="currentColor" stroke="none"/><rect x="2.5" y="13.5" width="8" height="8" rx="2" fill="currentColor" stroke="none"/><rect x="13.5" y="13.5" width="8" height="8" rx="2" fill="currentColor" stroke="none"/></svg>`,
+        bank:`<svg class="ui-icon ui-icon-solid" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" stroke="none" d="M12 2 2 6.85V10h20V6.85L12 2ZM4 11.5h3V18H4v-6.5Zm5 0h3V18H9v-6.5Zm5 0h3V18h-3v-6.5Zm5 0h1V18h-1v-6.5ZM2 19.3h20V22H2v-2.7Z"/></svg>`,
+        cart:`<svg class="ui-icon ui-icon-solid" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" stroke="none" d="M3.1 2.5H5c.75 0 1.4.53 1.55 1.27l.25 1.28h13.4c1.02 0 1.78.95 1.55 1.94l-1.7 7.2a2.55 2.55 0 0 1-2.48 1.96H9.42a2.55 2.55 0 0 1-2.5-2.05L5.08 4.8H3.1a1.15 1.15 0 1 1 0-2.3Zm6.1 15.2a2.15 2.15 0 1 0 0 4.3 2.15 2.15 0 0 0 0-4.3Zm8.55 0a2.15 2.15 0 1 0 0 4.3 2.15 2.15 0 0 0 0-4.3Z"/></svg>`,
+        history:`<svg class="ui-icon ui-icon-solid" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10" fill="currentColor" stroke="none"/><path d="M12 6.5v5.85l3.8 2.25" fill="none" stroke="#fff" stroke-width="2.15" stroke-linecap="round" stroke-linejoin="round"/></svg>`
+      };
+      const outline=uiIcon(name).replace('class="ui-icon"','class="ui-icon ui-icon-outline"');
+      return `<span class="nav-icon">${outline}${solid[name]||""}</span>`;
+    }
+    function storeMarkup(){return `
+      <div class="shop-strip"><div class="container"><span><strong>NovaKey</strong> · Kho dịch vụ số giao nhanh</span><div class="shop-strip-links"><a href="#products">Sản phẩm</a><a href="${esc(state.settings.zaloUrl||"https://zalo.me/")}" target="_blank" rel="noopener noreferrer">Hỗ trợ Zalo</a><span>Phục vụ mỗi ngày</span></div></div></div>
+      <header class="header">
+        <div class="container header-main storefront-head">
+          <button class="head-btn mobile-menu" data-action="mobile-menu" aria-label="Mở menu">${uiIcon("menu")}</button>
+          <a class="brand brand-compact" href="#top"><span class="brand-mark">N</span><span>NovaKey<small>Tài khoản số · giá rõ ràng</small></span></a>
+          <label class="mk-search desktop-search" aria-label="Tìm kiếm sản phẩm"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.6-3.6"/></svg><input id="desktopSearch" autocomplete="off" placeholder="Tìm game, ứng dụng, tài khoản..." /></label>
+          <div class="header-actions compact-actions">
+            <button class="head-btn mk-action" data-action="orders" aria-label="Tài khoản và đơn hàng">${uiIcon("orders")}<span class="mk-action-label"><small>Tài khoản</small><strong data-balance>Đăng nhập</strong></span></button>
+            <button class="head-btn mk-action" data-action="topup" aria-label="Nạp tiền">${uiIcon("bank")}<span class="mk-action-label"><small>Ví NovaKey</small><strong>Nạp tiền</strong></span></button>
+            <button class="head-btn mk-action" data-action="cart" aria-label="Giỏ hàng trống">${uiIcon("cart")}<span class="mk-action-label"><small>Giỏ hàng</small><strong>Xem giỏ</strong></span><b class="cart-count" data-cart-count hidden>0</b></button>
+          </div>
+        </div>
+        <div class="container mk-mobile-search"><label class="mk-search" aria-label="Tìm kiếm sản phẩm"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.6-3.6"/></svg><input id="mobileSearch" autocomplete="off" placeholder="Tìm game, app, tài khoản..." /></label></div>
+        <div class="mk-nav-wrap"><nav class="container mk-category-nav" aria-label="Danh mục chính">
+          <button class="mk-nav-item active" data-quick-category="Tất cả"><span class="mk-nav-icon">▦</span>Tất cả</button>
+          <button class="mk-nav-item" data-quick-category="Apple"><span class="mk-nav-icon">●</span>ID Apple</button>
+          <button class="mk-nav-item" data-quick-category="Giải trí"><span class="mk-nav-icon">▶</span>Giải trí</button>
+          <button class="mk-nav-item" data-quick-category="Sáng tạo"><span class="mk-nav-icon">✦</span>Sáng tạo</button>
+          <button class="mk-nav-item" data-quick-category="AI"><span class="mk-nav-icon">◇</span>AI Premium</button>
+          <button class="mk-nav-item" data-action="topup"><span class="mk-nav-icon">＋</span>Nạp số dư</button>
+        </nav></div>
+      </header>
+      <main id="top">
+        <section class="mk-hero"><div class="container mk-hero-grid">
+          <article class="mk-main-banner">
+            <div class="mk-hero-copy"><span class="mk-hero-tag">✦ Ưu đãi tại NovaKey</span><h1>Dịch vụ premium<br>giá dễ tiếp cận</h1><p>Chọn gói, kiểm tra kho và đặt mua trong vài chạm. Thông tin giá luôn hiển thị rõ ràng trước khi thanh toán.</p><div class="mk-hero-actions"><button class="mk-primary" data-scroll-products>Khám phá ngay</button><button class="mk-ghost" data-action="topup">Nạp số dư</button></div></div>
+            <div class="mk-app-stack" aria-hidden="true"><span class="mk-float-logo"><img src="${esc(BRAND_ICONS.appleWhite)}" alt=""></span><span class="mk-float-logo"><img src="${esc(BRAND_ICONS.youtube)}" alt=""></span><span class="mk-float-logo"><img src="${esc(BRAND_ICONS.netflix)}" alt=""></span></div>
+          </article>
+          <div class="mk-side-promos"><button class="mk-promo pink" data-quick-category="Giải trí"><span class="mk-promo-symbol" aria-hidden="true">▶</span><small>Đang nổi bật</small><strong>Giải trí không gián đoạn</strong><span class="mk-promo-products">YouTube · Netflix · Spotify</span></button><button class="mk-promo mint" data-quick-category="AI"><span class="mk-promo-symbol" aria-hidden="true">✦</span><small>Học tập & công việc</small><strong>AI mạnh hơn, làm nhanh hơn</strong><span class="mk-promo-products">Gemini · ChatGPT · Grok</span></button></div>
+        </div></section>
+        <section class="mk-quick"><div class="container mk-quick-grid">
+          <button class="mk-quick-item" data-quick-category="Tất cả"><span class="mk-quick-icon">▦</span>Tất cả</button>
+          <button class="mk-quick-item" data-quick-category="Apple"><span class="mk-quick-icon">●</span>ID Apple</button>
+          <button class="mk-quick-item" data-quick-category="Giải trí"><span class="mk-quick-icon">▶</span>Giải trí</button>
+          <button class="mk-quick-item" data-quick-category="Sáng tạo"><span class="mk-quick-icon">✦</span>Sáng tạo</button>
+          <button class="mk-quick-item" data-quick-category="AI"><span class="mk-quick-icon">◇</span>AI Premium</button>
+        </div></section>
+        <section class="catalog game-catalog" id="products"><div class="container">
+          <div class="section-head section-head-game"><div><span class="kicker">KHO SẢN PHẨM</span><h2>Sản phẩm nổi bật</h2><p>Chọn gói để xem giá và số lượng còn trong kho.</p></div></div>
+          <div class="product-grid" id="productGrid"></div>
+        </div></section>
+        <section class="mk-assurance"><div class="container mk-assurance-grid">
+          <div class="mk-assurance-item"><span class="mk-assurance-icon">✓</span><div><strong>Giá minh bạch</strong><p>Không phát sinh phí bất ngờ.</p></div></div>
+          <div class="mk-assurance-item"><span class="mk-assurance-icon">⚡</span><div><strong>Xử lý nhanh</strong><p>Kiểm tra và giao sản phẩm sớm.</p></div></div>
+          <div class="mk-assurance-item"><span class="mk-assurance-icon">◇</span><div><strong>Thanh toán linh hoạt</strong><p>Số dư, ngân hàng hoặc thẻ cào.</p></div></div>
+          <div class="mk-assurance-item"><span class="mk-assurance-icon">♡</span><div><strong>Luôn hỗ trợ</strong><p>Liên hệ khi cần trợ giúp.</p></div></div>
+        </div></section>
+      </main>
+      <footer class="footer"><div class="container footer-grid"><div><a class="brand" href="#top"><span class="brand-mark">N</span><span>NovaKey</span></a><p>Kho dịch vụ số premium, giá rõ ràng, đặt mua nhanh và hỗ trợ tận tâm.</p></div><div><h4>Danh mục</h4><div class="footer-links"><a href="#products">Tất cả sản phẩm</a><a href="#products">Giải trí</a><a href="#products">AI · Sáng tạo</a></div></div><div><h4>Hỗ trợ</h4><div class="footer-links"><button class="back" data-action="topup">Nạp tiền</button><button class="back" data-action="orders">Đơn đã mua</button><a href="${esc(state.settings.zaloUrl||"https://zalo.me/")}" target="_blank" rel="noopener noreferrer">Liên hệ Zalo</a></div></div></div></footer>
+      <nav class="mobile-bottom" aria-label="Điều hướng chính"><a class="active" data-mobile-tab="home" href="#top" aria-current="page">${mobileNavIcon("home")}<span>Trang chủ</span></a><a data-mobile-tab="products" href="#products">${mobileNavIcon("products")}<span>Sản phẩm</span></a><button data-mobile-tab="topup" data-action="topup">${mobileNavIcon("bank")}<span>Nạp tiền</span></button><button data-mobile-tab="cart" data-action="cart" aria-label="Giỏ hàng trống">${mobileNavIcon("cart")}<span>Giỏ hàng</span><b data-cart-count hidden>0</b></button><button data-mobile-tab="orders" data-action="orders">${mobileNavIcon("history")}<span>Đơn hàng</span></button></nav>`}
+
+    function queueProductRefresh(animate=false){
+      cancelAnimationFrame(productRefreshFrame);
+      productRefreshFrame=requestAnimationFrame(()=>refreshProducts(animate));
+    }
+    function smoothGo(selector){
+      const target=$(selector);if(!target)return;
+      target.scrollIntoView({behavior:"smooth",block:"start"});
+    }
+    function isSearchInput(el=document.activeElement){return Boolean(el?.matches?.("#desktopSearch,#mobileSearch"))}
+    function beginSearchSession(){
+      clearTimeout(searchReleaseTimer);searchSessionActive=true;
+      const grid=$("#productGrid");if(!grid)return;
+      searchLayoutHeight=Math.max(searchLayoutHeight,Math.ceil(grid.getBoundingClientRect().height));
+      if(searchLayoutHeight>0)grid.style.minHeight=`${searchLayoutHeight}px`;
+    }
+    function endSearchSession(){
+      clearTimeout(searchReleaseTimer);searchReleaseTimer=setTimeout(()=>{
+        if(isSearchInput())return;
+        searchSessionActive=false;searchLayoutHeight=0;$("#productGrid")?.style.removeProperty("min-height");
+      },220);
+    }
+    function popQuickCategory(category){
+      const item=$(`.mk-quick-item[data-quick-category="${CSS.escape(category)}"]`);if(!item)return;
+      clearTimeout(quickPopTimer);item.classList.remove("is-popping");void item.offsetWidth;item.classList.add("is-popping");
+      quickPopTimer=setTimeout(()=>item.classList.remove("is-popping"),460);
+    }
+    function renderStore(){
+      clearProductRevealEffects();
+      $("#app").innerHTML=storeMarkup();
+      $(".mobile-search-wrap")?.classList.remove("hide");
+      renderCategories();renderProducts();updateDealState();updateHeader();
+      const syncSearch=(value,other)=>{beginSearchSession();state.search=value;if(other&&other.value!==value)other.value=value;clearTimeout(searchTimer);searchTimer=setTimeout(()=>queueProductRefresh(false),70)};
+      [$("#desktopSearch"),$("#mobileSearch")].filter(Boolean).forEach(input=>{
+        input.addEventListener("focus",beginSearchSession);
+        input.addEventListener("blur",endSearchSession);
+      });
+      $("#desktopSearch")?.addEventListener("input",e=>syncSearch(e.target.value,$("#mobileSearch")));
+      $("#mobileSearch")?.addEventListener("input",e=>syncSearch(e.target.value,$("#desktopSearch")));
+      $(".mobile-menu")?.addEventListener("click",e=>{e.preventDefault();e.stopPropagation();openSheet("menu")});
+      $("#sortSelect")?.addEventListener("change",e=>{state.sort=e.target.value;queueProductRefresh(true)});
+      document.removeEventListener("click",storeClick);
+      document.addEventListener("click",storeClick);
+    }
+    function setMobileTab(name){
+      $$('[data-mobile-tab]',$("#app")).forEach(el=>{
+        const selected=el.dataset.mobileTab===name;
+        el.classList.toggle("active",selected);
+        if(selected)el.setAttribute("aria-current","page");else el.removeAttribute("aria-current");
+      });
+    }
+    function storeClick(e){
+      const mobileTab=e.target.closest("[data-mobile-tab]");
+      if(mobileTab)setMobileTab(mobileTab.dataset.mobileTab);
+      const action=e.target.closest("[data-action]")?.dataset.action;
+      if(action){e.preventDefault();handleAction(action,e.target.closest("[data-action]"));return}
+      const quick=e.target.closest("[data-quick-category]");
+      if(quick){
+        e.preventDefault();state.category=quick.dataset.quickCategory;state.deal="";
+        updateCategoryState();updateDealState();popQuickCategory(state.category);queueProductRefresh(true);smoothGo("#products");return;
+      }
+      const deal=e.target.closest("[data-deal]");
+      if(deal){
+        e.preventDefault();state.deal=deal.dataset.deal;
+        state.category=state.deal==="entertainment"?"Giải trí":state.deal==="creative"?"Sáng tạo":state.deal==="ai"?"AI":"Tất cả";
+        if(state.deal==="under100")state.sort="price-low";else if(state.sort!=="popular")state.sort="popular";
+        const sort=$("#sortSelect");if(sort)sort.value=state.sort;
+        updateCategoryState();updateDealState();queueProductRefresh(true);smoothGo("#products");return;
+      }
+      const anchor=e.target.closest('#app a[href^="#"]');
+      if(anchor){
+        const selector=anchor.getAttribute("href");
+        if(selector&&selector.length>1){e.preventDefault();smoothGo(selector)}
+        else if(selector==="#top"){e.preventDefault();smoothGo("#top")}
+        return;
+      }
+      if(e.target.closest("[data-scroll-products]"))smoothGo("#products");
+    }
+    function renderCategories(){
+      const host=$("#categoryStrip");if(!host)return;
+      if(host.dataset.ready!=="1"){
+        host.innerHTML=CATEGORIES.map(c=>`<button type="button" class="category-chip" data-category="${esc(c)}"><span>${c==="Tất cả"?"▦":c==="Giải trí"?"▶":c==="Sáng tạo"?"●":c==="AI"?"✦":"●"}</span>${esc(c)}</button>`).join("");
+        host.dataset.ready="1";
+        host.onclick=e=>{
+          const b=e.target.closest("[data-category]");if(!b||state.category===b.dataset.category)return;
+          state.category=b.dataset.category;state.deal="";updateCategoryState();updateDealState();queueProductRefresh(true);
+        };
+      }
+      updateCategoryState();
+    }
+    function updateCategoryState(){
+      const strip=$("#categoryStrip");if(strip)$$("[data-category]",strip).forEach(b=>{
+        const active=b.dataset.category===state.category;
+        b.classList.toggle("active",active);b.setAttribute("aria-pressed",String(active));
+      });
+      $$("[data-quick-category]",$("#app")).forEach(b=>b.classList.toggle("active",b.dataset.quickCategory===state.category));
+    }
+    function updateDealState(){$$("[data-deal]",$("#app")).forEach(b=>b.classList.toggle("active",b.dataset.deal===state.deal))}
+    function productCardMarkup(p){
+      const plan=selectedPlan(p),count=stockCount(p,plan),out=state.stockLoaded&&count<=0,blocked=!state.stockLoaded||out||state.stockError;
+      const stockText=state.stockError?"Không tải được kho":!state.stockLoaded?"Đang kiểm tra kho":out?"Hết hàng":`Còn ${count} tài khoản`;
+      return `<article class="product-card game-card ${out?"sold-out":""}" data-product="${p.id}">
+        <div class="product-visual" style="background:linear-gradient(135deg,${p.soft} 0%, #ffffff 48%, ${p.accent}22 100%)">
+          <span class="badge">${esc(p.badge)}</span>
+          <span class="art-glow"></span>
+          <span class="product-logo product-logo-${p.id}" style="color:${p.accent}"><img src="${esc(p.icon)}" alt="Logo ${esc(p.name)}" loading="eager" decoding="async" referrerpolicy="no-referrer" onerror="this.hidden=true;this.nextElementSibling.hidden=false"><span class="logo-fallback" hidden>${esc(p.logo)}</span></span>
+          <span class="banner-name">${esc(p.name)}</span>
+        </div>
+        <div class="product-body">
+          <span class="product-category">${esc(p.category)}</span>
+          <h3>${esc(p.name)}</h3>
+          <p class="product-description">${esc(p.description)}</p>
+          <select class="plan-select" data-plan-product="${p.id}">${p.plans.map((x,i)=>`<option value="${i}" ${i===(state.plans[p.id]||0)?"selected":""}>${esc(x.name)}</option>`).join("")}</select>
+          <div class="price-stock"><div><small>Giá gói</small><span class="price" data-card-price>${money(plan.price)}</span></div><span class="stock ${out?"out":state.stockError?"stock-error":""}" data-card-stock><i class="stock-dot"></i>${stockText}</span></div>
+          <div class="meta-line"><span>Thời hạn: <b data-card-plan>${esc(plan.name)}</b></span><span data-card-stock-meta>${out?'<b class="out-text">Hết hàng</b>':`<b>Còn ${state.stockLoaded?count:"?"}</b>`}</span></div>
+          <div class="product-actions game-actions-row"><button type="button" class="buy-now" data-buy="${p.id}" ${blocked?"disabled":""}>Mua ngay</button><button type="button" class="add-cart detail-btn" data-add="${p.id}" ${blocked?"disabled":""}>Thêm vào giỏ</button></div>
+        </div>${out?`<div class="sold-overlay"><strong>HẾT HÀNG</strong><span>Sản phẩm tạm hết hàng · Vui lòng chọn dịch vụ khác</span></div>`:""}</article>`;
+    }
+    function renderProducts(){
+      const host=$("#productGrid");if(!host)return;
+      if(host.dataset.ready!=="1"){
+        host.innerHTML=PRODUCTS.map(productCardMarkup).join("")+`<div class="empty" data-products-empty hidden style="grid-column:1/-1">Không tìm thấy sản phẩm phù hợp.</div>`;
+        host.dataset.ready="1";
+        productCards.clear();PRODUCTS.forEach(p=>{const card=host.querySelector(`[data-product="${p.id}"]`);if(card)productCards.set(p.id,card)});
+        host.onchange=e=>{
+          const select=e.target.closest("[data-plan-product]");if(!select)return;
+          const id=select.dataset.planProduct,index=Number(select.value);
+          if(state.plans[id]===index)return;
+          state.plans[id]=index;
+          updateProductCard(selectedProduct(id));
+          queueProductRefresh(false);
+        };
+        host.onclick=e=>{
+          const add=e.target.closest("[data-add]"),buy=e.target.closest("[data-buy]");
+          if(add)addCart(add.dataset.add,false);
+          if(buy)addCart(buy.dataset.buy,true);
+        };
+      }
+      refreshProducts(true);
+    }
+    function updateProductCard(p){
+      if(!p)return;
+      const card=productCards.get(p.id)||$("#productGrid")?.querySelector(`[data-product="${p.id}"]`);if(!card)return;
+      const plan=selectedPlan(p),count=stockCount(p,plan),out=state.stockLoaded&&count<=0,blocked=!state.stockLoaded||out||state.stockError;
+      const stockText=state.stockError?"Không tải được kho":!state.stockLoaded?"Đang kiểm tra kho":out?"Hết hàng":`Còn ${count} tài khoản`;
+      const select=$("[data-plan-product]",card);if(select&&select.value!==String(state.plans[p.id]||0))select.value=String(state.plans[p.id]||0);
+      const price=$("[data-card-price]",card);if(price)price.textContent=money(plan.price);
+      const stock=$("[data-card-stock]",card);if(stock){stock.classList.toggle("out",out);stock.classList.toggle("stock-error",state.stockError);const text=stock.lastChild;if(text&&text.nodeType===Node.TEXT_NODE)text.nodeValue=stockText;else stock.append(document.createTextNode(stockText))}
+      const planName=$("[data-card-plan]",card);if(planName)planName.textContent=plan.name;
+      const meta=$("[data-card-stock-meta]",card);if(meta){const label=state.stockError?"Không khả dụng":!state.stockLoaded?"Đang tải":out?"Hết hàng":`Còn ${count}`;meta.textContent="";const b=document.createElement("b");b.textContent=label;if(out||state.stockError)b.className="out-text";meta.append(b)}
+      $$('[data-buy],[data-add]',card).forEach(btn=>btn.disabled=blocked);
+      card.classList.toggle("sold-out",out);
+      const overlay=$(".sold-overlay",card);
+      if(out&&!overlay)card.insertAdjacentHTML("beforeend",`<div class="sold-overlay"><strong>HẾT HÀNG</strong><span>Sản phẩm tạm hết hàng · Vui lòng chọn dịch vụ khác</span></div>`);
+      if(!out&&overlay)overlay.remove();
+    }
+    function updateAllProductCards(){PRODUCTS.forEach(updateProductCard)}
+    function clearProductReveal(card){
+      const animation=productRevealAnimations.get(card);
+      if(animation){animation.onfinish=null;animation.oncancel=null;animation.cancel();productRevealAnimations.delete(card)}
+      card.style.removeProperty("opacity");card.style.removeProperty("transform");card.style.removeProperty("transform-origin");card.style.removeProperty("will-change");delete card.dataset.revealOrder;
+    }
+    function clearProductRevealEffects(){
+      productRevealObserver?.disconnect();productRevealObserver=null;
+      productCards.forEach(clearProductReveal);
+    }
+    function playProductReveal(card,delay){
+      clearProductReveal(card);
+      card.style.transformOrigin="50% 82%";card.style.willChange="transform, opacity";
+      const animation=card.animate([
+        {opacity:0,transform:"translate3d(0,46px,0) scale(.9)"},
+        {opacity:1,offset:.62},
+        {opacity:1,transform:"translate3d(0,0,0) scale(1)"}
+      ],{duration:760,delay,easing:"cubic-bezier(.16,1,.3,1)",fill:"both"});
+      productRevealAnimations.set(card,animation);
+      animation.onfinish=()=>{
+        if(productRevealAnimations.get(card)!==animation)return;
+        animation.onfinish=null;animation.oncancel=null;productRevealAnimations.delete(card);
+        card.style.removeProperty("opacity");card.style.removeProperty("transform");card.style.removeProperty("transform-origin");card.style.removeProperty("will-change");animation.cancel();
+      };
+    }
+    function revealProductCards(cards){
+      clearProductRevealEffects();
+      if(prefersReducedMotion.matches||!("IntersectionObserver" in window)||!("animate" in Element.prototype))return;
+      cards.forEach((card,index)=>{
+        card.dataset.revealOrder=String(index);card.style.opacity="0";card.style.transform="translate3d(0,46px,0) scale(.9)";card.style.transformOrigin="50% 82%";card.style.willChange="transform, opacity";
+      });
+      productRevealObserver=new IntersectionObserver(entries=>{
+        const entering=entries.filter(entry=>entry.isIntersecting).sort((a,b)=>Number(a.target.dataset.revealOrder)-Number(b.target.dataset.revealOrder));
+        entering.forEach((entry,index)=>{
+          productRevealObserver?.unobserve(entry.target);
+          playProductReveal(entry.target,Math.min(index,4)*65);
+        });
+      },{threshold:.08,rootMargin:"0px 0px -4% 0px"});
+      cards.forEach(card=>productRevealObserver.observe(card));
+    }
+    function refreshProducts(animate=false){
+      const host=$("#productGrid");if(!host||host.dataset.ready!=="1")return;
+      const holdLayout=searchSessionActive||isSearchInput(),scrollBefore=window.scrollY;
+      if(holdLayout){searchLayoutHeight=Math.max(searchLayoutHeight,Math.ceil(host.getBoundingClientRect().height));if(searchLayoutHeight>0)host.style.minHeight=`${searchLayoutHeight}px`}
+      const needle=normalizeText(state.search);
+      let list=PRODUCTS.filter(p=>(state.category==="Tất cả"||p.category===state.category)&&(!needle||p.searchText.includes(needle)));
+      if(state.deal==="under100")list=list.filter(p=>selectedPlan(p).price<100000);
+      if(state.sort==="price-low")list=[...list].sort((a,b)=>selectedPlan(a).price-selectedPlan(b).price);
+      if(state.sort==="price-high")list=[...list].sort((a,b)=>selectedPlan(b).price-selectedPlan(a).price);
+      const visible=new Set(list.map(p=>p.id)),fragment=document.createDocumentFragment();
+      list.forEach((p,index)=>{
+        const card=productCards.get(p.id);if(!card)return;
+        card.hidden=false;fragment.appendChild(card);
+      });
+      PRODUCTS.forEach(p=>{if(!visible.has(p.id)){const card=productCards.get(p.id);if(card){card.hidden=true;fragment.appendChild(card)}}});
+      const empty=host.querySelector("[data-products-empty]");if(empty){empty.hidden=list.length>0;fragment.appendChild(empty)}
+      host.appendChild(fragment);
+      if(holdLayout)requestAnimationFrame(()=>{if(searchSessionActive||isSearchInput())window.scrollTo({top:scrollBefore,left:window.scrollX,behavior:"auto"})});
+      if(animate)revealProductCards(list.map(p=>productCards.get(p.id)).filter(Boolean));
+    }
+    function updateHeader(){
+      $$('[data-balance]').forEach(el=>el.textContent=state.user?money(state.balance):"Đăng nhập");
+      const count=cartCount();
+      $$('[data-cart-count]').forEach(el=>{
+        el.textContent=count;el.hidden=count===0;
+        const button=el.closest('[data-action="cart"]');
+        if(button)button.setAttribute("aria-label",count?`Giỏ hàng, ${count} sản phẩm`:"Giỏ hàng trống");
+      });
+    }
+    function addCart(id,buy){
+      const p=selectedProduct(id),plan=selectedPlan(p),count=stockCount(p,plan);
+      if(state.stockError||!state.stockLoaded||count<=0)return;
+      const key=`${p.id}|${plan.name}`,existing=state.cart.find(i=>i.key===key);
+      if(existing)existing.quantity=Math.min(count||10,existing.quantity+1);else state.cart.push({key,product:p,plan,quantity:1});
+      saveCart();updateHeader();if(buy)openSheet("cart");
+    }
+    function handleAction(action,el){
+      if(action==="cart")openSheet("cart");
+      if(action==="topup")state.user?openSheet("topup"):openSheet("auth",{after:"topup"});
+      if(action==="orders")state.user?openSheet("orders"):openSheet("auth",{after:"orders"});
+      if(action==="mobile-menu")openSheet("menu");
+    }
+
+    let renderedSheetView=null,renderedSheetSide=null,sheetMotionToken=0;
+    function sheetSide(view){return view==="menu"?"left":"bottom"}
+    function sheetSubtitle(){return state.user?.email||"Mua hàng nhanh và an toàn"}
+    function clearSheetMotionStyles(){
+      clearTimeout(sheetCloseTimer);
+      const host=$("#sheetHost"),layer=$(".sheet-layer",host),sheet=$(".sheet",host);
+      if(sheet){sheet.style.removeProperty("transition");sheet.style.removeProperty("transform");sheet.style.removeProperty("pointer-events");sheet.style.removeProperty("animation")}
+      if(layer){layer.style.removeProperty("transition");layer.style.removeProperty("opacity");layer.style.removeProperty("animation");layer.classList.remove("is-dragging")}
+      sheet?.classList.remove("is-dragging");
+    }
+    function finalizeSheetClose(token){
+      if(token!==sheetMotionToken||state.sheet)return;
+      clearTimeout(sheetCloseTimer);
+      const host=$("#sheetHost"),app=$("#app");
+      host.innerHTML="";host.classList.remove("sheet-host-active");
+      renderedSheetView=renderedSheetSide=null;
+      document.body.style.overflow="";app?.removeAttribute("inert");
+      previousFocus?.focus?.({preventScroll:true});previousFocus=null;
+    }
+    function openSheet(view,payload=null){
+      const host=$("#sheetHost"),hadLayer=Boolean($(".sheet-layer",host));
+      const previousView=state.sheet;
+      if(!previousView)previousFocus=document.activeElement;
+      sheetMotionToken++;clearTimeout(sheetCloseTimer);clearSheetMotionStyles();
+      state.sheet=view;state.payload=payload;state.message="";state.error="";
+      renderSheet({preserve:previousView===view,animateContent:false,animateOpen:!hadLayer});
+    }
+    function closeSheet(animated=true){
+      const host=$("#sheetHost"),layer=$(".sheet-layer",host);
+      if(!layer){state.sheet=null;renderedSheetView=renderedSheetSide=null;host.classList.remove("sheet-host-active");return}
+      const token=++sheetMotionToken;
+      clearTimeout(sheetCloseTimer);clearSheetMotionStyles();
+      state.sheet=null;
+      layer.classList.remove("sheet-visible");layer.classList.add("sheet-closing");
+      if(!animated||prefersReducedMotion.matches){finalizeSheetClose(token);return}
+      sheetCloseTimer=setTimeout(()=>finalizeSheetClose(token),340);
+    }
+    function sheetTitle(){return({cart:"Thông tin mua hàng",auth:"Tài khoản NovaKey",topup:"Nạp số dư",bankTopup:"Nạp bằng ngân hàng",cardTopup:"Nạp bằng thẻ cào",orders:"Đơn hàng của tôi",orderDetail:"Chi tiết đơn hàng",payment:"Phương thức thanh toán",orderBank:"Thanh toán ngân hàng",orderCard:"Thanh toán bằng thẻ cào",menu:"Điều hướng"})[state.sheet]||"NovaKey"}
+    function sheetControlKey(el,index){
+      if(el.id)return `id:${el.id}`;
+      if(el.name)return `name:${el.name}`;
+      return `index:${index}`;
+    }
+    function captureSheetBodyState(body){
+      const controls=[...body.querySelectorAll("input,select,textarea")];
+      const values=controls.map((el,index)=>({
+        key:sheetControlKey(el,index),tag:el.tagName,type:el.type,value:el.value,checked:el.checked,
+        selectionStart:typeof el.selectionStart==="number"?el.selectionStart:null,
+        selectionEnd:typeof el.selectionEnd==="number"?el.selectionEnd:null
+      }));
+      const active=document.activeElement;
+      const activeIndex=controls.indexOf(active);
+      return {scrollTop:body.scrollTop,values,activeKey:activeIndex>=0?sheetControlKey(active,activeIndex):null};
+    }
+    function restoreSheetBodyState(body,snapshot){
+      if(!snapshot)return;
+      const controls=[...body.querySelectorAll("input,select,textarea")];
+      const byKey=new Map(controls.map((el,index)=>[sheetControlKey(el,index),el]));
+      for(const saved of snapshot.values){
+        const el=byKey.get(saved.key);if(!el)continue;
+        if((el.type==="checkbox"||el.type==="radio")){el.checked=saved.checked;continue}
+        if(el.tagName==="SELECT"&&![...el.options].some(option=>option.value===saved.value))continue;
+        el.value=saved.value;
+      }
+      body.scrollTop=snapshot.scrollTop;
+      const active=snapshot.activeKey?byKey.get(snapshot.activeKey):null;
+      if(active){
+        active.focus({preventScroll:true});
+        if(snapshot.values){
+          const saved=snapshot.values.find(item=>item.key===snapshot.activeKey);
+          if(saved&&saved.selectionStart!==null&&typeof active.setSelectionRange==="function"){
+            try{active.setSelectionRange(saved.selectionStart,saved.selectionEnd)}catch{}
+          }
+        }
+      }
+    }
+    function updateSheetBody({preserve=true,animate=false}={}){
+      const body=$(".sheet-body",$("#sheetHost"));if(!body)return;
+      const snapshot=preserve?captureSheetBodyState(body):null;
+      body.innerHTML=sheetBody();
+      restoreSheetBodyState(body,snapshot);
+      if(!preserve)body.scrollTop=0;
+      body.classList.remove("sheet-content-enter");
+    }
+    function mountSheet(host,menuMode){
+      const titleId="sheetTitle";
+      host.innerHTML=`<div class="sheet-layer ${menuMode?"menu-layer":""}"><aside class="sheet ${menuMode?"menu-sheet":""}" data-view="${esc(state.sheet)}" role="dialog" aria-modal="true" aria-labelledby="${titleId}" aria-busy="${state.busy}"><div class="sheet-head"><div><h2 id="${titleId}">${sheetTitle()}</h2><small>${esc(sheetSubtitle())}</small></div><button type="button" class="icon-btn" data-sheet-action="close" aria-label="Đóng">×</button></div><div class="sheet-body">${sheetBody()}</div></aside></div>`;
+      host.onclick=sheetClick;host.onsubmit=sheetSubmit;host.onchange=sheetChange;
+      const layer=$(".sheet-layer",host),sheet=$(".sheet",host);
+      layer.addEventListener("click",e=>{if(e.target===layer)closeSheet()});
+      enableSwipe(sheet,layer,menuMode?"left":"bottom");
+      return {layer,sheet};
+    }
+    function renderSheet(options={}){
+      const host=$("#sheetHost");
+      if(!state.sheet)return;
+      document.body.style.overflow="hidden";$("#app")?.setAttribute("inert","");host.classList.add("sheet-host-active");
+      const nextSide=sheetSide(state.sheet),menuMode=nextSide==="left";
+      let layer=$(".sheet-layer",host),sideChanged=Boolean(layer&&renderedSheetSide&&renderedSheetSide!==nextSide),mounted=false;
+      if(!layer||sideChanged){
+        ({layer}=mountSheet(host,menuMode));mounted=true;
+      }else{
+        clearSheetMotionStyles();
+        layer.classList.remove("sheet-closing");
+        const sheet=$(".sheet",host),viewChanged=renderedSheetView!==state.sheet;
+        sheet.setAttribute("aria-busy",String(state.busy));
+        sheet.dataset.view=state.sheet;
+        $("#sheetTitle",sheet).textContent=sheetTitle();
+        $(".sheet-head small",sheet).textContent=sheetSubtitle();
+        updateSheetBody({preserve:options.preserve??!viewChanged,animate:false});
+      }
+      renderedSheetView=state.sheet;renderedSheetSide=nextSide;
+      const token=sheetMotionToken;
+      const reveal=()=>{
+        if(token!==sheetMotionToken||!state.sheet||!layer.isConnected)return;
+        layer.classList.remove("sheet-closing");layer.classList.add("sheet-visible");
+        if(mounted)requestAnimationFrame(()=>$('[autofocus]',layer)?.focus()||$('[data-sheet-action="close"]',layer)?.focus({preventScroll:true}));
+      };
+      if(mounted&&!sideChanged&&!prefersReducedMotion.matches){layer.getBoundingClientRect();requestAnimationFrame(reveal)}else reveal();
+    }
+    function feedback(){return `${state.error?`<p class="error">${esc(state.error)}</p>`:""}${state.message?`<p class="success">${esc(state.message)}</p>`:""}`}
+    document.addEventListener("keydown",e=>{
+      if(!state.sheet)return;
+      if(e.key==="Escape"){e.preventDefault();closeSheet();return}
+      if(e.key!=="Tab")return;
+      const sheet=$(".sheet");if(!sheet)return;
+      const focusable=$$("button:not([disabled]),a[href],input:not([disabled]),select:not([disabled]),textarea:not([disabled]),[tabindex]:not([tabindex='-1'])",sheet).filter(el=>!el.hidden&&el.offsetParent!==null);
+      if(!focusable.length)return;
+      const first=focusable[0],last=focusable.at(-1);
+      if(e.shiftKey&&document.activeElement===first){e.preventDefault();last.focus()}else if(!e.shiftKey&&document.activeElement===last){e.preventDefault();first.focus()}
+    });
+    function sheetBody(){
+      if(state.sheet==="menu")return `<nav class="drawer-nav">
+        <button class="drawer-item active" data-sheet-action="go-home"><span class="drawer-icon"><svg viewBox="0 0 24 24"><path d="M3 10.8 12 3l9 7.8"/><path d="M5.5 9.8V21h13V9.8"/><path d="M9.5 21v-7h5v7"/></svg></span><span><strong>Trang chủ</strong><small>Quay lại đầu trang</small></span><span class="drawer-arrow">›</span></button>
+        <button class="drawer-item" data-sheet-action="go-products"><span class="drawer-icon"><svg viewBox="0 0 24 24"><circle cx="9" cy="20" r="1.4"/><circle cx="18" cy="20" r="1.4"/><path d="M2.5 3.5h2.7l2.1 11.1a2 2 0 0 0 2 1.6h8.6a2 2 0 0 0 1.9-1.5L21.5 7H6"/></svg></span><span><strong>Sản phẩm</strong><small>Xem toàn bộ dịch vụ</small></span><span class="drawer-arrow">›</span></button>
+        <div class="drawer-divider"></div>
+        <button class="drawer-item" data-sheet-action="topup"><span class="drawer-icon"><svg viewBox="0 0 24 24"><path d="M3 10h18"/><path d="M5 10v8M9 10v8M15 10v8M19 10v8"/><path d="M2 21h20M12 3 3 7v3h18V7z"/></svg></span><span><strong>Nạp tiền</strong><small>Ngân hàng hoặc thẻ cào</small></span><span class="drawer-arrow">›</span></button>
+        <button class="drawer-item" data-sheet-action="orders"><span class="drawer-icon"><svg viewBox="0 0 24 24"><path d="M3 12a9 9 0 1 0 3-6.7"/><path d="M3 4v5h5"/><path d="M12 7v5l3 2"/></svg></span><span><strong>Lịch sử mua</strong><small>Đơn hàng và thông tin bàn giao</small></span><span class="drawer-arrow">›</span></button>
+        ${state.settings.zaloUrl?`<div class="drawer-help"><strong>Cần hỗ trợ?</strong><p>Liên hệ NovaKey khi bạn gặp vấn đề với đơn hàng.</p><a href="${esc(state.settings.zaloUrl)}" target="_blank" rel="noopener">Liên hệ Zalo</a></div>`:""}
+      </nav>`;
+      if(state.sheet==="auth")return authMarkup();
+      if(state.sheet==="cart")return cartMarkup();
+      if(state.sheet==="payment")return paymentMarkup();
+      if(state.sheet==="topup")return topupMarkup();
+      if(state.sheet==="bankTopup")return bankTopupMarkup();
+      if(state.sheet==="cardTopup")return cardTopupMarkup();
+      if(state.sheet==="orders")return ordersMarkup();
+      if(state.sheet==="orderDetail")return orderDetailMarkup(state.payload);
+      if(state.sheet==="orderBank")return orderBankMarkup(state.payload);
+      if(state.sheet==="orderCard")return orderCardMarkup();
+      return "";
+    }
+    function authMarkup(){return `<form class="form" data-form="auth"><div class="panel-card"><strong id="authTitle">Đăng nhập để tiếp tục</strong><p style="font-size:10px;color:var(--muted);line-height:1.5">Đơn hàng, số dư và thông tin bàn giao được bảo vệ theo tài khoản.</p></div><label>Email<input name="email" type="email" autocomplete="email" required placeholder="email@example.com"></label><label>Mật khẩu<input name="password" type="password" minlength="6" required placeholder="Tối thiểu 6 ký tự"></label>${feedback()}<button class="full-btn" type="submit" data-mode="login">Đăng nhập</button><button class="outline-btn" type="button" data-sheet-action="toggle-auth">Chưa có tài khoản? Đăng ký</button></form>`}
+    function cartMarkup(){
+      if(!state.cart.length)return `<div class="empty">🛒<h3>Giỏ hàng đang trống</h3><p>Chọn sản phẩm phù hợp để bắt đầu đặt hàng.</p><button class="full-btn" data-sheet-action="close">Xem sản phẩm</button></div>`;
+      return `<div class="checkout-info-title">Thông tin mua hàng</div><div>${state.cart.map(i=>`<article class="cart-item"><span class="mini-logo mini-logo-${i.product.id}" style="background:${i.product.soft};color:${i.product.accent}"><img src="${esc(i.product.icon)}" alt="" loading="eager" decoding="async" referrerpolicy="no-referrer" onerror="this.hidden=true;this.nextElementSibling.hidden=false"><span class="logo-fallback" hidden>${esc(i.product.logo)}</span></span><div><strong>${esc(i.product.name)}</strong><small>${esc(i.plan.name)}</small><b>${money(i.plan.price)}</b><div class="qty"><button type="button" data-qty="-1" data-key="${esc(i.key)}" aria-label="Giảm số lượng">−</button><span>${i.quantity}</span><button type="button" data-qty="1" data-key="${esc(i.key)}" aria-label="Tăng số lượng">＋</button></div></div><button type="button" class="remove" data-remove="${esc(i.key)}">Xóa</button></article>`).join("")}</div><div class="summary"><div class="checkout-total-card"><div class="summary-row"><span>Tạm tính</span><b>${money(cartTotal())}</b></div><div class="summary-row"><span>Phí xử lý</span><b>0đ</b></div><div class="summary-row total"><span>Tổng tiền thanh toán</span><b>${money(cartTotal())}</b></div></div>${feedback()}<button class="full-btn" data-sheet-action="checkout">Thanh toán</button></div>`
+    }
+    function paymentMarkup(){return `<button class="back" data-sheet-action="back-cart">← Quay lại giỏ hàng</button><div class="panel-card balance-card"><span>Cần thanh toán</span><strong>${money(cartTotal())}</strong><small>${cartCount()} sản phẩm</small></div><p class="choice-label">Thanh toán bằng số dư</p><button class="method" data-sheet-action="pay-balance"><span class="method-icon">▤</span><span><strong>Số dư NovaKey</strong><small>Hiện có ${money(state.balance)}</small></span><span class="arrow">›</span></button><p class="choice-label">Hoặc thanh toán trực tiếp</p><div class="method-list"><button class="method" data-sheet-action="pay-bank"><span class="method-icon">🏦</span><span><strong>Chuyển khoản ngân hàng</strong><small>Quét VietQR, đúng số tiền và nội dung</small></span><span class="arrow">›</span></button><button class="method" data-sheet-action="pay-card"><span class="method-icon">▰</span><span><strong>Thanh toán bằng thẻ cào</strong><small>Viettel, Mobifone, Vinaphone</small></span><span class="arrow">›</span></button></div>${feedback()}`}
+    function topupMarkup(){return `<button class="back" data-sheet-action="close">← Quay lại</button><div class="panel-card balance-card"><span>Số dư hiện tại</span><strong>${money(state.balance)}</strong><small>${esc(state.user?.email)}</small></div>${feedback()}<p class="choice-label">Chọn phương thức nạp</p><div class="method-list"><button class="method" data-sheet-action="open-bank-topup"><span class="method-icon">🏦</span><span><strong>Chuyển khoản ngân hàng</strong><small>QR và nội dung riêng cho tài khoản</small></span><span class="arrow">›</span></button><button class="method" data-sheet-action="open-card-topup"><span class="method-icon">▰</span><span><strong>Nạp bằng thẻ cào</strong><small>Hiển thị rõ số tiền thực nhận</small></span><span class="arrow">›</span></button></div><p class="choice-label">Lịch sử nạp gần đây</p>${state.topups.length?state.topups.slice(0,5).map(t=>`<div class="order-card"><div class="order-top"><strong>${esc(t.reference)}</strong><span class="status ${t.status}">${STATUS[t.status]||esc(t.status)}</span></div><p>${t.method==="bank"?"Ngân hàng":"Thẻ cào"} · ${t.approvedAmount?money(t.approvedAmount):t.expectedCredit?`Dự kiến ${money(t.expectedCredit)}`:"Chờ đối soát"}</p></div>`).join(""):`<div class="empty">Chưa có giao dịch nạp tiền.</div>`}`}
+    function userBankContent(){return `NVK${(state.user?.uid||"USER").slice(0,10).toUpperCase()}`}
+    function bankQr({amount=0,content}){
+      const s=state.settings;if(!s.bankId||!s.accountNumber)return "";
+      const q=new URLSearchParams();if(amount>0)q.set("amount",String(amount));q.set("addInfo",content);q.set("accountName",s.accountName||"");
+      return `https://img.vietqr.io/image/${encodeURIComponent(s.bankId)}-${encodeURIComponent(s.accountNumber)}-compact2.png?${q}`
+    }
+    function bankTopupMarkup(){
+      const content=userBankContent(),qr=bankQr({content});
+      return `<button class="back" data-sheet-action="back-topup">← Chọn cách nạp khác</button><div class="min-topup">⚠ Nạp tối thiểu 2.000đ để hệ thống có thể đối soát tự động.</div><div class="notice">Mỗi tài khoản có một nội dung chuyển tiền riêng. Vui lòng giữ nguyên nội dung bên dưới.</div>${qr?`<div class="qr-wrap"><div class="qr-card"><img src="${qr}" alt="VietQR nạp số dư" decoding="async"></div></div>`:`<div class="error">Admin chưa cấu hình tài khoản ngân hàng.</div>`}<div class="transfer-info"><div class="transfer-row"><span>Ngân hàng</span><b>${esc(state.settings.bankName||"Chưa cấu hình")}</b></div><div class="transfer-row"><span>Số tài khoản</span><b>${esc(state.settings.accountNumber||"-")}</b></div><div class="transfer-row"><span>Chủ tài khoản</span><b>${esc(state.settings.accountName||"-")}</b></div><div class="transfer-row"><span>Số tiền</span><b>Từ 2.000đ</b></div><div class="transfer-row"><span>Nội dung bắt buộc</span><b style="color:var(--blue)">${content}</b></div></div>${feedback()}<button class="full-btn" style="margin-top:15px" data-sheet-action="confirm-bank-topup" ${qr?"":"disabled"}>Tôi đã chuyển khoản</button><p style="font-size:9px;color:var(--muted);text-align:center;line-height:1.5">Hệ thống ghi nhận yêu cầu theo nội dung riêng của tài khoản.</p>`
+    }
+    function cardTopupMarkup(){
+      const selected=Number(state.payload?.face||100000),rate=CARD_RATES.find(x=>x.face===selected)||CARD_RATES[4];
+      return `<button class="back" data-sheet-action="back-topup">← Chọn cách nạp khác</button><div class="notice-important"><div class="notice-title">⚠ LƯU Ý QUAN TRỌNG</div><div class="notice-content"><b>Vui lòng nhập đúng số seri thẻ, mã thẻ và chọn đúng mệnh giá thẻ.</b><div class="divider"></div><strong>Xử lý trường hợp nhập sai mệnh giá:</strong> Nếu khai báo sai mệnh giá thẻ, giao dịch sẽ được tính trên <b>50%</b> giá trị của mệnh giá thấp hơn.</div></div><form class="form" data-form="card-topup"><label>Loại thẻ<select name="provider"><option>Viettel</option><option>Mobifone</option><option>Vinaphone</option></select></label><label>Mệnh giá<select name="face" id="cardFace">${CARD_RATES.map(x=>`<option value="${x.face}" ${x.face===rate.face?"selected":""}>${money(x.face)} - Nhận ${money(x.receive)}</option>`).join("")}</select></label><label>Serial thẻ<input name="serial" inputmode="numeric" required minlength="6" placeholder="Nhập số seri thẻ"></label><label>Mã thẻ (PIN)<input name="pin" inputmode="numeric" required minlength="6" placeholder="Nhập mã thẻ"></label><div class="receive-box"><span>Số tiền thực nhận</span><strong>${money(rate.receive)}</strong></div>${feedback()}<button class="full-btn" type="submit">NẠP THẺ NGAY</button></form>`
+    }
+    function ordersMarkup(){return `<div class="panel-card" style="margin-bottom:14px"><span style="font-size:10px;color:var(--muted)">Tài khoản đang dùng</span><strong style="display:block;font-size:12px;margin-top:4px">${esc(state.user?.email)}</strong><button class="back" style="margin:10px 0 0" data-sheet-action="logout">Đăng xuất</button></div>${state.orders.length?state.orders.map(o=>`<button class="order-card" data-order="${o.id}"><div class="order-top"><div><strong>${esc(o.orderCode)}</strong><small style="display:block;margin-top:4px;color:var(--muted)">${time(o.createdAt)}</small></div><span class="status ${o.status}">${STATUS[o.status]||esc(o.status)}</span></div><p>${o.items?.slice(0,2).map(i=>`${esc(i.productName)} × ${i.quantity}`).join(" · ")}</p><b style="color:var(--blue)">${money(o.total)}</b></button>`).join(""):`<div class="empty">Chưa có đơn hàng.</div>`}`}
+    function orderDetailMarkup(o){if(!o)return `<div class="empty">Không tìm thấy đơn hàng.</div>`;return `<button class="back" data-sheet-action="back-orders">← Danh sách đơn hàng</button><div class="panel-card"><span class="status ${o.status}">${STATUS[o.status]||esc(o.status)}</span><h3>${esc(o.orderCode)}</h3><p style="font-size:10px;color:var(--muted)">${time(o.createdAt)}</p><div class="divider"></div>${o.items?.map(i=>`<div class="summary-row"><span>${esc(i.productName)} · ${esc(i.planName)} × ${i.quantity}</span><b>${money(i.lineTotal)}</b></div>`).join("")}<div class="summary-row total"><span>Tổng cộng</span><b>${money(o.total)}</b></div></div>${o.status==="awaiting_payment"&&o.paymentMethod==="bank"?`<button class="full-btn" style="margin-top:14px" data-resume-bank="${o.id}">Mở lại mã QR</button>`:""}${o.status==="fulfilled"?`<p class="choice-label">Thông tin bàn giao</p>${(o.delivery||[]).map(d=>`<div class="delivery"><strong>${esc(d.productName)} · ${esc(d.planName)}</strong>${d.type==="credential"?`<code>Tài khoản: ${esc(d.account)}</code><code>Mật khẩu: ${esc(d.password)}</code>`:`<p>${esc(d.note)}</p>`}</div>`).join("")}`:`<div class="notice" style="margin-top:14px">${o.status==="rejected"?esc(o.rejectionReason||"Không xác minh được giao dịch."):"Đơn đang chờ xử lý. Thông tin bàn giao sẽ tự xuất hiện sau khi được duyệt."}</div>`}`}
+    function orderBankMarkup(o){
+      const qr=bankQr({amount:o.total,content:o.orderCode});
+      return `<button class="back" data-sheet-action="back-payment">← Chọn cách khác</button>${qr?`<div class="qr-wrap"><div class="qr-card"><img src="${qr}" alt="VietQR thanh toán đơn hàng" decoding="async"></div></div>`:`<div class="error">Admin chưa cấu hình tài khoản ngân hàng.</div>`}<div class="transfer-info"><div class="transfer-row"><span>Ngân hàng</span><b>${esc(state.settings.bankName||"-")}</b></div><div class="transfer-row"><span>Số tài khoản</span><b>${esc(state.settings.accountNumber||"-")}</b></div><div class="transfer-row"><span>Số tiền</span><b style="color:var(--blue)">${money(o.total)}</b></div><div class="transfer-row"><span>Nội dung</span><b style="color:var(--blue)">${esc(o.orderCode)}</b></div></div>${feedback()}<button class="full-btn" style="margin-top:15px" data-sheet-action="confirm-order-bank" data-order-id="${o.id}">Tôi đã chuyển khoản</button>`
+    }
+    function orderCardMarkup(){
+      const face=Number(state.payload?.face||100000),rate=CARD_RATES.find(x=>x.face===face)||CARD_RATES[4];
+      return `<button class="back" data-sheet-action="back-payment">← Chọn cách khác</button><div class="notice-important"><div class="notice-title">⚠ LƯU Ý QUAN TRỌNG</div><div class="notice-content"><b>Vui lòng nhập đúng số seri thẻ, mã thẻ và chọn đúng mệnh giá thẻ.</b><div class="divider"></div><strong>Nếu khai báo sai mệnh giá:</strong> giao dịch được tính trên <b>50%</b> giá trị của mệnh giá thấp hơn.</div></div><div class="notice" style="margin-bottom:14px">Tổng đơn: <b>${money(cartTotal())}</b>. Có thể cần nhiều thẻ nếu số tiền thực nhận chưa đủ.</div><form class="form" data-form="order-card"><label>Loại thẻ<select name="provider"><option>Viettel</option><option>Mobifone</option><option>Vinaphone</option></select></label><label>Mệnh giá<select name="face" id="orderCardFace">${CARD_RATES.map(x=>`<option value="${x.face}" ${x.face===rate.face?"selected":""}>${money(x.face)} - Nhận ${money(x.receive)}</option>`).join("")}</select></label><label>Serial thẻ<input name="serial" required minlength="6" inputmode="numeric"></label><label>Mã thẻ (PIN)<input name="pin" required minlength="6" inputmode="numeric"></label><div class="receive-box"><span>Số tiền thực nhận</span><strong>${money(rate.receive)}</strong></div>${feedback()}<button class="full-btn" type="submit">Gửi thẻ thanh toán</button></form>`
+    }
+
+    async function sheetClick(e){
+      const a=e.target.closest("[data-sheet-action]")?.dataset.sheetAction;
+      if(a){e.preventDefault();await sheetAction(a,e.target.closest("[data-sheet-action]"));return}
+      const qty=e.target.closest("[data-qty]");if(qty){
+        const item=state.cart.find(i=>i.key===qty.dataset.key);
+        if(item){
+          const delta=Number(qty.dataset.qty)||0,max=state.stockLoaded&&!state.stockError?Math.max(0,stockCount(item.product,item.plan)):10;
+          if(delta>0){if(max>item.quantity)item.quantity=Math.min(max,item.quantity+delta)}else item.quantity=Math.max(0,item.quantity+delta);
+          if(item.quantity<=0)state.cart=state.cart.filter(i=>i!==item);
+          saveCart();renderSheet({preserve:true});updateHeader();
+        }
+        return
+      }
+      const rem=e.target.closest("[data-remove]");if(rem){state.cart=state.cart.filter(i=>i.key!==rem.dataset.remove);saveCart();renderSheet({preserve:true});updateHeader();return}
+      const order=e.target.closest("[data-order]");if(order){const o=state.orders.find(x=>x.id===order.dataset.order);openSheet("orderDetail",o);return}
+      const resume=e.target.closest("[data-resume-bank]");if(resume){const o=state.orders.find(x=>x.id===resume.dataset.resumeBank);openSheet("orderBank",o)}
+    }
+    async function sheetAction(a,el){
+      if(a==="close")return closeSheet();
+      if(a==="go-home"){closeSheet();setTimeout(()=>$("#top")?.scrollIntoView({behavior:"smooth"}),300);return}
+      if(a==="go-products"){closeSheet();setTimeout(()=>$("#products")?.scrollIntoView({behavior:"smooth"}),300);return}
+      if(a==="topup")return state.user?openSheet("topup"):openSheet("auth",{after:"topup"});
+      if(a==="orders")return state.user?openSheet("orders"):openSheet("auth",{after:"orders"});
+      if(a==="toggle-auth"){const form=$("[data-form=auth]");const btn=$("[data-mode]",form);const login=btn.dataset.mode==="login";btn.dataset.mode=login?"register":"login";btn.textContent=login?"Đăng ký":"Đăng nhập";el.textContent=login?"Đã có tài khoản? Đăng nhập":"Chưa có tài khoản? Đăng ký";$("#authTitle").textContent=login?"Tạo tài khoản NovaKey":"Đăng nhập để tiếp tục";return}
+      if(a==="checkout"){if(!state.user)return openSheet("auth",{after:"payment"});return openSheet("payment")}
+      if(a==="back-cart")return openSheet("cart");
+      if(a==="back-payment")return openSheet("payment");
+      if(a==="back-topup")return openSheet("topup");
+      if(a==="back-orders")return openSheet("orders");
+      if(a==="open-bank-topup")return openSheet("bankTopup");
+      if(a==="open-card-topup")return openSheet("cardTopup",{face:100000});
+      if(a==="pay-bank")return guarded(()=>createOrder("bank"));
+      if(a==="pay-card")return openSheet("orderCard",{face:100000});
+      if(a==="pay-balance")return guarded(()=>createOrder("balance"));
+      if(a==="confirm-bank-topup")return guarded(()=>confirmBankTopup(el));
+      if(a==="confirm-order-bank")return guarded(()=>confirmOrderBank(el.dataset.orderId));
+      if(a==="logout"){await signOut(auth);closeSheet();return}
+    }
+    function sheetChange(e){
+      if(e.target.id!=="cardFace"&&e.target.id!=="orderCardFace")return;
+      const face=Number(e.target.value),rate=CARD_RATES.find(x=>x.face===face);
+      state.payload={...(state.payload||{}),face};
+      const preview=e.target.closest("form")?.querySelector(".receive-box strong");
+      if(preview&&rate)preview.textContent=money(rate.receive);
+    }
+    async function sheetSubmit(e){
+      e.preventDefault();if(state.busy)return;const form=e.target,kind=form.dataset.form;state.error="";state.message="";
+      await guarded(async()=>{
+        try{
+          if(kind==="auth"){
+            const data=new FormData(form),mode=$("[data-mode]",form).dataset.mode,email=String(data.get("email")||"").trim(),password=String(data.get("password")||"");
+            if(mode==="register")await createUserWithEmailAndPassword(auth,email,password);else await signInWithEmailAndPassword(auth,email,password);
+            const after=state.payload?.after||"cart";openSheet(after);return;
+          }
+          if(kind==="card-topup")return submitCardTopup(form);
+          if(kind==="order-card")return submitOrderCard(form);
+        }catch(err){console.error(err);state.error=friendlyError(err);renderSheet()}
+      });
+    }
+    function friendlyError(err){const c=err?.code||"";if(c.includes("invalid-credential"))return"Email hoặc mật khẩu không đúng.";if(c.includes("email-already"))return"Email này đã được sử dụng.";if(c.includes("permission-denied"))return"Firebase Rules chưa cho phép thao tác này.";if(c.includes("network")||c.includes("unavailable"))return"Kết nối mạng không ổn định, vui lòng thử lại.";return err?.message||"Không thể hoàn tất thao tác, vui lòng thử lại."}
+
+    function orderPayload(method,card=null){
+      const items=state.cart.map(i=>({productId:i.product.id,productName:i.product.name,planName:i.plan.name,unitPrice:i.plan.price,quantity:i.quantity,lineTotal:i.plan.price*i.quantity}));
+      return {userId:state.user.uid,customerEmail:state.user.email||"",paymentMethod:method,items,itemCount:cartCount(),total:cartTotal(),status:method==="bank"?"awaiting_payment":"payment_review",card,delivery:[],rejectionReason:"",createdAt:serverTimestamp(),updatedAt:serverTimestamp()}
+    }
+    function validateCart(){
+      if(!state.cart.length)throw Error("Giỏ hàng đang trống.");
+      if(state.stockError)throw Error("Không thể kiểm tra kho lúc này, vui lòng thử lại sau.");
+      if(!state.stockLoaded)throw Error("Kho hàng vẫn đang tải, vui lòng đợi vài giây.");
+      for(const i of state.cart){const count=stockCount(i.product,i.plan);if(state.stockLoaded&&count<i.quantity)throw Error(`${i.product.name} - ${i.plan.name} chỉ còn ${count} tài khoản.`)}
+    }
+    async function createOrder(method,card=null){
+      try{
+        if(!state.user)return openSheet("auth",{after:"payment"});validateCart();
+        if(method==="balance"&&state.balance<cartTotal())throw Error(`Số dư còn thiếu ${money(cartTotal()-state.balance)}.`);
+        const ref=doc(collection(db,"orders")),code=`NVK-${ref.id.slice(0,8).toUpperCase()}`;
+        const data={...orderPayload(method,card),orderCode:code};await setDoc(ref,data);
+        const o={id:ref.id,...data,createdAt:null};
+        if(method==="bank")openSheet("orderBank",o);else{state.cart=[];saveCart();updateHeader();openSheet("orderDetail",{...o,status:"payment_review"});state.message="Đơn đã được gửi và đang chờ duyệt."}
+      }catch(err){state.error=friendlyError(err);renderSheet()}
+    }
+    async function confirmOrderBank(id){
+      try{await updateDoc(doc(db,"orders",id),{status:"payment_review",updatedAt:serverTimestamp()});state.cart=[];saveCart();updateHeader();const o=state.orders.find(x=>x.id===id)||state.payload;openSheet("orderDetail",{...o,status:"payment_review"});state.message="Đã ghi nhận, đơn đang chờ đối soát.";renderSheet()}catch(err){state.error=friendlyError(err);renderSheet()}
+    }
+    async function submitOrderCard(form){
+      const d=new FormData(form),face=Number(d.get("face")),rate=CARD_RATES.find(x=>x.face===face);if(!rate)throw Error("Mệnh giá không hợp lệ.");
+      const serial=d.get("serial").trim(),pin=d.get("pin").trim();if(serial.length<6||pin.length<6)throw Error("Vui lòng nhập đúng serial và mã thẻ.");
+      await createOrder("card",{provider:d.get("provider"),serial,code:pin,declaredAmount:face,expectedCredit:rate.receive});
+    }
+    async function confirmBankTopup(){
+      try{
+        const ref=doc(collection(db,"topups"));await setDoc(ref,{userId:state.user.uid,customerEmail:state.user.email||"",reference:userBankContent(),method:"bank",amount:0,minimumAmount:2000,approvedAmount:0,status:"payment_review",createdAt:serverTimestamp(),updatedAt:serverTimestamp()});
+        openSheet("topup");state.message="Đã ghi nhận yêu cầu. Hệ thống sẽ đối soát theo nội dung chuyển tiền riêng.";renderSheet();
+      }catch(err){state.error=friendlyError(err);renderSheet()}
+    }
+    async function submitCardTopup(form){
+      const d=new FormData(form),face=Number(d.get("face")),rate=CARD_RATES.find(x=>x.face===face);if(!rate)throw Error("Mệnh giá không hợp lệ.");
+      const serial=d.get("serial").trim(),pin=d.get("pin").trim();if(serial.length<6||pin.length<6)throw Error("Vui lòng nhập đúng serial và mã thẻ.");
+      const ref=doc(collection(db,"topups")),reference=`THE-${ref.id.slice(0,8).toUpperCase()}`;
+      await setDoc(ref,{userId:state.user.uid,customerEmail:state.user.email||"",reference,method:"card",amount:face,expectedCredit:rate.receive,approvedAmount:0,status:"payment_review",card:{provider:d.get("provider"),serial,code:pin,declaredAmount:face},createdAt:serverTimestamp(),updatedAt:serverTimestamp()});
+      openSheet("topup");state.message=`Đã gửi thẻ, số tiền dự kiến nhận ${money(rate.receive)}.`;renderSheet();
+    }
+
+    function enableSwipe(sheet,layer,side="right"){
+      if(!sheet||!layer)return;
+      const vertical=side==="bottom",direction=side==="left"?-1:1;
+      let tracking=false,dragging=false,activeTouchId=null,lastTouchAt=0;
+      let startPrimary=0,startSecondary=0,startOffset=0,current=0,target=0,extent=1;
+      let frame=0,samples=[],suppressClickUntil=0;
+      const clamp=(x,min=0,max=extent)=>Math.max(min,Math.min(max,x));
+      const rubberBand=distance=>{const d=Math.max(1,extent),c=.55;return Math.min(24,(1-(1/(distance*c/d+1)))*d)};
+      const resisted=x=>x<0?-rubberBand(-x):x>extent?extent+rubberBand(x-extent):x;
+      const transformFor=value=>vertical?`translate3d(0,${value}px,0)`:`translate3d(${direction*value}px,0,0)`;
+      const clearInline=()=>{
+        sheet.style.removeProperty("transition");sheet.style.removeProperty("transform");sheet.style.removeProperty("pointer-events");
+        layer.style.removeProperty("transition");layer.style.removeProperty("opacity");
+      };
+      const paint=()=>{frame=0;current=target;const progress=clamp(current/extent,0,1);sheet.style.setProperty("transform",transformFor(current),"important");layer.style.opacity=String(Math.max(0,1-progress))};
+      const setPosition=x=>{target=resisted(x);if(!frame)frame=requestAnimationFrame(paint)};
+      const flush=()=>{if(frame){cancelAnimationFrame(frame);frame=0}paint()};
+      const detachTouch=()=>{window.removeEventListener("touchmove",onTouchMove,true);window.removeEventListener("touchend",onTouchEnd,true);window.removeEventListener("touchcancel",onTouchCancel,true)};
+      const clearDragState=()=>{detachTouch();tracking=false;dragging=false;activeTouchId=null;samples=[];document.body.style.userSelect="";document.body.style.webkitUserSelect="";sheet.classList.remove("is-dragging");layer.classList.remove("is-dragging")};
+      const record=(x,t=performance.now())=>{samples.push({x,t});while(samples.length>2&&samples[1].t<t-110)samples.shift()};
+      const velocity=()=>{const first=samples[0],last=samples[samples.length-1];return first&&last&&last.t>first.t?(last.x-first.x)/(last.t-first.t):0};
+      const settle=(shouldClose,speed=0)=>{
+        flush();const destination=shouldClose?extent:0,distance=Math.abs(destination-current),duration=Math.round(Math.max(180,Math.min(330,240+distance/extent*70-Math.abs(speed)*80)));
+        clearDragState();sheet.style.setProperty("transition",`transform ${duration}ms cubic-bezier(.32,.72,0,1)`,`important`);layer.style.transition=`opacity ${Math.min(duration,240)}ms ease-out`;
+        requestAnimationFrame(()=>{sheet.style.setProperty("transform",transformFor(destination),"important");layer.style.opacity=shouldClose?"0":"1"});
+        if(shouldClose){const token=++sheetMotionToken;clearTimeout(sheetCloseTimer);state.sheet=null;sheet.style.pointerEvents="none";layer.classList.remove("sheet-visible");layer.classList.add("sheet-closing");sheetCloseTimer=setTimeout(()=>finalizeSheetClose(token),duration+35)}
+        else{const token=sheetMotionToken;setTimeout(()=>{if(token!==sheetMotionToken||!state.sheet)return;clearInline();layer.classList.remove("sheet-closing");layer.classList.add("sheet-visible")},duration+25)}
+      };
+      const finish=cancelled=>{if(!tracking)return;if(!dragging){clearDragState();clearInline();return}flush();const speed=velocity(),projected=current+speed*190;settle(!cancelled&&(speed>.38||projected>extent*.34),speed)};
+      const readLiveOffset=()=>{const live=getComputedStyle(sheet).transform;let value=0;if(live&&live!=="none"){try{const matrix=new DOMMatrixReadOnly(live);value=vertical?matrix.m42:matrix.m41*direction}catch{}}return value};
+      const begin=(primary,secondary)=>{if(tracking||!state.sheet)return false;tracking=true;dragging=false;extent=Math.max(1,vertical?sheet.getBoundingClientRect().height:sheet.getBoundingClientRect().width);startPrimary=primary;startSecondary=secondary;startOffset=clamp(readLiveOffset());current=target=startOffset;samples=[];record(startOffset);sheet.style.setProperty("transition","none","important");layer.style.transition="none";sheet.style.setProperty("transform",transformFor(startOffset),"important");return true};
+      const move=(primary,secondary,event)=>{if(!tracking)return;const dp=primary-startPrimary,ds=secondary-startSecondary,ap=Math.abs(dp),as=Math.abs(ds);if(!dragging){if(Math.hypot(dp,ds)<6)return;if(as>12&&as>ap*1.35){clearDragState();clearInline();return}if(ap<as*.72)return;if(vertical&&dp<0){clearDragState();clearInline();return}dragging=true;suppressClickUntil=performance.now()+450;sheet.classList.add("is-dragging");layer.classList.add("is-dragging");document.body.style.userSelect="none";document.body.style.webkitUserSelect="none"}event?.preventDefault?.();const next=startOffset+(vertical?dp:direction*dp);setPosition(next);record(clamp(next))};
+      const findTouch=(list,id)=>{for(const touch of list||[])if(touch.identifier===id)return touch;return null};
+      const onTouchMove=e=>{const touch=findTouch(e.touches,activeTouchId);if(touch)move(vertical?touch.clientY:touch.clientX,vertical?touch.clientX:touch.clientY,e)};
+      const onTouchEnd=e=>{const touch=findTouch(e.changedTouches,activeTouchId);if(touch&&dragging){const primary=vertical?touch.clientY:touch.clientX;const next=startOffset+(vertical?primary-startPrimary:direction*(primary-startPrimary));setPosition(next);record(clamp(next))}finish(false)};
+      const onTouchCancel=()=>finish(true);
+      sheet.addEventListener("touchstart",e=>{if(e.touches.length!==1||e.target.closest("input,textarea,select")||vertical&&e.target.closest(".sheet-body")?.scrollTop>0)return;const touch=e.touches[0];lastTouchAt=performance.now();if(!begin(vertical?touch.clientY:touch.clientX,vertical?touch.clientX:touch.clientY))return;activeTouchId=touch.identifier;window.addEventListener("touchmove",onTouchMove,{capture:true,passive:false});window.addEventListener("touchend",onTouchEnd,{capture:true,passive:true});window.addEventListener("touchcancel",onTouchCancel,{capture:true,passive:true})},{passive:true});
+      sheet.addEventListener("mousedown",e=>{if(e.button!==0||performance.now()-lastTouchAt<700||e.target.closest("input,textarea,select")||vertical&&e.target.closest(".sheet-body")?.scrollTop>0)return;const primary=vertical?e.clientY:e.clientX,secondary=vertical?e.clientX:e.clientY;if(!begin(primary,secondary))return;const onMouseMove=ev=>move(vertical?ev.clientY:ev.clientX,vertical?ev.clientX:ev.clientY,ev);const onMouseUp=ev=>{if(dragging){const p=vertical?ev.clientY:ev.clientX;const next=startOffset+(vertical?p-startPrimary:direction*(p-startPrimary));setPosition(next);record(clamp(next))}window.removeEventListener("mousemove",onMouseMove,true);window.removeEventListener("mouseup",onMouseUp,true);finish(false)};window.addEventListener("mousemove",onMouseMove,true);window.addEventListener("mouseup",onMouseUp,true)});
+      sheet.addEventListener("click",e=>{if(performance.now()<suppressClickUntil){e.preventDefault();e.stopImmediatePropagation()}},true);
+    }
+
+    function clearUserSubs(){[unsubWallet,unsubOrders,unsubTopups].forEach(u=>u?.());unsubWallet=unsubOrders=unsubTopups=null;state.balance=0;state.orders=[];state.topups=[]}
+    function subscribePublic(){
+      unsubSettings=onSnapshot(doc(db,"settings","payment"),s=>{state.settings=s.exists()?{...defaultSettings,...s.data()}:{...defaultSettings};if(state.sheet==="bankTopup"||state.sheet==="orderBank")renderSheet();if(isAdminPage&&state.admin&&state.adminTab==="settings")renderAdmin()},()=>{});
+      unsubStock=onSnapshot(collection(db,"stock"),snap=>{state.stock.clear();snap.forEach(d=>{const x=d.data();state.stock.set(`${x.productId}|${x.planName}`,Number(x.count)||0)});state.stockLoaded=true;state.stockError=false;if(!isAdminPage){updateAllProductCards();queueProductRefresh(false)}},err=>{console.warn(err);state.stockLoaded=false;state.stockError=true;if(!isAdminPage){updateAllProductCards();queueProductRefresh(false)}});
+    }
+    function subscribeUser(user){
+      clearUserSubs();if(!user){updateHeader();return}
+      unsubWallet=onSnapshot(doc(db,"wallets",user.uid),s=>{state.balance=s.exists()?Number(s.data().balance)||0:0;updateHeader();if(state.sheet==="topup"||state.sheet==="payment")renderSheet()},()=>{});
+      unsubOrders=onSnapshot(query(collection(db,"orders"),where("userId","==",user.uid)),snap=>{state.orders=snap.docs.map(d=>({id:d.id,...d.data()})).sort((a,b)=>(b.createdAt?.seconds||0)-(a.createdAt?.seconds||0));if(["orders","orderDetail"].includes(state.sheet))renderSheet()},()=>{});
+      unsubTopups=onSnapshot(query(collection(db,"topups"),where("userId","==",user.uid)),snap=>{state.topups=snap.docs.map(d=>({id:d.id,...d.data()})).sort((a,b)=>(b.createdAt?.seconds||0)-(a.createdAt?.seconds||0));if(state.sheet==="topup")renderSheet()},()=>{});
+    }
+
+    function adminLoginMarkup(knownUser=false){const register=state.adminAuthMode==="register";return `<main class="admin-login-wrap"><section class="admin-login"><a class="brand" href="./"><span class="brand-mark">N</span><span>NovaKey</span></a><span class="kicker">Quản trị cửa hàng</span><h1>${knownUser?"Tài khoản chưa có quyền admin":register?"Tạo tài khoản admin":"Đăng nhập admin"}</h1>${knownUser?`<p style="font-size:11px;color:var(--muted);line-height:1.6">Tạo document trong collection <b>admins</b> với ID đúng bằng UID:</p><code class="uid">${esc(state.user.uid)}</code>${feedback()}<button class="full-btn" data-admin-action="retry-admin">Tôi đã tạo, kiểm tra lại</button><button class="outline-btn" data-admin-action="logout">Đăng xuất</button>`:`<form class="form" data-admin-form="login"><label>Email<input name="email" type="email" required></label><label>Mật khẩu<input name="password" type="password" minlength="6" required></label>${feedback()}<button class="full-btn" type="submit">${register?"Đăng ký":"Đăng nhập"}</button><button class="outline-btn" type="button" data-admin-action="switch-register">${register?"Đã có tài khoản? Đăng nhập":"Chưa có tài khoản? Đăng ký"}</button></form>`}<a class="back" href="./" style="display:block;margin-top:14px">← Quay lại cửa hàng</a></section></main>`}
+    function adminShell(){return `<main class="admin"><header class="admin-head"><a class="brand" href="./"><span class="brand-mark">N</span><span>NovaKey <small>ADMIN</small></span></a><div class="admin-head-actions"><a href="./">Xem cửa hàng</a><button data-admin-action="logout">Đăng xuất</button></div></header><div class="admin-wrap"><div class="stats"><div class="stat"><span>Đơn chờ duyệt</span><strong>${state.adminOrders.filter(x=>x.status==="payment_review").length}</strong></div><div class="stat"><span>Nạp tiền chờ duyệt</span><strong>${state.adminTopups.filter(x=>x.status==="payment_review").length}</strong></div><div class="stat"><span>Tài khoản sẵn có</span><strong>${state.adminInventory.filter(x=>x.status==="available").length}</strong></div></div><nav class="tabs">${[["orders","Đơn hàng"],["topups","Nạp tiền"],["inventory","Kho tài khoản"],["settings","Cấu hình"]].map(([id,name])=>`<button class="${state.adminTab===id?"active":""}" data-admin-tab="${id}">${name}</button>`).join("")}</nav>${state.error?`<p class="error">${esc(state.error)}</p>`:""}${state.message?`<p class="success">${esc(state.message)}</p>`:""}<section class="admin-section">${adminSection()}</section></div></main>`}
+    function adminSection(){if(state.adminTab==="orders")return adminOrdersMarkup();if(state.adminTab==="topups")return adminTopupsMarkup();if(state.adminTab==="inventory")return adminInventoryMarkup();return adminSettingsMarkup()}
+    function adminOrdersMarkup(){return `<div class="admin-title"><div><span class="kicker">Đơn hàng</span><h1>Đối soát và giao sản phẩm</h1></div><small>${state.adminOrders.length} đơn gần nhất</small></div><div class="admin-list">${state.adminOrders.length?state.adminOrders.map(o=>`<article class="admin-record"><div class="admin-record-head"><div><strong>${esc(o.orderCode)}</strong><small>${esc(o.customerEmail||o.userId)}</small></div><span class="status ${o.status}">${STATUS[o.status]||esc(o.status)}</span></div><div class="record-meta"><span>${o.paymentMethod==="bank"?"Ngân hàng":o.paymentMethod==="card"?"Thẻ cào":"Số dư"}</span><span>${time(o.createdAt)}</span><b>${money(o.total)}</b></div><div class="record-items">${(o.items||[]).map(i=>`<div>${esc(i.productName)} · ${esc(i.planName)} × ${i.quantity} — ${money(i.lineTotal)}</div>`).join("")}</div>${o.card?`<div class="secret"><b>${esc(o.card.provider)}</b><br>Serial: ${esc(o.card.serial)}<br>Mã thẻ: ${esc(o.card.code)}<br>Mệnh giá khai báo: ${money(o.card.declaredAmount||0)} · Dự kiến nhận: ${money(o.card.expectedCredit||0)}</div>`:""}${o.status==="payment_review"?`<div class="record-actions"><button data-approve-order="${o.id}">Duyệt & giao từ kho</button><button class="secondary-admin" data-support-order="${o.id}">Giao hỗ trợ</button><button class="danger" data-reject-order="${o.id}">Từ chối</button></div>`:""}</article>`).join(""):`<div class="empty">Chưa có đơn hàng.</div>`}</div>`}
+    function adminTopupsMarkup(){return `<div class="admin-title"><div><span class="kicker">Nạp số dư</span><h1>Duyệt ngân hàng và thẻ cào</h1></div></div><div class="admin-list">${state.adminTopups.length?state.adminTopups.map(t=>`<article class="admin-record"><div class="admin-record-head"><div><strong>${esc(t.reference)}</strong><small>${esc(t.customerEmail||t.userId)}</small></div><span class="status ${t.status}">${STATUS[t.status]||esc(t.status)}</span></div><div class="record-meta"><span>${t.method==="bank"?"Chuyển khoản":"Thẻ cào"}</span><span>${time(t.createdAt)}</span><b>${t.method==="card"?money(t.amount):"Nhập số thực nhận"}</b></div>${t.card?`<div class="secret"><b>${esc(t.card.provider)}</b><br>Serial: ${esc(t.card.serial)}<br>Mã thẻ: ${esc(t.card.code)}<br>Khai báo: ${money(t.amount)} · Dự kiến: ${money(t.expectedCredit)}</div>`:""}${t.status==="payment_review"?`<div class="record-actions"><input class="credit-input" type="number" min="2000" step="1000" value="${t.expectedCredit||t.approvedAmount||2000}" data-credit="${t.id}"><button data-approve-topup="${t.id}">Xác nhận & cộng tiền</button><button class="danger" data-reject-topup="${t.id}">Từ chối</button></div>`:""}</article>`).join(""):`<div class="empty">Chưa có yêu cầu nạp tiền.</div>`}</div>`}
+    function adminInventoryMarkup(){return `<div class="admin-grid"><form class="admin-card form" data-admin-form="inventory"><div><span class="kicker">Kho tài khoản</span><h2>Thêm sản phẩm bàn giao</h2></div><label>Sản phẩm<select name="product" id="adminProduct">${PRODUCTS.map(p=>`<option value="${p.id}">${esc(p.name)}</option>`).join("")}</select></label><label>Gói<select name="plan" id="adminPlan">${PRODUCTS[0].plans.map(p=>`<option>${esc(p.name)}</option>`).join("")}</select></label><label>Tài khoản / key<input name="account" required></label><label>Mật khẩu<input name="password" required></label><label>Ghi chú<textarea name="note"></textarea></label><button class="full-btn" type="submit">Thêm vào kho</button><button class="outline-btn" type="button" data-admin-action="sync-stock">Đồng bộ số lượng công khai</button></form><div class="admin-card"><div class="admin-title"><div><span class="kicker">Tồn kho</span><h2>${state.adminInventory.filter(x=>x.status==="available").length} tài khoản sẵn có</h2></div></div>${state.adminInventory.map(i=>`<div class="inventory-row"><div><b>${esc(i.productName)}</b><small style="display:block;color:var(--muted)">${esc(i.planName)}</small></div><code>${esc(i.account)}</code><span class="status ${i.status}">${i.status==="available"?"Sẵn có":"Đã bán"}</span></div>`).join("")||`<div class="empty">Kho đang trống.</div>`}</div></div>`}
+    function adminSettingsMarkup(){const s=state.settings;return `<div class="admin-grid"><form class="admin-card form" data-admin-form="settings"><div><span class="kicker">Cấu hình</span><h2>Thông tin nhận thanh toán</h2></div><label>Mã ngân hàng / BIN<input name="bankId" value="${esc(s.bankId)}" required placeholder="970436"></label><label>Tên ngân hàng<input name="bankName" value="${esc(s.bankName)}" required></label><label>Số tài khoản<input name="accountNumber" value="${esc(s.accountNumber)}" required></label><label>Tên chủ tài khoản<input name="accountName" value="${esc(s.accountName)}" required></label><label>Liên kết Zalo<input name="zaloUrl" type="url" value="${esc(s.zaloUrl)}"></label><button class="full-btn" type="submit">Lưu cấu hình</button></form><div class="admin-card" style="text-align:center"><span class="method-icon" style="margin:auto">🏦</span><p style="font-size:10px;color:var(--muted)">Thông tin đang hiển thị</p><h2>${esc(s.bankName||"Chưa cấu hình")}</h2><code style="font-size:24px;color:var(--blue)">${esc(s.accountNumber||"-")}</code><p>${esc(s.accountName||"-")}</p></div></div>`}
+
+    function renderAdmin(){
+      $("#sheetHost").innerHTML="";document.body.style.overflow="";
+      if(!state.user){$("#app").innerHTML=adminLoginMarkup(false);bindAdmin();return}
+      if(!state.admin){$("#app").innerHTML=adminLoginMarkup(true);bindAdmin();return}
+      $("#app").innerHTML=adminShell();bindAdmin();
+    }
+    function bindAdmin(){
+      const root=$("#app");root.onclick=adminClick;root.onsubmit=adminSubmit;root.onchange=e=>{if(e.target.id==="adminProduct"){const p=selectedProduct(e.target.value);$("#adminPlan").innerHTML=p.plans.map(x=>`<option>${esc(x.name)}</option>`).join("")}};
+    }
+    async function adminClick(e){
+      const tab=e.target.closest("[data-admin-tab]");if(tab){state.adminTab=tab.dataset.adminTab;state.message=state.error="";renderAdmin();return}
+      const a=e.target.closest("[data-admin-action]")?.dataset.adminAction;
+      if(a==="logout")return guarded(()=>signOut(auth));if(a==="retry-admin")return guarded(checkAdmin);if(a==="switch-register"){state.adminAuthMode=state.adminAuthMode==="login"?"register":"login";state.error="";renderAdmin();return}if(a==="sync-stock")return guarded(syncStock);
+      const approve=e.target.closest("[data-approve-order]");if(approve)return guarded(()=>adminApproveOrder(approve.dataset.approveOrder,false));
+      const support=e.target.closest("[data-support-order]");if(support)return guarded(()=>adminApproveOrder(support.dataset.supportOrder,true));
+      const reject=e.target.closest("[data-reject-order]");if(reject)return guarded(()=>adminRejectOrder(reject.dataset.rejectOrder));
+      const at=e.target.closest("[data-approve-topup]");if(at){const input=$(`[data-credit="${at.dataset.approveTopup}"]`);return guarded(()=>adminApproveTopup(at.dataset.approveTopup,Number(input.value)))}
+      const rt=e.target.closest("[data-reject-topup]");if(rt)return guarded(()=>adminRejectTopup(rt.dataset.rejectTopup));
+    }
+    async function adminSubmit(e){
+      e.preventDefault();if(state.busy)return;const form=e.target,kind=form.dataset.adminForm;state.error=state.message="";
+      await guarded(async()=>{
+        try{
+          if(kind==="login"){const d=new FormData(form),email=String(d.get("email")||"").trim(),password=String(d.get("password")||"");if(state.adminAuthMode==="register")await createUserWithEmailAndPassword(auth,email,password);else await signInWithEmailAndPassword(auth,email,password);return}
+          if(kind==="inventory"){const d=new FormData(form),p=selectedProduct(d.get("product")),plan=d.get("plan");await addDoc(collection(db,"inventory"),{productId:p.id,productName:p.name,planName:plan,account:String(d.get("account")||"").trim(),password:String(d.get("password")||""),note:String(d.get("note")||"").trim(),status:"available",createdAt:serverTimestamp()});state.message="Đã thêm tài khoản vào kho.";await syncStock(false);return}
+          if(kind==="settings"){const d=new FormData(form),data={bankId:String(d.get("bankId")||"").trim(),bankName:String(d.get("bankName")||"").trim(),accountNumber:String(d.get("accountNumber")||"").trim(),accountName:String(d.get("accountName")||"").trim().toUpperCase(),zaloUrl:String(d.get("zaloUrl")||"").trim(),updatedAt:serverTimestamp()};await setDoc(doc(db,"settings","payment"),data,{merge:true});state.settings={...state.settings,...data};state.message="Đã lưu cấu hình thanh toán.";renderAdmin()}
+        }catch(err){state.error=friendlyError(err);renderAdmin()}
+      });
+    }
+    async function checkAdmin(){
+      if(!state.user){state.admin=false;renderAdmin();return}
+      try{state.admin=(await getDoc(doc(db,"admins",state.user.uid))).exists();if(state.admin)subscribeAdmin();renderAdmin()}catch(err){state.admin=false;state.error=friendlyError(err);renderAdmin()}
+    }
+    function queueAdminRender(){cancelAnimationFrame(adminRenderFrame);adminRenderFrame=requestAnimationFrame(renderAdmin)}
+    function subscribeAdmin(){
+      adminUnsubs.forEach(u=>u());adminUnsubs=[];
+      adminUnsubs.push(onSnapshot(collection(db,"orders"),s=>{state.adminOrders=s.docs.map(d=>({id:d.id,...d.data()})).sort((a,b)=>(b.createdAt?.seconds||0)-(a.createdAt?.seconds||0));queueAdminRender()},()=>{}));
+      adminUnsubs.push(onSnapshot(collection(db,"topups"),s=>{state.adminTopups=s.docs.map(d=>({id:d.id,...d.data()})).sort((a,b)=>(b.createdAt?.seconds||0)-(a.createdAt?.seconds||0));queueAdminRender()},()=>{}));
+      adminUnsubs.push(onSnapshot(collection(db,"inventory"),s=>{state.adminInventory=s.docs.map(d=>({id:d.id,...d.data()}));queueAdminRender()},()=>{}));
+    }
+    function validateOrderPricing(o){
+      let total=0,count=0;for(const i of o.items||[]){const p=selectedProduct(i.productId),plan=p?.plans.find(x=>x.name===i.planName);if(!p||!plan||i.productName!==p.name||i.unitPrice!==plan.price||i.lineTotal!==plan.price*i.quantity||i.quantity<1)throw Error("Dữ liệu giá của đơn không hợp lệ.");total+=i.lineTotal;count+=i.quantity}if(total!==o.total||count!==o.itemCount)throw Error("Tổng tiền của đơn không hợp lệ.");return total
+    }
+    async function adminApproveOrder(id,support){
+      state.error=state.message="";
+      try{
+        const o=state.adminOrders.find(x=>x.id===id);if(!o)throw Error("Không tìm thấy đơn.");const total=validateOrderPricing(o),chosen=[],delivery=[];
+        for(const item of o.items){
+          if(support){delivery.push({productName:item.productName,planName:item.planName,type:"support",note:`Liên hệ admin và cung cấp mã đơn ${o.orderCode} để được hỗ trợ bàn giao.`});continue}
+          const available=state.adminInventory.filter(x=>x.status==="available"&&x.productId===item.productId&&x.planName===item.planName&&!chosen.some(c=>c.id===x.id));if(available.length<item.quantity)throw Error(`Kho thiếu ${item.productName} - ${item.planName}.`);
+          for(const inv of available.slice(0,item.quantity)){chosen.push(inv);delivery.push({productName:item.productName,planName:item.planName,type:"credential",account:inv.account,password:inv.password,note:inv.note||"Đổi mật khẩu sau khi đăng nhập nếu sản phẩm cho phép."})}
+        }
+        const orderRef=doc(db,"orders",id),walletRef=doc(db,"wallets",o.userId),invRefs=chosen.map(x=>doc(db,"inventory",x.id));
+        await runTransaction(db,async tx=>{
+          const os=await tx.get(orderRef);if(!os.exists()||os.data().status!=="payment_review")throw Error("Đơn đã được xử lý.");
+          if(o.paymentMethod==="balance"){const ws=await tx.get(walletRef),bal=ws.exists()?Number(ws.data().balance)||0:0;if(bal<total)throw Error("Số dư khách hàng không đủ.");tx.set(walletRef,{balance:bal-total,updatedAt:serverTimestamp()},{merge:true})}
+          for(const r of invRefs){const s=await tx.get(r);if(!s.exists()||s.data().status!=="available")throw Error("Một tài khoản trong kho vừa được dùng.");tx.update(r,{status:"sold",orderId:id,soldAt:serverTimestamp()})}
+          tx.update(orderRef,{status:"fulfilled",delivery,paidAt:serverTimestamp(),fulfilledAt:serverTimestamp(),updatedAt:serverTimestamp()});
+        });
+        state.message="Đã duyệt và bàn giao đơn hàng.";await syncStock(false);renderAdmin();
+      }catch(err){state.error=friendlyError(err);renderAdmin()}
+    }
+    async function adminRejectOrder(id){try{await updateDoc(doc(db,"orders",id),{status:"rejected",rejectionReason:"Không xác minh được thanh toán.",updatedAt:serverTimestamp()});state.message="Đã từ chối đơn.";renderAdmin()}catch(err){state.error=friendlyError(err);renderAdmin()}}
+    async function adminApproveTopup(id,amount){
+      if(!Number.isInteger(amount)||amount<2000){state.error="Số tiền cộng tối thiểu 2.000đ.";renderAdmin();return}
+      try{const ref=doc(db,"topups",id);await runTransaction(db,async tx=>{const s=await tx.get(ref);if(!s.exists()||s.data().status!=="payment_review")throw Error("Yêu cầu đã được xử lý.");const wallet=doc(db,"wallets",s.data().userId),ws=await tx.get(wallet),bal=ws.exists()?Number(ws.data().balance)||0:0;tx.set(wallet,{balance:bal+amount,updatedAt:serverTimestamp()},{merge:true});tx.update(ref,{status:"approved",approvedAmount:amount,approvedAt:serverTimestamp(),updatedAt:serverTimestamp()})});state.message="Đã cộng số dư cho khách.";renderAdmin()}catch(err){state.error=friendlyError(err);renderAdmin()}
+    }
+    async function adminRejectTopup(id){try{await updateDoc(doc(db,"topups",id),{status:"rejected",rejectionReason:"Không xác minh được giao dịch.",updatedAt:serverTimestamp()});state.message="Đã từ chối yêu cầu.";renderAdmin()}catch(err){state.error=friendlyError(err);renderAdmin()}}
+    async function syncStock(show=true){
+      try{
+        const inventorySnap=await getDocs(collection(db,"inventory"));
+        const available=inventorySnap.docs.map(d=>({id:d.id,...d.data()})).filter(x=>x.status==="available"),batch=writeBatch(db);
+        for(const p of PRODUCTS)for(const plan of p.plans){const count=available.filter(x=>x.productId===p.id&&x.planName===plan.name).length;batch.set(doc(db,"stock",stockId(p.id,plan.name)),{productId:p.id,productName:p.name,planName:plan.name,count,updatedAt:serverTimestamp()},{merge:true})}
+        await batch.commit();if(show){state.message="Đã đồng bộ số lượng tồn kho công khai.";renderAdmin()}
+      }catch(err){state.error=friendlyError(err);renderAdmin()}
+    }
+
+    restoreCart();
+    subscribePublic();
+    onAuthStateChanged(auth,async user=>{
+      state.user=user||null;subscribeUser(user);
+      if(isAdminPage){await checkAdmin()}else{if(!$("#app").children.length)renderStore();else updateHeader();if(state.sheet==="auth"&&user){const after=state.payload?.after||"cart";openSheet(after)}}
+    });
+    if(!isAdminPage)renderStore();else renderAdmin();
+  </script>
+</body>
+</html>
