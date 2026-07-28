@@ -4426,7 +4426,7 @@ html.nova-keyboard-open #sheetHost .auth-sheet[data-view="auth"] .nova-auth-page
     let unsubWallet=null,unsubProfile=null,unsubOrders=null,unsubTopups=null,unsubStock=null,unsubSettings=null,unsubCatalog=null;
     let loggingOut=false;
     let adminUnsubs=[];
-    let productRefreshFrame=0,searchTimer=0,adminRenderFrame=0,sheetCloseTimer=0,previousFocus=null,productRevealObserver=null,draggedProductId="",adminHoldTimer=0,adminPointerId=null,adminPointerStartX=0,adminPointerStartY=0,adminDragActive=false,adminSuppressClick=false;
+    let productRefreshFrame=0,searchTimer=0,adminRenderFrame=0,sheetCloseTimer=0,previousFocus=null,productRevealObserver=null,draggedProductId="",adminHoldTimer=0,adminPointerId=null,adminTouchId=null,adminPointerStartX=0,adminPointerStartY=0,adminDragActive=false,adminSuppressClick=false;
     let searchSessionActive=false,searchLayoutHeight=0,searchReleaseTimer=0,quickPopTimer=0,qtyRenderTimer=0;
     const productCards=new Map();
     const productRevealAnimations=new Map();
@@ -4729,7 +4729,7 @@ html.nova-keyboard-open #sheetHost .auth-sheet[data-view="auth"] .nova-auth-page
           <span class="sale-badge" data-card-sale ${salePercent>0?"":"hidden"}>−${formatPercent(salePercent)}%</span>
           <span class="sold-ribbon" data-sold-ribbon ${out?"":"hidden"}>Hết hàng</span>
           <span class="art-glow"></span>
-          <span class="product-logo product-logo-${p.id}" style="color:${p.accent}">${p.icon?`<img src="${esc(p.icon)}" alt="Logo ${esc(p.name)}" loading="eager" decoding="async" referrerpolicy="no-referrer" onerror="this.hidden=true;this.nextElementSibling.hidden=false"><span class="logo-fallback" hidden>${esc(p.logo)}</span>`:`<span class="logo-fallback">${esc(p.logo)}</span>`}</span>
+          ${hasCover?"":`<span class="product-logo product-logo-${p.id}" style="color:${p.accent}">${p.icon?`<img src="${esc(p.icon)}" alt="Logo ${esc(p.name)}" loading="eager" decoding="async" referrerpolicy="no-referrer" onerror="this.hidden=true;this.nextElementSibling.hidden=false"><span class="logo-fallback" hidden>${esc(p.logo)}</span>`:`<span class="logo-fallback">${esc(p.logo)}</span>`}</span>`}
           <span class="banner-name">${esc(p.name)}</span>
         </div>
         <div class="product-body">
@@ -6423,14 +6423,28 @@ html.nova-keyboard-open #sheetHost .auth-sheet[data-view="auth"] .nova-auth-page
       const wasActive=adminDragActive;
       const ids=wasActive?$$("[data-product-row]",root).map(row=>row.dataset.productRow):[];
       $$("[data-product-row]",root).forEach(row=>row.classList.remove("drag-over","dragging"));
-      adminPointerId=null;adminDragActive=false;draggedProductId="";
+      adminPointerId=null;adminTouchId=null;adminDragActive=false;draggedProductId="";
       if(!wasActive)return;
       adminSuppressClick=true;setTimeout(()=>{adminSuppressClick=false},350);
       if(saveOrder&&ids.length&&ids.join("|")!==state.adminProducts.map(p=>p.id).join("|"))guarded(()=>persistProductOrder(ids));
     }
+    function moveAdminProductDrag(root,clientX,clientY){
+      const source=$$("[data-product-row]",root).find(row=>row.dataset.productRow===draggedProductId),list=source?.closest("[data-product-sort-list]");
+      if(!source||!list)return;
+      const target=document.elementsFromPoint(clientX,clientY).map(el=>el.closest?.("[data-product-row]")).find(row=>row&&row!==source&&row.closest("[data-product-sort-list]")===list);
+      $$("[data-product-row]",root).forEach(row=>row.classList.toggle("drag-over",row===target));
+      if(target){
+        const rect=target.getBoundingClientRect(),after=clientY>rect.top+rect.height/2;
+        list.insertBefore(source,after?target.nextSibling:target);
+      }
+      const edge=Math.min(76,innerHeight*.15);
+      if(clientY<edge)scrollBy(0,-Math.ceil((edge-clientY)/5));
+      else if(clientY>innerHeight-edge)scrollBy(0,Math.ceil((clientY-(innerHeight-edge))/5));
+    }
     function bindAdminProductHold(root){
       root.oncontextmenu=e=>{if(e.target.closest("[data-product-row]"))e.preventDefault()};
       root.onpointerdown=e=>{
+        if(e.pointerType==="touch")return;
         const row=e.target.closest("[data-product-row]");
         if(!row||e.target.closest("button,input,select,textarea,a"))return;
         finishAdminProductDrag(root,false);
@@ -6448,16 +6462,42 @@ html.nova-keyboard-open #sheetHost .auth-sheet[data-view="auth"] .nova-auth-page
           return;
         }
         e.preventDefault();
-        const source=$(`[data-product-row="${CSS.escape(draggedProductId)}"]`,root),list=source?.closest("[data-product-sort-list]");
-        if(!source||!list)return;
-        const target=document.elementsFromPoint(e.clientX,e.clientY).map(el=>el.closest?.("[data-product-row]")).find(row=>row&&row!==source&&row.closest("[data-product-sort-list]")===list);
-        $$("[data-product-row]",root).forEach(row=>row.classList.toggle("drag-over",row===target));
-        if(!target)return;
-        const rect=target.getBoundingClientRect(),after=e.clientY>rect.top+rect.height/2;
-        list.insertBefore(source,after?target.nextSibling:target);
+        moveAdminProductDrag(root,e.clientX,e.clientY);
       };
       root.onpointerup=e=>{if(e.pointerId===adminPointerId)finishAdminProductDrag(root,true)};
       root.onpointercancel=e=>{if(e.pointerId===adminPointerId)finishAdminProductDrag(root,true)};
+      root.ontouchstart=e=>{
+        if(e.touches.length!==1)return;
+        const row=e.target.closest("[data-product-row]");
+        if(!row||e.target.closest("button,input,select,textarea,a"))return;
+        const touch=e.changedTouches[0];
+        finishAdminProductDrag(root,false);
+        adminTouchId=touch.identifier;adminPointerStartX=touch.clientX;adminPointerStartY=touch.clientY;draggedProductId=row.dataset.productRow;
+        adminHoldTimer=setTimeout(()=>{
+          if(adminTouchId!==touch.identifier)return;
+          adminDragActive=true;row.classList.add("dragging");
+          try{navigator.vibrate?.(12)}catch(_){}
+        },320);
+      };
+      root.ontouchmove=e=>{
+        if(adminTouchId===null)return;
+        const touch=[...e.touches].find(item=>item.identifier===adminTouchId);
+        if(!touch)return;
+        if(!adminDragActive){
+          if(Math.hypot(touch.clientX-adminPointerStartX,touch.clientY-adminPointerStartY)>9)finishAdminProductDrag(root,false);
+          return;
+        }
+        if(e.cancelable)e.preventDefault();
+        moveAdminProductDrag(root,touch.clientX,touch.clientY);
+      };
+      root.ontouchend=e=>{
+        if(adminTouchId===null||![...e.changedTouches].some(item=>item.identifier===adminTouchId))return;
+        finishAdminProductDrag(root,true);
+      };
+      root.ontouchcancel=e=>{
+        if(adminTouchId===null||![...e.changedTouches].some(item=>item.identifier===adminTouchId))return;
+        finishAdminProductDrag(root,false);
+      };
     }
     function previewAdminMedia(input){
       const preview=$(`[data-media-preview="${input.dataset.adminMedia}"]`,input.closest("form"));if(!preview)return;
